@@ -1,0 +1,15 @@
+# Publish docs to GitLab Pages
+# see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#gitlab-pages
+#
+image: python:3.9.9-slim-bullseye
+pages:
+  stage: deploy
+  only:
+    - main
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - mkdocs build --site-dir public
+  artifacts:
+    paths:
+      - public
