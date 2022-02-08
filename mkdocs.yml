@@ -1,6 +1,52 @@
+# Project information
 site_name: Opal Technical Documentation
+site_url: https://mschoettle.gitlab.io/docs
+site_author: Opal Health Informatics Group (O-HIG)
 
-copyright: Copyright © 2022 Opal Health Informatics Group (O-HIG)
+# Repository
+repo_name: mschoettle/docs
+repo_url: https://gitlab.com/mschoettle/docs
+# disable edit button
+edit_uri: ""
 
+# Copyright
+copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
+
+# Configuration
 theme:
   name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    # TODO: host locally
+    # see: https://fonts.google.com/specimen/Roboto
+    # see: https://fonts.google.com/specimen/Roboto+Mono
+    text: Roboto
+    code: Roboto Mono
+  language: en
+  icon:
+    logo: material/book-open-variant
+    # repo: fontawesome/brands/gitlab
+  features:
+    # - navigation.tabs
+    - navigation.top
+    - search.highlight
+
+# Plugins
+plugins:
+  - search
+  # show last updated date at the bottom of each page
+  - git-revision-date
