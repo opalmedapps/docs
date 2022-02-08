@@ -41,6 +41,7 @@ theme:
     logo: material/book-open-page-variant
     # repo: fontawesome/brands/gitlab
   features:
+    # - navigation.instant
     # - navigation.tabs
     - navigation.top
     - search.highlight
@@ -69,9 +70,15 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Showcase: playground.md
+  - Changelog: changelog.md
