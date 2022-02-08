@@ -1,3 +1,1 @@
-# Home
-
-Home for Opal's Technical Documentation.
+--8<-- "README.md"
