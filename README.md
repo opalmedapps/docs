@@ -1,6 +1,6 @@
 # Opal Technical Documentation
 
-Opal Technical Documentation
+Home for Opal's Technical Documentation.
 
 ## Getting started
 
