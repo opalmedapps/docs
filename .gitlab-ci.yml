@@ -7,6 +7,8 @@ pages:
   only:
     - main
   script:
+    # install dependencies for mkdocs-git-revision-date-plugin
+    - apt update && apt-get install -y git
     - pip install --upgrade pip
     - pip install -r requirements.txt
     - mkdocs build --site-dir public
