@@ -38,7 +38,7 @@ theme:
     code: Roboto Mono
   language: en
   icon:
-    logo: material/book-open-variant
+    logo: material/book-open-page-variant
     # repo: fontawesome/brands/gitlab
   features:
     # - navigation.tabs
@@ -50,3 +50,28 @@ plugins:
   - search
   # show last updated date at the bottom of each page
   - git-revision-date
+
+# Extensions
+markdown_extensions:
+
+  # Python Markdown
+  - admonition
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
