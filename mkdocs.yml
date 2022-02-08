@@ -12,6 +12,13 @@ edit_uri: ""
 # Copyright
 copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
 
+# Content
+nav:
+  - Home: index.md
+  - Changelog: changelog.md
+  - Extra:
+      - Playground: playground.md
+
 # Configuration
 theme:
   name: material
@@ -77,8 +84,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-nav:
-  - Home: index.md
-  - Showcase: playground.md
-  - Changelog: changelog.md

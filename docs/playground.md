@@ -1,6 +1,11 @@
 # Playground
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For full documentation visit:
+
+* [MkDocs](https://www.mkdocs.org)
+* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* [Python Markdown](https://python-markdown.github.io/)
+* [Python Markdown Extensions](https://facelessuser.github.io/pymdown-extensions/)
 
 ## Commands
 
