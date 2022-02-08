@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  docs:
+    image: opalmedapps/docs:latest
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - $PWD:/docs
