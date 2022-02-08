@@ -1,0 +1,6 @@
+site_name: Opal Technical Documentation
+
+copyright: Copyright © 2022 Opal Health Informatics Group (O-HIG)
+
+theme:
+  name: material
