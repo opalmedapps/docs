@@ -15,6 +15,13 @@ copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
 # Content
 nav:
   - Home: index.md
+  - Software Engineering:
+      - Best Practices: softeng/best_practices.md
+      - Strangler Fig: softeng/strangler_fig.md
+      - Language Guides:
+          - Docker: softeng/docker.md
+          - Python: softeng/python.md
+          - JavaScript: softeng/javascript.md
   - Changelog: changelog.md
   - Extra:
       - Playground: playground.md
@@ -71,6 +78,8 @@ markdown_extensions:
       permalink: true
 
   # Python Markdown Extensions
+  - pymdownx.betterem
+  - pymdownx.caret
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
