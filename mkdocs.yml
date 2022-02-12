@@ -1,13 +1,12 @@
 # Project information
-site_name: Opal Technical Documentation
+site_name: O-HIG Developer Documentation
 site_url: https://mschoettle.gitlab.io/docs
 site_author: Opal Health Informatics Group (O-HIG)
 
 # Repository
 repo_name: mschoettle/docs
 repo_url: https://gitlab.com/mschoettle/docs
-# disable edit button
-edit_uri: ""
+edit_uri: edit/main/docs/
 
 # Copyright
 copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
@@ -15,13 +14,14 @@ copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
 # Content
 nav:
   - Home: index.md
-  - Software Engineering:
-      - Best Practices: softeng/best_practices.md
-      - Strangler Fig: softeng/strangler_fig.md
-      - Language Guides:
-          - Docker: softeng/docker.md
-          - Python: softeng/python.md
-          - JavaScript: softeng/javascript.md
+  - Architecture: architecture.md
+  - Best Practices: best_practices.md
+  - Strangler Fig: strangler_fig.md
+  - Language Guides:
+      - Docker: guides/docker.md
+      - Python: guides/python.md
+      - JavaScript: guides/javascript.md
+  - Onboarding: onboarding.md
   - Changelog: changelog.md
   - Extra:
       - Playground: playground.md

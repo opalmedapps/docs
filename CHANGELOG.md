@@ -7,7 +7,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 * Add Software Engineering related documentation (migrated from Google Docs)
-
-## [1.0.0] _ 2022-02-07
-
 * **NEW**: Initial release.

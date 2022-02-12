@@ -1,7 +1,5 @@
-# Opal Technical Documentation
+# O-HIG Developer Documentation
 
-Home for Opal's Technical Documentation.
+[![Docs](https://img.shields.io/badge/docs-available-green.svg)](https://mschoettle.gitlab.io/docs)
 
-## Getting started
-
-TODO
+Home for the Opal Health Informatics Group's Developer Documentation.
