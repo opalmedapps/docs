@@ -137,6 +137,7 @@ Read the entire guide linked above for more information on what to review (desig
 ### Resources
 
 * [How to do a code review | eng-practices | Google](https://google.github.io/eng-practices/review/reviewer/)
+* [Code Review Guidelines for Humans](https://phauer.com/2018/code-review-guidelines/)
 * [How to Make Good Code Reviews Better - Stack Overflow Blog](https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better/)
 * [Best Practices for Code Review | SmartBear](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/)
 
