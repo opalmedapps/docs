@@ -1,11 +1,11 @@
 # Project information
 site_name: O-HIG Developer Documentation
-site_url: https://mschoettle.gitlab.io/docs
+site_url: https://opalmedapps.gitlab.io/docs
 site_author: Opal Health Informatics Group (O-HIG)
 
 # Repository
-repo_name: mschoettle/docs
-repo_url: https://gitlab.com/mschoettle/docs
+repo_name: opalmedapps/docs
+repo_url: https://gitlab.com/opalmedapps/docs
 edit_uri: edit/main/docs/
 
 # Copyright
