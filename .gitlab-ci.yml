@@ -1,16 +1,32 @@
 # Publish docs to GitLab Pages
 # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#gitlab-pages
 #
-image: python:3.9.9-slim-bullseye
+image: python:3.10.2-slim-bullseye
+
+before_script:
+  # install dependencies for mkdocs-git-revision-date-plugin
+  - apt update && apt-get install -y git
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+build:
+  stage: build
+  rules:
+    # run for merge requests and on default branch
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+  script:
+    - mkdocs build --site-dir site
+  artifacts:
+    expire_in: 7 days
+    paths:
+      - site
+
 pages:
   stage: deploy
-  only:
-    - main
+  rules:
+    # deploy only on default branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
-    # install dependencies for mkdocs-git-revision-date-plugin
-    - apt update && apt-get install -y git
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
     - mkdocs build --site-dir public
   artifacts:
     paths:
