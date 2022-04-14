@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+* Add Code Review Guidelines (!2)
+
+## [Initial version]
+
 * Add software versions in use at O-HIG
 * Add Software Engineering related documentation (migrated from Google Docs)
 * **NEW**: Initial release.

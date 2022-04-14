@@ -16,7 +16,9 @@ nav:
   - Home: index.md
   - Software Versions: software_versions.md
   - Architecture: architecture.md
-  - Best Practices: best_practices.md
+  - Best Practices:
+    - Overview: best_practices.md
+    - Code Review: code_review.md
   - Strangler Fig: strangler_fig.md
   - Language Guides:
       - Docker: guides/docker.md
@@ -99,3 +101,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+watch:
+  - README.md
+  - CHANGELOG.md
