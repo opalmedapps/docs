@@ -4,5 +4,12 @@
     "config:base"
   ],
   "assignees": ["mschoettle"],
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "packageRules": [
+    // Combine mkdocs-material updates for Python and Docker
+    {
+      "matchPackagePatterns": ["mkdocs-material"],
+      "groupName": "mkdocs-material"
+    }
+  ]
 }
