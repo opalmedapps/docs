@@ -2,7 +2,7 @@
 # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#gitlab-pages
 #
 image:
-  name: squidfunk/mkdocs-material:8.2.11
+  name: squidfunk/mkdocs-material:8.2.14
   entrypoint: [""]
 
 build:
