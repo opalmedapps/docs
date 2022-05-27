@@ -15,7 +15,9 @@ copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
 nav:
   - Home: index.md
   - Software Versions: software_versions.md
-  - Architecture: architecture.md
+  - Architecture:
+    - Overview: architecture.md
+    - Registration Process: architecture/registration.md
   - Best Practices:
     - Overview: best_practices.md
     - Code Review: code_review.md
