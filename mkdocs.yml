@@ -24,7 +24,9 @@ nav:
       - Docker: guides/docker.md
       - Python: guides/python.md
       - JavaScript: guides/javascript.md
-  - Onboarding: onboarding.md
+  - Testing Guides:
+      - Registration: testing/registration.md
+      - App: testing/app.md
   - Changelog: changelog.md
   - Extra:
       - Playground: playground.md
