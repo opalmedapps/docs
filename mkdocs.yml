@@ -20,6 +20,7 @@ nav:
     - Overview: best_practices.md
     - Code Review: code_review.md
   - Strangler Fig: strangler_fig.md
+  - Onboarding: onboarding.md
   - Language Guides:
       - Docker: guides/docker.md
       - Python: guides/python.md
