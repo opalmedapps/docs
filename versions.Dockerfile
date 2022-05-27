@@ -4,7 +4,7 @@ FROM httpd:2.4.52-bullseye as apache
 
 FROM php:8.0.16-apache-bullseye as php
 
-FROM mariadb:10.7.3-focal as mariadb
+FROM mariadb:10.8.2-focal as mariadb
 
 FROM python:3.9.10-slim-bullseye as python
 
