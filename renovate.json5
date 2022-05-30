@@ -10,6 +10,11 @@
     {
       "matchPackagePatterns": ["mkdocs-material"],
       "groupName": "mkdocs-material"
-    }
+    },
+    // Allow to receive patch updates for certain packages while waiting with upgrading to the next minor version
+    {
+      "matchPackagePatterns": ["python", "php", "node"],
+      "separateMinorPatch": true
+    },
   ]
 }
