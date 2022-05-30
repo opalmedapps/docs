@@ -6,6 +6,6 @@ FROM php:8.0.16-apache-bullseye as php
 
 FROM mariadb:10.7.3-focal as mariadb
 
-FROM python:3.9.10-slim-bullseye as python
+FROM python:3.9.13-slim-bullseye as python
 
 FROM openjdk:11.0.14.1-jre-slim-bullseye as openjdk
