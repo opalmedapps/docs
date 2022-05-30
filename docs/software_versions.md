@@ -1,13 +1,21 @@
 # Current versions of software in use by O-HIG
 
-The following table provides an overview of the current versions of software in use.
+The following table provides an overview of the current software in use.
 
-| Tool           | Version     | Docker image | Info  |
-| -------------- | ----------- | ------------ | ----- |
-| node           | `16.14.0`   | `node:16.14.0-alpine3.14` | https://nodejs.org/en/about/releases/ |
-| pm2            | `5.2.0`     | TBD | https://pm2.keymetrics.io/docs/usage/process-management/ |
-| Apache         | `2.4.52`    | `httpd:2.4.52-bullseye` | https://httpd.apache.org/ |
-| PHP            | `8.0.16`    | `php:8.0.16-apache-bullseye` | https://www.php.net/downloads.php |
-| MariaDB        | `10.7.3`    | `mariadb:10.7.3-focal` | https://mariadb.org/download |
-| Python         | `3.9.10`    | `python:3.9.10-slim-bullseye` | https://www.python.org/downloads/ |
-| Java (OpenJDK) | `11.0.14`    | `openjdk:11.0.14.1-jre-slim-bullseye` | https://docs.microsoft.com/en-us/java/openjdk/download |
+| Tool           | Info  |
+| -------------- | ----- |
+| node           | https://nodejs.org/en/about/releases/ |
+| pm2            | https://pm2.keymetrics.io/docs/usage/process-management/ |
+| Apache         | https://httpd.apache.org/ |
+| PHP            | https://www.php.net/downloads.php |
+| MariaDB        | https://mariadb.org/download |
+| Python         | https://www.python.org/downloads/ |
+| Java (OpenJDK) | https://docs.microsoft.com/en-us/java/openjdk/download |
+
+Current versions can be seen based on the Docker image with the specific version tags in below file. Dependency updates to the file `versions.Dockerfile` are facilitated using the Renovate Bot. This allows us to keep track of updates to images in an easier way.
+
+```docker title="versions.Dockerfile"
+
+--8<-- "versions.Dockerfile"
+
+```
