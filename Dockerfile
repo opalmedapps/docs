@@ -1,4 +1,4 @@
-FROM squidfunk/mkdocs-material:8.3.0
+FROM squidfunk/mkdocs-material:8.3.2
 
 # install any additional dependencies
 COPY requirements.txt .
