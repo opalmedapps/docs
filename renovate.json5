@@ -9,7 +9,11 @@
     // Combine mkdocs-material updates for Python and Docker
     {
       "matchPackagePatterns": ["mkdocs-material"],
-      "groupName": "mkdocs-material"
+      "groupName": "mkdocs-material",
+      // Restrict to weekly updates
+      "schedule": [
+        "before 9am on Monday",
+      ],
     },
     // Allow to receive patch updates for certain packages while waiting with upgrading to the next minor version
     {
