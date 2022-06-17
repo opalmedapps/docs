@@ -17,9 +17,7 @@
     },
     // Allow to receive patch updates for certain packages while waiting with upgrading to the next minor version
     {
-      "matchPackagePatterns": ["python", "php", "node", "mariadb"],
       "matchFiles": ["versions.Dockerfile"],
-      "groupName": "software packages",
       "semanticCommitType": "chore",
       "semanticCommitScope": "",
       "separateMinorPatch": true,
