@@ -45,6 +45,32 @@ sequenceDiagram
     FE ->> Clerk: result
 ```
 
+## Registration Web Page Encryption/Decryption
+
+The encryption/decryption details are omitted in the diagram in the next section for brevity. The following diagram provides these details.
+
+```mermaid
+sequenceDiagram
+
+    participant FE as Web Page
+    participant BE as Listener
+    participant API as New Backend
+
+    FE ->> FE: encrypt with PBKDF2(key=code, salt=RAMQ)
+    FE ->> BE: send request via Firebase
+    note right of FE: request contains SHA512(code)
+    BE ->> API: get registration details for hashed code
+    note right of API: patient health insurance number and list of MRNs
+    loop until correct salt found
+    BE ->> BE: decrypt request using code and current data
+    note right of BE: remember correct salt
+    end
+    note right of BE: handle request
+    BE ->> BE: encrypt response with PBKDF2(key=code, salt=correct_salt)
+    BE -->> FE: send response via Firebase
+```
+
+
 ## Using the registration web page
 
 This reflects the currently envisioned flow with the new OpalAdmin/Backend via the listener's new API request functionality.
@@ -56,7 +82,7 @@ sequenceDiagram
     participant FE as Web Page
     participant BE as Listener
     participant API as New Backend
-    participant DB as New DB
+    %% participant DB as New DB
     participant ODB as OpalDB
     participant OIE
 
@@ -89,21 +115,23 @@ sequenceDiagram
     User ->> FE: choose language and give consent
     User ->> FE: continue with registration
     FE ->> BE: get terms of use agreement for hospital
-    note over FE, BE: currently retrieved locally from same host<br>but needs to be added to hospital settings
+    %% note over FE, BE: currently retrieved locally from same host<br>but needs to be added to hospital settings
     BE ->> API: get hospital's terms of use agreement
     User ->> FE: accept terms of use agreement
 
     User ->> FE: Finish registration
     FE ->> BE: Finish registration
-    opt new user
+    alt new user
         BE ->> BE: create Firebase account
+    else
+        BE ->> BE: get Firebase account
     end
-    BE ->> API: insert data
-    API ->> DB: change registration status code to Registered
-    BE ->> API: get patient details (including MRNs)
+    BE ->> API: get patient data
     BE ->> ODB: insert patient
+    note right of BE: should return legacy patient ID
     BE ->> ODB: insert patient hospital identifier
-    BE ->> API: set legacy_id in patient
+    BE ->> API: insert and update data
+    note right of API: change registration status code to Registered<br>insert security answers<br>change user to active and set current datetime as date_joined
     BE ->> OIE: retrieve lab history
     BE ->> OIE: update patient status in ORMS
     BE ->> BE: send confirmation email
