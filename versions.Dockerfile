@@ -2,7 +2,7 @@ FROM node:16.15.1-alpine3.15 as node
 
 FROM httpd:2.4.54-bullseye as apache
 
-FROM php:8.0.20-apache-bullseye as php
+FROM php:8.0.21-apache-bullseye as php
 
 FROM mariadb:10.7.4-focal as mariadb
 
