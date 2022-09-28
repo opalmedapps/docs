@@ -72,6 +72,27 @@ The following is a short summary of how to be a great submitter (sources with mo
 
     > In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.
 
+## O-HIG Code review guide lines
+
+### How to assign a code review
+
+Merge request needs to be approved by at least one `maintainer` and one `developer`.
+
+* You must use the merge request template established for the given project.
+* Assign one `maintainer` to review your merge request.
+* Assign one `developer` to review your merge request.
+* Once both reviews are approved, you can assign a third **optional** reviewer to double check the merge request or for learning purposes. This is a good opportunity to have a dev learn about a lesser known part of the project even if the merge request is completed.
+* Try to have a small and shortly reviewable merge request. Should you anticipate lots of code changes, you can use an assembly branch to trigger multiple smaller code reviews. The assembly/integration branch can be merged to staging/dev. ([Explanation of assembly/integration](https://remarkablemark.org/blog/2021/03/08/git-integration-branch-workflow/))
+
+### Code review process
+
+* Code review should not wait more than 48 hours to be started, business hours only. Weekend and holidays are excluded.
+* Every developer should dedicate time each day for code review (1-2 hours).
+* Reviewers should mention in scrum or to whoever is asking them to review if they have too many code reviews
+* Maintainers and owners are responsible to monitor the amount of code review of the project assigned to them.
+* When writing comment(s) use the `start a review`/`add to review` options. This will send an email once the review is ready and not an email for each comment (see [GitLab documentation on this feature](https://docs.gitlab.com/ee/user/project/merge_requests/reviews/))
+* Thread can only be resolved by the reviewer who opens it.
+
 ## Resources
 
 All referenced sources can be found as footnotes at the bottom of this page. The below list contains extra resources that may be of interest:
