@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:base",
+    ":separateMultipleMajorReleases",
   ],
   "assignees": ["mschoettle"],
   "labels": ["dependencies"],
@@ -22,5 +23,16 @@
       "semanticCommitScope": "",
       "separateMinorPatch": true,
     },
-  ]
+  ],
+  // update node only to LTS versions
+  // see: https://github.com/renovatebot/renovate/discussions/14909
+  "regexManagers": [
+		{
+			"fileMatch": ["versions.Dockerfile$"],
+			"matchStrings": ["FROM node:(?<currentValue>.*?)-alpine([\d\.]+)\\n"],
+			"depNameTemplate": "node",
+			"datasourceTemplate": "node",
+			"versioningTemplate": "node"
+		}
+	],
 }
