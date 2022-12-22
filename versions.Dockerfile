@@ -1,4 +1,4 @@
-FROM node:16.18.1-alpine3.16 as node
+FROM node:16.19.0-alpine3.16 as node
 
 FROM httpd:2.4.54-bullseye as apache
 
