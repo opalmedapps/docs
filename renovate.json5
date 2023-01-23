@@ -16,23 +16,5 @@
         "before 12pm on Monday",
       ],
     },
-    // Allow to receive patch updates for certain packages while waiting with upgrading to the next minor version
-    {
-      "matchFiles": ["versions.Dockerfile"],
-      "semanticCommitType": "chore",
-      "semanticCommitScope": "",
-      "separateMinorPatch": true,
-    },
   ],
-  // update node only to LTS versions
-  // see: https://github.com/renovatebot/renovate/discussions/14909
-  "regexManagers": [
-		{
-			"fileMatch": ["versions.Dockerfile$"],
-			"matchStrings": ["FROM node:(?<currentValue>.*?)-alpine([\d\.]+)\\n"],
-			"depNameTemplate": "node",
-			"datasourceTemplate": "node",
-			"versioningTemplate": "node"
-		}
-	],
 }
