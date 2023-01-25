@@ -1,6 +1,8 @@
 ﻿# UI Checklist
 
-"Testing is about defect detection, Quality Assurance is about defect prevention". This checklist is added just to avoid the most common defects/errors any person can make.
+> "Testing is about defect detection, Quality Assurance is about defect prevention"
+
+This checklist is added just to avoid the most common defects/errors any person can make.
 
 ## General
 
