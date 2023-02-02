@@ -25,10 +25,10 @@ Container(orms, "ORMS", "angularjs,css,html,php,perl", "Online Reservation Manag
 Container(firebase, "Firebase", "nodejs", "provides a user the ability to create their Opal account using the generated code.")
 
 'Direct Communication with DB
-BiRel_U(opaladmin, opaldb, "Queries", "raw_sql")
-Rel_R(cronjob, opaldb, "Queries", "raw_sql")
-Rel_L(applistener, opaldb, "Queries", "raw_sql")
-Rel_L(signuplistener, opaldb, "Queries", "raw_sql")
+BiRel_U(opaladmin, opaldb, "Reads and Writes", "raw_sql")
+Rel_R(cronjob, opaldb, "Writes", "raw_sql")
+Rel_L(applistener, opaldb, "Reads and Writes", "raw_sql")
+Rel_L(signuplistener, opaldb, "Reads and Writes", "raw_sql")
 
 'communication with firebase
 BiRel_R(applistener, firebase, "Uses", "https")
