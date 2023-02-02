@@ -3,6 +3,9 @@ line-length: false
 ul-indent:
   indent: 4
 
+# Allow inline HTML to support image captions
+MD033: false
+
 # Allow bare URLs since we use magiclink to convert bare URLs automatically to links
 MD034: false
 
