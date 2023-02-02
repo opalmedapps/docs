@@ -1,0 +1,47 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/msql_server.puml
+!include FONTAWESOME/users.puml
+
+AddElementTag("v1.0", $borderColor="black")
+
+AddRelTag("apicall", $textColor="green", $lineColor="green", $lineStyle = DashedLine())
+
+ContainerDb(opaldb, "OpalDB", "MariaDB", "contains all details related to opal admin",$sprite=msql_server)
+Container(opaladmin, "Opal Admin", "angularjs,css,html,php", "OpalAdmin provides the admin interface for clinicians and staff")
+Container(applistener, "App Listener", "nodejs", "App Listener provides APIs to communicate with different webservices and system components")
+Container(reglistener, "Registration Listener", "nodejs", "provides a user the ability to create their Opal account using the generated code.")
+Container(signuplistener, "Signup Page", "angularjs,css,html,php", "OpalSignup provides a clerk the ability to register a patient for Opal and generate a (QR) code for them to create their Opal account.")
+Container(regwebpage, "Registration Webpage", "angularjs,css,html,php", "provides a user the ability to create their Opal account using the generated code.")
+Container(app, "Mobile App", "angularjs,css,html,php", "provides a user the ability to create their Opal account using the generated code.")
+Container(cronjob, "Cronjob", "perl", "provides a functionality of messaging system.")
+Container(oie, "OIE", "mirth", "Opal Integration Engine to communicate from/to hospital system and opal admin and orms.")
+Container(orms, "ORMS", "angularjs,css,html,php,perl", "Online Reservation Management System to manage virtual waiting room and clinical viewer systems.")
+Container(firebase, "Firebase", "nodejs", "provides a user the ability to create their Opal account using the generated code.")
+
+'Direct Communication with DB
+BiRel_U(opaladmin, opaldb, "Queries", "raw_sql")
+Rel_R(cronjob, opaldb, "Queries", "raw_sql")
+Rel_L(applistener, opaldb, "Queries", "raw_sql")
+Rel_L(signuplistener, opaldb, "Queries", "raw_sql")
+
+'communication with firebase
+BiRel_R(applistener, firebase, "Uses", "https")
+Rel(signuplistener, firebase, "Uses", "https")
+BiRel_U(regwebpage,firebase,"Uses","https")
+BiRel_D(app,firebase,"Uses","https")
+
+'api calls
+Rel(orms, oie, "api",$tags="apicall")
+Rel(orms, applistener, "api",$tags="apicall")
+Rel(oie, orms, "api",$tags="apicall")
+Rel(opaladmin, oie, "api",$tags="apicall")
+Rel(applistener, oie, "api",$tags="apicall")
+
+SHOW_LEGEND()
+@enduml
