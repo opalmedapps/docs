@@ -31,7 +31,7 @@
     },
     // Reduce noise for structurizr since it doesn't use semantic versions
     {
-      "matchPackageName": ["structurizr/lite"],
+      "matchPackageNames": ["structurizr/lite"],
       // https://docs.renovatebot.com/configuration-options/#separatemajorminor
       "separateMajorMinor": false,
       // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
