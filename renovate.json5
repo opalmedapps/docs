@@ -2,10 +2,23 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
+    // https://docs.renovatebot.com/presets-default/#separatemultiplemajorreleases
     ":separateMultipleMajorReleases",
+    // set timezone to local one to ensure schedules are run
+    // https://docs.renovatebot.com/configuration-options/#timezone
+    ":timezone(America/Toronto)",
   ],
+  // https://docs.renovatebot.com/configuration-options/#assignees
   "assignees": ["mschoettle"],
+  // https://docs.renovatebot.com/configuration-options/#labels
   "labels": ["dependencies"],
+  // Only rebase existing MRs when the branch is conflicted
+  // This avoids getting spammed by updates to existing MRs
+  // We need to rebase branches to fast-forward merge anyway
+  //
+  // https://docs.renovatebot.com/configuration-options/#rebasewhen
+  "rebaseWhen": "conflicted",
+  // https://docs.renovatebot.com/configuration-options/#packagerules
   "packageRules": [
     // Combine mkdocs-material updates for Python and Docker
     {
@@ -15,6 +28,14 @@
       "schedule": [
         "before 12pm on Monday",
       ],
+    },
+    // Reduce noise for structurizr since it doesn't use semantic versions
+    {
+      "matchPackageName": ["structurizr/lite"],
+      // https://docs.renovatebot.com/configuration-options/#separatemajorminor
+      "separateMajorMinor": false,
+      // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
+      "separateMultipleMajor": false,
     },
   ],
 }
