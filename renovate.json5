@@ -36,6 +36,10 @@
       "separateMajorMinor": false,
       // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
       "separateMultipleMajor": false,
+      // Restrict to weekly updates
+      "schedule": [
+        "before 12pm on Monday",
+      ],
     },
   ],
 }
