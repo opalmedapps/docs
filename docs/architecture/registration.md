@@ -22,7 +22,7 @@ sequenceDiagram
         Clerk ->> FE: provide name of user
         %% Clerk ->> FE: request code generation
     else existing user
-        Clerk ->> FE: search for existing user 
+        Clerk ->> FE: search for existing user
         FE ->> BE: look up user
         FE ->> Clerk: provide search result
         %% Clerk ->> FE: request access
@@ -70,7 +70,6 @@ sequenceDiagram
     BE -->> FE: send response via Firebase
 ```
 
-
 ## Using the registration web page
 
 This reflects the currently envisioned flow with the new OpalAdmin/Backend via the listener's new API request functionality.
@@ -80,8 +79,8 @@ sequenceDiagram
 
     actor User
     participant FE as Web Page
-    participant BE as Listener
     participant API as New Backend
+    participant BE as Listener
     %% participant DB as New DB
     participant ODB as OpalDB
     participant OIE
@@ -89,34 +88,29 @@ sequenceDiagram
     note right of User: Registering through web page
 
     User ->> FE: enter details (MRN & code)
-    FE ->> BE: Look up registration request
-    BE ->> API: Find registration
+    FE ->> API: Look up registration request
+    note left of FE: for brevity, the intermediaries Firebase and Listener are omitted<br>in all interactions from this diagram
 
     User ->> FE: Choose account option (existing vs new)
-    FE ->> BE: retrieve security questions list
-    BE ->> API: get list of security questions
+    FE ->> API: retrieve security questions list
 
     alt existing account
         User ->> FE: provide security questions and answers, phone number
     else new account
         User ->> FE: provide email
-        FE ->> BE: request verification code
-        BE ->> API: add email to registration code instance
+        FE ->> API: request verification code
         API ->> API: generate verification code
         API ->> API: send email
         User ->> FE: provide verification code
-        FE ->> BE: verify verification code
-        BE ->> API: verify verification code
+        FE ->> API: verify verification code
         User ->> FE: provide complete account details
     end
 
     User ->> FE: continue with registration
-    FE ->> BE: get language list
+    FE ->> API: get language list
     User ->> FE: choose language and give consent
     User ->> FE: continue with registration
-    FE ->> BE: get terms of use agreement for hospital
-    %% note over FE, BE: currently retrieved locally from same host<br>but needs to be added to hospital settings
-    BE ->> API: get hospital's terms of use agreement
+    FE ->> API: get terms of use agreement for hospital
     User ->> FE: accept terms of use agreement
 
     User ->> FE: Finish registration
@@ -131,26 +125,10 @@ sequenceDiagram
     note right of BE: should return legacy patient ID
     BE ->> ODB: insert patient hospital identifier
     BE ->> API: insert and update data
-    note right of API: change registration status code to Registered<br>insert security answers<br>change user to active and set current datetime as date_joined
+    API ->> API: change registration code status to Registered
+    API ->> API: insert security answers
+    API ->> API: change user to active and set current datetime as date_joined
+    API ->> API: send confirmation email
     BE ->> OIE: retrieve lab history
-    BE ->> OIE: update patient status in ORMS
-    BE ->> BE: send confirmation email
-    note right of BE: move to new backend?
-    
-    %% rect rgb(150, 150, 150)
-    %% note right of API: existing PHP functionality
-    %% opt not patient exists
-    %%     API ->> ODB: insert patient
-    %%     API ->> ODB: insert patient hospital identifier
-    %%     API ->> ODB: insert user (for patient)
-    %%     note over API, ODB: TBD: Can there only be one user<br>or does there need to be a user each (for security questions)
-    %% end
-    %% end
-
-    %% API ->> OIE: retrieve lab history
-    %% API ->> OIE: update patient status in ORMS
-    %%     note right of API: TBD: change to direct call to ORMS?
-    %% API ->> DB: set legacy_id in patient
-    %% API ->> DB: set legacy_id in caregiverprofile
-    %% API ->> API: send confirmation email
+    BE ->> ORMS: update patient status
 ```

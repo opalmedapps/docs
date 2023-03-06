@@ -1,0 +1,128 @@
+@startuml backend user/caregiver data
+
+title "Caregiver app building on top of the users app"
+
+class "users.User" as users.User #d6def4 {
+    user
+    ..
+    Default custom user model.
+    --
+    + id (BigAutoField) -
+    + password (CharField) -
+    + last_login (DateTimeField) -
+    + is_superuser (BooleanField) - Designates that this user has all permissions
+without explicitly assigning them.
+    + username (CharField) - Required. 150 characters or fewer. Letters, digits and
+@/./+/-/_ only.
+    + first_name (CharField) -
+    + last_name (CharField) -
+    + email (EmailField) -
+    + is_staff (BooleanField) - Designates whether the user can log into this admin
+site.
+    + is_active (BooleanField) - Designates whether this user should be treated as
+active. Unselect this instead of deleting accounts.
+    + date_joined (DateTimeField) -
+    + language (CharField) -
+    + phone_number (CharField) - Format: +<countryCode><phoneNumber> (for example
++15141234567) with an optional extension "x123"
+    + type (CharField) -
+    # groups (ManyToManyField) - The groups this user belongs to. A user will get
+all permissions granted to each of their groups.
+    # user_permissions (ManyToManyField) - Specific permissions for this user.
+    --
+}
+
+
+class "users.ClinicalStaff" as users.ClinicalStaff #d6def4 {
+    Clinical Staff Member
+    ..
+    Proxy user model for the clinical staff user type.
+    --
+    --
+}
+
+users.User <|-- users.ClinicalStaff
+
+
+class "users.Caregiver" as users.Caregiver #d6def4 {
+    Caregiver
+    ..
+    Proxy user model for the caregiver user type.
+    --
+    --
+}
+
+users.User <|-- users.Caregiver
+
+
+class "caregivers.CaregiverProfile" as caregivers.CaregiverProfile #e3f4d6 {
+    Caregiver Profile
+    ..
+    Profile for caregiver users.
+    --
+    + id (BigAutoField) -
+    + uuid (UUIDField) -
+    ~ user (OneToOneField) -
+    + legacy_id (PositiveIntegerField) -
+    --
+}
+caregivers.CaregiverProfile -- users.User
+
+
+class "caregivers.SecurityQuestion" as caregivers.SecurityQuestion #e3f4d6 {
+    Security Question
+    ..
+    Security question model.
+    --
+    + id (BigAutoField) -
+    + title (CharField) -
+    + title_en (TranslationCharField) -
+    + title_fr (TranslationCharField) -
+    + is_active (BooleanField) -
+    --
+}
+
+
+class "caregivers.SecurityAnswer" as caregivers.SecurityAnswer #e3f4d6 {
+    Security Answer
+    ..
+    Security answer model.
+    --
+    + id (BigAutoField) -
+    + question (CharField) -
+    ~ user (ForeignKey) -
+    + answer (CharField) -
+    --
+}
+caregivers.SecurityAnswer -- caregivers.CaregiverProfile
+
+
+class "caregivers.Device" as caregivers.Device #e3f4d6 {
+    Device
+    ..
+    Mobile device used by a caregiver to log into the app.
+    --
+    + id (BigAutoField) -
+    ~ caregiver (ForeignKey) -
+    + type (CharField) -
+    + device_id (CharField) -
+    + is_trusted (BooleanField) -
+    + push_token (CharField) -
+    + modified (DateTimeField) -
+    --
+}
+caregivers.Device -- caregivers.CaregiverProfile
+
+
+class "Explanation of the symbols used" as DESCRIPTION #FFF {
+    - AutoField (identifiers)
+    ..
+    + Regular field (anything)
+    ..
+    # ForeignKey (ManyToMany)
+    ..
+    ~ ForeignKey (OneToOne, OneToMany)
+    --
+}
+
+@enduml
