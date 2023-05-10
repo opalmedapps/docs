@@ -49,7 +49,7 @@ Generate the server certificate:
 # Common Name: db
 # Email Address: <your email>
 # the rest can be left empty (the challenge password has to be empty)
-openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+openssl req -newkey rsa:4096 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
 # let the CA issue a certificate for the server
 openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
 ```
@@ -60,4 +60,10 @@ Verify that the server certificate is valid:
 
 ```shell
 openssl verify -CAfile ca.pem server-cert.pem
+```
+
+We can also output a plain-text version of the server certificate with details of its generation:
+
+```shell
+openssl x509 -in server-cert.pem -text -noout
 ```
