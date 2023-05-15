@@ -86,6 +86,7 @@ end
 
 BE -> API: insert and update data
 note left of BE: TODO: needs to include Firebase username
+note left of API: TODO: handle new user but actually existing user
 note right of API: change registration code status\nupdate legacy_id\ninsert security answers\nadd Firebase username to user\nchange user to active\nchange user date_joined to now
 
 BE -> BE: send confirmation email
