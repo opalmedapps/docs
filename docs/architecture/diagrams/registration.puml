@@ -94,5 +94,6 @@ BE -> BE: send confirmation email
 note left of BE: TODO: only do this for a new patient?
 BE -> OIE: retrieve lab history
 BE -> ORMS: update patient status in ORMS
+note left of BE: TODO: don't call DB to get site and MRN,\nuse already known data
 
 @enduml
