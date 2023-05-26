@@ -1,6 +1,6 @@
 # Registration Process
 
-## Requesting access to patient data (aka. QR Code Generation)
+## Requesting access to patient data (aka. Opal Registration aka. QR Code Generation aka. Access Request)
 
 This reflects the currently envisioned flow with the new OpalAdmin/Backend.
 
@@ -74,61 +74,5 @@ sequenceDiagram
 
 This reflects the currently envisioned flow with the new OpalAdmin/Backend via the listener's new API request functionality.
 
-```mermaid
-sequenceDiagram
-
-    actor User
-    participant FE as Web Page
-    participant API as New Backend
-    participant BE as Listener
-    %% participant DB as New DB
-    participant ODB as OpalDB
-    participant OIE
-
-    note right of User: Registering through web page
-
-    User ->> FE: enter details (MRN & code)
-    FE ->> API: Look up registration request
-    note left of FE: for brevity, the intermediaries Firebase and Listener are omitted<br>in all interactions from this diagram
-
-    User ->> FE: Choose account option (existing vs new)
-    FE ->> API: retrieve security questions list
-
-    alt existing account
-        User ->> FE: provide security questions and answers, phone number
-    else new account
-        User ->> FE: provide email
-        FE ->> API: request verification code
-        API ->> API: generate verification code
-        API ->> API: send email
-        User ->> FE: provide verification code
-        FE ->> API: verify verification code
-        User ->> FE: provide complete account details
-    end
-
-    User ->> FE: continue with registration
-    FE ->> API: get language list
-    User ->> FE: choose language and give consent
-    User ->> FE: continue with registration
-    FE ->> API: get terms of use agreement for hospital
-    User ->> FE: accept terms of use agreement
-
-    User ->> FE: Finish registration
-    FE ->> BE: Finish registration
-    alt new user
-        BE ->> BE: create Firebase account
-    else
-        BE ->> BE: get Firebase account
-    end
-    BE ->> API: get patient data
-    BE ->> ODB: insert patient
-    note right of BE: should return legacy patient ID
-    BE ->> ODB: insert patient hospital identifier
-    BE ->> API: insert and update data
-    API ->> API: change registration code status to Registered
-    API ->> API: insert security answers
-    API ->> API: change user to active and set current datetime as date_joined
-    API ->> API: send confirmation email
-    BE ->> OIE: retrieve lab history
-    BE ->> ORMS: update patient status
+```plantuml source="docs/architecture/diagrams/registration.puml"
 ```
