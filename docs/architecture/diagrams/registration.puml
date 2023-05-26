@@ -1,0 +1,102 @@
+@startuml sequence
+
+title "A user is registering through the web page via the patient's RAMQ/MRN and the registration code"
+
+actor User
+participant FE as "Web Page"
+participant BE as "Listener"
+participant API as "Backend"
+participant Firebase
+database ODB as "OpalDB"
+participant OIE
+participant ORMS
+
+User -> FE: provide details (RAMQ/MRN & code)
+FE -> BE: look up registration request
+note right of FE: request is encrypted using RAMQ/MRN & code
+note right of BE: needs to lookup code details\nfor decryption via API
+BE -> API: find registration via hashed code
+
+opt cannot decrypt
+    BE --> FE: error
+else
+end
+
+BE --> FE: registration details (patient & institution)
+FE -> API: retrieve terms of use PDF
+note right of FE: interactions between the web page and backend always go via the listener which forwards requests to API
+FE -> API: retrieve security questions list
+FE --> User: choose account option (existing vs new)
+
+alt existing account
+    User -> FE: Login with email and password
+    FE -> Firebase: Login
+    note right of FE: figure out what to do\nif the existing account is at the same institution
+    alt success
+        User -> FE: provide security questions and answers, phone number
+    else
+        FE --> User: error
+    end
+else new account
+    User -> FE: provide email
+    FE -> API: verify email address
+    note right of FE: it is possible to resend the verification code\nevery n seconds
+    API -> API: check if email is already registered
+    note left of API: TODO: AFAIK not done
+    alt new email
+        API -> API: generate verification code and store
+        API -> API: send verification code email
+        User -> FE: provide verification code
+        FE -> API: verify registration code
+
+        alt verified
+            User -> FE: provide complete account details
+        else
+            FE --> User: invalid
+        end
+    else
+        note left of API: TODO
+        API -> API: send already registered email
+        note right of API: user will need to choose existing user option
+    end
+end
+
+User -> FE: continue with registration
+FE -> API: get language list
+User -> FE: choose language and give consent
+FE --> User: show terms of use agreement
+User -> FE: accept terms of use agreement
+FE -> BE: finalize registration ("RegisterPatient")
+note right of BE: RegisterPatient is the only request remaining on the listener (for now)
+BE -> API: get patient data
+note left of API: TODO: needs to include legacy_id\nto know whether it is a new or existing patient
+
+note left of BE: TODO currently different flow
+opt new patient
+    BE -> ODB: insert patient
+    note right of BE: returns legacy patient ID
+    BE -> ODB: insert patient hospital identifiers
+end
+
+alt new user
+    BE -> BE: create Firebase account
+else
+    BE -> BE: get Firebase account
+end
+
+BE -> API: insert and update data
+note left of BE: TODO: needs to include Firebase username
+note left of API: TODO: handle new user but actually existing user
+note right of API: change registration code status\nupdate legacy_id\ninsert security answers\nadd Firebase username to user\nchange user to active\nchange user date_joined to now
+
+BE -> BE: send confirmation email
+
+opt new patient
+    BE -> OIE: retrieve lab history
+    opt using ORMS?
+        BE -> ORMS: update patient status in ORMS
+        note left of BE: TODO: don't call DB to get site and MRN,\nuse already known data
+    end
+end
+
+@enduml
