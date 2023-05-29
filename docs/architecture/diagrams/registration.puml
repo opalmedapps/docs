@@ -74,8 +74,10 @@ note left of API: TODO: needs to include legacy_id\nto know whether it is a new 
 note left of BE: TODO currently different flow
 opt new patient
     BE -> ODB: insert patient
+    note right of BE: TODO: handle caregiver only patient record
     note right of BE: returns legacy patient ID
-    BE -> ODB: insert patient hospital identifiers
+    opt actual patient
+        BE -> ODB: insert patient hospital identifiers
 end
 
 alt new user
@@ -91,7 +93,7 @@ note right of API: change registration code status\nupdate legacy_id\ninsert sec
 
 BE -> BE: send confirmation email
 
-opt new patient
+opt new actual patient
     BE -> OIE: retrieve lab history
     opt using ORMS?
         BE -> ORMS: update patient status in ORMS
