@@ -78,6 +78,7 @@ opt new patient
     note right of BE: returns legacy patient ID
     opt actual patient
         BE -> ODB: insert patient hospital identifiers
+    end
 end
 
 alt new user
