@@ -1,0 +1,26 @@
+@startuml "New Authentication via Backend"
+
+title New ORMS Authentication via Backend
+
+participant User as user
+participant ormsui as "ORMS UI"
+participant backend as "Backend"
+participant ormsapi as "ORMS API"
+participant fedauth as "FedAuth API"
+
+user -> ormsui: Login
+ormsui -> ormsapi: Login
+ormsapi -> backend: Login
+backend -> fedauth: Login
+fedauth --> backend: success
+backend --> ormsapi: response (with sessionId in case of success)
+alt success
+    ormsapi -> ormsapi: generate ORMS sessionId
+    ormsapi -> memcached: store (sessionId, username & IP)
+    ormsapi --> ormsui: cookie (ormsAuth=OrmsSessionId, sessionId=DjangoSessionId)
+else
+    ormsapi --> ormsui: failure
+end
+ormsui --> user
+
+@enduml
