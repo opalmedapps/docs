@@ -1,0 +1,30 @@
+@startuml "ORMS Authentication"
+
+title Current ORMS Authentication
+
+participant User as user
+participant ormsui as "ORMS UI"
+participant ormsapi as "ORMS API"
+participant fedauth as "FedAuth API"
+participant memcached as "Memcached"
+
+user -> ormsui: Login
+ormsui -> ormsapi: Login
+ormsapi -> fedauth: Login
+fedauth --> ormsapi: success
+ormsapi -> backend: do something
+
+alt success
+    alt AD user has GA-ORMS role
+        ormsapi -> ormsapi: generate sessionID
+        ormsapi -> memcached: store (sessionID, username & IP)
+        ormsapi --> ormsui: cookie (ormsAuth=sessionID)
+    else
+        ormsapi --> ormsui: failure
+    end
+else
+    ormsapi --> ormsui: failure
+end
+ormsui --> user
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml "ORMS Authentication"
+
+title Updating a patient's Opal Status in ORMS (current)
+
+participant User as user
+participant listener as "Listener"
+participant ormsapi as "ORMS API"
+participant oie as "OIE"
+
+user -> listener: Complete Registration
+note left of listener: via Registration Web Page
+note right of listener: handle the user registration\ni.e., create user, patient etc.
+listener -> oie: Update Opal Status (mrn, site, opalStatus)
+oie -> ormsapi: Update Opal Status (mrn, site, opalStatus)
+
+newpage Updating a patient's Opal Status in ORMS (new)
+
+user -> listener: Complete Registration
+note left of listener: via Registration Web Page
+note right of listener: handle the user registration\ni.e., create user, patient etc.
+listener -> ormsapi: Update Opal Status (mrn, site, opalStatus, uuid)
+
+@endumlv

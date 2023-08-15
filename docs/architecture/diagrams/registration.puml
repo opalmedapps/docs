@@ -31,7 +31,7 @@ FE --> User: choose account option (existing vs new)
 alt existing account
     User -> FE: Login with email and password
     FE -> Firebase: Login
-    note right of FE: figure out what to do\nif the existing account is at the same institution
+    note right of FE: TODO: figure out what to do\nif the existing account is at the same institution
     alt success
         User -> FE: provide security questions and answers, phone number
     else
@@ -42,7 +42,7 @@ else new account
     FE -> API: verify email address
     note right of FE: it is possible to resend the verification code\nevery n seconds
     API -> API: check if email is already registered
-    note left of API: TODO: AFAIK not done
+    note left of API: TODO: check Firebase and inform user if already registered
     alt new email
         API -> API: generate verification code and store
         API -> API: send verification code email

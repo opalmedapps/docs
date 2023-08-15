@@ -1,0 +1,101 @@
+@startuml "ORMS Authentication"
+
+title Current OpalAdmin Authentication
+
+participant User as user
+participant opaladminui as "OpalAdmin UI"
+participant opaladminapi as "OpalAdmin API"
+database opaladmindb as "OpalDB"
+participant fedauth as "FedAuth API"
+participant backend as "OpalAdmin 2 API"
+
+
+user -> opaladminui: Enter credentials to log in
+opaladminui -> opaladminapi: Validate Login
+
+note right of opaladminapi: insertion of audit events\nhas been left out for brevity
+
+alt AD login enabled
+    opaladminapi -> opaladmindb: Look up user with username
+
+    opt no user found
+        opaladminapi --> opaladminui: Access Denied
+    end
+
+    opaladminapi -> fedauth: Login
+
+    opt authentication failed
+        opaladminapi --> opaladminui: Wrong username and/or password
+    end
+else else
+    opaladminapi -> opaladminapi: Login
+    opaladminapi -> opaladmindb: Look up user with credentials
+
+    opt no user found
+        opaladminapi --> opaladminui: Access Denied
+    end
+end
+
+opaladminapi -> opaladminapi: look up user access/permissions
+
+opt user has no permissions
+    opaladminapi -> opaladminui: No access found.\nPlease contact your administrator.
+end
+
+opaladminapi -> opaladminapi: Build the navigation menus
+
+opaladminapi --> opaladminui: result
+
+opt login successful
+    opaladminui -> backend: Login
+end
+
+opaladminui --> user: show home page
+
+newpage "OpalAdmin Login (Proposal)"
+
+user -> opaladminui: Enter credentials to log in
+opaladminui -> opaladminapi: Validate Login
+
+note right of opaladminapi: insertion of audit events\nhas been left out for brevity
+
+alt AD login enabled
+    opaladminapi -> opaladmindb: Look up user with username
+
+    opt no user found
+        opaladminapi --> opaladminui: Access Denied
+    end
+
+    opaladminapi -> backend: Login
+    note right of opaladminapi: need to remember the returned session cookie\nto pass to the user
+    opt authentication failed
+        opaladminapi --> opaladminui: Wrong username and/or password
+    end
+
+
+else else
+    opaladminapi -> opaladminapi: Login
+    opaladminapi -> opaladmindb: Look up user with credentials
+
+    opt no user found
+        opaladminapi --> opaladminui: Access Denied
+    end
+end
+
+opaladminapi -> opaladminapi: look up user access/permissions
+
+opt user has no permissions
+    opaladminapi -> opaladminui: No access found.\nPlease contact your administrator.
+end
+
+opaladminapi -> opaladminapi: Build the navigation menus
+
+opaladminapi --> opaladminui: result
+
+opt login successful
+    opaladminui -> backend: Login
+end
+
+opaladminui --> user: show home page
+
+@enduml
