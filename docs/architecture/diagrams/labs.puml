@@ -1,0 +1,70 @@
+@startuml sequence
+
+title "Labs and push notifications"
+
+participant labs as "opal-labs"
+participant redis
+participant opaladmin as "OpalAdmin"
+participant publisher as "OpalAdmin Publisher"
+participant backend as "Backend"
+
+[-> labs: processLabForPatient
+    loop labOrder in labOrders
+        note right of labs: insert test group if it doesn't exist yet\nTestGroupExpression
+        labs -> labs: update test group
+        loop testComponent in testComponents of labOrder
+            note right of labs: insert test component if it doesn't exit yet\nTestExpression
+            labs -> labs: update test component
+            labs -> labs: insert or update test result
+        end
+    end
+
+    loop labOrder in labOrders
+        loop testComponent in testComponents of labOrder
+            opt lab is published [test code's test control has PublishFlag==1]
+                labs -> labs: send push notification
+                activate labs
+                opt patient has access level all
+                    labs -> redis: lab result already sent in last 2 minutes?
+                    opt not sent
+                        labs -> opaladmin: send push notification (POST sendPushNotificationPerl.php)
+                        opaladmin -> publisher: execute perl PushNotificationFromPHP.pm
+                        publisher -> backend: get patient caregivers
+                        opt patient access level is not ALL
+                            publisher --> opaladmin
+                        end
+                        opt patient has no caregivers or no device identifiers found for caregivers
+                            publisher -> publisher: log error in DB
+                        end
+                        loop device identifier in device identifiers
+                            publisher -> publisher: post notification
+                            activate publisher
+                                publisher -> opaladmin: POST sendPushNotification.php
+                                activate opaladmin
+                                opt within acceptable time window
+                                    alt iOS
+                                        opaladmin -> opaladmin: send iOS push notification
+                                    else Android
+                                        opaladmin -> opaladmin: send Android push notification
+                                    end
+                                    opaladmin --> publisher
+                                end
+                                deactivate opaladmin
+                                publisher --> publisher
+                            deactivate
+                            publisher -> publisher: log result in DB
+                        end
+
+                        opaladmin --> labs
+                        labs -> redis: store current datetime for lab result
+                    end
+                end
+                labs --> labs
+                deactivate labs
+            end
+        end
+    end
+
+[<-- labs: response
+
+@enduml
