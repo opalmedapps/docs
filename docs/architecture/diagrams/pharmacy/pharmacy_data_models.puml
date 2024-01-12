@@ -1,0 +1,110 @@
+@startuml Pharmacy data hl7 field sources
+
+class "opal.pharmacy.CodedElement " as codedelement #LightSteelBlue {
+    A generic HL7v2 Coded Element object
+    HL7 field source depends on parent object
+    --
+    + identifier (Charfield, max_length=50) - Character sequence identifying the item
+    + text (Charfield, max_length=150) - Name or description of the item
+    + coding_system (Charfield, max_length=50) - Coding scheme under which this item can be identified. https://hl7-definition.caristix.com/v2/HL7v2.7/Tables/0396
+    + alternate_identifier (Charfield, null=False blank=True max_length=50)
+    + alternate_text (Charfield, null=False blank=True max_length=150)
+    + alternate_coding_system (Charfield, null=False blank=True, max_length=50)
+    --
+    unique_together=(identifier, coding_system)
+}
+
+class "opal.pharmacy.PhysicianPrescriptionOrder" as prescription #LightSteelBlue {
+    The prescribed schedule/service order from the providing medical professional
+    --
+    ~ patient (ForeignKey) - Patient who owns this report
+    + visit_number [PV1.19.1] (IntegerField) - Identifier for the patient visit related to this order
+    + trigger_event [ORC.1.1]  (CharField, max_length=2) - NW=New Order, XX=order changed or unsolicited \nhttps://hl7-definition.caristix.com/v2/HL7v2.3/Tables/0119
+    + filler_order_number [ORC.3.1] (IntegerField) - Order filler's unique identifier for this order
+    + order_status [ORC.5.1] (TextChoices [DC/Order Discontinued, HD/Order on Hold, SC/Order is Scheduled]) - https://hl7-definition.caristix.com/v2/HL7v2.3/Tables/0038
+    + entered_at [ORC.9.1] (DateTimeField) - Time when the order was entered into the ordering application
+    + entered_by [ORC.10.1_ORC.10.2_ORC.10.3] (CharField, max_length=80) - Staff who entered the information into the ordering application
+    + verified_by [ORC.10.1_ORC.10.2_ORC.10.3] (CharField, max_length=80) - Staff who verified the accuracy of the information entered
+    + ordered_by [ORC.12.6_ORC.10.1_ORC.10.2_ORC.10.3] (CharField, max_length=80) - Staff who is responsible for creating the service request (ordering physician)
+    + effective_at [ORC.15.1] (DateTimeField) - Time when this order or change to order is supposed to take effect
+}
+
+class  "opal.pharmacy.PharmacyEncodedOrder" as encodedorder #LightSteelBlue {
+    The schedule/service provided by the pharmacy provider. Note that the pharmacy provider has the responsibility/authority
+    to deviate from the PhysicianPrescriptionOrder scheduled dispense event when it deems it necessary.
+    --
+    ~ physician_prescription_order = (ForeignKey) - prescription for which this encoded order was generated
+    ~ give_code [RXE.2, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_code' null=True blank=True) Medical substance to be given to the patient
+    + give_amount_maximum [RXE.4.1] (DecimalField, null=True blank=True, max_digits=8, decimal_places=3)
+    + give_amount_minimum [RXE.3.1] (DecimalField max_digits=8, decimal_places=3) Required specification for substance volume
+    ~ give_unit [RXE.5, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_units' null=True blank=True)
+    ~ give_dosage_form [RXE.6, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_dosage_form' null=True blank=True) Medication dispense form e.g tablets, capsules, suppositories etc
+    ~ provider_administration_instruction [RXE.7, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_provider_administration_instruction' null=True blank=True)
+    + dispense_amount [RXE.10.1] (DecimalField max_digits=8, decimal_places=3)
+    + dispense_unit [RXE.11, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_dispense_units' null=True blank=True)
+    + refills [RXE.12.1] (IntegerField, null=False default=0)
+    + refills_remaining [RXE.16.1] (IntegerField, null=False default=0)
+    + last_refilled [RXE.18.1] (DateTimeField null=False blank=True)
+    + formulary_status [NTE.3.1] (CharField max_length=10, null=False) Pharmacy indicated formulary status, typical values are STD/Standard,\n AMB/Ambulatory, LOA/Leave of Absence, TH/Take Home, SELF/Self Administered
+}
+
+abstract class "opal.pharmacy.AbstractQuantityTiming" as quantitytiming #LightCyan {
+    The priority, frequency, and timing of an atomic service.
+    --
+    + quantity [RXE.1.1 OR ORC.7.1] (DecimalField max_digits=8, decimal_places=3) - Quantity of service prescribed
+    + unit [RXE.1.1.2 OR ORC.7.1.2] (CharField, null=False blank=True, max_length=20) - Optional unit specification for quantity (units might be implied)
+    + interval [RXE.1.2 OR ORC.7.2] (CharField, max_length=100) - Composite field consisting of a repeat pattern \nhttps://hl7-definition.caristix.com/v2/HL7v2.7/Tables/0335 or explicit time interval (HHMM format)
+    + duration [RXE.1.3 OR ORC.7.3] (CharField, default=INDEF, max_length=50) - How long the service should continue after started. \n Format H<integer> (integer hours), W<integer> (integer weeks), etc
+    + service_start [RXE.1.4 OR ORC.7.4] (DateTimeField, null=False blank=True)
+    + service_end [RXE.1.5 OR ORC.7.5] (DateTimeField, null=False blank=True)
+    + priority [RXE.1.6 OR ORC.7.6] (CharField, max_length=8) - Default R (Routine), various codes possible \n https://hl7-definition.caristix.com/v2/HL7v2.3/Fields/ORC.7.6
+}
+
+class "opal.patients.Patient" as patient #Gray {
+    Django patient model
+    --
+    - id/pk (AutoField) - Django patient identifier, known in app
+    - uuid (UUIDField) - Django internal unique patient identifier.
+    --
+}
+
+class  "opal.pharmacy.PharmacyRoute" as route #LightSteelBlue {
+    Alternative combination of route, site, administration device, and administration method.
+    --
+    ~ pharmacy_encoded_order (ForeignKey) - prescription for which this encoded order was generated
+    ~ route [RXR.1, CE] (ForeignKey CodedElement related_name='pharmacy_route_route' null=True blank=True) - Route of administration
+    ~ site [RXR.2, CE] (ForeignKey CodedElement related_name='pharmacy_route_site') - Site of administration
+    ~ administration_device [RXR.3, CE] (ForeignKey CodedElement related_name='pharmacy_route_administration_device) - The mechnical device used to administer the drug or treatment
+    ~ administration_method [RXR.4, CE] (ForeignKey CodedElement related_name='pharmacy_route_administration_method) - Specific method requested for administration of the drug or treatment
+}
+
+class  "opal.pharmacy.PharmacyComponent" as component #LightSteelBlue {
+    Specification of the base and additive components for a compound drug, if required
+    --
+    ~ pharmacy_encoded_order = (ForeignKey) - prescription for which this encoded order was generated
+    + component_type [RXC.1.1] (TextChoices, [A/Additive, B/Base, T/Text Instructions])
+    ~ component_code [RXC.2, CE] (ForeignKey CodedElement related_name='pharmacy_component_component_code' null=True blank=True)
+    + component_amount [RXC.3.1] (DecimalField max_digits=8, decimal_places=3)
+    ~ component_unit [RXC.4, CE] (ForeignKey CodedElement related_name='pharmacy_component_component_units' null=True blank=True)
+}
+
+
+patient ||--o{ prescription
+prescription ||--|| encodedorder
+encodedorder ||--|| route
+encodedorder ||--o{ component
+prescription --|> quantitytiming
+encodedorder --|> quantitytiming
+route ||--|{ codedelement
+component ||--|{ codedelement
+encodedorder ||--|{ codedelement
+' prescription }|--|{ staff
+
+' component -[hidden]- prescription
+' encodedorder -[hidden]- patient
+quantitytiming -[hidden]- patient
+codedelement -[hidden]- quantitytiming
+codedelement -[hidden]- encodedorder
+prescription -[hidden]- route
+' patient -[hidden]- staff
+@enduml
