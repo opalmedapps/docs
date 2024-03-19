@@ -7,7 +7,7 @@ services:
     volumes:
       - $PWD:/docs
   structurizr:
-    image: structurizr/lite:3262
+    image: structurizr/lite:2024.03.03
     ports:
       - 9000:8080
     volumes:
