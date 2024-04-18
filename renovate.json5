@@ -29,18 +29,6 @@
         "before 12pm on Monday",
       ],
     },
-    // Reduce noise for structurizr since it doesn't use semantic versions
-    {
-      "matchPackageNames": ["structurizr/lite"],
-      // https://docs.renovatebot.com/configuration-options/#separatemajorminor
-      "separateMajorMinor": false,
-      // https://docs.renovatebot.com/configuration-options/#separatemultiplemajor
-      "separateMultipleMajor": false,
-      // Restrict to weekly updates
-      "schedule": [
-        "before 12pm on Monday",
-      ],
-    },
   ],
   // enable updates for pre-commit
   // see: https://docs.renovatebot.com/modules/manager/pre-commit/
