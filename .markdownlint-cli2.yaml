@@ -1,0 +1,4 @@
+# https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2yaml
+
+ignores:
+  - ".gitlab/merge_request_templates/Default.md"
