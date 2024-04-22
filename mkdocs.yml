@@ -9,7 +9,7 @@ repo_url: https://gitlab.com/opalmedapps/docs
 edit_uri: edit/main/docs/
 
 # Copyright
-copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
+copyright: Copyright &copy; Opal Health Informatics Group (O-HIG)
 
 # Content
 nav:
@@ -78,6 +78,8 @@ plugins:
   - search
   # show last updated date at the bottom of each page
   - git-revision-date
+  # https://squidfunk.github.io/mkdocs-material/reference/images/?h=image#lightbox
+  - glightbox
 
 # Extensions
 markdown_extensions:
