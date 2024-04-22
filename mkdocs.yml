@@ -123,6 +123,8 @@ markdown_extensions:
   # https://github.com/mikitex70/plantuml-markdown
   - plantuml_markdown:
       server: http://www.plantuml.com/plantuml
+      # use caching to speed up live-reloading
+      cachedir: .plantuml/
 
 
 watch:
