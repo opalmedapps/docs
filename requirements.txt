@@ -1,3 +1,4 @@
 mkdocs-material==9.5.18  # https://github.com/squidfunk/mkdocs-material
 mkdocs-git-revision-date-plugin==0.3.2  # https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin
 plantuml-markdown==3.9.5  # https://github.com/mikitex70/plantuml-markdown
+mkdocs-glightbox==0.3.7  # https://github.com/blueswen/mkdocs-glightbox
