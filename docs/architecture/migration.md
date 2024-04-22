@@ -1,6 +1,6 @@
 # Migration to Django
 
-As part of the migration using the [Strangler Fig pattern](../../strangler_fig) and to support the Patient-Caregiver functionality, some specific data needs to be moved to the Django-based backend in the first step.
+As part of the migration using the [Strangler Fig pattern](../strangler_fig.md) and to support the Patient-Caregiver functionality, some specific data needs to be moved to the Django-based backend in the first step.
 For now, this is mostly user-specific and registration related data.
 
 ## Overview
@@ -9,18 +9,18 @@ Data that exists in both systems or was migrated. _Legacy_ refers to the legacy 
 
 | Concept     | Legacy            | Backend                               |
 | ----------- | ----------------- | ------------------------------------- |
-| Patient     | `Patient` table: Contains all patients | `Patient` model: Contains all patients with a `legacy_id` referring to the `PatientSerNum` in the legacy DB
-| User        | **Deprecated**: `Users` table: Contains all legacy users | `Caregiver` model: Contains all existing (migrated) and new users
-| Hospital Patient | `PatientHospitalIdentifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance
-| Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions
-| Security Answer | Deprecated: `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model
-| Registration Code | **Deprecated**: `registrationcode` table: The registration codes for registering a specific patient | `RegistrationCode` table: The registration code for a specific relationship between a patient and caregiver
-| Device      | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data | `Device` model: Currently unused
+| Patient     | `Patient` table: Contains all patients | `Patient` model: Contains all patients with a `legacy_id` referring to the `PatientSerNum` in the legacy DB |
+| User        | **Deprecated**: `Users` table: Contains all legacy users | `Caregiver` model: Contains all existing (migrated) and new users |
+| Hospital Patient | `PatientHospitalIdentifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance |
+| Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions |
+| Security Answer | Deprecated: `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model |
+| Registration Code | **Deprecated**: `registrationcode` table: The registration codes for registering a specific patient | `RegistrationCode` table: The registration code for a specific relationship between a patient and caregiver |
+| Device      | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data | `Device` model: Currently unused |
 
 ## Registration
 
 The registration is being completely moved to the Django-based backend.
-The sequence diagrams are shown on [registration process](../registration).
+The sequence diagrams are shown on [registration process](registration.md).
 Every API endpoint with the exception of one is now forwarded to the backend by the listener.
 
 The one remaining request handling in the legacy listener is for completing the registration (called `registerPatient`).
