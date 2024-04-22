@@ -74,12 +74,20 @@ theme:
     - search.highlight
 
 # Plugins
+# https://squidfunk.github.io/mkdocs-material/plugins/
 plugins:
   - search
   # show last updated date at the bottom of each page
-  - git-revision-date
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-dates
+  - git-revision-date-localized:
+      enable_creation_date: true
+      # https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/
+      type: timeago
   # https://squidfunk.github.io/mkdocs-material/reference/images/?h=image#lightbox
   - glightbox
+  # keep assets private
+  # https://squidfunk.github.io/mkdocs-material/plugins/privacy/
+  - privacy
 
 # Extensions
 markdown_extensions:
