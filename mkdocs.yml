@@ -83,6 +83,9 @@ plugins:
       enable_creation_date: true
       # https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/
       type: timeago
+      # only enable when building in CI to speed up local builds
+      # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#+git-revision-date-localized.enabled
+      enabled: !ENV [CI, false]
   # https://squidfunk.github.io/mkdocs-material/reference/images/?h=image#lightbox
   - glightbox
   # keep assets private
