@@ -45,9 +45,20 @@ The following container diagram shows the Opal PIE.
 ```
 
 The diagram presents the Opal PIE as it is today.
-Recently, we have started with a process to migrate functionality to a new container (_Backend_).
-The functionality provided by containers marked as legacy will be migrated to the backend over time.
+
+#### Future Vision
+
+Recently, we have started with a process to migrate functionality to a new component (_Backend_).
+The functionality provided by components marked as legacy will be migrated to the backend over time.
 We are following the [Strangler Fig migration pattern](strangler_fig.md) for this process.
+
+The vision is that the backend will be a [majestic](https://signalvnoise.com/svn3/the-majestic-monolith/) [monolith](https://www.monolithic.dev/).
+The following diagram depicts this vision.
+
+```plantuml source="docs/architecture/diagrams/container_diagram_pie_vision.puml"
+```
+
+Note that additional external systems were left out for brevity.
 
 ## Communication between user applications and the Opal PIE
 
