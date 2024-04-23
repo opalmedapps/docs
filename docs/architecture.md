@@ -8,9 +8,11 @@ Opal provides two main parts to achieve this goal:
 
 !!! note
     The diagrams presented here are based on the [C4 model](https://c4model.com) for visualizing software architecture.
-    They are created using the [C4 PlantUML Extension](https://github.com/plantuml-stdlib/C4-PlantUML).
+    They are created with [PlantUML](https://plantuml.com) using the [C4 PlantUML Extension](https://github.com/plantuml-stdlib/C4-PlantUML).
 
-    We use system context and container diagrams. Note that a container represents an application or data store (and not a "Docker container").
+    We use system context and container diagrams.
+    Note that a container represents an application or data store (and not a "Docker container").
+    In this document we use container and component interchangeably.
 
 ## High-level Architecture
 
@@ -32,7 +34,22 @@ The following container diagram focusses on the user applications that users (ca
 
 As can be seen in the above diagram, communication between the user applications and the Opal PIE is accomplished via Firebase.
 
-### Communication between user applications and the Opal PIE
+The _User Registration_ currently only supports user account creation by requesting access to a patient's data.
+The user will receive a registration code at the end of this process which is required on the _User Registration_.
+
+### Overview of the Opal PIE
+
+The following container diagram shows the Opal PIE.
+
+```plantuml source="docs/architecture/diagrams/container_diagram_pie.puml"
+```
+
+The diagram presents the Opal PIE as it is today.
+Recently, we have started with a process to migrate functionality to a new container (_Backend_).
+The functionality provided by containers marked as legacy will be migrated to the backend over time.
+We are following the [Strangler Fig migration pattern](strangler_fig.md) for this process.
+
+## Communication between user applications and the Opal PIE
 
 Firebase Authentication is used for user accounts using email and password.
 A Firebase user account is created when a user completes the user registration for the first time.
