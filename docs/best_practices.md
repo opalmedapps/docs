@@ -83,7 +83,8 @@ Continuous Delivery should be used to automatically deploy the changes to a test
 
 ## Code Review
 
-Code Review is an important part of the development process. It helps share knowledge and ownership among developers. Doing code review also helps reduce bugs and ensure a consistent codebase for long-term maintainability. Please see our [Code Review Guidelines](../code_review/) for more details.
+Code Review is an important part of the development process. It helps share knowledge and ownership among developers. Doing code review also helps reduce bugs and ensure a consistent codebase for long-term maintainability.
+Please see our [Code Review Guidelines](code_review.md) for more details.
 
 A comprehensive guide on providing good code review is available at [Google's Engineering Practices documentation](https://google.github.io/eng-practices/review/reviewer/).
 
