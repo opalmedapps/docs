@@ -1,7 +1,7 @@
 @startuml opal_system_landscape
 !include <C4/C4_Container>
 
-title Container diagram focussing on the Opal user applications
+title Container diagram focusing on the Opal user applications
 
 Person(caregiver, "Caregiver")
 
