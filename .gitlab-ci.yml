@@ -7,6 +7,10 @@ image:
 
 build:
   stage: build
+  variables:
+    # fetch the full git history to be able to determine creation dates for pages
+    # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
+    GIT_DEPTH: 0
   script:
     - pip install -r requirements.txt
     - mkdocs --version
