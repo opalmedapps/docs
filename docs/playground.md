@@ -58,11 +58,11 @@ The `#!python range()` function is used to generate a sequence of numbers.
 
 ## Tasklist
 
-- [x] Task 1
-- [ ] Task 2
+* [x] Task 1
+* [ ] Task 2
     * [x] Subtask 1
     * [ ] Subtask 2
-- [ ] Task 3
+* [ ] Task 3
 
 ## Tables
 
@@ -71,7 +71,6 @@ The `#!python range()` function is used to generate a sequence of numbers.
 | `GET`       | :material-check:     Fetch resource  |
 | `PUT`       | :material-check-all: Update resource |
 | `DELETE`    | :material-close:     Delete resource |
-
 
 ## Admonition
 

@@ -8,7 +8,6 @@ We will do this in incremental stages, beginning with the backend. The listener 
 
 Eventually, when we build a new app, it might directly communicate with the API. That way, we would slowly strangulate the listener as well (details TBD).
 
-
 ## Resources
 
 * [Strangler Fig Application - Martin Fowler](https://martinfowler.com/bliki/StranglerFigApplication.html)

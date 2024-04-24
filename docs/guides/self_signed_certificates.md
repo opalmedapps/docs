@@ -26,7 +26,7 @@ Generate the certificate authority (CA) certificates:
 # Create CA private key
 openssl genrsa 4096 > ca-key.pem
 # Create CA public key
-# 
+#
 # Country Name: CA
 # State: QC
 # Locality: Montreal
@@ -41,7 +41,7 @@ Generate the server certificate:
 
 ```shell
 # Create the server's private key and a certificate request for the CA
-# 
+#
 # Country Name: CA
 # State: QC
 # Locality: Montreal
