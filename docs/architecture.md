@@ -1,6 +1,6 @@
 # Architecture
 
-Opal is a solution aimed at providing patients and their caregivers access to the patient's medical data.
+Opal is a solution aimed at providing patients and their caregivers[^1] access to the patient's medical data.
 Opal provides two main parts to achieve this goal:
 
 1. A patient/caregiver-facing part to give them access to the medical data.
@@ -154,6 +154,25 @@ The final PDF is built using LaTeX.
 ORMS provides the waiting room management system as well as a live clinician dashboard.
 The latter allows clinicians to look at their answered questionnaires, vital sign data collected from smart devices etc.
 
+### User Registration
+
+- [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
+- [Production Registration](https://registration.opalmedapps.ca)
+
+The registration websites provides a user (caregiver) the ability to create their Opal account.
+In order to use the registration website, a caregiver has to request access to a patient's data at the hospital.
+At the end of this, the hospital will provide a registration code to the caregiver.
+Using the registration code and the patient's identification number (RAMQ or MRN) the user can complete the registration process.
+
+### Web and Mobile App
+
+- [Project Page](https://gitlab.com/opalmedapps/qplus)
+
+The web and mobile app provide caregivers the ability to access patient data for the patients under their care.
+The mobile app is the same as the web app.
+It is packaged as a mobile app and distributed through the Google Play and Apple App stores.
+The mobile app supports additional features native to mobile devices, such as location, sharing etc.
+
 ### Helper components
 
 #### Database Migrations and Initial Data
@@ -162,7 +181,7 @@ The latter allows clinicians to look at their answered questionnaires, vital sig
 
 Historically, the legacy components of Opal did not maintain migrations of the database schema.
 Migrations and initial data (to set up Opal at a new hospital) is maintained in this separate component.
-The migrations are maintained using [Alembic](https://alembic.sqlalchemy.org/).
+The migrations are managed using [Alembic](https://alembic.sqlalchemy.org/).
 Initial data and upgrade scripts are maintained as SQL files.
 
 A container image is produced for this component.
@@ -192,12 +211,28 @@ Redis is used by _Opal Labs_ to cache patients being processed to avoid sending 
 
 ## Communication between user applications and the Opal PIE
 
-Firebase Authentication is used for user accounts using email and password.
-A Firebase user account is created when a user completes the user registration for the first time.
+Firebase is used to accomplish getting data out and in to the hospital to the user applications.
 
-The user needs to be logged in to Firebase first before being able to communicate to the Opal PIE.
+Opal makes use of two Firebase services:
+
+- [_Authentication_](https://firebase.google.com/docs/auth) is used for user accounts (via email and password).
+- [_Realtime Database_](https://firebase.google.com/docs/database) is used to pass requests and responses between user applications and the Opal PIE.
+
+A Firebase user account is created when a user completes the user registration for the first time.
 The Firebase Realtime Database acts as a kind of queue for sending requests and receiving responses.
 
 The Opal PIE establishes an outgoing connecting to Firebase to observe the Realtime Database for changes.
 Any time a new request is added by a user application it is notified of this change and handles the request.
 The response for the request is placed into the Realtime Database and the user application–which is notified of the response–reads and handles the response.
+
+### Encryption
+
+TBC
+
+### Supporting Multiple Hospitals
+
+TBC
+
+https://gitlab.com/opalmedapps/qplus
+
+[^1]: We consider a caregiver to also include the patient. In that case they are caring for themself.
