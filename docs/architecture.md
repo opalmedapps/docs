@@ -66,8 +66,8 @@ The following is an overview of all the components that are part of the Opal sol
 
 ### Opal Integration Engine (OIE)
 
-- [Project Page](https://gitlab.com/opalmedapps/opal-integration-engine)
-- [Mirth Connect](https://www.nextgen.com/solutions/interoperability/mirth-integration-engine)
+* [Project Page](https://gitlab.com/opalmedapps/opal-integration-engine)
+* [Mirth Connect](https://www.nextgen.com/solutions/interoperability/mirth-integration-engine)
 
 The OIE is responsible for interfacing with the hospital's interface.
 It receives unsolicited HL7 messages from hospital source systems.
@@ -85,7 +85,7 @@ For the latter case, the OIE provides a set of API endpoints for our components 
 
 ### OpalAdmin
 
-- [Project Page](https://gitlab.com/opalmedapps/OpalAdmin)
+* [Project Page](https://gitlab.com/opalmedapps/OpalAdmin)
 
 OpalAdmin provides the admin interface for clinicians and staff.
 The web application is used to manage patients, hospital maps, questionnaires etc.
@@ -98,8 +98,8 @@ These scripts manage new data that was added, and determine whether caregivers n
 
 ### Listener
 
-- [Project Page](https://gitlab.com/opalmedapps/opal-listener)
-- [Published Documentation](https://opalmedapps.gitlab.io/opal-listener)
+* [Project Page](https://gitlab.com/opalmedapps/opal-listener)
+* [Published Documentation](https://opalmedapps.gitlab.io/opal-listener)
 
 The listener is the component that interacts with Firebase in order to handle requests coming from the user applications.
 The requests it handles are those intended for the hospital the Opal PIE is operating in.
@@ -107,15 +107,15 @@ See the [section on communication below](#communication-between-user-application
 
 The listener contains legacy app and registration functionality as well as new functionality for forwarding API requests to the backend:
 
-- The legacy part handles request types and directly executes queries on the databases.
-- The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the backend API.
+* The legacy part handles request types and directly executes queries on the databases.
+* The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the backend API.
   It acts as a kind of proxy/middleware and makes actual HTTP requests.
   The HTTP response is returned.
 
 ### Backend
 
-- [Project Page](https://gitlab.com/opalmedapps/backend)
-- [Published Documentation](https://opalmedapps.gitlab.io/backend)
+* [Project Page](https://gitlab.com/opalmedapps/backend)
+* [Published Documentation](https://opalmedapps.gitlab.io/backend)
 
 The backend (aka. _New OpalAdmin_) is the new backend that replaces the [legacy OpalAdmin](#opaladmin).
 It provides APIs for the user applications and other systems, such as the OIE.
@@ -125,7 +125,7 @@ Over time, other existing functionality will be migrated to this component (see 
 
 ### Opal Labs
 
-- [Project Page](https://gitlab.com/opalmedapps/opal-labs)
+* [Project Page](https://gitlab.com/opalmedapps/opal-labs)
 
 _Opal Labs_ is an additional component which takes care of processing new lab results for patients.
 It exposes an API endpoint for use by the OIE to handle new lab results.
@@ -141,7 +141,7 @@ It also makes an API call to _OpalAdmin_ to request sending a push notification 
 
 ### PDF Generator
 
-- [Project Page](https://gitlab.com/opalmedapps/legacy-php)
+* [Project Page](https://gitlab.com/opalmedapps/legacy-php)
 
 The PDF Generator is responsible for generating PDFs for questionnaires (patient-reported outcomes).
 It pulls questionnaire data from the `QuestionnaireDB` and uses the [Highcharts Export Server](#highcharts-export-server) to generate graphs.
@@ -149,15 +149,15 @@ The final PDF is built using LaTeX.
 
 ### Opal Room Management System (ORMS)
 
-- [Project Page](https://gitlab.com/opalmedapps/ORMS)
+* [Project Page](https://gitlab.com/opalmedapps/ORMS)
 
 ORMS provides the waiting room management system as well as a live clinician dashboard.
 The latter allows clinicians to look at their answered questionnaires, vital sign data collected from smart devices etc.
 
 ### User Registration
 
-- [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
-- [Production Registration](https://registration.opalmedapps.ca)
+* [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
+* [Production Registration](https://registration.opalmedapps.ca)
 
 The registration websites provides a user (caregiver) the ability to create their Opal account.
 In order to use the registration website, a caregiver has to request access to a patient's data at the hospital.
@@ -166,7 +166,7 @@ Using the registration code and the patient's identification number (RAMQ or MRN
 
 ### Web and Mobile App
 
-- [Project Page](https://gitlab.com/opalmedapps/qplus)
+* [Project Page](https://gitlab.com/opalmedapps/qplus)
 
 The web and mobile app provide caregivers the ability to access patient data for the patients under their care.
 The mobile app is the same as the web app.
@@ -177,7 +177,7 @@ The mobile app supports additional features native to mobile devices, such as lo
 
 #### Database Migrations and Initial Data
 
-- [Project Page](https://gitlab.com/opalmedapps/db-docker/)
+* [Project Page](https://gitlab.com/opalmedapps/db-docker/)
 
 Historically, the legacy components of Opal did not maintain migrations of the database schema.
 Migrations and initial data (to set up Opal at a new hospital) is maintained in this separate component.
@@ -191,21 +191,21 @@ It is only necessary to run this during setup and upgrade.
 
 #### Highcharts Export Server
 
-- [Official Project Page](https://github.com/highcharts/node-export-server)
-- [Project Page](https://gitlab.com/opalmedapps/highcharts-export-server/)
+* [Official Project Page](https://github.com/highcharts/node-export-server)
+* [Project Page](https://gitlab.com/opalmedapps/highcharts-export-server/)
 
 Highcharts Export Server is used to generate graphs for inclusion into PDF reports.
 We maintain a project that builds a Docker image for this component.
 
 #### memcached
 
-- [Project Page](https://memcached.org/)
+* [Project Page](https://memcached.org/)
 
 Memcached is used by _ORMS_ to store user sessions in memory.
 
 #### Redis
 
-- [Project Page](https://redis.io/)
+* [Project Page](https://redis.io/)
 
 Redis is used by _Opal Labs_ to cache patients being processed to avoid sending caregivers multiple push notification times when batch processing.
 
@@ -215,8 +215,8 @@ Firebase is used to accomplish getting data out and in to the hospital to the us
 
 Opal makes use of two Firebase services:
 
-- [_Authentication_](https://firebase.google.com/docs/auth) is used for user accounts (via email and password).
-- [_Realtime Database_](https://firebase.google.com/docs/database) is used to pass requests and responses between user applications and the Opal PIE.
+* [_Authentication_](https://firebase.google.com/docs/auth) is used for user accounts (via email and password).
+* [_Realtime Database_](https://firebase.google.com/docs/database) is used to pass requests and responses between user applications and the Opal PIE.
 
 A Firebase user account is created when a user completes the user registration for the first time.
 The Firebase Realtime Database acts as a kind of queue for sending requests and receiving responses.

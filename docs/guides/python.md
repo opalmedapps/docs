@@ -1,6 +1,5 @@
 # Python
 
-
 ## Code Style
 
 * [PEP 8 — the Style Guide for Python Code](https://pep8.org/)
@@ -13,16 +12,12 @@
     * [Type hints cheat sheet (Python 3) — Mypy documentation](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
     * [Support for type hints — Python 3 documentation](https://docs.python.org/3/library/typing.html)
 
-
 ## Type Checking
-
-
 
 * Static type checking is performed using [mypy](http://www.mypy-lang.org/)
 * To fully leverage this, type hints should be added to all code (this is enforced by mypy)
 * This also helps the IDE in providing appropriate help when writing code
 * A lot of Python packages support type hints and provide mypy types declarations (e.g., there is a `types-requests` package for `requests`, mypy will warn about this when run)
-
 
 ## Unit Testing
 
@@ -32,11 +27,9 @@ Additionally, mocking can be done using the additional pytest plugin [pytest-moc
 
 For complex migrations in Django that require Python code to run, there is the plugin [django-test-migrations](https://github.com/wemake-services/django-test-migrations) which allows to accomplish this.
 
-
 ## (Upgrading) Dependencies
 
 If not already done by an automatic dependency checker (see above), dependencies can be upgraded via [pip-upgrader](https://github.com/simion/pip-upgrader).
-
 
 ## Django Migrations
 
