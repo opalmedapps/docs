@@ -27,7 +27,7 @@ These components consist of the user registration web application to create user
 
 ### Overview of User Applications
 
-The following container diagram focusses on the user applications that users (caregivers) use with Opal.
+The following container diagram focuses on the user applications that users (caregivers) use with Opal.
 
 ```plantuml source="docs/architecture/diagrams/container_diagram_user.puml"
 ```
@@ -211,7 +211,8 @@ Redis is used by _Opal Labs_ to cache patients being processed to avoid sending 
 
 ## Communication between user applications and the Opal PIE
 
-Firebase is used to accomplish getting data out and in to the hospital to the user applications.
+Hospital networks are typically not accessible from the outside.
+Firebase is used to support passing data from within the hospital firewall to the user application and vice versa.
 
 Opal makes use of two Firebase services:
 
@@ -221,7 +222,7 @@ Opal makes use of two Firebase services:
 A Firebase user account is created when a user completes the user registration for the first time.
 The Firebase Realtime Database acts as a kind of queue for sending requests and receiving responses.
 
-The Opal PIE establishes an outgoing connecting to Firebase to observe the Realtime Database for changes.
+The Opal PIE establishes an outgoing connection to Firebase to observe the Realtime Database for changes.
 Any time a new request is added by a user application it is notified of this change and handles the request.
 The response for the request is placed into the Realtime Database and the user application–which is notified of the response–reads and handles the response.
 

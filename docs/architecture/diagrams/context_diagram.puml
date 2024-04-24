@@ -7,7 +7,7 @@ Person(caregiver, "Caregiver", "A caregiver of a patient or the patient themselv
 System_Ext(email, "Email Service", "used to send emails to users (via SMTP)")
 System_Ext(twilio, "Twilio", "used to send SMS to users")
 
-Boundary(hospital, "Hospital") {
+Boundary(hospital, "Hospital", "within the hospital network") {
     Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of many roles, such as medical records, clerk, clinician etc.")
     System(opal, "Opal Solution", "The Opal solution consisting of the Opal Patient Information Exchange (PIE) deployed within a hospital and the user applications to access data")
     System_Ext(source_system, "Hospital Source System")
