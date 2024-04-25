@@ -4,7 +4,7 @@
 title Container diagram for the Opal Patient Information Exchange (PIE)
 
 AddElementTag("legacy", $bgColor="#123456", $borderColor="yellow", $legendText="Legacy components whose functionality will be added to backend over time")
-AddElementTag("reused", $bgColor="#ccc", $legendText="Reused components")
+AddElementTag("reused", $bgColor="#ccc", $legendText="Reused third-party component")
 
 ' TODO: separate them into Medical Records, Clerk, Clinician etc.?
 Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of many roles, such as medical records, clerk, clinician etc.")
