@@ -236,4 +236,6 @@ TBC
 
 https://gitlab.com/opalmedapps/qplus
 
-[^1]: We consider a caregiver to also include the patient. In that case they are caring for themself.
+[^1]:
+    We consider a caregiver to also include the patient.
+    In that case they are caring for themself.
