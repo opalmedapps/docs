@@ -2,3 +2,5 @@
 
 ignores:
   - ".gitlab/merge_request_templates/Default.md"
+
+gitignore: true
