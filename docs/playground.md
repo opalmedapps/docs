@@ -23,8 +23,9 @@ For full documentation visit:
 
 ## Footnotes
 
-Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit[^2]. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit[^2].
+Nulla et euismod nulla.
+Curabitur feugiat, tortor non consequat finibus, justo purus auctor
 massa, nec semper lorem quam in massa.
 
 ## Code blocks
@@ -76,29 +77,36 @@ The `#!python range()` function is used to generate a sequence of numbers.
 
 !!! note "Example"
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
 
 ???+ note "Example"
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nulla et euismod
+    nulla.
+    Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
 
 !!! info inline end
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nulla et euismod
+    nulla.
+    Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Nulla et euismod nulla.
+Curabitur feugiat, tortor non consequat finibus, justo purus auctor
 massa, nec semper lorem quam in massa.
 
 [^1]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 [^2]:
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
