@@ -74,12 +74,12 @@ The following diagrams were initially produced using the Django app [`django-mod
 
 Some of the tables shown are an excerpt and do not contain all columns (denoted with `...` at the bottom).
 
-```plantuml source="docs/diagrams/userdata_legacy.puml"
+```plantuml source="docs/architecture/diagrams/migration/userdata_legacy.puml"
 ```
 
 #### Backend
 
-```plantuml source="docs/diagrams/userdata_backend.puml"
+```plantuml source="docs/architecture/diagrams/migration/userdata_backend.puml"
 ```
 
 *[MVP]: Minimal Viable Product
