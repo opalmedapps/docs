@@ -13,6 +13,13 @@ repos:
       - id: check-toml
       - id: check-xml
       - id: check-yaml
+        # exclude mkdocs.yml because it contains custom tags
+        exclude: ^mkdocs\.yml$
+      # check yaml only for syntax (some contain unrecognized tags)
+      - id: check-yaml
+        name: check-yaml syntax only
+        args: ["--unsafe"]
+        files: ^mkdocs\.yml$
       - id: detect-private-key
       - id: end-of-file-fixer
 
