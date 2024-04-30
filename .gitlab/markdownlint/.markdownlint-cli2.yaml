@@ -1,5 +1,15 @@
 # https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2yaml
 
+# additional configuration to the config in the root of the project
+# this additional config is used during the markdownlint CI job
+
+# use custom rule contained in supplementary rules image as a workaround
+# more details: https://github.com/DavidAnson/vscode-markdownlint/issues/336
+# customRules:
+  # Enforce one sentence per line
+  # See: https://github.com/DavidAnson/markdownlint/pull/719
+  # - "markdownlint-rule-max-one-sentence-per-line"
+
 outputFormatters:
   - - markdownlint-cli2-formatter-default
   - - markdownlint-cli2-formatter-codequality
