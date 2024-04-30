@@ -21,7 +21,7 @@ By default the Audit Plugin logs all events in the format
 
 This guide provides a breakdown of some of the audit ‘tuning’ that can be done with this plugin.
 
-All configurations are set in the mariadb.conf file for the database. For local developers, this file is located in the db-docker repository. For our live development environments, each database has its own .conf file on the database server (lxvmri04).
+All configurations are set in the mariadb.conf file for the database. For local developers, this file is located in the db-docker repository. For our live development environments, each environment’s database has its own .conf file on the database server (lxvmri04).
 
 We can choose to capture all audit events, or exclude some depending on our requirements in each development environment (and the space these audit files require)
 
