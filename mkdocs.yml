@@ -38,6 +38,7 @@ nav:
   - Extra:
       - Generate Self Signed Certificates: guides/self_signed_certificates.md
       - Playground: playground.md
+      - Data Auditing: auditing.md
 
 # Configuration
 theme:
