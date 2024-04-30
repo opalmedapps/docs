@@ -4,7 +4,7 @@ This document describes the frameworks and configurations used for auditing of o
 
 ## Django EasyAudit App
 
-For any data stored in the newer Django database schema, auditing is handled by the Django EasyAudit App.  EasyAudit covers auditing of database CRUD events, application login events, and server request events. All data can be viewed/searched from the django administration panel, or directly in the django database schema in the easyaudit_* tables.
+For any data stored in the newer Django database schema, auditing is handled by the [Django EasyAudit App](https://github.com/soynatan/django-easy-audit).  EasyAudit covers auditing of database CRUD events, application login events, and server request events. All data can be viewed/searched from the django administration panel, or directly in the django database schema in the easyaudit_* tables.
 
 We have configured the easy audit system to disallow delete events on audit data and to disable user existence checks on the database. We also append POST request parameters to RequestEvent objects specifically for the Questionnaire Export feature to allow for better visibility on what data has been exported from the OpalAdmin system.
 
@@ -12,16 +12,16 @@ We have configured the easy audit system to disallow delete events on audit data
 
 This section describes auditing frameworks and procedures for legacy database OpalDB, QuestionnaireDB, and OrmsDatabase.
 
-As of MariaDB 5.5.34, there is a built-in configurable audit system to capture all database-level interactions with MariaDB installations. In May of 2024 we switched to using this audit plugin to replace both the ORMS System Versioning, which was causing increasing query slowness and table locking, as well as the OpalDB MH table system which is cumbersome to maintain compared to the audit plugin.
+[As of MariaDB 5.5.34](https://mariadb.com/kb/en/mariadb-audit-plugin/), there is a built-in configurable audit system to capture all database-level interactions with MariaDB installations. In May of 2024 we switched to using this audit plugin to replace both the ORMS [System Versioning](https://mariadb.com/kb/en/system-versioned-tables/), which was causing increasing query slowness and table locking, as well as the OpalDB MH table system which is cumbersome to maintain compared to the audit plugin.
 
 By default the Audit Plugin logs all events in the format
 `Timestamp, MySQL host, database user, host connected from, connection ID, thread ID, operation, database name, SQL statement, return code`
 
 ### Audit Tuning
 
-This guide provides a breakdown of some of the audit ‘tuning’ that can be done with this plugin.
+[This guide provides a breakdown of some of the audit ‘tuning’ that can be done with this plugin.](https://severalnines.com/blog/tips-and-trick-using-audit-logging-mariadb/)
 
-All configurations are set in the mariadb.conf file for the database. For local developers, this file is located in the db-docker repository. For our live development environments, each environment’s database has its own .conf file on the database server (lxvmri04).
+All configurations are set in the mariadb.conf file for the database. For local developers, this file is located in the [db-docker repository](https://gitlab.com/opalmedapps/db-docker/-/blob/main/config/mariadb.cnf?ref_type=heads). For our live development environments, each environment’s database has its own .conf file on the database server (lxvmri04).
 
 We can choose to capture all audit events, or exclude some depending on our requirements in each development environment (and the space these audit files require)
 
