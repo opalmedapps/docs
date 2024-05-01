@@ -3,7 +3,7 @@
 The Opal solution has organically evolved over time since its inception.
 In order to simplify the architecture and reduce accidental complexity we started a process to migrate functionality in legacy components over time to the _backend_ (using Python and the Django web framework).
 At the same time, this helps to move away from old technology.
-See the [high-level architecture](architecture.md#high-level-architecture) for more details on the current architecture and future vision.
+See the [high-level architecture](index.md#high-level-architecture) for more details on the current architecture and future vision.
 
 ## Migrating Legacy Components using the Strangler Fig Pattern
 
@@ -32,7 +32,7 @@ More details about this pattern can be found in the resources below.
 
 ## Migration Process
 
-As outlined in the [future vision](architecture.md#future-vision) the goal is that all functionality will be migrated to the _Backend_ component.
+As outlined in the [future vision](index.md#future-vision) the goal is that all functionality will be migrated to the _Backend_ component.
 The backend is operated in parallel and was established to provide new functionality, such as hospital settings, caregivers and their relationships to patients, caregiver management, email verification for the registration etc.
 
 Before the migration process began, Opal only supported a one-to-one relationship between a patient and user.
