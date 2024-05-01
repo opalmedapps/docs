@@ -1,6 +1,6 @@
 # Migration to Django
 
-As part of the migration using the [Strangler Fig pattern](../strangler_fig.md) and to support the Patient-Caregiver functionality, some specific data needs to be moved to the Django-based backend in the first step.
+As part of the migration using the [Strangler Fig pattern](strangler_fig.md) and to support the Patient-Caregiver functionality, some specific data needs to be moved to the Django-based backend in the first step.
 For now, this is mostly user-specific and registration related data.
 
 ## Overview
@@ -74,12 +74,12 @@ The following diagrams were initially produced using the Django app [`django-mod
 
 Some of the tables shown are an excerpt and do not contain all columns (denoted with `...` at the bottom).
 
-```plantuml source="docs/architecture/diagrams/migration/userdata_legacy.puml"
+```plantuml source="docs/development/architecture/diagrams/migration/userdata_legacy.puml"
 ```
 
 #### Backend
 
-```plantuml source="docs/architecture/diagrams/migration/userdata_backend.puml"
+```plantuml source="docs/development/architecture/diagrams/migration/userdata_backend.puml"
 ```
 
 *[MVP]: Minimal Viable Product
