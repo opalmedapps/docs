@@ -44,6 +44,7 @@ nav:
 # Configuration
 theme:
   name: material
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#system-preference
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -54,11 +55,12 @@ theme:
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: red
-      accent: red
+      primary: black
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
   font:
     text: Roboto
     code: Roboto Mono
