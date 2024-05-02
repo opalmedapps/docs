@@ -55,6 +55,7 @@ _Legacy_ refers to the legacy backend (stored in the legacy database _OpalDB_) a
 | Hospital Patient | `Patient_Hospital_Identifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance |
 | Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions |
 | Security Answer | **Deprecated:** `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model to support user-defined questions in the future. |
+| Device | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data | `Device` model: Currently unused |
 | User (Staff) | `OAUser` table: Contains all users who can log in to OpalAdmin | The `ClinicalStaff` model is a type of `User` which contains all users. |
 
 #### Diagrams
