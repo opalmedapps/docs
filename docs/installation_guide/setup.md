@@ -1,7 +1,7 @@
 # Set up a local development environment
 
 The current supported way is to set up everything locally on your machine.
-This guide is split into several aspects of the [Opal solution](architecture/index.md#high-level-architecture) because some components are less frequently worked on.
+This guide is split into several aspects of the [Opal solution](index.md#high-level-architecture) because some components are less frequently worked on.
 
 ## Supported operating systems
 
@@ -142,7 +142,7 @@ those mentioned as being excluded below.
 
 You must have successfully completed Part 1 (qplus Installation) before following Part 2. Part 2 will help you set up a complete local development copy of Opal. This means that you will have the frontend app, firebase, listener and database all running together on your computer.
 
-Follow the instructions on the [backend installation](./backend-installation.md) page.
+Follow the instructions on the [backend installation](./backend.md) page.
 
 ### Optional Projects
 

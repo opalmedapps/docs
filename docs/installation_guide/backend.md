@@ -36,7 +36,7 @@ You may need to jump between the README and this guide as you go.
 
 Firebase is essential for enabling communication between the app and the backend components, especially when the backend is deployed within a hospital network. Set up a personal Firebase project to integrate this functionality.
 
-- The user applications [communicate via Firebase](architecture/index.md#communication-between-user-applications-and-the-opal-pie) with the _Opal PIE_.
+- The user applications [communicate via Firebase](index.md) with the _Opal PIE_.
   You are welcome to use another container engine.
   However, all the commands shown in our instructions are specific to `docker` and `docker compose`.
 
@@ -339,7 +339,7 @@ Using HeidiSQL:
 
 - Configure a session to connect to your localhost (this will connect to MySQL running on XAMPP/MAMP):
   ![HeidiSQL localhost session: Network type = MySQL (TCP/IP); library = libmariadb.dll; hostname / IP = 127.0.0.1;
-user = root, password = empty field, port = 3306, leave defaults everywhere else](./images/heidiSQL-localhost-session.png)
+user = root, password = empty field, port = 3306, leave defaults everywhere else]
 - Open the session.
 - Click `File` > `Run SQL file...`.
 - Run the OpalDB file saved in your `database` folder.
