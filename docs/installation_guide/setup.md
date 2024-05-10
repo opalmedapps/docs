@@ -71,7 +71,7 @@ Here is the recommended file structure for your Opal installation.
 
 Then follow these steps to clone all repositories at once under the group `opalmedapps` using `glab` :
 
-1. **Install Glab**  
+1. **Install Glab**
    Open your terminal and install `glab` by running the following command:
 
    ```bash
@@ -103,7 +103,7 @@ To run the application locally, you will need to set up the following required p
 Required project for Frontend:
 
 - **qplus**: The mobile app component.
-  
+
 Required project for Backend (Complete installation):
 
 - **qplus**: The mobile app component.
