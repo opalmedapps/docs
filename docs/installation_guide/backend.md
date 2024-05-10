@@ -9,7 +9,6 @@ Please note that to follow these instructions, you must have already installed t
 ### Backend
 
 Follow the Backend [`README`](https://gitlab.com/opalmedapps/backend) to set it up. 
-To-do: there are some place in the `README` need to be update!!!
 
 ### Listener
 
@@ -18,7 +17,7 @@ make sure you have clone [the opal-listener repository](https://gitlab.com/opalm
 The listener can be set up and run one of two ways:
   1. Using Docker (preferred way)
    
-  2. Direct installation (run using Node)
+  2. Direct installation (run using Node, not suggested)
 
 #### Docker
 
@@ -35,7 +34,7 @@ Firebase is essential for enabling communication between the app and the backend
     However, all the commands shown in our instructions are specific to  `docker` and `docker compose`.
 
 
-#### Create a Firebase Project
+### Create a Firebase Project
 
 Since Firebase is a Google product, if you have a Google account, you automatically have a Firebase account. 
 Log into Google and open the [Firebase Console](https://console.firebase.google.com/). Be aware that the steps below may change slightly as Firebase updates its UI.
@@ -99,7 +98,7 @@ Note: if you prefer to install the databases directly (without Docker), see the 
 ### Connect the Listener to the Database and to Firebase
 
 At this point, you have all the pieces of your installation, and it's time to connect them together. 
-Connect the listener to the database and to Firebase by setting up its configuration file, `config.json`, as explained below.
+Connect the listener to the database and to Firebase by setting up its configuration file, copy `.env.sample`, as `.env`.
 
 If you're setting up your listener using Docker, follow the remaining instructions in the listener README.
 In particular, a Docker setup requires a different `FIREBASE_ADMIN_KEY` value than the one provided below.
