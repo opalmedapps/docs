@@ -59,7 +59,7 @@ In your Firebase project, click on `Database` in the left panel. Scroll down to 
 (_DO NOT_ create a Cloud Firestore). In the popup "Security rules for Realtime Database", select "Start in test mode".
 Then, navigate to the "Rules" tab of your new Realtime Database and enter the following:
 
-```
+```text
 {
   "rules": {
     ".read": "auth.uid !== null",
@@ -197,7 +197,7 @@ for help.
 
 If everything appears to be running correctly, try logging in using the test account credentials:
 
-```
+```text
 email: muhc.app.mobile@gmail.com
 password: 12345Opal!!
 hospital: McGill University Health Centre (MUHC)
@@ -215,7 +215,7 @@ Then, simply log out and log back into the app, and watch your change appear!
 Clincal notes are stored externally in the Opal system (not in OpalDB), which means that in order to access clinical notes, you will need to specify a path for them.
 Without this path, trying to open a clinical note in Opal will cause the following error to be displayed:
 
-```
+```text
 Error obtaining document from server
 ```
 
@@ -224,7 +224,7 @@ If this is the case, you can set up dummy clinical notes as follows:
 
 1. In your Opal `Installation` folder, create a sub-folder called `clinical-notes`, at the same level as `opal-listener`, i.e. as follows:
 
-    ```
+    ```text
     └─── Installation
               ├─── clinical-notes
               ├─── opal-listener
@@ -234,7 +234,7 @@ If this is the case, you can set up dummy clinical notes as follows:
 
 2. In your opal-listener, add the following value to the `DOCUMENTS_PATH` variable in `config.json`:
 
-    ```
+    ```text
       "DOCUMENTS_PATH": "<Path to your clinical-notes folder, using forward slashes, not back slashes, and ending in a forward slash>",
     ```
 
@@ -257,7 +257,7 @@ The information below is provided as an additional reference.
 
 XAMPP
 
-```
+```text
 HOST: localhost
 PORT: 3306
 USER: root
@@ -266,7 +266,7 @@ PASSWORD:
 
 MAMP
 
-```
+```text
 HOST: localhost
 PORT: [3306|8889]
 USER: root
@@ -280,7 +280,7 @@ Make sure you have installed XAMPP or MAMP. If you have MAMP, make sure to use M
 If using XAMPP (MySQL/MariaDB on Windows), configure MySQL/MariaDB to support [uppercase letters in table names](https://mariadb.com/docs/reference/mdb/system-variables/lower_case_table_names/). This is done by adding the following line under `[mysqld]`
 in the file `my.ini`:
 
-```
+```text
 lower_case_table_names=2
 ```
 
@@ -299,7 +299,7 @@ In this case, contact an Opal team member for help.). If they aren't commented o
 the database file to let them know, or comment them out yourself. If you decide to comment them out yourself, comment out the entire
 surrounding block. For example, in the code snippet below, you would comment out the entire "Step 3" `if` block:
 
-```
+```text
   ...
   set wsDS_Area = 'No';
   end if;

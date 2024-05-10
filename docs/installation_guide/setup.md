@@ -64,7 +64,7 @@ This guide outlines the essential and recommended software required for developi
 
 Here is the recommended file structure for your Opal installation.
 
-```
+```text
 <root folder>
 └─── Opal
 ```
