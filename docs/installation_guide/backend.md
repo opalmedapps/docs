@@ -6,9 +6,14 @@ Please note that to follow these instructions, you must have already installed t
 
 ## Opal Backend
 
+During the installation, it's necessary to initialize test data in both the backend and db-docker. Firebase users must also be initialized by running `node ./initialize_users.js` within the listener container.
+
 ### Backend
 
 Follow the Backend [`README`](https://gitlab.com/opalmedapps/backend) to set it up. 
+
+#### Setup Order
+Initialize the backend project before setting up the listener. Use `python manage.py initialize_data` and `python manage.py insert_test_data OMI` to get the required tokens.
 
 ### Listener
 
