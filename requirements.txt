@@ -1,4 +1,4 @@
 mkdocs-material==9.5.22  # https://github.com/squidfunk/mkdocs-material
 mkdocs-git-revision-date-localized-plugin==1.2.5  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
-plantuml-markdown==3.9.6  # https://github.com/mikitex70/plantuml-markdown
+plantuml-markdown==3.9.7  # https://github.com/mikitex70/plantuml-markdown
 mkdocs-glightbox==0.4.0  # https://github.com/blueswen/mkdocs-glightbox
