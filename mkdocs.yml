@@ -1,9 +1,11 @@
 # Project information
-site_name: O-HIG Developer Documentation
+#
+site_name: Opal Documentation
 site_url: https://opalmedapps.gitlab.io/docs
 site_author: Opal Health Informatics Group (O-HIG)
 
 # Repository
+# https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
 repo_name: opalmedapps/docs
 repo_url: https://gitlab.com/opalmedapps/docs
 edit_uri: edit/main/docs/
@@ -14,34 +16,34 @@ copyright: Copyright &copy; Opal Health Informatics Group (O-HIG)
 # Content
 nav:
   - Home: index.md
-  - Software Versions: software_versions.md
-  - Architecture:
-    - Overview: architecture.md
-    - Migration: architecture/migration.md
-    - Registration Process: architecture/registration.md
-  - Best Practices:
-    - Overview: best_practices.md
-    - Code Review: code_review.md
-    - Diagrams: best_practices/diagrams.md
-  - Strangler Fig: strangler_fig.md
-  - Onboarding: onboarding.md
-  - Language Guides:
-      - Docker: guides/docker.md
-      - Python: guides/python.md
-      - JavaScript: guides/javascript.md
-  - Testing Guides:
-      - Registration: testing/registration.md
-      - App: testing/app.md
-  - Training:
-      - Sequence Diagrams: training/sequence_diagrams.md
+  - User Guide:
+    - user/index.md
+  - Contribute:
+    - development/index.md
+    - Architecture:
+      - development/architecture/index.md
+      - development/architecture/migration.md
+      - Registration Process: development/architecture/registration.md
+    - Best Practices:
+      - Overview: development/best_practices/best_practices.md
+      - Code Review: development/best_practices/code_review.md
+      - Diagrams: development/best_practices/diagrams.md
+    - Guides:
+      - Languages and Tools:
+          - Docker: development/guides/docker.md
+          - Python: development/guides/python.md
+          - JavaScript: development/guides/javascript.md
+      - Testing:
+          - Registration: development/guides/testing/registration.md
+          - App: development/guides/testing/app.md
+      - Sequence Diagrams: development/guides/sequence_diagrams.md
+      - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
   - Changelog: changelog.md
-  - Extra:
-      - Generate Self Signed Certificates: guides/self_signed_certificates.md
-      - Playground: playground.md
 
 # Configuration
 theme:
   name: material
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#system-preference
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -52,26 +54,29 @@ theme:
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: red
-      accent: red
+      primary: black
+      accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
   font:
-    # TODO: host locally
-    # see: https://fonts.google.com/specimen/Roboto
-    # see: https://fonts.google.com/specimen/Roboto+Mono
     text: Roboto
     code: Roboto Mono
   language: en
   icon:
     logo: material/book-open-page-variant
-    # repo: fontawesome/brands/gitlab
+  # https://squidfunk.github.io/mkdocs-material/setup/
   features:
-    # - navigation.instant
-    # - navigation.tabs
+    - content.action.edit
+    - content.action.view
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
+    - navigation.indexes
+    - toc.follow
     - search.highlight
+    - content.code.copy
 
 # Plugins
 # https://squidfunk.github.io/mkdocs-material/plugins/
@@ -116,18 +121,22 @@ markdown_extensions:
   - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.details
+  # Code Blocks
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink
-  - pymdownx.mark
   - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -141,5 +150,4 @@ markdown_extensions:
 
 
 watch:
-  - README.md
   - CHANGELOG.md
