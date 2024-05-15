@@ -3,7 +3,7 @@
 The Opal solution has organically evolved over time since its inception.
 In order to simplify the architecture and reduce accidental complexity we started a process to migrate functionality in legacy components over time to the _backend_ (using Python and the Django web framework).
 At the same time, this helps to move away from old technology.
-See the [high-level architecture](architecture.md#high-level-architecture) for more details on the current architecture and future vision.
+See the [high-level architecture](index.md#high-level-architecture) for more details on the current architecture and future vision.
 
 ## Migrating Legacy Components using the Strangler Fig Pattern
 
@@ -32,7 +32,7 @@ More details about this pattern can be found in the resources below.
 
 ## Migration Process
 
-As outlined in the [future vision](architecture.md#future-vision) the goal is that all functionality will be migrated to the _Backend_ component.
+As outlined in the [future vision](index.md#future-vision) the goal is that all functionality will be migrated to the _Backend_ component.
 The backend is operated in parallel and was established to provide new functionality, such as hospital settings, caregivers and their relationships to patients, caregiver management, email verification for the registration etc.
 
 Before the migration process began, Opal only supported a one-to-one relationship between a patient and user.
@@ -66,12 +66,12 @@ The following diagrams were initially produced using the Django app [`django-mod
 
 Some of the tables shown are an excerpt and do not contain all columns (denoted with `...` at the bottom).
 
-```plantuml source="docs/architecture/diagrams/migration/userdata_legacy.puml"
+```plantuml source="docs/development/architecture/diagrams/migration/userdata_legacy.puml"
 ```
 
 ##### Backend
 
-```plantuml source="docs/architecture/diagrams/migration/userdata_backend.puml"
+```plantuml source="docs/development/architecture/diagrams/migration/userdata_backend.puml"
 ```
 
 ### Keeping Data in Sync

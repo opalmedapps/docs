@@ -74,5 +74,5 @@ sequenceDiagram
 
 This reflects the currently envisioned flow with the new OpalAdmin/Backend via the listener's new API request functionality.
 
-```plantuml source="docs/architecture/diagrams/registration.puml"
+```plantuml source="docs/development/architecture/diagrams/registration.puml"
 ```
