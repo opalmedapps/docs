@@ -1,3 +1,0 @@
-# Install Opal
-
-TBD
