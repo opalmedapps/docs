@@ -3,3 +3,7 @@ mkdocs-git-revision-date-localized-plugin==1.2.5  # https://github.com/timvink/m
 plantuml-markdown==3.9.7  # https://github.com/mikitex70/plantuml-markdown
 mkdocs-glightbox==0.4.0  # https://github.com/blueswen/mkdocs-glightbox
 mkdocs-htmlproofer-plugin==1.2.1  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin
+
+# development only dependency
+# if there are more dependencies in the future, consider moving them into a separate requirements file
+pre-commit==3.7.1  # https://github.com/pre-commit/pre-commit
