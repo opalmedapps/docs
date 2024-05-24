@@ -3,6 +3,7 @@
     "editorconfig.editorconfig",
     "redhat.vscode-yaml",
     "eamodio.gitlens",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
