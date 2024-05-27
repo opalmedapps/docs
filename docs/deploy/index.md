@@ -11,3 +11,10 @@ The user applications are deployed and maintained by the Opal Health Informatics
 ```
 
 Relationships between components on the same host are left out for brevity (except those making use of third-party components).
+
+## User Applications
+
+### Deployment diagram
+
+```plantuml source="docs/deploy/diagrams/deployment_diagram_user.puml"
+```

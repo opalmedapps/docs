@@ -44,6 +44,16 @@ Deployment_Node(hospital, "Hospital", "Hospital Network") {
     }
 }
 
+Deployment_Node(firebase, "Firebase") {
+    Container_Ext(rtd_opal, "Realtime Database", "us-central1", "Temporarily stores requests and responses from the user applications") {
+
+    }
+
+    Container_Ext(rtd_orms, "Realtime Database", "us-central1", "Temporarily stores shortened patient names to call patients via TV screens in the waiting rooms") {
+
+    }
+}
+
 Rel(browser, traefik, "Makes request\nvia browser", "HTTP/HTTPS")
 Rel(traefik, backend, "Sends requests to / to")
 Rel(traefik, opaladmin, "Sends requests to /opalAdmin to")
@@ -75,6 +85,9 @@ Rel(listener, legacy_dbs, "Reads from and writes to", "TLS")
 Rel(orms, legacy_dbs, "Reads from and writes to", "TLS")
 Rel(pdfgen, legacy_dbs, "Reads from and writes to", "TLS")
 Rel(alembic, legacy_dbs, "Reads from and writes to", "TLS", $tags="init")
+
+Rel(listener, rtd_opal, "Connects to, reads from, and writes to")
+Rel(orms, rtd_orms, "Connects to, reads from, and writes to")
 
 LAYOUT_WITH_LEGEND()
 SHOW_LEGEND()
