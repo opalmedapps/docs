@@ -1,3 +1,13 @@
-# Deploy the Opal PIE
+# Deploying the Opal solution
 
-TBD
+The Opal PIE is typically deployed in a hospital and only accessible within the hospital's network.
+The user applications are deployed and maintained by the Opal Health Informatics Group (O-HIG).
+
+## Deploying the Opal PIE
+
+### Deployment diagram
+
+```plantuml source="docs/deploy/diagrams/deployment_diagram_pie.puml"
+```
+
+Relationships between components on the same host are left out for brevity (except those making use of third-party components).
