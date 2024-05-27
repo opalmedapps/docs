@@ -1,0 +1,44 @@
+@startuml Opal PIE Deployment
+!include <C4/C4_Deployment>
+
+title Deployment diagram for the Opal user applications
+
+Deployment_Node(mobile, "User mobile device", "iOS or Android") {
+    Container(app, "Mobile app", "Cordova", "The web app turned into a mobile app using cordova which uses mobile device features (e.g., location, share sheet etc.)")
+}
+
+Deployment_Node(browser, "User browser", "Firefox, Chrome, Edge etc.") {
+    Container(spa, "Web App", "Single Page Application")
+    Container(registration_spa, "User Registration", "Single Page Application")
+}
+
+Deployment_Node(hosting, "Web Hosting", "Shared web hosting") {
+    Deployment_Node(apache, "Web Server", "Apache") {
+        Container(webapp, "Web app", "", "Delivers the static content and the web app single page application")
+        Container(registration, "User Registration", "", "Delivers the static content and the registration single page application")
+    }
+}
+
+Deployment_Node(firebase, "Firebase") {
+    Container_Ext(rtd, "Realtime Database", "us-central1") {
+
+    }
+
+    Container_Ext(auth, "Authentication") {
+
+    }
+}
+
+Rel(webapp, spa, "Delivers to the user's browser")
+Rel(registration, registration_spa, "Delivers to the user's browser")
+
+Rel(app, firebase, "Connects to, authenticates with, and reads from and writes to")
+Rel(spa, firebase, "Connects to, authenticates with, and reads from and writes to")
+Rel(registration_spa, firebase, "Connects to, authenticates with, and reads from and writes to")
+
+LAYOUT_LEFT_RIGHT()
+SHOW_LEGEND()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml
