@@ -79,9 +79,6 @@ opt no existing Firebase account exists
 end
 
 BE -> API: complete registration
-note right of API: also handles a new patient, existing users\nand informing other services about a new patient
-
-BE -> BE: send confirmation email
-note right of BE: TODO: move this to the backend
+note right of API: also handles a new patient, existing users\nand informing other services about a new patient. \nSend confirmation email at the end of registration.
 
 @enduml
