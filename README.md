@@ -54,6 +54,12 @@ If you are using Visual Studio Code, the [markdownlint vscode extension](https:/
 
 Linting is performed when you make a commit (via the `pre-commit` hooks) and in CI.
 
+We also enforce [semantic line breaks](https://sembr.org).
+This makes it easier to read in source and also easier to review changes to the text.
+
+**Note:** This is an additional rule for `markdownlint`.
+    Due to a [limitation](https://github.com/DavidAnson/vscode-markdownlint/issues/336) with the vscode extension this rule is currently only enabled in CI.
+
 ### Adding a new page
 
 When you add a new page, you must add it to the `nav` section in `mkdocs.yml` in order for it to appear in the navigation menu.
