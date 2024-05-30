@@ -212,7 +212,7 @@ Redis is used by _Opal Labs_ to cache patients being processed to avoid sending 
 ## Communication between user applications and the Opal PIE
 
 Hospital networks are typically not accessible from the outside.
-Firebase is used to support passing data from within the hospital firewall to the user application and vice versa.
+Firebase is used to support passing data from within the hospital firewall to the user applications and vice versa.
 
 Opal makes use of two Firebase services:
 
