@@ -47,7 +47,8 @@ sequenceDiagram
 
 ## Registration Web Page Encryption/Decryption
 
-The encryption/decryption details are omitted in the diagram in the next section for brevity. The following diagram provides these details.
+The encryption/decryption details are omitted in the diagram in the next section for brevity.
+The following diagram provides these details.
 
 ```mermaid
 sequenceDiagram

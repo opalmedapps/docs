@@ -18,3 +18,17 @@ MD046: false
 # Allow same heading name if the parent is different
 MD024:
   siblings_only: true
+
+max-one-sentence-per-line:
+  # ignore admonition syntax
+  # see: https://github.com/aepfli/markdownlint-rule-max-one-sentence-per-line/pull/52/files#r1579994724
+  ignored_words:
+    - "ie"
+    - "i.e"
+    - "eg"
+    - "e.g"
+    - "etc"
+    - "ex"
+    - "!!"
+    - "??"
+    - "vs"

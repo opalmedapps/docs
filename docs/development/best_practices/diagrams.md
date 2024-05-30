@@ -7,7 +7,9 @@ This allows us to track any diagram changes in any version control system.
 In addition, this provides us the ability to review changes to diagrams before merging them (if necessary).
 And, it is possible to automate their use or export into different formats.
 
-Our main tool for creating diagrams is [PlantUML](https://plantuml.com) because there exists an extension for the [C4 model](https://c4model.com) for architecture diagrams. Another great diagramming tool is [Mermaid](https://mermaid.js.org/). It has a great [live editor](https://mermaid.live) and, as a distinct feature, supports Git commit graphs.
+Our main tool for creating diagrams is [PlantUML](https://plantuml.com) because there exists an extension for the [C4 model](https://c4model.com) for architecture diagrams.
+Another great diagramming tool is [Mermaid](https://mermaid.js.org/).
+It has a great [live editor](https://mermaid.live) and, as a distinct feature, supports Git commit graphs.
 
 !!! tip
     [GitLab also supports both PlantUML and Mermaid](https://docs.gitlab.com/ee/user/markdown.html#diagrams-and-flowcharts).
@@ -81,20 +83,22 @@ Fortunately, there are extensions for IDEs that provide code completion and synt
 
 PlantUML can be extended to support additional diagrams.
 
-A great extension is for the *C4 Model*. See the [C4-PlantUML GitHub repository](https://github.com/plantuml-stdlib/C4-PlantUML).
+A great extension is for the *C4 Model*.
+See the [C4-PlantUML GitHub repository](https://github.com/plantuml-stdlib/C4-PlantUML).
 
 ## Notation Tips
 
 The following notation tips are extracted from the talk "*Visualising software architecture with the C4 model*" by Simon Brown ([YouTube](https://www.youtube.com/watch?v=x2-rSnhpw0g&t=1219s)):
 
-* Titles: Short and meaningful, include the diagram type, numbered if diagram order is important. Example: System Context diagram for Financial Risk System
+* Titles: Short and meaningful, include the diagram type, numbered if diagram order is important.
+  Example: System Context diagram for Financial Risk System
 * Layout
 * Visual consistency: Try to be consistent with notation and element positioning across diagrams (same colour codings and shapes)
 * Acronyms: Be wary of using acronyms, especially those related to the business/domain that you work in (focus more on domain-specific/business-specific acronyms)
 * Elements: Start with simple boxes containing the element name, type, technology (if appropriate) and a description/responsibilities
 * Lines: Favour uni-directional lines showing the most important dependencies or data flow, with an annotation to be explicit about the purpose of the line and direction
     * Summarize the intent of the relationship (SPA "makes API calls using" API application)
-    * Summarize, yet be specific ("Makes API calls using" vs. Uses)
+    * Summarize, yet be specific ("Makes API calls using" vs. "Uses")
     * Show both directions when the intents are different
     * Beware of hiding the true story: "Sends customer update messages to [via Kafka topic X]"
     * Add more words to make the intent explicit ("Sends trade data to" vs. "trade data")
