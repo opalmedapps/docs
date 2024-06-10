@@ -99,6 +99,9 @@ plugins:
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin#configuring
   - htmlproofer:
       raise_error: True
+      raise_error_excludes:
+        # some URLs sporadically return a 504 (Gateway Timeout)
+        504: ["*"]
       skip_downloads: True
       ignore_urls:
         # non-public URLs
