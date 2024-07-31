@@ -19,7 +19,7 @@ The documentation is split into several parts:
 
 * `user` contains the user guide
 * `development` contains information about contributing to Opal
-* `deploy` contains information about how to deploy and run Opal
+* `deploy` contains information about how to deploy and run Opal, and how to integrate the opal services with a hospital
 
 ### Getting started
 
