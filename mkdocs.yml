@@ -38,6 +38,7 @@ nav:
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
   - Deploy:
     - deploy/index.md
+    - integration/index.md
   - Changelog: changelog.md
 
 # Configuration
