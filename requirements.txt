@@ -1,4 +1,4 @@
-mkdocs-material==9.5.29  # https://github.com/squidfunk/mkdocs-material
+mkdocs-material==9.5.30  # https://github.com/squidfunk/mkdocs-material
 mkdocs-git-revision-date-localized-plugin==1.2.6  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
 plantuml-markdown==3.9.8  # https://github.com/mikitex70/plantuml-markdown
 mkdocs-glightbox==0.4.0  # https://github.com/blueswen/mkdocs-glightbox
@@ -6,4 +6,4 @@ mkdocs-htmlproofer-plugin==1.2.1  # https://github.com/manuzhang/mkdocs-htmlproo
 
 # development only dependency
 # if there are more dependencies in the future, consider moving them into a separate requirements file
-pre-commit==3.7.1  # https://github.com/pre-commit/pre-commit
+pre-commit==3.8.0  # https://github.com/pre-commit/pre-commit
