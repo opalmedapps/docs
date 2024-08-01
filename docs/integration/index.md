@@ -52,7 +52,7 @@ Opal-labs is a small application that handles the fetching, processing, and stor
 
 #### Basic Authentication with Traefik
 
-Use the htpasswd utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the password. For example:
+Use the htpasswd utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash. For example:
 
 ```bash
 echo $(htpasswd -nB hospital_integration_engine) | sed -e s/\\$/\\$\\$/g
@@ -76,15 +76,22 @@ Opal-RMS separates private from public APIs and thus any calls to the public API
 
 ## Data Format
 
-TODO
+In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions:
+
+* As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class. The accepted data format is `application/hl7v2+er7`. If the need arises, this HL7 parsing could be extended to other endpoints in the future for data types that are typically transmitted in HL7.
+* In the `Requirements for Hospital Endpoints` section (see below), the sending of patient measurement pdfs from the wait room management system is expected to be sent with XML data containing a string endoing of the measurement pdf.
 
 ## OpenAPI Schemas for Opal Source Data
 
-In each of the opal applications there is an `openapi.yml` file providing full details of all source data endpoints that a hospital can use to send data into the Opal Application Layer. In addition, the Opal-Backend provides a swagger rendering of its openapi definition (which is generated dynamically using [drf-spectacular](https://pypi.org/project/drf-spectacular/)). The swagger page is accessible for authenticated users via `/api/schema/swagger-ui`.
+In each of the opal applications there is an `openapi.yml` file providing full details of all source data endpoints that a hospital can use to send data into the Opal Application Layer. In addition, the Opal-Backend provides a swagger rendering of its openapi definition (which is generated dynamically using [drf-spectacular](https://pypi.org/project/drf-spectacular/)). The swagger page is accessible for authenticated users via `/api/schema/swagger-ui`. For convenience, all endpoints related to integrations have been tagged with the `institution integration` label within the openapi specification.
 
 * Opal-Backend openapi.yml
-* Opal-Admin openapi.yml
-* Opal-Labs openapi.myl
-* Opal-RMS openapi.yml
+* [Opal-Admin openapi.yml](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/php/openapi.yml?ref_type=heads)
+* [Opal-Labs openapi.yml](https://gitlab.com/opalmedapps/opal-labs/-/blob/main/openapi.yml?ref_type=heads)
+* [Opal-RMS openapi.yml](https://gitlab.com/opalmedapps/ORMS/-/blob/dev/php/api/public/v1/openapi.yml?ref_type=heads)
 
 ## Requirements for Hospital Endpoints
+
+In addition to the endpoints opal provides for data integration, there are also a small number of endpoints that need to be made available to the Opal application layer to facilitate the full range of opal functionality. These endpoints should provide information like patient demographics, historical data retrieval, and patient location updates (for hospitals that have chosen to enable the `Opal-RMS` service).
+
+[We also provide an openapi specification roughly outlining what these endpoints should look like.](diagrams/openapi_hospital.yml)
