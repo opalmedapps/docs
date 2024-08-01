@@ -90,7 +90,7 @@ Opal-RMS separates private from public APIs and thus any calls to the public API
 
 In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions.
 
-* As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class. The accepted data format is `application/hl7v2+er7`. If the need arises, this HL7 parsing could be extended to other endpoints in the future for data types that are typically transmitted in HL7.
+* As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
 * In the `Requirements for Hospital Endpoints` section (see below), the sending of patient measurement pdfs from the wait room management system is expected to be sent with XML data containing a string endoing of the measurement pdf.
 
 ## OpenAPI Schemas for Opal Source Data
