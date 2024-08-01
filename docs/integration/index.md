@@ -3,7 +3,8 @@
 An institution or hospital can integrate their data sources with the opal solution through a series of REST API endpoints provided by the Opal Application layer.
 In addition, hospitals must provide some endpoints to Opal in order to facilitate patient demographic lookups, historical data fetching, etc.
 
-Opal source data APIs are provided by four subcomponents within the application layer. Those are:
+Opal source data APIs are provided by four subcomponents within the application layer.
+Those are:
 
 * [Opal-Backend](https://gitlab.com/opalmedapps/backend)
 * [Opal-Admin](https://gitlab.com/opalmedapps/opalAdmin)
@@ -35,7 +36,8 @@ curl --location 'https://{server-opal}/api/' \
 Opal-Admin refers to the legacy php system originally built to provide backend support to the Opal Administrative web applications.
 It exposes an authorization endpoint for system users, based on a basic username/password combination for that system user.
 Opal-Admin will respond to successful calls at this endpoint with an array of values corresponding to the specific system user and their preferences and permissions.
-Also included in the response will be a session/cookie string that should be appended to the headers of future request(s) to regular non-authentication endpoints. For example:
+Also included in the response will be a session/cookie string that should be appended to the headers of future request(s) to regular non-authentication endpoints.
+For example:
 
 ```bash
 curl --location 'https://{server-opal}/opalAdmin/user/system-login' \
@@ -60,13 +62,15 @@ The resulting pair can be Base64 encoded and appended to the request headers wit
 
 #### Basic Authentication with Traefik
 
-Use the htpasswd utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash. For example:
+Use the htpasswd utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash.
+For example:
 
 ```bash
 echo $(htpasswd -nB hospital_integration_engine) | sed -e s/\\$/\\$\\$/g
 ```
 
-The username and password used in the Basic Authentication header request from the hospital integration engine needs to be base64 encoded. So:
+The username and password used in the Basic Authentication header request from the hospital integration engine needs to be base64 encoded.
+So:
 
 ```bash
 echo -n 'hospital_integration_engine:$$2y$$05$$lQUmd4J/8ygoe4d4EOm6WeisBNdYFCMvBgeCkDnc2q9loUrMeEkQ.' | base64
@@ -84,7 +88,7 @@ Opal-RMS separates private from public APIs and thus any calls to the public API
 
 ## Data Format
 
-In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions:
+In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions.
 
 * As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class. The accepted data format is `application/hl7v2+er7`. If the need arises, this HL7 parsing could be extended to other endpoints in the future for data types that are typically transmitted in HL7.
 * In the `Requirements for Hospital Endpoints` section (see below), the sending of patient measurement pdfs from the wait room management system is expected to be sent with XML data containing a string endoing of the measurement pdf.
