@@ -1,0 +1,315 @@
+openapi: 3.0.0
+info:
+  title: Hospital Source Data System API
+  description: "APIs to fetch and receieve basic patient information. These API facilitates various
+   opal functionality. At a minimum, the patient demographics lookup must be supported in order for opal
+   to successfully complete a patient registration."
+  version: 1.0.0
+
+tags:
+  - name: demographics
+    description: Endpoints for accessing patient demographic information
+  - name: historical data
+    description: Endpoints for providing historical patient data for newly registered opal patients
+  - name: wait room
+    description: Endpoints for updating a hospital with waiting room management information about a patient
+
+paths:
+  /getPatientDemographics:
+    post:
+      tags:
+        - demographics
+      summary: Retrieve patient demographic information
+      description: "Fetch basic demographic details of a patient identified by MRN and site."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  description: "Patient's hospital card MRN"
+                  type: string
+                site:
+                  description: "Patient's hospital card site identifier"
+                  type: string
+              required:
+                - mrn
+                - site
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                    description: "Patient's first name"
+                  lastName:
+                    type: string
+                    description: "Patient's last name"
+                  gender:
+                    type: string
+                    description: "Patient's gender"
+                  dateOfBirth:
+                    type: string
+                    format: date
+                    description: "Patient's date of birth"
+                  primaryLanguage:
+                    type: string
+                    description: "Patient's primary language"
+                  ramq:
+                    type: string
+                    description: "Patient's RAMQ number (if applicable)"
+                  mrn_site_list:
+                    type: array
+                    description: "List of MRN and site combinations associated with the patient"
+                    items:
+                      type: object
+                      properties:
+                        mrn:
+                          type: string
+                        site:
+                          type: string
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  reason:
+                    type: string
+                    example: "Invalid MRN or site provided."
+
+  /updatePatientLocation:
+    post:
+      tags:
+        - wait room
+      summary: Update patient location in the hospital
+      description: "Update the hospital with the patient's latest location within the waiting room."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointmentId:
+                  description: "Unique identifier for the patient's appointment"
+                  type: integer
+                location:
+                  description: "Current location of the patient within the hospital"
+                  type: string
+              required:
+                - appointmentId
+                - location
+      responses:
+        '200':
+          description: Location updated successfully
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  reason:
+                    type: string
+                    example: "Invalid appointmentId or location provided."
+
+  /uploadPatientMeasurementDocument:
+    post:
+      tags:
+        - wait room
+      summary: Upload patient measurement PDF document
+      description: "Update the hospital with a PDF document containing patient measurements information."
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              type: string
+              example: |
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:scan="http://scanning.hospital.ca/">
+                  <soapenv:Header/>
+                  <soapenv:Body>
+                    <scan:SendDocumentToScanning>
+                      <Document>VERY_LONG_REPORT_PDF_ENCODED_STRING</Document>
+                      <MRN>1111111</MRN>
+                      <Facility>XXX</Facility>
+                      <Visit/>
+                      <DocType>MU-4183</DocType>
+                      <DocClassification>0000</DocClassification>
+                      <DocDate>2024/07/08 11:25:10</DocDate>
+                      <IndexingAction>R</IndexingAction>
+                      <ExternalSystem>ORMS</ExternalSystem>
+                      <ExternalId>XXXX-RV-5989470-^ORMS</ExternalId>
+                      <Comments></Comments>
+                      <OwnerName></OwnerName>
+                    </scan:SendDocumentToScanning>
+                  </soapenv:Body>
+                </soapenv:Envelope>
+      responses:
+        '200':
+          description: Document uploaded successfully
+        '400':
+          description: Invalid XML or Parameters
+          content:
+            application/xml:
+              schema:
+                type: string
+                example: |
+                  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                    <soapenv:Body>
+                      <Fault>
+                        <faultcode>Client</faultcode>
+                        <faultstring>Invalid MRN or Facility provided.</faultstring>
+                      </Fault>
+                    </soapenv:Body>
+                  </soapenv:Envelope>
+
+  /getPatientHistoricalLabs:
+    post:
+      tags:
+        - historical data
+      summary: Retrieve historical lab data for a specific patient and date range
+      description: "Fetch historical lab results for a patient identified by hospitalPatientId within a specified date range."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hospitalPatientId:
+                  description: "Unique identifier for the patient in the hospital system"
+                  type: string
+                fromDate:
+                  description: "Start date for the lab data retrieval in YYYY-MM-DD format"
+                  type: string
+                  format: date
+                toDate:
+                  description: "End date for the lab data retrieval in YYYY-MM-DD format"
+                  type: string
+                  format: date
+              required:
+                - hospitalPatientId
+                - fromDate
+                - toDate
+      responses:
+        '200':
+          description: Historical lab data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    mrn:
+                      type: string
+                      description: "Patient's MRN"
+                    site:
+                      type: string
+                      description: "Site where the lab test was conducted"
+                    testCode:
+                      type: string
+                      description: "HL7v2 identifier code for the lab test"
+                    testGroupCode:
+                      type: string
+                      description: "HL7v2 identifier code for the test group"
+                    testDate:
+                      type: string
+                      format: date
+                      description: "Date the test was conducted"
+                    testValue:
+                      type: string
+                      description: "Result value of the lab test"
+                    testValueNumeric:
+                      type: number
+                      description: "Numeric value of the test result"
+                    resultDate:
+                      type: string
+                      format: date-time
+                      description: "Date the result was recorded in the lab system"
+                    unitDescription:
+                      type: string
+                      description: "Units of the test result"
+                    normalRange:
+                      type: string
+                      description: "Normal range description for the test result"
+                    minNorm:
+                      type: number
+                      description: "Minimum normal value"
+                    maxNorm:
+                      type: number
+                      description: "Maximum normal value"
+                    abnormalFlag:
+                      type: string
+                      description: "Flag indicating if the result is abnormal"
+                    sequenceNum:
+                      type: integer
+                      description: "Sequence number of the test result"
+                    dateAdded:
+                      type: string
+                      format: date-time
+                      description: "Date the test result was added to the system"
+                    availableAt:
+                      type: string
+                      description: "Location or system where the result is available"
+              example:
+                - mrn: "1111111"
+                  site: "AAA"
+                  testCode: "TC001"
+                  testGroupCode: "TG001"
+                  testDate: "2024-01-15"
+                  testValue: "Positive"
+                  testValueNumeric: 1.5
+                  resultDate: "2024-01-15T14:30:00Z"
+                  unitDescription: "mg/dL"
+                  normalRange: "0.5-1.5"
+                  minNorm: 0.5
+                  maxNorm: 1.5
+                  abnormalFlag: "N"
+                  sequenceNum: 1
+                  dateAdded: "2024-01-15T15:00:00Z"
+                  availableAt: "2024-02-20T10:45:00Z"
+                - mrn: "2222222"
+                  site: "BBB"
+                  testCode: "TC002"
+                  testGroupCode: "TG002"
+                  testDate: "2024-02-20"
+                  testValue: "Negative"
+                  testValueNumeric: 1.8
+                  resultDate: "2024-02-20T10:15:00Z"
+                  unitDescription: "mg/L"
+                  normalRange: "0.5-1.0"
+                  minNorm: 0.5
+                  maxNorm: 1.0
+                  abnormalFlag: "A"
+                  sequenceNum: 2
+                  dateAdded: "2024-02-20T10:45:00Z"
+                  availableAt: "2024-02-20T10:45:00Z"
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  reason:
+                    type: string
+                    example: "Invalid hospitalPatientId or date range provided."
