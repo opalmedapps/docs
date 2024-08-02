@@ -45,26 +45,41 @@ paths:
               schema:
                 type: object
                 properties:
-                  firstName:
+                  first_name:
                     type: string
                     description: "Patient's first name"
-                  lastName:
+                  last_name:
                     type: string
                     description: "Patient's last name"
-                  gender:
+                  alias:
+                    type: string
+                    description: "Patient alias"
+                  sex:
                     type: string
                     description: "Patient's gender"
-                  dateOfBirth:
+                  date_of_birth:
                     type: string
                     format: date
                     description: "Patient's date of birth"
-                  primaryLanguage:
+                  deceased:
+                    type: string
+                    format: boolean
+                    description: "True if the patient is deceased, False otherwise"
+                  death_date_time:
+                    type: string
+                    format: datetime
+                    description: "Patient death date and time"
+                  primary_language:
                     type: string
                     description: "Patient's primary language"
                   ramq:
                     type: string
                     description: "Patient's RAMQ number (if applicable)"
-                  mrn_site_list:
+                  ramq_expiration:
+                    type: string
+                    format: date
+                    description: "Patient's RAMQ expiration date"
+                  mrns:
                     type: array
                     description: "List of MRN and site combinations associated with the patient"
                     items:
@@ -74,6 +89,15 @@ paths:
                           type: string
                         site:
                           type: string
+                required:
+                  - first_name
+                  - last_name
+                  - sex
+                  - date_of_birth
+                  - ramq
+                  - mrns
+                  - deceased
+                  - death_date_time
         '400':
           description: Invalid Parameters
           content:
@@ -313,3 +337,42 @@ paths:
                   reason:
                     type: string
                     example: "Invalid hospitalPatientId or date range provided."
+
+  /newOpalPatient:
+    post:
+      tags:
+        - historical data
+      summary: Notify institution of a new opal patient and trigger historical data fetch
+      description: "Notify the hospital that a new patient has registered with opal, and trigger a sending of historical data to opal via the existing source data endpoints"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  description: "Patient's hospital card MRN"
+                  type: string
+                site:
+                  description: "Patient's hospital card site identifier"
+                  type: string
+              required:
+                - mrn
+                - site
+      responses:
+        '200':
+          description: Notification received successfully
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "error"
+                  reason:
+                    type: string
+                    example: "Invalid mrn or site provided or patient not found."
