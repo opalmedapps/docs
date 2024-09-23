@@ -109,4 +109,4 @@ The following notation tips are extracted from the talk "*Visualising software a
 * Tell stories: Any narrative (on top of the diagram) should complement the diagram rather than explain it
 
 A checklist also
-**Notation Checklist**: https://c4model.com/review
+**Notation Checklist**: https://c4model.com/diagrams/checklist
