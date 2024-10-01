@@ -6,10 +6,10 @@ In addition, hospitals must provide some endpoints to Opal in order to facilitat
 Opal source data APIs are provided by four subcomponents within the application layer.
 Those are:
 
-* [Opal-Backend](https://gitlab.com/opalmedapps/backend)
-* [Opal-Admin](https://gitlab.com/opalmedapps/opalAdmin)
+* [Backend](https://gitlab.com/opalmedapps/backend)
+* [OpalAdmin](https://gitlab.com/opalmedapps/opalAdmin)
 * [Opal-Labs](https://gitlab.com/opalmedapps/opal-labs)
-* [Opal-RMS](https://gitlab.com/opalmedapps/ORMS)  *If wait room support is enabled at hospital*
+* [ORMS](https://gitlab.com/opalmedapps/ORMS)  *If wait room support is enabled at hospital*
 
 In order to successfully integrate the Opal solution with a hospital data system, the above mentioned application container images must be deployed to an application server and configured with database access, SSL certificates, and environment configuration.
 
