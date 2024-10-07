@@ -1,6 +1,6 @@
 # Opal Documentation
 
-[![pipeline status](https://gitlab.com/opalmedapps/docs/badges/main/pipeline.svg)](https://gitlab.com/opalmedapps/docs/-/commits/main) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://opalmedapps.gitlab.io/docs)
+[![pipeline status](https://gitlab.com/opalmedapps/docs/badges/main/pipeline.svg)](https://gitlab.com/opalmedapps/docs/-/commits/main) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://docs.opalmedapps.ca)
 
 Project for the Opal documentation site.
 
@@ -9,7 +9,7 @@ Material for MkDocs makes use of [Python Markdown](https://python-markdown.githu
 
 In addition, we use the [PlantUML Markdown extension](https://github.com/mikitex70/plantuml-markdown) to render [PlantUML](https://plantuml.com) diagrams.
 
-The documentation site is deployed to GitLab Pages at https://opalmedapps.gitlab.io/docs.
+The documentation site is deployed to GitLab Pages at https://docs.opalmedapps.ca.
 
 ## Contributing
 
