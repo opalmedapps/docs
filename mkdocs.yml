@@ -102,6 +102,8 @@ plugins:
       raise_error_excludes:
         # some URLs sporadically return a 504 (Gateway Timeout)
         504: ["*"]
+        # sometimes URLs return a 429 (Too Many Requests)
+        429: ["*"]
       skip_downloads: True
       ignore_urls:
         # non-public URLs
