@@ -1,4 +1,4 @@
-mkdocs-material==9.5.41  # https://github.com/squidfunk/mkdocs-material
+mkdocs-material==9.5.42  # https://github.com/squidfunk/mkdocs-material
 mkdocs-git-revision-date-localized-plugin==1.2.9  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
 plantuml-markdown==3.10.4  # https://github.com/mikitex70/plantuml-markdown
 mkdocs-glightbox==0.4.0  # https://github.com/blueswen/mkdocs-glightbox
@@ -10,4 +10,3 @@ pre-commit==4.0.1  # https://github.com/pre-commit/pre-commit
 # pin YAML Clib until musl binary is distributed
 # see: https://sourceforge.net/p/ruamel-yaml-clib/tickets/39/
 ruamel.yaml.clib==0.2.8
-
