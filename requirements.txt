@@ -7,3 +7,7 @@ mkdocs-htmlproofer-plugin==1.3.0  # https://github.com/manuzhang/mkdocs-htmlproo
 # development only dependency
 # if there are more dependencies in the future, consider moving them into a separate requirements file
 pre-commit==4.0.1  # https://github.com/pre-commit/pre-commit
+# pin YAML Clib until musl binary is distributed
+# see: https://sourceforge.net/p/ruamel-yaml-clib/tickets/39/
+ruamel.yaml.clib==0.2.8
+
