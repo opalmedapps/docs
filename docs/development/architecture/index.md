@@ -240,6 +240,12 @@ In addition, under the "all appointment checkin for a day" paradigm, a single fa
 The Opal Wait Room Management system will be notified of Opal app checkins as shown in the sequence diagram above.
 However, ORMs also provides several additional methods of checking in to an appointment for patients.
 
+These are:
+
+* Kiosk Checkins - where a patient can scan their hospital card at an ORMs kiosk in the hospital to checkin to all appointments for the day, before proceeding to the waiting room
+* Virtual Waiting Room (VWR) Checkins - where a patient can request to be checked into all appointments for that day at a reception desk, and a clinical staff member uses the ORMs VWR to perform the checkin on the patient's behald
+* SMS Checkins - where a patient can respond to an automated SMS received to their mobile device with the phrase 'Check In' in order to be checked in for all appointments for the day
+
 From the perspective of the Opal ecosystem, all three of these checkin methods are identical in that they result in the same API call(s) from ORMs to Opal, although from a patient perspective they are different.
 
 The following sequence diagram details the series of API calls that are made immediately after a patient attempts a checkin from a wait room Kiosk, from their phone SMS, or via a clinical staff member interacting with the ORMs virtual waiting room.
