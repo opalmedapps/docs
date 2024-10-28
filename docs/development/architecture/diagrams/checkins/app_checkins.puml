@@ -1,0 +1,52 @@
+@startuml User App Checkin
+title "User App Checkin"
+actor User as user #GreenYellow
+participant Listener as listener
+participant Orms as orms
+participant Backend as backend
+participant HospitalSourceSystem as source
+database OpalDB as opaldb
+database OrmsDatabase as ormsdb
+
+user -> listener: checkin for all appointments
+listener -> opaldb: getMRNs(requestObject.TargetPatientID)
+listener -> opaldb: getAppointmentDetails(requestObject.TargetPatientID)
+opaldb --> listener: appointmentDetails[sourceSystemID, sourceDatabase], [mrns]
+note right of listener
+Success variables track checkin status
+By default orms_success==source_success=True
+(in case either of these systems are disabled).
+opal_sucess=False by default as we always must
+attempt the backend checkin.
+end note
+alt "if ORMS_ENABLED==1"
+    listener -> listener: orms_success=False
+    listener -> orms: POST url=public/v1/patient/checkInToLocation\nparams=mrn,site,location
+    orms -> ormsdb: getOpenAppointments(patient, today)
+    ormsdb --> orms: appointmentList
+    loop (appointment in appointmentList)
+        orms -> ormsdb: updatePatientLocation(patient, appointment, location)
+        ormsdb --> orms: success
+    end
+    listener -> listener: orms_success=True
+end
+alt "if SOURCE_SYSTEM_SUPPORTS_CHECKIN==1"
+    listener -> listener: source_success=False
+    loop (appointment in appointmentDetails)
+        listener -> source: POST url=sourceCheckinUrl\nparams=sourceSystemID, sourceDatabase, location
+        source --> listener: success
+    end
+    listener -> listener: source_success=True
+end
+loop (appointment in appointmentDetails)
+listener -> backend: POST url=api/patients/legacy/appointment/checkin/\nparams=source_system_id, source_database, checkin
+backend --> listener: success
+end
+listener -> listener: opal_sucess=True
+
+alt "if orms_success==source_success==opal_success==True"
+    listener -> opaldb: getCheckedInAppointments(requestObject.TargetPatientID)
+    opaldb --> listener: success, [appointment_ser_num]
+end
+listener --> user: response, [appointment_ser_num] ? null
+@enduml

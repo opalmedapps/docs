@@ -1,0 +1,34 @@
+@startuml Wait Room Checkins
+title "Wait Room Checkins"
+actor Patient as patient #GreenYellow
+participant Orms as orms
+participant Backend as backend
+participant HospitalSourceSystem as source
+database OpalDB as opaldb
+database OrmsDatabase as ormsdb
+
+patient -> orms: Checkin Request
+note right of patient
+This checkin request can be:
+- scanning a Hospital Card at a Kiosk
+- checking in at a reception
+- using the SMS check-in text feature
+end note
+orms -> ormsdb: getOpenAppointments(patient, today)
+ormsdb --> orms: appointmentList
+loop (appointment in appointmentList)
+    orms -> ormsdb: updatePatientLocation(patient, appointment, location)
+    ormsdb --> orms: success
+end
+orms -> backend: POST url=api/patients/legacy/appointment/checkin/\nparams=source_system_id,source_database,checkin
+backend -> opaldb: Update CheckIn Status
+opaldb --> backend: success
+backend --> orms: success
+
+alt "if SOURCE_SYSTEM_SUPPORTS_CHECKIN==1"
+    orms -> source: POST url={sourceSystemHost}/checkin/endpoint\nparams=(source_system_id, location)
+    source --> orms: success
+end
+
+orms --> patient: success
+@enduml
