@@ -210,3 +210,39 @@ https://gitlab.com/opalmedapps/qplus
 [^1]:
     We consider a caregiver to also include the patient.
     In that case they are caring for themself.
+
+### Appointment Checkin Processes
+
+A core functionality within the Opal ecosystem is the ability for a patient (or a caregiver of a patient) to checkin to an appointment at the hospital.
+There are several different ways this can happen, depending on whether the Opal Wait Room Management System has been installed at the hospital or not, and whether the hospital system itself tracks appointment checkins.
+
+#### Opal App Checkins
+
+When a user logs into the Opal application, they can see right away if they have any scheduled appointments for that day in the app home screen.
+By default, an appointment can only be checked in from the app if the user is located at or near the hospital site where the appointment is scheduled.
+
+Currently, when a user attempts to login for themselves or for a patient under their care, all appointments for that day will be attempted to be checked in at once.
+The Listener container receives this request and is responsible for making all necessary API calls to successfully check the patient in for that day's appointments.
+
+Configuration variables within the Listener environment control whether the listener will attempt to notify ORMs and/or the Hospital Source System of this patient checkin.
+The Opal Backend is always notified of a patient checkin.
+
+The following sequence diagram details the series of API calls that are made immediately after a patient clicks the Check In button from the Opal app.
+
+```plantuml source="docs/development/architecture/diagrams/checkins/app_checkins.puml"
+```
+
+Note that a checkin is only considered "successful" if all attempted checkin API calls to the various checkin systems were successful.
+In addition, under the "all appointment checkin for a day" paradigm, a single failed appointment checkin will result in displaying an error message to the patient indicating that all checkins have failed.
+
+#### Opal Wait Room Management System Checkins
+
+The Opal Wait Room Management system will be notified of Opal app checkins as shown in the sequence diagram above.
+However, ORMs also provides several additional methods of checking in to an appointment for patients.
+
+From the perspective of the Opal ecosystem, all three of these checkin methods are identical in that they result in the same API call(s) from ORMs to Opal, although from a patient perspective they are different.
+
+The following sequence diagram details the series of API calls that are made immediately after a patient attempts a checkin from a wait room Kiosk, from their phone SMS, or via a clinical staff member interacting with the ORMs virtual waiting room.
+
+```plantuml source="docs/development/architecture/diagrams/checkins/orms_checkins.puml"
+```
