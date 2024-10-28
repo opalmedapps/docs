@@ -3,7 +3,7 @@
 #
 default:
   image:
-    name: squidfunk/mkdocs-material:9.5.27
+    name: squidfunk/mkdocs-material:9.5.42
     entrypoint: [""]
 
 
@@ -22,7 +22,7 @@ pre-commit:
 markdownlint:
   stage: lint
   image:
-    name: davidanson/markdownlint-cli2-rules:v0.13.0
+    name: davidanson/markdownlint-cli2-rules:v0.14.0
     # overwrite default entrypoint (which is a call to markdownlint-cli2)
     entrypoint: [""]
   script:

@@ -1,7 +1,7 @@
 # Project information
 #
 site_name: Opal Documentation
-site_url: https://opalmedapps.gitlab.io/docs
+site_url: https://docs.opalmedapps.ca
 site_author: Opal Health Informatics Group (O-HIG)
 
 # Repository
@@ -103,9 +103,12 @@ plugins:
       raise_error_excludes:
         # some URLs sporadically return a 504 (Gateway Timeout)
         504: ["*"]
+        # sometimes URLs return a 429 (Too Many Requests)
+        429: ["*"]
       skip_downloads: True
       ignore_urls:
         # non-public URLs
+        - https://docs.opalmedapps.ca/*
         - https://opalmedapps.gitlab.io/*
         - https://gitlab.com/opalmedapps/*
         # PlantUML diagrams are included as data
