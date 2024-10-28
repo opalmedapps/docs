@@ -43,54 +43,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  first_name:
-                    type: string
-                    description: "Patient's first name"
-                  last_name:
-                    type: string
-                    description: "Patient's last name"
-                  alias:
-                    type: string
-                    description: "Patient alias"
-                  sex:
-                    type: string
-                    description: "Patient's gender"
-                  date_of_birth:
-                    type: string
-                    format: date
-                    description: "Patient's date of birth"
-                  deceased:
-                    type: string
-                    format: boolean
-                    description: "True if the patient is deceased, False otherwise"
-                  death_date_time:
-                    type: string
-                    format: datetime
-                    description: "Patient death date and time"
-                  health_insurance_number:
-                    type: string
-                    description: "Patient's health insurance number (if applicable)"
-                  mrns:
-                    type: array
-                    description: "List of MRN and site combinations associated with the patient"
-                    items:
-                      type: object
-                      properties:
-                        mrn:
-                          type: string
-                        site:
-                          type: string
-                required:
-                  - first_name
-                  - last_name
-                  - sex
-                  - date_of_birth
-                  - health_insurance_number
-                  - mrns
-                  - deceased
-                  - death_date_time
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientData'
         '400':
           description: Invalid Parameters
           content:
@@ -142,54 +97,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  first_name:
-                    type: string
-                    description: "Patient's first name"
-                  last_name:
-                    type: string
-                    description: "Patient's last name"
-                  alias:
-                    type: string
-                    description: "Patient alias"
-                  sex:
-                    type: string
-                    description: "Patient's gender"
-                  date_of_birth:
-                    type: string
-                    format: date
-                    description: "Patient's date of birth"
-                  deceased:
-                    type: string
-                    format: boolean
-                    description: "True if the patient is deceased, False otherwise"
-                  death_date_time:
-                    type: string
-                    format: datetime
-                    description: "Patient death date and time"
-                  health_insurance_number:
-                    type: string
-                    description: "Patient's health insurance number (if applicable)"
-                  mrns:
-                    type: array
-                    description: "List of MRN and site combinations associated with the patient"
-                    items:
-                      type: object
-                      properties:
-                        mrn:
-                          type: string
-                        site:
-                          type: string
-                required:
-                  - first_name
-                  - last_name
-                  - sex
-                  - date_of_birth
-                  - health_insurance_number
-                  - mrns
-                  - deceased
-                  - death_date_time
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientData'
         '400':
           description: Invalid Parameters
           content:
@@ -379,3 +289,55 @@ paths:
                   message:
                     type: string
                     example: "The patient could not be found."
+
+components:
+  schemas:
+    PatientData:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: "Patient's first name"
+        last_name:
+          type: string
+          description: "Patient's last name"
+        alias:
+          type: string
+          description: "Patient alias"
+        sex:
+          type: string
+          description: "Patient's gender"
+        date_of_birth:
+          type: string
+          format: date
+          description: "Patient's date of birth"
+        deceased:
+          type: string
+          format: boolean
+          description: "True if the patient is deceased, False otherwise"
+        death_date_time:
+          type: string
+          format: datetime
+          description: "Patient death date and time"
+        health_insurance_number:
+          type: string
+          description: "Patient's health insurance number (if applicable)"
+        mrns:
+          type: array
+          description: "List of MRN and site combinations associated with the patient"
+          items:
+            type: object
+            properties:
+              mrn:
+                type: string
+              site:
+                type: string
+      required:
+        - first_name
+        - last_name
+        - sex
+        - date_of_birth
+        - health_insurance_number
+        - mrns
+        - deceased
+        - death_date_time
