@@ -39,39 +39,11 @@ paths:
                 - site
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PatientData'
+          $ref: '#/components/responses/SuccessResponse'
         '400':
-          description: Invalid Parameters
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "400"
-                  message:
-                    type: string
-                    example: "Invalid MRN or site provided."
+          $ref: '#/components/responses/InvalidParameters'
         '404':
-          description: The patient was not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "404"
-                  message:
-                    type: string
-                    example: "The patient could not be found."
+          $ref: '#/components/responses/PatientNotFound'
 
   /getPatientDemographicsByHIN:
     post:
@@ -93,39 +65,11 @@ paths:
                 - health_insurance_number
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PatientData'
+          $ref: '#/components/responses/SuccessResponse'
         '400':
-          description: Invalid Parameters
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "400"
-                  message:
-                    type: string
-                    example: "Invalid data provided."
+          $ref: '#/components/responses/InvalidParameters'
         '404':
-          description: The patient was not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: "404"
-                  message:
-                    type: string
-                    example: "The patient could not be found."
+          $ref: '#/components/responses/PatientNotFound'
 
   /updatePatientLocation:
     post:
@@ -341,3 +285,38 @@ components:
         - mrns
         - deceased
         - death_date_time
+  responses:
+    SuccessResponse:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/PatientData'
+    InvalidParameters:
+      description: Invalid Parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "400"
+              message:
+                type: string
+                example: "Invalid MRN or site provided."
+    PatientNotFound:
+      description: The patient was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "404"
+              message:
+                type: string
+                example: "The patient could not be found."
