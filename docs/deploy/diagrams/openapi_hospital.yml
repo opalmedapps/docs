@@ -306,7 +306,7 @@ components:
                 example: "400"
               message:
                 type: string
-                example: "Invalid MRN or site provided."
+                example: "Invalid parameter provided."
     PatientNotFound:
       description: The patient was not found
       content:
