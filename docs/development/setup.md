@@ -131,8 +131,7 @@ Then, migrate all opalAdmin users to the backend.
 python manage.py migrate_users
 ```
 
-<!-- markdownlint-disable max-one-sentence-per-line -->
-Then, set the password of the user `admin` to 123456Opal!! to match the value initialized in the legacy database.
+Then, set the password of the user `admin` to a password of your choice.
 
 ```shell
 python manage.py changepassword admin
@@ -153,6 +152,8 @@ The script creates several test users all with the same password (see the script
 ### Set up opalAdmin
 
 Follow the instructions outlined in the [opalAdmin README](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/README.md) to set it up.
+
+Once it is running you can log in with the user `admin` and the password you set above when [setting up the backend](#set-up-the-backend).
 
 ### Set up the mobile app
 
