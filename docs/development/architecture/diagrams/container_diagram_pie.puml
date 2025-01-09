@@ -19,8 +19,6 @@ System_Boundary(opalpie, "Opal PIE") {
     Container(orms, "ORMS", "PHP, AngularJS", "Opal Room Management Software that provides the virtual waiting room and live clinician dashboard", $tags="legacy")
     ContainerDb(ormsdb, "ORMS", "MariaDB", $tags="legacy")
     Container(memcached, "Memcached", "", "Stores user sessions", $tags="reused")
-    Container(pdfgen, "PDF Generator", "PHP, LaTeX", "Generates PDFs for questionnaires", $tags="legacy")
-    Container(highcharts, "Highcharts Export Server", "", "Generates images of charts", $tags="reused")
     Container(labs, "opal-labs", "PHP", "Responsible for processing lab results for patients", $tags="legacy")
     Container(redis, "redis", "", "Caches patients being processed to avoid sending push notifications when batch processing", $tags="reused")
     Container(backend, "Backend", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
@@ -68,6 +66,7 @@ Rel(labs, backend, "makes API calls to retrieve patient and hospital lab delay d
 ' Backend
 Rel_Down(backend, backenddb, "stores data in")
 Rel_Down(backend, opaldb, "reads data from")
+Rel_Down(backend, questionnairedb, "reads data from")
 Rel(backend, pdfgen, "makes API call to generate questionnaire PDF to")
 Rel(backend, twilio, "sends SMS via")
 Rel(backend, oie, "makes API calls to")
@@ -82,10 +81,6 @@ Rel(opaladmin, backend, "makes API calls to")
 Rel(opaladmin, firebasecm, "makes API calls to")
 Rel(opaladmin, apn, "makes API calls to")
 Rel(opaladmin, fedauth, "makes API calls to")
-
-' PDF Generator
-Rel_Down(pdfgen, highcharts, "generates images of charts with")
-Rel_Down(pdfgen, questionnairedb, "reads data from")
 
 ' Listener
 Rel_Down(listener, opaldb, "reads from and writes to")

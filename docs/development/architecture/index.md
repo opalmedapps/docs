@@ -139,14 +139,6 @@ It also makes an API call to _OpalAdmin_ to request sending a push notification 
     This action is performed when a new patient is added to Opal at the end of the registration process.
     It is triggered by the OIE.
 
-### PDF Generator
-
-* [Project Page](https://gitlab.com/opalmedapps/legacy-php)
-
-The PDF Generator is responsible for generating PDFs for questionnaires (patient-reported outcomes).
-It pulls questionnaire data from the `QuestionnaireDB` and uses the [Highcharts Export Server](#highcharts-export-server) to generate graphs.
-The final PDF is built using LaTeX.
-
 ### Opal Room Management System (ORMS)
 
 * [Project Page](https://gitlab.com/opalmedapps/ORMS)
@@ -188,14 +180,6 @@ A container image is produced for this component.
 It is only necessary to run this during setup and upgrade.
 
 ### Third-party components
-
-#### Highcharts Export Server
-
-* [Official Project Page](https://github.com/highcharts/node-export-server)
-* [Project Page](https://gitlab.com/opalmedapps/highcharts-export-server/)
-
-Highcharts Export Server is used to generate graphs for inclusion into PDF reports.
-We maintain a project that builds a Docker image for this component.
 
 #### memcached
 
