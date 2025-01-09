@@ -139,13 +139,6 @@ It also makes an API call to _OpalAdmin_ to request sending a push notification 
     This action is performed when a new patient is added to Opal at the end of the registration process.
     It is triggered by the OIE.
 
-### Opal Room Management System (ORMS)
-
-* [Project Page](https://gitlab.com/opalmedapps/ORMS)
-
-ORMS provides the waiting room management system as well as a live clinician dashboard.
-The latter allows clinicians to look at their answered questionnaires, vital sign data collected from smart devices etc.
-
 ### User Registration
 
 * [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
@@ -180,12 +173,6 @@ A container image is produced for this component.
 It is only necessary to run this during setup and upgrade.
 
 ### Third-party components
-
-#### memcached
-
-* [Project Page](https://memcached.org/)
-
-Memcached is used by _ORMS_ to store user sessions in memory.
 
 #### Redis
 

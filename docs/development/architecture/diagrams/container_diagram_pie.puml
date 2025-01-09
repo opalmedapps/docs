@@ -16,9 +16,6 @@ System_Boundary(opalpie, "Opal PIE") {
     ContainerDb(opaldb, "Opal", "MariaDB", $tags="legacy")
     ContainerDb(questionnairedb, "Questionnaire", "MariaDB", $tags="legacy")
     Container(listener, "Listener", "Node.js", "Handles requests from the user applications to access patient data.")
-    Container(orms, "ORMS", "PHP, AngularJS", "Opal Room Management Software that provides the virtual waiting room and live clinician dashboard", $tags="legacy")
-    ContainerDb(ormsdb, "ORMS", "MariaDB", $tags="legacy")
-    Container(memcached, "Memcached", "", "Stores user sessions", $tags="reused")
     Container(labs, "opal-labs", "PHP", "Responsible for processing lab results for patients", $tags="legacy")
     Container(redis, "redis", "", "Caches patients being processed to avoid sending push notifications when batch processing", $tags="reused")
     Container(backend, "Backend", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
@@ -37,7 +34,6 @@ System_Ext(smtp, "Email Service", "used to send emails to users (via SMTP)")
 ' Clinical Staff
 Rel(clinical_staff, opaladmin, "manages data such as access requests, reference material, questionnaires etc. with")
 Rel(clinical_staff, backend, "manages hospital settings, access requests and manages relationships between patients and caregivers with")
-Rel(clinical_staff, orms, "manages the virtual waiting room and uses the clinician dashboard")
 
 ' OIE
 Rel_Right(source_system, oie, "sends data to")
@@ -46,16 +42,6 @@ Rel(oie, labs, "makes API calls to")
 
 BiRel(oie, opaladmin, "makes API calls to")
 BiRel(oie, backend, "makes API calls to")
-BiRel(oie, orms, "makes API calls to")
-
-' ORMS
-Rel_Down(orms, memcached, "caches sessions in")
-Rel_Down(orms, ormsdb, "stores data in")
-Rel_Down(orms, highcharts, "generates images of charts with")
-Rel(orms, backend, "makes API calls to")
-Rel(orms, twilio, "sends SMS via")
-Rel(orms, smtp, "sends email via")
-BiRel(orms, firebase, "registers to receive change updates on and is notified by")
 
 ' Labs
 Rel_Down(labs, redis, "caches data in")
@@ -71,7 +57,6 @@ Rel(backend, pdfgen, "makes API call to generate questionnaire PDF to")
 Rel(backend, twilio, "sends SMS via")
 Rel(backend, oie, "makes API calls to")
 Rel(backend, smtp, "sends email using")
-Rel(backend, orms, "makes API calls to")
 Rel(backend, fedauth, "makes API calls to")
 
 ' OpalAdmin
@@ -87,15 +72,12 @@ Rel_Down(listener, opaldb, "reads from and writes to")
 Rel_Down(listener, questionnairedb, "reads from and writes to")
 Rel(listener, backend, "makes API calls to")
 Rel(listener, oie, "makes API calls to")
-Rel(listener, orms, "makes API calls to")
 Rel(listener, smtp, "sends email via")
-' Rel(listener, labs, "request lab result history for patient via")
 
 Rel_Left(listener, firebase, "registers to receive change updates on")
 Rel_Right(firebase, listener, "informs about changes")
 
 ' trying to improve the layout
-Lay_Down(oie, orms)
 Lay_Down(oie, backend)
 Lay_Down(oie, labs)
 Lay_Down(oie, opaladmin)
