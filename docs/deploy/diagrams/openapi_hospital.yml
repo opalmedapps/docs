@@ -219,9 +219,9 @@ paths:
                     example: "400"
                   message:
                     type: string
-                    example: "Invalid mrn or site provided or patient not found."
+                    example: "Invalid mrn or site provided."
         '404':
-          description: The patient cound not be found
+          description: The patient could not be found
           content:
             application/json:
               schema:
