@@ -14,9 +14,12 @@ copyright: Copyright &copy; 2022 Opal Health Informatics Group (O-HIG)
 # Content
 nav:
   - Home: index.md
+  - Install: install.md
   - Software Versions: software_versions.md
   - Architecture: architecture.md
-  - Best Practices: best_practices.md
+  - Best Practices:
+    - Overview: best_practices.md
+    - Code Review: code_review.md
   - Strangler Fig: strangler_fig.md
   - Language Guides:
       - Docker: guides/docker.md
