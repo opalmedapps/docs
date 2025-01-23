@@ -1,3 +1,5 @@
+# https://github.com/DavidAnson/markdownlint?tab=readme-ov-file#rules--aliases
+
 line-length: false
 
 ul-indent:
@@ -12,6 +14,10 @@ MD034: false
 # Need to disable in order to support PyMdown Tabbed extension
 # See: https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/
 MD046: false
+
+# Allow same heading name if the parent is different
+MD024:
+  siblings_only: true
 
 max-one-sentence-per-line:
   # ignore admonition syntax

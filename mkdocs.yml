@@ -24,6 +24,7 @@ nav:
       - development/architecture/index.md
       - development/architecture/migration.md
       - Registration Process: development/architecture/registration.md
+    - development/setup.md
     - Best Practices:
       - Overview: development/best_practices/best_practices.md
       - Code Review: development/best_practices/code_review.md
