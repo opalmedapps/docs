@@ -11,6 +11,17 @@ customRules:
   # See: https://github.com/DavidAnson/markdownlint/pull/719
   - "markdownlint-rule-max-one-sentence-per-line"
 
+max-one-sentence-per-line:
+  ignored_words:
+    - "ie"
+    - "i.e"
+    - "eg"
+    - "e.g"
+    - "etc"
+    - "ex"
+    - "!!"
+    - "??"
+
 outputFormatters:
   - - markdownlint-cli2-formatter-default
   - - markdownlint-cli2-formatter-codequality
