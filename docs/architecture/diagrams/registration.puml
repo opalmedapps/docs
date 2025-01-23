@@ -91,9 +91,12 @@ note right of API: change registration code status\nupdate legacy_id\ninsert sec
 
 BE -> BE: send confirmation email
 
-note left of BE: TODO: only do this for a new patient?
-BE -> OIE: retrieve lab history
-BE -> ORMS: update patient status in ORMS
-note left of BE: TODO: don't call DB to get site and MRN,\nuse already known data
+opt new patient
+    BE -> OIE: retrieve lab history
+    opt using ORMS?
+        BE -> ORMS: update patient status in ORMS
+        note left of BE: TODO: don't call DB to get site and MRN,\nuse already known data
+    end
+end
 
 @enduml
