@@ -96,6 +96,16 @@ plugins:
   # keep assets private
   # https://squidfunk.github.io/mkdocs-material/plugins/privacy/
   - privacy
+  # https://github.com/manuzhang/mkdocs-htmlproofer-plugin#configuring
+  - htmlproofer:
+      raise_error: True
+      skip_downloads: True
+      ignore_urls:
+        - https://opalmedapps.gitlab.io/*
+        - https://gitlab.com/opalmedapps/*
+        - "data:*"
+      # only enable when building in CI to speed up local builds
+      enabled: !ENV [CI, false]
 
 # Extensions
 markdown_extensions:
