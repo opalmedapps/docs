@@ -1,0 +1,89 @@
+@startuml legacy user data
+
+title "Legacy DB tables around user-specific data (excerpt)"
+
+class "Users" as Users #e3f4d6 {
+    --
+    - UserSerNum (AutoField) -
+    + UserType (CharField) -
+    + UserTypeSernum (IntegerField) -
+    + Username (CharField) -
+    ...
+    --
+}
+
+
+class "Patient" as Patient #e3f4d6 {
+    --
+    - PatientSerNum (AutoField) -
+    + FirstName (CharField) -
+    + LastName (CharField) -
+    + Email (CharField) -
+    + RegistrationDate (DateTimeField) -
+    + Language (CharField) -
+    + TelNum (BigIntegerField) -
+    + DateOfBirth (DateTimeField) -
+    + SSN (CharField) -
+    + Sex (CharField) -
+    ...
+    --
+}
+
+
+class "SecurityQuestion" as SecurityQuestion #e3f4d6 {
+    --
+    - SecurityQuestionSerNum (AutoField) -
+    + QuestionText_EN (CharField) -
+    + QuestionText_FR (CharField) -
+    + CreationDate (DateTimeField) -
+    + LastUpdated (DateTimeField) -
+    + Active (IntegerField) -
+    --
+}
+
+
+class "SecurityAnswer" as SecurityAnswer #e3f4d6 {
+    --
+    - SecurityAnswerSerNum (AutoField) -
+    ~ SecurityQuestionSerNum (ForeignKey) -
+    ~ PatientSerNum (ForeignKey) -
+    + AnswerText (CharField) -
+    + CreationDate (DateTimeField) -
+    + LastUpdated (DateTimeField) -
+    --
+}
+SecurityAnswer -- SecurityQuestion
+SecurityAnswer -- Patient
+
+
+class "PatientDeviceIdentifier" as Patientdeviceidentifier #e3f4d6 {
+    --
+    - PatientDeviceIdentifierSerNum (AutoField) -
+    ~ PatientSerNum (ForeignKey) -
+    + DeviceId (CharField) -
+    + appVersion (CharField) -
+    + RegistrationId (CharField) -
+    + DeviceType (IntegerField) -
+    + SessionId (TextField) -
+    ~ SecurityAnswerSerNum (ForeignKey) -
+    + Attempt (IntegerField) -
+    + Trusted (IntegerField) -
+    + TimeoutTimestamp (DateTimeField) -
+    + LastUpdated (DateTimeField) -
+    --
+}
+Patientdeviceidentifier -- Patient
+Patientdeviceidentifier -- SecurityAnswer
+
+class "Explanation of the symbols used" as DESCRIPTION #FFF {
+    - AutoField (identifiers)
+    ..
+    + Regular field (anything)
+    ..
+    # ForeignKey (ManyToMany)
+    ..
+    ~ ForeignKey (OneToOne, OneToMany)
+    --
+}
+
+@enduml
