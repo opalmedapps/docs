@@ -1,9 +1,37 @@
 # Publish docs to GitLab Pages
 # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#gitlab-pages
 #
-image:
-  name: squidfunk/mkdocs-material:9.5.18
-  entrypoint: [""]
+default:
+  image:
+    name: squidfunk/mkdocs-material:9.5.20
+    entrypoint: [""]
+
+
+stages:
+  - lint
+  - build
+  - deploy
+
+pre-commit:
+  stage: lint
+  script:
+    - pip install pre-commit
+    # skip markdownlint and run it in a separate job since it requires node
+    - SKIP="markdownlint-cli2" pre-commit run --all
+
+markdownlint:
+  stage: lint
+  image:
+    name: davidanson/markdownlint-cli2-rules:v0.13.0
+    # overwrite default entrypoint (which is a call to markdownlint-cli2)
+    entrypoint: [""]
+  script:
+    # use the config file that is stored outside the root
+    - markdownlint-cli2 --config .gitlab/markdownlint/.markdownlint-cli2.yaml "**/*.md"
+  artifacts:
+    when: always
+    reports:
+      codequality: markdownlint-cli2-codequality.json
 
 build:
   stage: build
