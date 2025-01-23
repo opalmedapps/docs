@@ -52,9 +52,9 @@ _Legacy_ refers to the legacy backend (stored in the legacy database _OpalDB_) a
 | Patient     | `Patient` table: Contains all patients and a dummy patient entry for users who are not patients themselves. | `Patient` model: Contains all patients with a `legacy_id` referring to `Patient.PatientSerNum` in the legacy DB. |
 | Caregiver User | `Users` table: Contains all users. The `UserType` is `Patient` if the user is also a patient and `Caregiver` if it is a caregiver only. | The `Caregiver` model is a type of `User` which contains all existing (migrated) and new caregiver users. The `CaregiverProfile` model links to it and adds the `legacy_id` which refers to `Users.UserTypeSerNum`. |
 | Hospital Site | `Hospital_Identifier_Type` table: Contains sites of a hospital and their internal code. | `Institution` and `Site` models: Contains institutions and their site(s) along with their properties and settings. |
-| Hospital Patient | `PatientHospitalIdentifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance |
+| Hospital Patient | `Patient_Hospital_Identifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance |
 | Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions |
-| Security Answer | Deprecated: `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model to support user-defined questions in the future. |
+| Security Answer | **Deprecated:** `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model to support user-defined questions in the future. |
 | Device | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data | `Device` model: Currently unused |
 | User (Staff) | `OAUser` table: Contains all users who can log in to OpalAdmin | The `ClinicalStaff` model is a type of `User` which contains all users. |
 
