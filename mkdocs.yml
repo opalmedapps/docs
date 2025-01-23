@@ -21,6 +21,7 @@ nav:
   - Best Practices:
     - Overview: best_practices.md
     - Code Review: code_review.md
+    - Diagrams: best_practices/diagrams.md
   - Strangler Fig: strangler_fig.md
   - Onboarding: onboarding.md
   - Language Guides:
