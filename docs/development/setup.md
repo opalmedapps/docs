@@ -68,7 +68,7 @@ The "Authentication" and "Realtime Database" features are needed for the communi
     It is also possible to restrict access to authenticated users only by specifying the condition as `auth.uid !== null`.
     However, not all features will work.
     The rules in use by the Opal solution can be found in the [listener project](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/firebase/dev/database.rules.json).
-    See the [instructions on how to deploy them](https://opalmedapps.gitlab.io/opal-listener/tutorial-firebase-rules.html) to your project or copy-and-paste them into your projects' rules.
+    See the [instructions on how to deploy them](https://opalmedapps.gitlab.io/opal-listener/tutorial-firebase-rules.html) to your project or copy-and-paste them into your project's rules.
 
 See also the Firebase documentation on [Firebase Security Rules](https://firebase.google.com/docs/rules).
 
@@ -127,6 +127,14 @@ Ensure that you also insert the test data via the `reset_data.sh` script as outl
 ### Set up the listener
 
 Follow the instructions outlined in the [listener README](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/README.md) to set it up.
+
+Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/src/firebase/initialize_users.js):
+
+```shell
+docker compose exec app node src/firebase/initialize_users.js
+```
+
+The script creates several test users all with the same password (see the script).
 
 [^1]:
     You are welcome to use another container engine.
