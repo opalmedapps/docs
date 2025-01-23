@@ -18,7 +18,7 @@ Install `openssl`:
 apk add openssl
 ```
 
-Note: Execute the following commands inside the `/certs` directory or move the required files there at the end to make them available on your host.
+Note: Execute the following commands inside the `/certs` directory or move the required files there at the end to make them available on your host. Also ensure your certs directory has pulled the configuration and extensions files from the db-docker repo: openssl-client.cnf, openssl-server.cnf, and v3.exit. These configuration files allow us to skip the process of manually entering information like common names, organization names, etc.
 
 Generate the certificate authority (CA) certificates:
 
@@ -26,38 +26,29 @@ Generate the certificate authority (CA) certificates:
 # Create CA private key
 openssl genrsa 4096 > ca-key.pem
 # Create CA public key
-# 
-# Country Name: CA
-# State: QC
-# Locality: Montreal
-# Organization Name: Opal Med Apps CA
-# Common Name: ca.opalmedapps.dev
-# Email Address: <your email>
-# the rest can be left empty
-openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
+openssl req -config openssl-client.cnf -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
 ```
 
 Generate the server certificate:
 
 ```shell
 # Create the server's private key and a certificate request for the CA
-# 
-# Country Name: CA
-# State: QC
-# Locality: Montreal
-# Organization Name: Opal Med Apps
-# Common Name: db
-# Email Address: <your email>
-# the rest can be left empty (the challenge password has to be empty)
-openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+openssl req -config openssl-server.cnf -newkey rsa:4096 -nodes -keyout server-key.pem -out server-req.pem
 # let the CA issue a certificate for the server
-openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem -sha256 -extfile v3.ext
 ```
 
 These server certificates are meant to be used by your database for authenticating incoming requests while the `ca.pem` file is used by clients to make requests to the database.
 
-Verify that the server certificate is valid:
+Verify that the server certificate and certificate authority public key is valid:
 
 ```shell
 openssl verify -CAfile ca.pem server-cert.pem
+openssl verify -CAfile ca.pem ca.pem
+```
+
+We can also optionally verify that multiple FQDNs were written to the server-cert (this is what allows multiple diferent client application 'entrypoints' to the SSL-enabled database container)
+
+```shell
+openssl x509 -in server-cert.pem -text -noout
 ```
