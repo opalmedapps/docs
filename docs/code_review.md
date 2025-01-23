@@ -72,6 +72,29 @@ The following is a short summary of how to be a great submitter (sources with mo
 
     > In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.
 
+## O-HIG Code review guide lines
+
+### How to assign a code review
+
+Merge request needs to be approved by at least one `maintainer` and on `developer`.
+
+* You must use the merge request template established for the given project.
+* Assign one `maintainer` to review your merge request.
+* Assign one `developer` to review your merge request.
+* Once both reviews are approved, assign a thirst reviewer to double check the merge request. This is a good opportunity to have a dev learn about a lesser known part of the project.
+* Try to have a small and shortly reviewable merge request. Should you anticipate lots of code changes, you can use an assembly branch to trigger multiple smaller code reviews. The assembly branch can be merged to staging/dev.
+
+### Code review process
+
+* Code review should not wait more than 48 hours to be started, business hours only. Weekend and holidays are excluded. 
+* Every developer should dedicate time each day for code review (1-2 hours). 
+* Reviewers should mention in scrum or whoever asking them to review if they have too many codes review 
+* Maintainers and owners are responsible to monitor the amount of code review of the project assigned to them. 
+* When writing comment(s) use the `start a review` options. This will send an email once the review is ready and not an email for each comments:
+* Thread can only be resolved by the reviewer who opens it.
+
+> Reference to Gitlab feature: https://docs.gitlab.com/ee/user/project/merge_requests/reviews/
+
 ## Resources
 
 All referenced sources can be found as footnotes at the bottom of this page. The below list contains extra resources that may be of interest:
