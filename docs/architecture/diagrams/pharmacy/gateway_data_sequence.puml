@@ -1,0 +1,42 @@
+@startuml name End to End Pharmacy Data
+title Receiving and Storing Pharmacy Data In OPAL\nPython HL7 Library Data Conversion
+
+actor RxTFC_Entry as rxtfc
+participant Gateway as gateway
+participant OIE as oie
+participant Django_Endpoint as django
+participant Django_HL7_Utility as hl7_util
+database DjangoDB as db
+
+rxtfc -> gateway : New Order from hospital staff OR\nChanged order from pharmacy provider\n{HL7v2.3.1 format}
+note right of rxtfc
+The ORC.1/Order Control
+field of the message
+indicates the trigger event.
+NW='New Order' (by physician)
+XX='Order Changed' (by pharmacy provider)
+end note
+note right of django #LightGreen
+Build a new utility in
+Django to convert HL7 segment
+data to Django models.
+Pros:
+- Full unit testing coverage of
+conversion functionality
+- Easier to detect and remediate conversion bugs
+- Reduces reliance on OIE
+- Can be re-used for other HL7 source system data
+Cons:
+- Slower to build (1 week swag)
+end note
+gateway -> oie : Send HL7 message\nNo filters
+
+oie -> oie : Filter:isOpalPatient Django api response 200
+oie -> django : POST\nurl=TBD\npayload=HL7 data\nauthentication=OIE API Token
+django -> hl7_util : Convert HL7 data to models
+hl7_util --> django : Model instances
+django -> db : Model save
+db --> django : success
+django --> oie : success
+
+@enduml
