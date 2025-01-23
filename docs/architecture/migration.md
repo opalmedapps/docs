@@ -1,15 +1,15 @@
 # Migration to Django
 
-As part of the migration using the [Strangler Fig pattern](../../strangler_fig) and to support the Patient-Caregiver functionality, some data needs to be moved first to the Django-based backend.
-For now, this is mostly user-specific data and registration related.
+As part of the migration using the [Strangler Fig pattern](../../strangler_fig) and to support the Patient-Caregiver functionality, some specific data needs to be moved to the Django-based backend in the first step.
+For now, this is mostly user-specific and registration related data.
 
 ## Registration
 
-The registration in the backend is being completely moved to the backend.
+The registration is being completely moved to the Django-based backend.
 The sequence diagrams are shown on [registration process](../registration).
 Every API endpoint with the exception of one is now forwarded to the backend by the listener.
 
-The one remaining request handling in the legacy listener is for completing the registration.
+The one remaining request handling in the legacy listener is for completing the registration (called `registerPatient`).
 This is the most complex one as it handles the creation of the Firebase account, informing ORMS etc.
 All this functionality needs to be moved to the backend Post-MVP.
 
@@ -27,7 +27,7 @@ The data is:
 * **Security questions/answers**:
 
     The existing security questions are migrated.
-    However, security answers do not link to a security questions.
+    However, security answers do not link to a security question.
     The security question title is copied to the security answer in the user's language.
     This makes it possible in the future to allow users to define their own questions.
 
@@ -38,7 +38,7 @@ The data is:
 In order to minimize the work required with migration and maintaining support with older versions of the app, the migration is completed in stages.
 
 For certain tasks, such as logging in, decryption of requests and encryption of responses, the listener needs access to certain data.
-The table `PatientDeviceIdentifier` contains various data and acts as some kind cache/session store where data related to the user's session is stored.
+The table `PatientDeviceIdentifier` in the legacy database (`OpalDB`) contains various data and acts as some kind cache/session store where data related to the user's session is stored.
 Since the listener already has access to this database, we can use this table to store session-related data in the short term.
 Later, we can fully move it to the backend.
 
@@ -70,3 +70,4 @@ Some of the tables shown are an excerpt and do not contain all columns (denoted 
 
 *[MVP]: Minimal Viable Product
 *[UPS]: User-Patient Separation
+*[PIE]: Patient Information Exchange
