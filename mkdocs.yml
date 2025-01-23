@@ -76,6 +76,7 @@ theme:
     - navigation.indexes
     - toc.follow
     - search.highlight
+    - content.code.copy
 
 # Plugins
 # https://squidfunk.github.io/mkdocs-material/plugins/
@@ -120,18 +121,22 @@ markdown_extensions:
   - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.details
+  # Code Blocks
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink
-  - pymdownx.mark
   - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
