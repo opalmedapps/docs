@@ -101,8 +101,10 @@ plugins:
       raise_error: True
       skip_downloads: True
       ignore_urls:
+        # non-public URLs
         - https://opalmedapps.gitlab.io/*
         - https://gitlab.com/opalmedapps/*
+        # PlantUML diagrams are included as data
         - "data:*"
       # only enable when building in CI to speed up local builds
       enabled: !ENV [CI, false]
@@ -157,6 +159,14 @@ markdown_extensions:
       server: http://www.plantuml.com/plantuml
       # use caching to speed up live-reloading
       cachedir: .plantuml/
+
+
+# https://www.mkdocs.org/user-guide/configuration/#validation
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
 
 
 watch:
