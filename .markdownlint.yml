@@ -13,13 +13,15 @@ MD034: false
 # See: https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/
 MD046: false
 
-# max-one-sentence-per-line:
-#   ignored_words:
-#     - "ie"
-#     - "i.e"
-#     - "eg"
-#     - "e.g"
-#     - "etc"
-#     - "ex"
-#     - "!!"
-#     - "??"
+max-one-sentence-per-line:
+  # ignore admonition syntax
+  # see: https://github.com/aepfli/markdownlint-rule-max-one-sentence-per-line/pull/52/files#r1579994724
+  ignored_words:
+    - "ie"
+    - "i.e"
+    - "eg"
+    - "e.g"
+    - "etc"
+    - "ex"
+    - "!!"
+    - "??"
