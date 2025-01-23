@@ -19,7 +19,6 @@ Therefore, the required software to be installed on your machine directly is fai
     We strongly recommend install node via the Node Version Manager (nvm) ([nvm for macOS](https://github.com/nvm-sh/nvm), [nvm for Windows](https://github.com/coreybutler/nvm-windows)).
     It makes it possible to install different node versions, quickly switch between different versions, and makes updating Node painless.
 
-
 ## Supported operating systems
 
 As our team uses macOS (Apple Silicon) and Windows machines, we strive to support both these operating systems for local development.
