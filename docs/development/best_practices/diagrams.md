@@ -7,7 +7,7 @@ This allows us to track any diagram changes in any version control system.
 In addition, this provides us the ability to review changes to diagrams before merging them (if necessary).
 And, it is possible to automate their use or export into different formats.
 
-Our main tool for creating diagrams is [PlantUML](https://plantuml.com) because there exists an extension for the [C4 model](https://c4model) for architecture diagrams. Another great diagramming tool is [Mermaid](https://mermaid.js.org/). It has a great [live editor](https://mermaid.live) and, as a distinct feature, supports Git commit graphs.
+Our main tool for creating diagrams is [PlantUML](https://plantuml.com) because there exists an extension for the [C4 model](https://c4model.com) for architecture diagrams. Another great diagramming tool is [Mermaid](https://mermaid.js.org/). It has a great [live editor](https://mermaid.live) and, as a distinct feature, supports Git commit graphs.
 
 !!! tip
     [GitLab also supports both PlantUML and Mermaid](https://docs.gitlab.com/ee/user/markdown.html#diagrams-and-flowcharts).
