@@ -1,6 +1,6 @@
 # Set up a local development environment
 
-The current supported way is to set up everything locally on your machine.
+The following instructions will guide you through the process of setting up Opal locally on your machine.
 This guide is split into several aspects of the [Opal solution](architecture/index.md#high-level-architecture) because some components are less frequently worked on.
 
 ## Required software
@@ -9,7 +9,7 @@ In general, all projects with the exception of one project (the mobile app) are 
 Therefore, the required software to be installed on your machine directly is fairly small.
 
 * [Git](https://git-scm.com/) for version control
-* [Git Large File Storage (LFS)](https://git-lfs.com/) is used by some projects to version large files
+* [Git Large File Storage (LFS)](https://git-lfs.com/), used in some projects to version large files
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)[^1]
 * An IDE, such as [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/en) to build and run the mobile app (as a web app)
@@ -21,7 +21,7 @@ Therefore, the required software to be installed on your machine directly is fai
 
 ## Supported operating systems
 
-As our team uses macOS (Apple Silicon) and Windows machines we strive to support both these operating systems for local development.
+As our team uses macOS (Apple Silicon) and Windows machines, we strive to support both these operating systems for local development.
 
 ## Set up main components
 
@@ -54,7 +54,8 @@ You need your own Firebase project so that your local app can communicate with t
 4. Uncheck "Enable Google Analytics for this project"
 5. Click "Create project"
 
-The "Authentication" and "Realtime Database" features are needed for the communication.
+The "Authentication" and "Realtime Database" features are needed for communication between the apps and backend components.
+Follow the instructions below to enable and configure these features.
 
 #### Create a new Realtime Database
 
@@ -169,7 +170,7 @@ Follow the instructions in the [registration README](https://gitlab.com/opalmeda
 Setting up the above components will give you the ability to use the mobile app, manage clinical data, and register new caregivers so that they can access a patient's data.
 
 All other components as outlined in the [component overview](architecture/index.md#overview-of-components) are only necessary if you want to contribute to that component specifically.
-Follow the README in their project's to set up this component and update the respective environment variables in components that make API calls to it.
+Follow the README in any project to set it up, and update the respective environment variables in other components that make API calls to it.
 
 [^1]:
     You are welcome to use another container engine.
