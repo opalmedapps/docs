@@ -6,11 +6,9 @@ Automating tasks to check/enforce these principles should be used wherever possi
 
 Any best practice outlined in this document should come with a rationale on why it is important:
 
-
 > “Good advice comes with a rationale so you can tell when it becomes bad advice. If you don’t understanding why something should be done, then you’ve fallen into the trap of cargo cult programming, and you’ll keep doing it even when it’s no longer necessary or even becomes deleterious.”
-> 
+>
 > &mdash; ***Raymond Chen*** at [The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20091104-00/?p=16153)
-
 
 ## Version Control
 
@@ -19,7 +17,6 @@ Everything relating to a certain project needs to be version controlled in the c
 Everything that is text-based should be version controlled. Besides source code itself this includes Docker files, CI/CD files, bash scripts, backup scripts, documentation, translations etc.
 
 Each repository should have a `.gitignore` (to ignore any unnecessary files, e.g., OS-specific ones. See [collection of gitignore templates](https://github.com/github/gitignore)) and `.gitattributes` file (to tell Git how to handle line endings, binary files, LFS etc. see [why this is necessary](https://rehansaeed.com/gitattributes-best-practices/) and a [collection of useful templates](https://github.com/alexkaratarakis/gitattributes)).
-
 
 ## Documenting Changes and Decisions
 
@@ -31,13 +28,11 @@ To that effect, commits should reference the corresponding issue the commit is m
 
     Jira and GitLab should be connected in order to facilitate this: [https://docs.gitlab.com/ee/integration/jira/issues.html](https://docs.gitlab.com/ee/integration/jira/issues.html) (see also: [https://about.gitlab.com/solutions/jira/](https://about.gitlab.com/solutions/jira/))
 
-
 ## Commit Style
 
 Good commit messages matter:
 
-
-> “a well-crafted Git commit message is the best way to communicate _context_ about a change to fellow developers (and indeed to their future selves). A diff will tell you _what_ changed, but only the commit message can properly tell you _why_.”
+> “a well-crafted Git commit message is the best way to communicate *context* about a change to fellow developers (and indeed to their future selves). A diff will tell you *what* changed, but only the commit message can properly tell you *why*.”
 >
 > &mdash; ***cbeams*** via [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
 
@@ -45,19 +40,16 @@ Make commits [after each logical change](https://sethrobertson.github.io/GitBest
 
 Reference the issue the commit relates to. This helps in the future when dealing with bugs or generally when determining why a certain change in the code was made.
 
-
 ### Resources
 
 * [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
-* [Commit Often, Perfect Later, Publish Once—Git Best Practices](https://sethrobertson.github.io/GitBestPractices/#commit) 
-
+* [Commit Often, Perfect Later, Publish Once—Git Best Practices](https://sethrobertson.github.io/GitBestPractices/#commit)
 
 ## Code Style
 
 All code needs to follow a commonly decided code style. Each language has a code style that is agreed upon (see language specific sections below).
 
 If you have a strong opinion/preference about something you disagree with in the code style, bring it up to the team and discuss the rationale.
-
 
 ## Comments
 
@@ -67,7 +59,6 @@ All classes, functions/methods and constants (whether they are public or private
 
 Comments within the code itself should only be added if additional context is required. For example, to clarify why something is done or if it’s not obvious right away/quite complex.
 
-
 ## Documentation
 
 A documentation document should be generated containing prose and API reference. The documentation text should reside within the repository as well (i.e., version controlled and part of the overall development process).
@@ -76,7 +67,6 @@ As part of the CI/CD process the live documentation needs to be generated and ma
 
 Whenever new functionality is added or existing functionality modified, the specification documentation needs to be extended/updated.
 
-
 ## Testing
 
 Unit tests need to be written for most of the code. This can be done before making the change, after making the change or during. The tests should not only cover one (successful) code path but the goal is to achieve branch coverage and test for different inputs and error conditions. While you design your code, think about all the different ways this could be called, what should be considered and what could potentially go wrong (and test for those).
@@ -84,7 +74,6 @@ Unit tests need to be written for most of the code. This can be done before maki
 !!! todo "TODO/TBD"
 
     Integration tests, UI tests, smoke tests, …?
-
 
 ## Continuous Integration (CI) and Delivery (CD)
 
@@ -152,12 +141,11 @@ Git Flow has additional complexity which is worth it in some cases (see [Workflo
 
 **Proposal:** Start with the simple model (GitHub Flow) and see if that is sufficient. Unless we have strong reasons to use a more complex model due to the way we deploy.
 
-
 ## Merging
 
 Developers have different opinions on merging, rebasing and squashing and there are pros and cons for each. Because of this it makes sense to provide common guidelines on when to use which merge strategy.
 
-When following the practice of “commit early, commit often” and making commits with logical changes (see [Commit Style](#commit-style)) having the progress of a feature change visible through these commits can still be beneficial in the future. For example, Git provides the ability to use binary search to find the commit that introduced a bug (<code>[git bisect](https://git-scm.com/docs/git-bisect)</code>).  This is easier to accomplish the smaller the changes are that a commit adds.
+When following the practice of “commit early, commit often” and making commits with logical changes (see [Commit Style](#commit-style)) having the progress of a feature change visible through these commits can still be beneficial in the future. For example, Git provides the ability to use binary search to find the commit that introduced a bug (`[git bisect](https://git-scm.com/docs/git-bisect)`).  This is easier to accomplish the smaller the changes are that a commit adds.
 
 In general, there are explicit merges, fast-forward merges and “squash on merge”. A great visualization of these is provided in the article [Pull Request Merge Strategies: The Great Debate - Atlassian Developer Blog](https://blog.developer.atlassian.com/pull-request-merge-strategies-the-great-debate/) and a debate on pros and cons can be found at [Git team workflows: merge or rebase? | Atlassian Git Tutorial](https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase)
 
@@ -165,17 +153,15 @@ In general, there are explicit merges, fast-forward merges and “squash on merg
 
     Use squash merge vs. merge commit
 
-
-### Resources
+### Merging Resources
 
 * [Pull Request Merge Strategies: The Great Debate - Atlassian Developer Blog](https://blog.developer.atlassian.com/pull-request-merge-strategies-the-great-debate/)
 * [Git team workflows: merge or rebase? | Atlassian Git Tutorial](https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase)
 * [Two years of squash merge - DNSimple Blog](https://blog.dnsimple.com/2019/01/two-years-of-squash-merge/)
 
-
 ## Containerization
 
-Each component should be containerized, i.e., a [Dockerfile](https://docs.docker.com/engine/reference/builder/) needs to be defined. Ensure that also a [.dockerignore](https://docs.docker.com/engine/reference/builder/#dockerignore-file) file is provided to exclude any unwanted data to be added to the container image. This also speeds up the process of building an image (e.g., when the `.git` directory is excluded). 
+Each component should be containerized, i.e., a [Dockerfile](https://docs.docker.com/engine/reference/builder/) needs to be defined. Ensure that also a [.dockerignore](https://docs.docker.com/engine/reference/builder/#dockerignore-file) file is provided to exclude any unwanted data to be added to the container image. This also speeds up the process of building an image (e.g., when the `.git` directory is excluded).
 
 For local development, provide a [Compose](https://docs.docker.com/compose/) file.
 
@@ -185,7 +171,6 @@ Containers should be modular, i.e., one container per component (single responsi
 
 Best practices for Dockerfiles: See below.
 
-
 ## Dependency Management
 
 Any dependency added increases the complexity and it needs to be evaluated whether the dependency is really required. If in the end only a small function is used from the dependency, it might make more sense to implement this small function instead of adding the dependency.
@@ -194,15 +179,12 @@ Dependencies should be pinned to the exact version to allow for reproducible bui
 
 Furthermore, a list of dependencies (Bill of Materials) needs to be maintained. The dependency name, version and license needs to be included. This should be automated if possible.
 
-
 ## Methodology
 
 Any (app) component should follow the Twelve-Factor App Methodology: [https://12factor.net/](https://12factor.net/)
 
-
 * [Store config in the environment](https://12factor.net/config): “An app’s config is everything that is likely to vary between deploys (staging, production, developer environments, etc).” \
 This allows one to configure different deploys using the environment, e.g., using .env file(s), environment variables, environment files (Docker) etc.
-
 
 ## Reusing Code
 
@@ -214,17 +196,13 @@ Anything that is reusable should either go into dedicated packages/modules (e.g.
 
 For example, across the Opal stack encryption/decryption is used in several components and should ideally be provided by a dedicated package/module that is reused.
 
-
 ## Graceful Error Handling and Helpful Error Messages
 
 TODO
 
-
 ## Open Source Contribution
 
 TODO
-
-
 
 * Many of the tools, packages and frameworks are open source (and free)
 * Many are maintained by people in their free time
