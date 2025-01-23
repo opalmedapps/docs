@@ -16,8 +16,9 @@ Therefore, the required software to be installed on your machine directly is fai
 
 ??? info "Note about `node`"
 
-    It can be beneficial to use the [Node Version Manager (nvm)](https://github.com/nvm-sh/nvm) if you intend to try out different Node versions.
-    Otherwise, using a package manager (such as Homebrew) to install Node is sufficient.
+    We strongly recommend install node via the Node Version Manager (nvm) ([nvm for macOS](https://github.com/nvm-sh/nvm), [nvm for Windows](https://github.com/coreybutler/nvm-windows)).
+    It makes it possible to install different node versions, quickly switch between different versions, and makes updating Node painless.
+
 
 ## Supported operating systems
 
