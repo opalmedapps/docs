@@ -136,6 +136,10 @@ docker compose exec app node src/firebase/initialize_users.js
 
 The script creates several test users all with the same password (see the script).
 
+### Set up opalAdmin
+
+Follow the instructions outlined in the [opalAdmin README](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/README.md) to set it up.
+
 [^1]:
     You are welcome to use another container engine.
     However, all the commands shown in our instructions are specific to  `docker` and `docker compose`.
