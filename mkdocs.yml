@@ -17,6 +17,7 @@ nav:
   - Software Versions: software_versions.md
   - Architecture:
     - Overview: architecture.md
+    - Migration: architecture/migration.md
     - Registration Process: architecture/registration.md
   - Best Practices:
     - Overview: best_practices.md
@@ -79,8 +80,11 @@ plugins:
 
 # Extensions
 markdown_extensions:
-
   # Python Markdown
+  # https://python-markdown.github.io/extensions/
+  #
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#abbreviations
+  - abbr
   - admonition
   - def_list
   - footnotes
@@ -92,7 +96,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
-  # Python Markdown Extensions
+  # PyMdown Extensions
+  # https://facelessuser.github.io/pymdown-extensions/
+  #
   - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.details

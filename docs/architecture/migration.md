@@ -1,0 +1,60 @@
+# Migration to Django
+
+As part of the migration using the [Strangler Fig pattern](../../strangler_fig) and to support the Patient-Caregiver functionality, some data needs to be moved first to the Django-based backend.
+This is mostly user-specific data.
+
+With the UPS-project there can be many users for the same patient.
+Since most of the user data is connected to the patient in the legacy system, the first part of the migration surrounds all of this data.
+
+The data is:
+
+* **User**: user-specific data, such as email, phone number etc.
+
+    The Django user model is used and augmented, for example, with a phone number field.
+
+* **Security questions/answers**:
+
+    The existing security questions are migrated.
+    However, security answers do not link to a security questions.
+    The security question title is copied to the security answer in the user's language.
+    This makes it possible in the future to allow users to define their own questions.
+
+* **Device**: Mobile device data used for tracking a user's mobile devices, e.g., for push notifications.
+
+## Minimal Viable Product (MVP)
+
+In order to minimize the work required with migration and maintaining support with older versions of the app, the migration is completed in stages.
+
+For certain tasks, such as logging in, decryption of requests and encryption of responses, the listener needs access to certain data.
+The table `PatientDeviceIdentifier` contains various data and acts as some kind cache/session store where data related to the user's session is stored.
+Since the listener already has access to this database, we can use this table to store session-related data in the short term.
+Later, we can fully move it to the backend.
+
+We have all of the models ready in the backend (see below). However, as a temporary solution to get ready to support UPS, we will start with the following:
+
+* Keep the `PatientDeviceIdentifier` table as a cache for the listener
+
+    * Store the Firebase username as a reference to the user (available with every request)
+    * Store the current security answer hash
+    * Maintain the current use of storing the device and push IDs
+
+* Use the backend for storing security answers
+
+## Diagrams
+
+The following diagrams were initially produced using the Django app [`django-model2puml`](https://github.com/sen-den/django-model2puml).
+
+### OpalDB (Legacy)
+
+Some of the tables shown are an excerpt and do not contain all columns (denoted with `...` at the bottom).
+
+```plantuml source="docs/diagrams/userdata_legacy.puml"
+```
+
+### Backend
+
+```plantuml source="docs/diagrams/userdata_backend.puml"
+```
+
+*[MVP]: Minimal Viable Product
+*[UPS]: User-Patient Separation
