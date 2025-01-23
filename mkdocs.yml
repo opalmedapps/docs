@@ -30,6 +30,8 @@ nav:
   - Testing Guides:
       - Registration: testing/registration.md
       - App: testing/app.md
+  - Training:
+      - Sequence Diagrams: training/sequence_diagrams.md
   - Changelog: changelog.md
   - Extra:
       - Playground: playground.md
@@ -81,6 +83,7 @@ markdown_extensions:
   - admonition
   - def_list
   - footnotes
+  - md_in_html
   - tables
   - toc:
       permalink: true
@@ -106,6 +109,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml
 
 watch:
   - README.md
