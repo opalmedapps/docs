@@ -1,6 +1,6 @@
 # Sequence Diagrams
 
-Sequence diagrams are part of the Unified Modeling Language (UML)[^uml-spec], a standardized general-purpose graphical modeling language.
+Sequence diagrams are part of the [Unified Modeling Language (UML)](https://www.omg.org/spec/UML/), a standardized general-purpose graphical modeling language.
 
 Sequence diagrams are one kind of interaction diagram which focus on the message interchange between different actors and software systems. They show the sequence of messages that are exchanged.
 
@@ -10,10 +10,10 @@ Sequence diagrams can be used to convey message exchanges at different levels of
 
 <figure markdown>
   ![Import elements of a sequence diagram](images/sequence_diagram_elements.png)
-  <figcaption>A sample sequence diagram with some import elements ([Source](https://mattsch.com/research/publications/#paper-7)</figcaption>
+  <figcaption>A sample sequence diagram with some import elements (<a href="https://mattsch.com/research/publications/#paper-7">Source</a>)</figcaption>
 </figure>
 
-A detailed overview of all the elements can be found in[^sequence-diagrams].
+A detailed overview of all the elements can be found on [uml-diagrams.org](https://www.uml-diagrams.org/sequence-diagrams.html).
 
 ## Example
 
@@ -31,7 +31,7 @@ Alice <-- Bob: Authentication failed
 @enduml
 ```
 
-Taken from the official PlantUML documentation[^plantuml-sd].
+Taken from the official [PlantUML Sequence Diagrams documentation](https://plantuml.com/sequence-diagram).
 
 ### Low-level
 
@@ -49,9 +49,3 @@ end
 SomeClass --> Caller: instance
 @enduml
 ```
-
-## Resources
-
-[^uml-spec]: The OMG Unified Modeling Language (UML) Specification: https://www.omg.org/spec/UML/
-[^sequence-diagrams]: Great overview of sequence diagrams and their elements: https://www.uml-diagrams.org/sequence-diagrams.html
-[^plantuml-sd]: PlantUML Sequence Diagrams syntax and features: https://plantuml.com/sequence-diagram
