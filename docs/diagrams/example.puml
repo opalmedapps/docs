@@ -1,0 +1,7 @@
+@startuml "PlantUML Example Diagram"
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Authentication failed
+@enduml

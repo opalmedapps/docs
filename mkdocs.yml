@@ -21,6 +21,7 @@ nav:
   - Best Practices:
     - Overview: best_practices.md
     - Code Review: code_review.md
+    - Diagrams: best_practices/diagrams.md
   - Strangler Fig: strangler_fig.md
   - Onboarding: onboarding.md
   - Language Guides:
@@ -109,8 +110,10 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  # https://github.com/mikitex70/plantuml-markdown
   - plantuml_markdown:
       server: http://www.plantuml.com/plantuml
+
 
 watch:
   - README.md
