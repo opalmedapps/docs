@@ -1,9 +1,22 @@
 # Publish docs to GitLab Pages
 # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#gitlab-pages
 #
-image:
-  name: squidfunk/mkdocs-material:9.5.18
-  entrypoint: [""]
+default:
+  image:
+    name: squidfunk/mkdocs-material:9.5.18
+    entrypoint: [""]
+
+
+stages:
+  - test
+  - build
+  - deploy
+
+pre-commit:
+  stage: test
+  script:
+    - pip install pre-commit
+    - pre-commit run --all
 
 build:
   stage: build
