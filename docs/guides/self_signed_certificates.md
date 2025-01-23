@@ -1,6 +1,6 @@
 # Generating Self-Signed Certificates
 
-These instructions pertain to the generation of self-signed certificates used to encrypt interactions between a database and a client application/container such as Alembic, DBV, the listener, etc. Place the generated client certificate in the certs folder of whichever application you need to enable SSL for.
+These instructions pertain to the generation of self-signed certificates used to encrypt interactions between a server and a client application/container (such as Alembic, DBV, the listener, etc) via SSL/TLS.
 
 You can either run a container with `openssl` to generate certificates, or use a program like git bash for windows users.
 
