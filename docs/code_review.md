@@ -76,24 +76,22 @@ The following is a short summary of how to be a great submitter (sources with mo
 
 ### How to assign a code review
 
-Merge request needs to be approved by at least one `maintainer` and on `developer`.
+Merge request needs to be approved by at least one `maintainer` and one `developer`.
 
 * You must use the merge request template established for the given project.
 * Assign one `maintainer` to review your merge request.
 * Assign one `developer` to review your merge request.
-* Once both reviews are approved, assign a thirst reviewer to double check the merge request. This is a good opportunity to have a dev learn about a lesser known part of the project.
-* Try to have a small and shortly reviewable merge request. Should you anticipate lots of code changes, you can use an assembly branch to trigger multiple smaller code reviews. The assembly branch can be merged to staging/dev.
+* Once both reviews are approved, assign a third reviewer to double check the merge request. This is a good opportunity to have a dev learn about a lesser known part of the project.
+* Try to have a small and shortly reviewable merge request. Should you anticipate lots of code changes, you can use an assembly branch to trigger multiple smaller code reviews. The assembly/integration branch can be merged to staging/dev. ([Explanation of assembly/integration](https://remarkablemark.org/blog/2021/03/08/git-integration-branch-workflow/))
 
 ### Code review process
 
-* Code review should not wait more than 48 hours to be started, business hours only. Weekend and holidays are excluded. 
-* Every developer should dedicate time each day for code review (1-2 hours). 
-* Reviewers should mention in scrum or whoever asking them to review if they have too many codes review 
-* Maintainers and owners are responsible to monitor the amount of code review of the project assigned to them. 
-* When writing comment(s) use the `start a review` options. This will send an email once the review is ready and not an email for each comments:
+* Code review should not wait more than 48 hours to be started, business hours only. Weekend and holidays are excluded.
+* Every developer should dedicate time each day for code review (1-2 hours).
+* Reviewers should mention in scrum or to whoever is asking them to review if they have too many code reviews
+* Maintainers and owners are responsible to monitor the amount of code review of the project assigned to them.
+* When writing comment(s) use the `start a review`/`add to review` options. This will send an email once the review is ready and not an email for each comment (see [GitLab documentation on this feature](https://docs.gitlab.com/ee/user/project/merge_requests/reviews/))
 * Thread can only be resolved by the reviewer who opens it.
-
-> Reference to Gitlab feature: https://docs.gitlab.com/ee/user/project/merge_requests/reviews/
 
 ## Resources
 
