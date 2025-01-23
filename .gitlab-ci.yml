@@ -25,11 +25,9 @@ markdownlint:
     name: davidanson/markdownlint-cli2-rules:v0.13.0
     # overwrite default entrypoint (which is a call to markdownlint-cli2)
     entrypoint: [""]
-  before_script:
-    - markdownlint-cli2 --version
   script:
     # use the config file that is stored outside the root
-    - markdownlint-cli2 --config .gitlab/markdownlint/.markdownlint-cli2.yaml "**/*.md" "#.venv"
+    - markdownlint-cli2 --config .gitlab/markdownlint/.markdownlint-cli2.yaml "**/*.md"
   artifacts:
     when: always
     reports:
