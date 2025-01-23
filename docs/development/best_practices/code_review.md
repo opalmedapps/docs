@@ -94,7 +94,8 @@ The following is a short summary of how to be a great submitter (sources with mo
 
 * **Clear Feedback:** Provide clear and actionable feedback.
     Opinions need to be strongly supported.
-    Share how and why a change is necessary and back it up with supporting documentation, articles etc. If it is not an important change, prefix your comment with "nit:" to let the submitter know that it's just a point of polish.
+    Share how and why a change is necessary and back it up with supporting documentation, articles etc.
+    If it is not an important change, prefix your comment with "nit:" to let the submitter know that it's just a point of polish.
 * **Be Objective:** Talk about the code, not the coder ("This method is missing ..." instead of "You forgot to ...").
     It is harder to take it personally and prevents finger-pointing.
     Have empathy.
