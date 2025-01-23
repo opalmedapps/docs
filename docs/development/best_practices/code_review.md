@@ -154,5 +154,5 @@ The below list contains extra resources that may be of interest:
 [^phauer]: Code Review Guidelines for Humans: https://phauer.com/2018/code-review-guidelines/
 [^google]: Code Review Developer Guidelines - Google: https://google.github.io/eng-practices/review/
 [^google-look-for]: What to look for in code review - Google: https://google.github.io/eng-practices/review/reviewer/looking-for.html
-[^twitter]: Rebecca's Rules for Constructive Code Reviews - Twitter: https://twitter.com/i_a_r_n_a/status/623922369376202758
+[^twitter]: Rebecca's Rules for Constructive Code Reviews - Twitter: https://x.com/i_a_r_n_a/status/623922369376202758
 [^codeproject]: Code review guidelines - Code Project: https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines
