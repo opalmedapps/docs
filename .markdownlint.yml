@@ -12,3 +12,14 @@ MD034: false
 # Need to disable in order to support PyMdown Tabbed extension
 # See: https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/
 MD046: false
+
+max-one-sentence-per-line:
+  ignored_words:
+    - "ie"
+    - "i.e"
+    - "eg"
+    - "e.g"
+    - "etc"
+    - "ex"
+    - "!!"
+    - "??"
