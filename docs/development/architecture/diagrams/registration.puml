@@ -7,9 +7,6 @@ participant FE as "Web Page"
 participant BE as "Listener"
 participant API as "Backend"
 participant Firebase
-database ODB as "OpalDB"
-participant OIE
-participant ORMS
 
 User -> FE: provide details (RAMQ/MRN & code)
 FE -> BE: look up registration request
@@ -31,18 +28,25 @@ FE --> User: choose account option (existing vs new)
 alt existing account
     User -> FE: Login with email and password
     FE -> Firebase: Login
-    note right of FE: TODO: figure out what to do\nif the existing account is at the same institution
     alt success
-        User -> FE: provide security questions and answers, phone number
+        FE -> BE: check if the user is already registered at this institution
+        note right of BE: verifies the ID token via Firebase\nand checks whether there is a user with this username
+        opt not already registered
+            FE --> User: request phone number and security answers
+            User -> FE: provide security questions and answers, phone number
+        end
     else
         FE --> User: error
     end
 else new account
     User -> FE: provide email
+    FE -> BE: verify whether a Firebase account with this email exists
+    opt Firebase account exists
+        FE --> User: inform and redirect to login
+    end
     FE -> API: verify email address
     note right of FE: it is possible to resend the verification code\nevery n seconds
     API -> API: check if email is already registered
-    note left of API: TODO: check Firebase and inform user if already registered
     alt new email
         API -> API: generate verification code and store
         API -> API: send verification code email
@@ -55,9 +59,8 @@ else new account
             FE --> User: invalid
         end
     else
-        note left of API: TODO
-        API -> API: send already registered email
-        note right of API: user will need to choose existing user option
+        API --> FE: inform about email already being registered
+        note right of FE: user will need to choose existing user option
     end
 end
 
@@ -67,39 +70,18 @@ User -> FE: choose language and give consent
 FE --> User: show terms of use agreement
 User -> FE: accept terms of use agreement
 FE -> BE: finalize registration ("RegisterPatient")
-note right of BE: RegisterPatient is the only request remaining on the listener (for now)
-BE -> API: get patient data
-note left of API: TODO: needs to include legacy_id\nto know whether it is a new or existing patient
 
-note left of BE: TODO currently different flow
-opt new patient
-    BE -> ODB: insert patient
-    note right of BE: TODO: handle caregiver only patient record
-    note right of BE: returns legacy patient ID
-    opt actual patient
-        BE -> ODB: insert patient hospital identifiers
-    end
+BE -> BE: check whether the user already exists
+note right of BE: verify ID token with Firebase\nand if successful, check if the user exists at this institution
+
+opt no existing Firebase account exists
+    BE -> Firebase: create Firebase account with email and password
 end
 
-alt new user
-    BE -> BE: create Firebase account
-else
-    BE -> BE: get Firebase account
-end
-
-BE -> API: insert and update data
-note left of BE: TODO: needs to include Firebase username
-note left of API: TODO: handle new user but actually existing user
-note right of API: change registration code status\nupdate legacy_id\ninsert security answers\nadd Firebase username to user\nchange user to active\nchange user date_joined to now
+BE -> API: complete registration
+note right of API: also handles a new patient, existing users\nand informing other services about a new patient
 
 BE -> BE: send confirmation email
-
-opt new actual patient
-    BE -> OIE: retrieve lab history
-    opt using ORMS?
-        BE -> ORMS: update patient status in ORMS
-        note left of BE: TODO: don't call DB to get site and MRN,\nuse already known data
-    end
-end
+note right of BE: TODO: move this to the backend
 
 @enduml

@@ -3,7 +3,7 @@
 #
 default:
   image:
-    name: squidfunk/mkdocs-material:9.5.20
+    name: squidfunk/mkdocs-material:9.5.24
     entrypoint: [""]
 
 
