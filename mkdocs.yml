@@ -34,13 +34,10 @@ nav:
           - Docker: development/guides/docker.md
           - Python: development/guides/python.md
           - JavaScript: development/guides/javascript.md
-      - Testing:
-          - Registration: development/guides/testing/registration.md
-          - App: development/guides/testing/app.md
       - Sequence Diagrams: development/guides/sequence_diagrams.md
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
-  - Install:
-    - install/index.md
+  - Deploy:
+    - deploy/index.md
   - Changelog: changelog.md
 
 # Configuration
