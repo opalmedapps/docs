@@ -88,7 +88,7 @@ Retrieve the client configuration:
 
 1. Click on the settings icon (gear) next to "Project Overview"
 2. Click on "Project Settings"
-3. In the "General" tab, under "Your Apps", click the "</>" icon
+3. In the "General" tab, under "Your Apps", click the "&lt;/&gt;" icon
 4. Choose an app nickname, such as "Opal Local"
 5. Click "Register app"
 6. Copy the code and save it somewhere for later
@@ -131,8 +131,7 @@ Then, migrate all opalAdmin users to the backend.
 python manage.py migrate_users
 ```
 
-And set a password for the default user you can use (`admin`).
-Note that the password needs to match and therefore needs to be set to "123456Opal!!" initially.
+Then, set the password of the user `admin` to 123456Opal!! to match the value initialized in the legacy database.
 
 ```shell
 python manage.py changepassword admin
