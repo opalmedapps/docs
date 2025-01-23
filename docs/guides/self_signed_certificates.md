@@ -18,7 +18,7 @@ Install `openssl`:
 apk add openssl
 ```
 
-Note: Execute the following commands inside the `/certs` directory or move the required files there at the end to make them available on your host. Also ensure your certs directory has pulled the configuration and extensions files from the db-docker repo: openssl-client.cnf, openssl-server.cnf, and v3.exit. These configuration files allow us to skip the process of manually entering information like common names, organization names, etc.
+Note: Execute the following commands inside the `/certs` directory or move the required files there at the end to make them available on your host. Also ensure your certs directory has pulled the configuration and extensions files from the db-docker repo: `openssl-client.cnf`, `openssl-server.cnf`, and `v3.ext`. These configuration files allow us to skip the process of manually entering information like common names, organization names, etc.
 
 Generate the certificate authority (CA) certificates:
 
