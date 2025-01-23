@@ -22,8 +22,7 @@ nav:
     - development/index.md
     - Architecture:
       - development/architecture/index.md
-      - development/architecture/strangler_fig.md
-      - Migration: development/architecture/migration.md
+      - development/architecture/migration.md
       - Registration Process: development/architecture/registration.md
     - Best Practices:
       - Overview: development/best_practices/best_practices.md
