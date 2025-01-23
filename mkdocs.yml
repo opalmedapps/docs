@@ -36,6 +36,7 @@ nav:
       - Sequence Diagrams: training/sequence_diagrams.md
   - Changelog: changelog.md
   - Extra:
+      - Generate Self Signed Certificates: guides/self_signed_certificates.md
       - Playground: playground.md
 
 # Configuration
