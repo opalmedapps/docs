@@ -81,7 +81,7 @@ Merge request needs to be approved by at least one `maintainer` and one `develop
 * You must use the merge request template established for the given project.
 * Assign one `maintainer` to review your merge request.
 * Assign one `developer` to review your merge request.
-* Once both reviews are approved, assign a third reviewer to double check the merge request. This is a good opportunity to have a dev learn about a lesser known part of the project.
+* Once both reviews are approved, you can assign a third **optional** reviewer to double check the merge request or for learning purposes. This is a good opportunity to have a dev learn about a lesser known part of the project event if the merge request is completed.
 * Try to have a small and shortly reviewable merge request. Should you anticipate lots of code changes, you can use an assembly branch to trigger multiple smaller code reviews. The assembly/integration branch can be merged to staging/dev. ([Explanation of assembly/integration](https://remarkablemark.org/blog/2021/03/08/git-integration-branch-workflow/))
 
 ### Code review process
