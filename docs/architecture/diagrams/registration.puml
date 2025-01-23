@@ -24,7 +24,7 @@ end
 
 BE --> FE: registration details (patient & institution)
 FE -> API: retrieve terms of use PDF
-note right of FE: always via listener (forwards requests to API)
+note right of FE: interactions between the web page and backend always go via the listener which forwards requests to API
 FE -> API: retrieve security questions list
 FE --> User: choose account option (existing vs new)
 
@@ -66,8 +66,8 @@ FE -> API: get language list
 User -> FE: choose language and give consent
 FE --> User: show terms of use agreement
 User -> FE: accept terms of use agreement
-FE -> BE: finalize registration ("registerPatient")
-note right of BE: only request remaining on listener (for now)
+FE -> BE: finalize registration ("RegisterPatient")
+note right of BE: RegisterPatient is the only request remaining on the listener (for now)
 BE -> API: get patient data
 note left of API: TODO: needs to include legacy_id\nto know whether it is a new or existing patient
 
