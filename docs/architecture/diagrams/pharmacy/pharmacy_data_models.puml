@@ -37,11 +37,11 @@ class  "opal.pharmacy.PharmacyEncodedOrder" as encodedorder #LightSteelBlue {
     ~ give_code [RXE.2, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_code' null=True blank=True) Medical substance to be given to the patient
     + give_amount_maximum [RXE.4.1] (DecimalField, null=True blank=True, max_digits=8, decimal_places=3)
     + give_amount_minimum [RXE.3.1] (DecimalField max_digits=8, decimal_places=3) Required specification for substance volume
-    ~ give_units [RXE.5, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_units' null=True blank=True)
+    ~ give_unit [RXE.5, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_units' null=True blank=True)
     ~ give_dosage_form [RXE.6, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_give_dosage_form' null=True blank=True) Medication dispense form e.g tablets, capsules, suppositories etc
     ~ provider_administration_instruction [RXE.7, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_provider_administration_instruction' null=True blank=True)
     + dispense_amount [RXE.10.1] (DecimalField max_digits=8, decimal_places=3)
-    + dispense_units [RXE.11, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_dispense_units' null=True blank=True)
+    + dispense_unit [RXE.11, CE] (ForeignKey CodedElement related_name='pharmacy_encoded_order_dispense_units' null=True blank=True)
     + refills [RXE.12.1] (IntegerField, null=False default=0)
     + refills_remaining [RXE.16.1] (IntegerField, null=False default=0)
     + last_refilled [RXE.18.1] (DateTimeField null=False blank=True)
@@ -85,7 +85,7 @@ class  "opal.pharmacy.PharmacyComponent" as component #LightSteelBlue {
     + component_type [RXC.1.1] (TextChoices, [A/Additive, B/Base, T/Text Instructions])
     ~ component_code [RXC.2, CE] (ForeignKey CodedElement related_name='pharmacy_component_component_code' null=True blank=True)
     + component_amount [RXC.3.1] (DecimalField max_digits=8, decimal_places=3)
-    ~ component_units [RXC.4, CE] (ForeignKey CodedElement related_name='pharmacy_component_component_units' null=True blank=True)
+    ~ component_unit [RXC.4, CE] (ForeignKey CodedElement related_name='pharmacy_component_component_units' null=True blank=True)
 }
 
 
