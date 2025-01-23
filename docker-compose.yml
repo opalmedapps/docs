@@ -1,10 +1,14 @@
-version: '3.8'
-
 services:
   docs:
     image: opalmedapps/docs:latest
     build: .
     ports:
-      - 8000:8000
+      - 8001:8000
     volumes:
       - $PWD:/docs
+  structurizr:
+    image: structurizr/lite:2931
+    ports:
+      - 9000:8080
+    volumes:
+      - $PWD/structurizr:/usr/local/structurizr
