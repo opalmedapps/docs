@@ -100,6 +100,13 @@ Retrieve the private key for the admin SDK:
 
 See also the Firebase documentation on [Admin SDK Authentication](https://firebase.google.com/docs/database/admin/start).
 
+### Set up the legacy databases
+
+All legacy databases are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
+Follow the instructions in the [db-docker README](https://gitlab.com/opalmedapps/db-docker/-/blob/main/README.md) to set them up.
+
+Ensure that you also insert the test data via the `reset_data.sh` script as outlined in the instructions.
+
 ### Set up the backend
 
 Follow the [backend README](https://gitlab.com/opalmedapps/backend/-/blob/main/README.md) to set it up.
@@ -108,21 +115,27 @@ In addition, there are management commands that initialize required data as well
 
 Run the following management commands on the backend:
 
-```python
+```shell
 python manage.py initialize_data
 python manage.py insert_test_data OMI
 ```
 
 See the command's help to learn about all options.
 
-The `initialize_data` command generates authentication tokens for system users that are needed for configuring other components.
+The `initialize_data` command generates authentication tokens for system users that are needed for configuring other components via their environment files.
 
-### Set up the legacy databases
+Then, migrate all opalAdmin users to the backend.
 
-All legacy databases are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
-Follow the instructions in the [db-docker README](https://gitlab.com/opalmedapps/db-docker/-/blob/main/README.md) to set them up.
+```shell
+python manage.py migrate_users
+```
 
-Ensure that you also insert the test data via the `reset_data.sh` script as outlined in the instructions.
+And set a password for the default user you can use (`admin`).
+Note that the password needs to match and therefore needs to be set to "123456Opal!!" initially.
+
+```shell
+python manage.py changepassword admin
+```
 
 ### Set up the listener
 
