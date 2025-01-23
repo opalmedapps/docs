@@ -157,6 +157,20 @@ Follow the instructions outlined in the [opalAdmin README](https://gitlab.com/op
 
 Follow the instructions outlined in the [mobile app README](https://gitlab.com/opalmedapps/qplus/-/blob/main/README.md).
 
+### Optional: User Registration
+
+Setting up the above components will give you the ability to use the mobile app and manage clinical data (such as questionnaires,  appointment descriptions etc.) with opalAdmin.
+
+If you need to create new user accounts you can set up the user registration as well.
+Follow the instructions in the [registration README](https://gitlab.com/opalmedapps/registration-web-page/-/blob/main/README.md).
+
+## Other components
+
+Setting up the above components will give you the ability to use the mobile app, manage clinical data, and register new caregivers so that they can access a patient's data.
+
+All other components as outlined in the [component overview](architecture/index.md#overview-of-components) are only necessary if you want to contribute to that component specifically.
+Follow the README in their project's to set up this component and update the respective environment variables in components that make API calls to it.
+
 [^1]:
     You are welcome to use another container engine.
     However, all the commands shown in our instructions are specific to  `docker` and `docker compose`.
