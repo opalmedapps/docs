@@ -32,12 +32,12 @@ end note
 gateway -> oie : Send HL7 message\nNo filters
 oie -> django: POST URL={serverOpal}\api\patients\exists\nparams=[{mrn_1,site_1},{mrn_2,site_2},...]
 django --> oie: uuid | null
-oie -> oie : Filter: if uuid exists for \npatient continue, else break
-oie -> django : POST\nurl=TBD\npayload=HL7 data\nauthentication=OIE API Token
-django -> hl7_util : Convert HL7 data to models
-hl7_util --> django : Model instances
-django -> db : Model save
-db --> django : success
-django --> oie : success
-
+opt uuid != null
+    oie -> django : POST\nurl=TBD\npayload=HL7 data\nauthentication=OIE API Token
+    django -> hl7_util : Convert HL7 data to models
+    hl7_util --> django : Model instances
+    django -> db : Model save
+    db --> django : success
+    django --> oie : success
+end
 @enduml
