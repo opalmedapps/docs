@@ -1,4 +1,12 @@
 # https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2yaml
+config:
+  extends: "../../.markdownlint-cli2.yaml"
+
+#
+# customRules:
+  # Enforce one sentence per line
+  # See: https://github.com/DavidAnson/markdownlint/pull/719
+  # - "markdownlint-rule-max-one-sentence-per-line"
 
 outputFormatters:
   - - markdownlint-cli2-formatter-default
