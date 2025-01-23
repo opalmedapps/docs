@@ -131,6 +131,7 @@ Then, migrate all opalAdmin users to the backend.
 python manage.py migrate_users
 ```
 
+<!-- markdownlint-disable max-one-sentence-per-line -->
 Then, set the password of the user `admin` to 123456Opal!! to match the value initialized in the legacy database.
 
 ```shell
