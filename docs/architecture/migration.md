@@ -1,7 +1,19 @@
 # Migration to Django
 
 As part of the migration using the [Strangler Fig pattern](../../strangler_fig) and to support the Patient-Caregiver functionality, some data needs to be moved first to the Django-based backend.
-This is mostly user-specific data.
+For now, this is mostly user-specific data and registration related.
+
+## Registration
+
+The registration in the backend is being completely moved to the backend.
+The sequence diagrams are shown on [registration process](../registration).
+Every API endpoint with the exception of one is now forwarded to the backend by the listener.
+
+The one remaining request handling in the legacy listener is for completing the registration.
+This is the most complex one as it handles the creation of the Firebase account, informing ORMS etc.
+All this functionality needs to be moved to the backend Post-MVP.
+
+## Patient-Caregiver Functionality (UPS)
 
 With the UPS-project there can be many users for the same patient.
 Since most of the user data is connected to the patient in the legacy system, the first part of the migration surrounds all of this data.
@@ -21,7 +33,7 @@ The data is:
 
 * **Device**: Mobile device data used for tracking a user's mobile devices, e.g., for push notifications.
 
-## Minimal Viable Product (MVP)
+### Minimal Viable Product (MVP)
 
 In order to minimize the work required with migration and maintaining support with older versions of the app, the migration is completed in stages.
 
@@ -40,18 +52,18 @@ We have all of the models ready in the backend (see below). However, as a tempor
 
 * Use the backend for storing security answers
 
-## Diagrams
+### Diagrams
 
 The following diagrams were initially produced using the Django app [`django-model2puml`](https://github.com/sen-den/django-model2puml).
 
-### OpalDB (Legacy)
+#### OpalDB (Legacy)
 
 Some of the tables shown are an excerpt and do not contain all columns (denoted with `...` at the bottom).
 
 ```plantuml source="docs/diagrams/userdata_legacy.puml"
 ```
 
-### Backend
+#### Backend
 
 ```plantuml source="docs/diagrams/userdata_backend.puml"
 ```
