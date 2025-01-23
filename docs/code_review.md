@@ -17,10 +17,10 @@ In short, the benefits are:
 Generally, code review should be a friendly discussion. Don't take feedback personally (you are not your code). No one is perfect and it is human to make mistakes. Especially, don't point fingers, it is not a competition. The general goal is to have someone else look at the code which provides a different perspective. It is also an opportunity to learn from each other.
 
 * Prioritize code reviews (as a reviewer) and responding to feedback (as the submitter). Make time in your daily schedule for code review. Spend max one hour at a time doing code review. Try to do reviews in 24-48 hours in order for the changes to stay fresh in the author's mind to address feedback.
-* Each change should be reviewed by at least one other developer.
+* Each change should be reviewed by at least one other developer (ideally 2).
 * Every developer (independent of seniority) should review. Ideally, the reviewer is someone who wrote the original (or knows the) code that was changed.
 * Automation (such as CI pipelines) should be used as much as possible to prevent reviewers from having to say "you forgot to...". Repositories should also contain a [merge request template](https://docs.gitlab.com/ee/user/project/description_templates.html#create-a-merge-request-template) with a checklist to remind and ensure the submitter took care of everything.
-* Sometimes, it is easier to discuss face-to-face. In such a case, please document the result of the discussion in the merge request for future traceability.
+* Please document the result of discussions in the merge request for future traceability if the discussion happened outside of the merge request.
 * Make use of threads and in-line comments on the merge request. Mark them as resolved when addressed.
 * Submitting and reviewing are equally important: Be a great submitter **and** a great reviewer. See below for more details on how.
 
@@ -38,6 +38,8 @@ At a high level, you should look out for the following things in a code review (
 * **Documentation:** Did the developer also update relevant documentation?
 
 Note: The above list is taken verbatim from Google's Code Review Developer Guide[^google]. A more detailed description of each item exists[^google-look-for].
+
+In addition, for the time being, the reviewer should also checkout the changes and try them out. This is especially helpful for more complex changes or to verify whether what looks like a bug or possible problematic condition/logic in the diff is indeed the case.
 
 ## How to be a great submitter
 
