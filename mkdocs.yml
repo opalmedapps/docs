@@ -84,6 +84,9 @@ markdown_extensions:
   - admonition
   - def_list
   - footnotes
+  # enable HTML in Markdown for image captions
+  # https://squidfunk.github.io/mkdocs-material/reference/images/#image-captions
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#markdown-in-html
   - md_in_html
   - tables
   - toc:
