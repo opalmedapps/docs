@@ -31,7 +31,7 @@ FE --> User: choose account option (existing vs new)
 alt existing account
     User -> FE: Login with email and password
     FE -> Firebase: Login
-
+    note right of FE: figure out what to do\nif the existing account is at the same institution
     alt success
         User -> FE: provide security questions and answers, phone number
     else
