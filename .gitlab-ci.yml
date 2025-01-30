@@ -22,7 +22,7 @@ pre-commit:
 markdownlint:
   stage: lint
   image:
-    name: davidanson/markdownlint-cli2-rules:v0.14.0
+    name: davidanson/markdownlint-cli2-rules:v0.17.2
     # overwrite default entrypoint (which is a call to markdownlint-cli2)
     entrypoint: [""]
   script:
