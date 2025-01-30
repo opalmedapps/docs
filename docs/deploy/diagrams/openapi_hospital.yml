@@ -1,0 +1,320 @@
+openapi: 3.0.0
+info:
+  title: Hospital Source Data System API
+  description: "APIs to fetch and receieve basic patient information. These API facilitates various
+   Opal functionality. At a minimum, the patient demographics lookup must be supported in order for Opal
+   to successfully complete a patient registration."
+  version: 1.0.0
+
+tags:
+  - name: demographics
+    description: Endpoints for accessing patient demographic information
+  - name: historical data
+    description: Endpoints for providing historical patient data for newly registered Opal patients
+  - name: wait room
+    description: Endpoints for updating a hospital with waiting room management information about a patient
+
+paths:
+  /getPatientDemographicsByMRN:
+    post:
+      tags:
+        - demographics
+      summary: Retrieve patient demographic information by patient MRN
+      description: "Fetch basic demographic details of a patient identified by MRN and site."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  description: "Patient's hospital card MRN"
+                  type: string
+                site:
+                  description: "Patient's hospital card site identifier"
+                  type: string
+              required:
+                - mrn
+                - site
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessResponse'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '404':
+          $ref: '#/components/responses/PatientNotFound'
+
+  /getPatientDemographicsByHIN:
+    post:
+      tags:
+        - demographics
+      summary: Retrieve patient demographic information by patient health insurance number
+      description: "Fetch basic demographic details of a patient identified by the health insurance number."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                health_insurance_number:
+                  description: "Patient's health insurance number"
+                  type: string
+              required:
+                - health_insurance_number
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessResponse'
+        '400':
+          $ref: '#/components/responses/InvalidParameters'
+        '404':
+          $ref: '#/components/responses/PatientNotFound'
+
+  /updatePatientLocation:
+    post:
+      tags:
+        - wait room
+      summary: Update patient location in the hospital
+      description: "Update the hospital with the patient's latest location within the waiting room."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointmentId:
+                  description: "Unique identifier for the patient's appointment"
+                  type: integer
+                location:
+                  description: "Current location of the patient within the hospital"
+                  type: string
+              required:
+                - appointmentId
+                - location
+      responses:
+        '200':
+          description: Location updated successfully
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "400"
+                  message:
+                    type: string
+                    example: "Invalid appointmentId or location provided."
+        '404':
+          description: The appointment could not be found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "404"
+                  message:
+                    type: string
+                    example: "The patient could not be found."
+
+  /uploadPatientMeasurementDocument:
+    post:
+      tags:
+        - wait room
+      summary: Upload patient measurement PDF document
+      description: "Update the hospital with a PDF document containing patient measurements information."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  type: string
+                  example: "1111111"
+                site:
+                  type: string
+                  example: "XXX"
+                reportContent:
+                  type: string
+                  example: "VERY_LONG_REPORT_PDF_ENCODED_STRING"
+                docNumber:
+                  type: string
+                  example: "MU-4183"
+                documentDate:
+                  type: string
+                  format: date-time
+                  example: "2024-07-08T11:25:10Z"
+      responses:
+        '200':
+          description: Document uploaded successfully
+        '400':
+          description: Invalid JSON or Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "400"
+                  message:
+                    type: string
+                    example: "Invalid mrn or site provided."
+        '404':
+          description: The patient could not be found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "404"
+                  message:
+                    type: string
+                    example: "The patient could not be found."
+
+  /newOpalPatient:
+    post:
+      tags:
+        - historical data
+      summary: Notify institution of a new Opal patient and trigger historical data fetch
+      description: "Notify the hospital that a new patient has registered with Opal, and trigger a sending of all available historical data to Opal via the existing source data endpoints"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  description: "Patient's hospital card MRN"
+                  type: string
+                site:
+                  description: "Patient's hospital card site identifier"
+                  type: string
+              required:
+                - mrn
+                - site
+      responses:
+        '200':
+          description: Notification received successfully
+        '400':
+          description: Invalid Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "400"
+                  message:
+                    type: string
+                    example: "Invalid mrn or site provided."
+        '404':
+          description: The patient could not be found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "404"
+                  message:
+                    type: string
+                    example: "The patient could not be found."
+
+components:
+  schemas:
+    PatientData:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: "Patient's first name"
+        last_name:
+          type: string
+          description: "Patient's last name"
+        alias:
+          type: string
+          description: "Patient alias"
+        sex:
+          type: string
+          description: "Patient's gender"
+        date_of_birth:
+          type: string
+          format: date
+          description: "Patient's date of birth"
+        deceased:
+          type: string
+          format: boolean
+          description: "True if the patient is deceased, False otherwise"
+        death_date_time:
+          type: string
+          format: datetime
+          description: "Patient death date and time"
+        health_insurance_number:
+          type: string
+          description: "Patient's health insurance number (if applicable)"
+        mrns:
+          type: array
+          description: "List of MRN and site combinations associated with the patient"
+          items:
+            type: object
+            properties:
+              mrn:
+                type: string
+              site:
+                type: string
+      required:
+        - first_name
+        - last_name
+        - sex
+        - date_of_birth
+        - health_insurance_number
+        - mrns
+        - deceased
+        - death_date_time
+  responses:
+    SuccessResponse:
+      description: Success
+      content:
+        application/json:
+          schema:
+              $ref: '#/components/schemas/PatientData'
+    InvalidParameters:
+      description: Invalid Parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "400"
+              message:
+                type: string
+                example: "Invalid parameter provided."
+    PatientNotFound:
+      description: The patient was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: "404"
+              message:
+                type: string
+                example: "The patient could not be found."

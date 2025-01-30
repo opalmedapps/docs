@@ -37,7 +37,8 @@ nav:
       - Sequence Diagrams: development/guides/sequence_diagrams.md
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
   - Deploy:
-    - deploy/index.md
+    - Deploying The Opal Solution: deploy/index.md
+    - Hospital Integration: deploy/integration.md
   - Changelog: changelog.md
 
 # Configuration
