@@ -21,6 +21,8 @@ jobs:
       # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#example-workflow-for-sarif-files-generated-outside-of-a-repository
       security-events: write
     steps:
+      - name: foo
+        run: ls -la
       - name: Checkout ${{ github.repository }}
         uses: actions/checkout@v4.2.2
       - name: Install uv
