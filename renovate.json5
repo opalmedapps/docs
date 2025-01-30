@@ -1,12 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     // https://docs.renovatebot.com/presets-default/#separatemultiplemajorreleases
     ":separateMultipleMajorReleases",
     // set timezone to local one to ensure schedules are run
     // https://docs.renovatebot.com/configuration-options/#timezone
     ":timezone(America/Toronto)",
+    // enable updates for pre-commit
+    // see: https://docs.renovatebot.com/modules/manager/pre-commit/
+    // https://docs.renovatebot.com/presets-default/#enableprecommit
+    ":enablePreCommit",
   ],
   // https://docs.renovatebot.com/configuration-options/#assignees
   "assignees": ["mschoettle"],
@@ -22,17 +26,17 @@
   "packageRules": [
     // Combine mkdocs-material updates for Python and Docker
     {
-      "matchPackagePatterns": ["mkdocs-material"],
+      "matchPackageNames": ["/mkdocs-material/"],
       "groupName": "mkdocs-material",
       // Restrict to weekly updates
       "schedule": [
         "before 12pm on Monday",
       ],
     },
+    // Combine markdownlint-cli2 updates
+    {
+      "matchPackageNames": ["/markdownlint-cli2/"],
+      "groupName": "markdownlint-cli2",
+    },
   ],
-  // enable updates for pre-commit
-  // see: https://docs.renovatebot.com/modules/manager/pre-commit/
-  "pre-commit": {
-    "enabled": true
-  }
 }
