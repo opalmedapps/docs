@@ -20,12 +20,10 @@ jobs:
       # required for upload-sarif action
       # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#example-workflow-for-sarif-files-generated-outside-of-a-repository
       security-events: write
+      contents: read
     steps:
       - name: Checkout ${{ github.repository }}
         uses: actions/checkout@v4.2.2
-        with:
-          token: ${{ secrets.CHECKOUT_TOKEN }}
-
       - name: Install uv
         uses: astral-sh/setup-uv@v5.2.2
         id: setup-uv
