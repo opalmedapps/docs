@@ -22,10 +22,8 @@ jobs:
       security-events: write
       contents: read
     steps:
-      - name: Checkout ${{ github.repository }}
-        uses: actions/checkout@v4.2.2
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5.2.2
+      - uses: actions/checkout@v4.2.2
+      - uses: astral-sh/setup-uv@v5.2.2
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
@@ -36,8 +34,7 @@ jobs:
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
           echo "Installed Python version is $(python --version)"
           uv python list
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.1
+      - uses: pre-commit/action@v3.0.1
       - name: Run markdownlint
         uses: YannickTeKulve/docker-run-action@0.0.6
         with:
@@ -49,8 +46,7 @@ jobs:
           run: markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml "**/*.md" || true
       # Needs to be a public repo in order for uploading SARIF files to work
       # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
-      # - name: Upload SARIF file
-      #   uses: github/codeql-action/upload-sarif@v3
+      # - uses: github/codeql-action/upload-sarif@v3
       #   with:
       #     # Path to SARIF file relative to the root of the repository
       #     sarif_file: markdownlint-cli2-sarif.sarif
@@ -73,8 +69,7 @@ jobs:
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5.2.2
+      - uses: astral-sh/setup-uv@v5.2.2
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
@@ -83,14 +78,14 @@ jobs:
       - name: Print the installed versions
         run: |
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
-          echo "Installed Python version is ${{ steps.setup-uv.outputs.python-version }}"
+          echo "Installed Python version is $(python --version)"
           uv python list
       - name: Install dependencies
         run: uv pip install -r requirements.txt
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v4.2.0
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          # weekly cache
+          key: mkdocs-material-$(date --utc '+%V')
           path: .cache
           restore-keys: |
             mkdocs-material-
