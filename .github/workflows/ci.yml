@@ -36,6 +36,8 @@ jobs:
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
           echo "Installed Python version is ${{ steps.setup-uv.outputs.python-version }}"
           uv python list
+          python --version
+          python -m pip
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1
       - name: Run markdownlint
