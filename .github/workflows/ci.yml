@@ -30,14 +30,12 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.5.25"
-          python-version: 3.12
+          # ubuntu-latest already has Python 3.x installed (pip is needed by the pre-commit action)
       - name: Print the installed versions
         run: |
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
-          echo "Installed Python version is ${{ steps.setup-uv.outputs.python-version }}"
+          echo "Installed Python version is $(python --version)"
           uv python list
-          python --version
-          python -m pip
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1
       - name: Run markdownlint
