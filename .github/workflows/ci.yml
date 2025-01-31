@@ -30,7 +30,7 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.5.25"
-          python-version: 3.13
+          python-version: 3.12
       - name: Print the installed versions
         run: |
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
