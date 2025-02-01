@@ -1,0 +1,97 @@
+@startuml Opal PIE Deployment
+!include <C4/C4_Deployment>
+
+title Deployment diagram for the Opal PIE
+
+AddElementTag("init", $bgColor="#c0c0c0", $legendText="init (used at deploy or upgrade time)")
+AddRelTag("init", $textColor="#c0c0c0", $lineColor="#c0c0c0")
+
+Deployment_Node(hospital, "Hospital", "Hospital Network") {
+    Deployment_Node(browser, "Browser", "Firefox, Chrome, or Edge", "Clinical staff use a browser to access the web applications") {
+
+    }
+
+    Deployment_Node(opal, "Opal PIE", "Hospital data centre") {
+        Deployment_Node(apps, "Application Server", "CentOS Stream9 or Ubuntu LTS") {
+            Deployment_Node(apps_runtime, "Container Runtime", "Docker Engine") {
+                Container(traefik, "Reverse Proxy", "traefik", "Takes care of TLS termination and path rewrites\nRedirects all HTTP to HTTPS")
+                Container(backend, "Backend", "", "Web application exposing APIs and providing new OpalAdmin interface")
+                Container(opaladmin, "Opal Admin", "Apache, PHP", "Web application for clinicians and staff to set up and manage data")
+                Container(listener, "Listener", "Node.js", "Handles requests from the user applications to access patient data")
+                Container(labs, "opal-labs", "Apache, PHP", "Responsible for retrieving lab result history via VSign-WS")
+                Container(orms, "ORMS", "Apache, PHP", "Opal Room Management Software that provides the virtual waiting room and live clinician dashboard")
+                Container(pdfgen, "PDF Generator", "Apache, PHP", "Generates PDFs for questionnaires")
+                Container(memcached, "Memcached", "", "Stores user sessions")
+                Container(highcharts, "Highcharts Export Server", "", "Generates images of charts")
+                Container(redis, "redis", "", "Caches patients being processed to avoid sending push notifications when batch processing")
+                Container(alembic, "alembic", "", "Database migrations\nRun at initialization or upgrade time to migrate DBs", $tags="init")
+            }
+        }
+
+        Deployment_Node(dbs, "Database Server", "CentOS Stream9 or Ubuntu LTS") {
+            Deployment_Node(db, "MariaDB", "MariaDB") {
+                ContainerDb(legacy_dbs, "Legacy Databases", "RDS", "DB(s) for legacy components")
+                ContainerDb(backend_db, "Backend Database", "RDS", "DB for backend")
+            }
+        }
+        Deployment_Node(integration, "Integration Server", "CentOS Stream9 or Ubuntu LTS") {
+            Deployment_Node(integration_runtime, "Container Runtime", "Docker Engine") {
+                Container(mirth, "Integration Engine", "Mirth Connect", "Interfaces with hospital source systems")
+                Container(nginx, "Reverse Proxy", "nginx", "Takes care of TLS termination and forwards paths to APIs exposed on integration engine ports")
+                ContainerDb(oie_dbs, "OIE Databases", "RDS", "DB(s) for Mirth and integration engine specifics")
+            }
+        }
+    }
+}
+
+Deployment_Node(firebase, "Firebase") {
+    Container_Ext(rtd_opal, "Realtime Database", "us-central1", "Temporarily stores requests and responses from the user applications") {
+
+    }
+
+    Container_Ext(rtd_orms, "Realtime Database", "us-central1", "Temporarily stores shortened patient names to call patients via TV screens in the waiting rooms") {
+
+    }
+}
+
+Rel(browser, traefik, "Makes request\nvia browser", "HTTP/HTTPS")
+Rel(traefik, backend, "Sends requests to / to")
+Rel(traefik, opaladmin, "Sends requests to /opalAdmin to")
+Rel(traefik, labs, "Sends requests to /opal-labs to")
+Rel(traefik, orms, "Sends requests to /orms to")
+
+Rel(nginx, mirth, "Forwards requests to", "HTTP")
+Rel(mirth, oie_dbs, "Reads from and writes to")
+Rel(mirth, backend, "Makes API calls to", "HTTPS")
+Rel(mirth, opaladmin, "Makes API calls to", "HTTPS")
+Rel(mirth, labs, "Makes API calls to", "HTTPS")
+Rel(mirth, orms, "Makes API calls to", "HTTPS")
+
+Rel(backend, nginx, "Makes API calls to", "HTTPS")
+Rel(listener, nginx, "Makes API calls to", "HTTPS")
+Rel(opaladmin, nginx, "Makes API calls to", "HTTPS")
+Rel(orms, nginx, "Makes API calls to", "HTTPS")
+
+' Rel(backend, pdfgen, "Makes API calls to", "HTTP")
+Rel(pdfgen, highcharts, "Makes API calls to", "HTTP")
+Rel(labs, redis, "Makes calls to")
+Rel(orms, memcached, "Makes calls to")
+
+Rel(backend, backend_db, "Reads from and writes to", "TLS")
+Rel(backend, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(opaladmin, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(labs, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(listener, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(orms, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(pdfgen, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(alembic, legacy_dbs, "Reads from and writes to", "TLS", $tags="init")
+
+Rel(listener, rtd_opal, "Connects to, reads from, and writes to")
+Rel(orms, rtd_orms, "Connects to, reads from, and writes to")
+
+LAYOUT_WITH_LEGEND()
+SHOW_LEGEND()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml

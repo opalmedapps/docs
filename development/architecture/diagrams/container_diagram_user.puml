@@ -1,0 +1,57 @@
+@startuml opal_system_landscape
+!include <C4/C4_Container>
+
+title Container diagram focusing on the Opal user applications
+
+Person(caregiver, "Caregiver")
+
+Container_Ext(firebase, "Firebase", "Realtime Database, Authentication", "Realtime Database for requests and Authentication for authenticating users via email and password")
+System_Ext(push_notification, "Push Notification Service", "used to send push notifications to mobile devices (Firebase Cloud Messaging for Android and Apple Push Notification for iOS)")
+' System_Ext(email, "Email Service", "used to send emails to users (via SMTP)")
+' System_Ext(twilio, "Twilio", "used to send SMS to users")
+
+Boundary(hospital, "Hospital") {
+    Person(clinical_staff, "Clinical Staff")
+    System(opal, "Opal Patient Information Exchange (PIE)")
+    System_Ext(source_system, "Hospital Source System")
+}
+
+Boundary(web, "Opal User Applications") {
+    Container(app, "Mobile App", "Cordova", "The web app turned into a mobile app using cordova which uses mobile device features (e.g., location, share sheet etc.)")
+    Container(registration, "User Registration", "JavaScript, AngularJS", "Single Page Application allowing users to create an Opal user account after receiving a registration code from the hospital")
+    Container(webapp, "Web App", "JavaScript, AngularJS, OnsenUI", "Single Page Application allowing users to log in and access the medical data of patients in their care")
+}
+
+Rel(caregiver, app, "accesses patient data using")
+Rel(caregiver, registration, "creates an account with")
+Rel(caregiver, webapp, "accesses patient data using")
+Rel(caregiver, clinical_staff, "requests access to patient data via")
+' Rel(caregiver, twilio, "sends SMS to check in via")
+
+BiRel(web, firebase, "applications communicate via")
+BiRel(firebase, opal, "communicates via")
+
+Rel(opal, push_notification, "send push notification via")
+Rel(push_notification, app, "send push notification to")
+
+Lay_Down(firebase, push_notification)
+
+' Rel_Down(opal, twilio, "sends appointment reminders and registration codes via")
+' Rel(twilio, caregiver, "sends SMS to")
+
+' Lay_Up(web, email)
+
+' Rel(opal, email, "sends registration confirmation email using")
+' Rel(email, caregiver, "sends email to")
+
+Rel(clinical_staff, opal, "manages data such as access requests, reference material, questionnaires etc. with")
+' Rel(opal, db, "stores data in")
+Rel_Down(source_system, opal, "sends data to")
+Rel_Up(opal, source_system, "requests data from")
+
+SHOW_LEGEND()
+LAYOUT_LEFT_RIGHT()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml

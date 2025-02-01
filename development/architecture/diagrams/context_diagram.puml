@@ -1,0 +1,35 @@
+@startuml opal_system_landscape
+!include <C4/C4_Context>
+
+title System context diagram for the Opal Solution
+
+Person(caregiver, "Caregiver", "A caregiver of a patient or the patient themselves (patient is their own caregiver).")
+System_Ext(email, "Email Service", "used to send emails to users (via SMTP)")
+System_Ext(twilio, "Twilio", "used to send SMS to users")
+
+Boundary(hospital, "Hospital", "within the hospital network") {
+    Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of many roles, such as medical records, clerk, clinician etc.")
+    System(opal, "Opal Solution", "The Opal solution consisting of the Opal Patient Information Exchange (PIE) deployed within a hospital and the user applications to access data")
+    System_Ext(source_system, "Hospital Source System")
+}
+
+Rel(caregiver, opal, "accesses patient data using")
+Rel(caregiver, clinical_staff, "requests access to patient data via")
+Rel(caregiver, twilio, "sends SMS to check in via")
+
+Rel_Down(opal, twilio, "sends appointment reminders and registration codes via")
+Rel(twilio, caregiver, "sends SMS to")
+
+Rel(opal, email, "sends registration confirmation email using")
+Rel(email, caregiver, "sends email to")
+
+Rel(clinical_staff, opal, "manages data such as access requests, reference material, questionnaires etc. with")
+Rel_Down(source_system, opal, "sends data to")
+Rel_Up(opal, source_system, "requests data from")
+
+SHOW_LEGEND()
+LAYOUT_LEFT_RIGHT()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml

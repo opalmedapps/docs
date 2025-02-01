@@ -1,0 +1,90 @@
+@startuml opal_container_diagram
+!include <C4/C4_Container>
+
+title Container diagram for the Opal Patient Information Exchange (PIE)
+
+AddElementTag("legacy", $bgColor="#123456", $borderColor="yellow", $legendText="Legacy components whose functionality will be added to backend over time")
+AddElementTag("reused", $bgColor="#ccc", $legendText="Reused third-party component")
+
+' TODO: separate them into Medical Records, Clerk, Clinician etc.?
+Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of many roles, such as medical records, clerk, clinician etc.")
+System_Ext(source_system, "Hospital Source System")
+
+System_Boundary(opalpie, "Opal PIE") {
+    Container(oie, "Integration Engine", "Mirth Connect", "Responsible for interfacing with the hospital's interface. Receives unsolicited messages from the hospital and makes solicited requests to hospital source systems.")
+    Container(opaladmin, "opalAdmin", "PHP, AngularJS", "Web application for clinical staff to set up and manage data", $tags="legacy")
+    ContainerDb(opaldb, "Opal", "MariaDB", $tags="legacy")
+    ContainerDb(questionnairedb, "Questionnaire", "MariaDB", $tags="legacy")
+    Container(listener, "Listener", "Node.js", "Handles requests from the user applications to access patient data.")
+    Container(labs, "opal-labs", "PHP", "Responsible for processing lab results for patients", $tags="legacy")
+    Container(redis, "redis", "", "Caches patients being processed to avoid sending push notifications when batch processing", $tags="reused")
+    Container(backend, "Backend", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
+    ContainerDb(backenddb, "Backend", "MariaDB")
+}
+
+System_Ext(twilio, "Twilio", "used to send SMS")
+System_Ext(firebase, "Firebase", "Realtime Database")
+System_Ext(firebasecm, "Firebase Cloud Messaging", "used to send push notifications to Android devices")
+System_Ext(apn, "Apple Push Notification", "used to send push notifications to iOS devices")
+System_Ext(fedauth, "Federated Auth Service", "Authentication service of the provincial institutions (in Quebec) to authenticate against their system")
+System_Ext(smtp, "Email Service", "used to send emails to users (via SMTP)")
+
+' Relationships
+
+' Clinical Staff
+Rel(clinical_staff, opaladmin, "manages data such as access requests, reference material, questionnaires etc. with")
+Rel(clinical_staff, backend, "manages hospital settings, access requests and manages relationships between patients and caregivers with")
+
+' OIE
+Rel_Right(source_system, oie, "sends data to")
+Rel_Left(oie, source_system, "requests data from")
+Rel(oie, labs, "makes API calls to")
+
+BiRel(oie, opaladmin, "makes API calls to")
+BiRel(oie, backend, "makes API calls to")
+
+' Labs
+Rel_Down(labs, redis, "caches data in")
+Rel_Down(labs, opaldb, "stores data in")
+Rel(labs, opaladmin, "requests to send push notification to user via")
+Rel(labs, backend, "makes API calls to retrieve patient and hospital lab delay details to")
+
+' Backend
+Rel_Down(backend, backenddb, "stores data in")
+Rel_Down(backend, opaldb, "reads data from")
+Rel_Down(backend, questionnairedb, "reads data from")
+Rel(backend, pdfgen, "makes API call to generate questionnaire PDF to")
+Rel(backend, twilio, "sends SMS via")
+Rel(backend, oie, "makes API calls to")
+Rel(backend, smtp, "sends email using")
+Rel(backend, fedauth, "makes API calls to")
+
+' OpalAdmin
+Rel_Down(opaladmin, opaldb, "stores data in")
+Rel_Down(opaladmin, questionnairedb, "stores data in")
+Rel(opaladmin, backend, "makes API calls to")
+Rel(opaladmin, firebasecm, "makes API calls to")
+Rel(opaladmin, apn, "makes API calls to")
+Rel(opaladmin, fedauth, "makes API calls to")
+
+' Listener
+Rel_Down(listener, opaldb, "reads from and writes to")
+Rel_Down(listener, questionnairedb, "reads from and writes to")
+Rel(listener, backend, "makes API calls to")
+Rel(listener, oie, "makes API calls to")
+Rel(listener, smtp, "sends email via")
+
+Rel_Left(listener, firebase, "registers to receive change updates on")
+Rel_Right(firebase, listener, "informs about changes")
+
+' trying to improve the layout
+Lay_Down(oie, backend)
+Lay_Down(oie, labs)
+Lay_Down(oie, opaladmin)
+
+
+SHOW_LEGEND()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml

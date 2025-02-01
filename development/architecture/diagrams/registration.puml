@@ -1,0 +1,84 @@
+@startuml sequence
+
+title "A user is registering through the web page via the patient's RAMQ/MRN and the registration code"
+
+actor User
+participant FE as "Web Page"
+participant BE as "Listener"
+participant API as "Backend"
+participant Firebase
+
+User -> FE: provide details (RAMQ/MRN & code)
+FE -> BE: look up registration request
+note right of FE: request is encrypted using RAMQ/MRN & code
+note right of BE: needs to lookup code details\nfor decryption via API
+BE -> API: find registration via hashed code
+
+opt cannot decrypt
+    BE --> FE: error
+else
+end
+
+BE --> FE: registration details (patient & institution)
+FE -> API: retrieve terms of use PDF
+note right of FE: interactions between the web page and backend always go via the listener which forwards requests to API
+FE -> API: retrieve security questions list
+FE --> User: choose account option (existing vs new)
+
+alt existing account
+    User -> FE: Login with email and password
+    FE -> Firebase: Login
+    alt success
+        FE -> BE: check if the user is already registered at this institution
+        note right of BE: verifies the ID token via Firebase\nand checks whether there is a user with this username
+        opt not already registered
+            FE --> User: request phone number and security answers
+            User -> FE: provide security questions and answers, phone number
+        end
+    else
+        FE --> User: error
+    end
+else new account
+    User -> FE: provide email
+    FE -> BE: verify whether a Firebase account with this email exists
+    opt Firebase account exists
+        FE --> User: inform and redirect to login
+    end
+    FE -> API: verify email address
+    note right of FE: it is possible to resend the verification code\nevery n seconds
+    API -> API: check if email is already registered
+    alt new email
+        API -> API: generate verification code and store
+        API -> API: send verification code email
+        User -> FE: provide verification code
+        FE -> API: verify registration code
+
+        alt verified
+            User -> FE: provide complete account details
+        else
+            FE --> User: invalid
+        end
+    else
+        API --> FE: inform about email already being registered
+        note right of FE: user will need to choose existing user option
+    end
+end
+
+User -> FE: continue with registration
+FE -> API: get language list
+User -> FE: choose language and give consent
+FE --> User: show terms of use agreement
+User -> FE: accept terms of use agreement
+FE -> BE: finalize registration ("RegisterPatient")
+
+BE -> BE: check whether the user already exists
+note right of BE: verify ID token with Firebase\nand if successful, check if the user exists at this institution
+
+opt no existing Firebase account exists
+    BE -> Firebase: create Firebase account with email and password
+end
+
+BE -> API: complete registration
+note right of API: also handles a new patient, existing users\nand informing other services about a new patient. \nSend confirmation email at the end of registration.
+
+@enduml

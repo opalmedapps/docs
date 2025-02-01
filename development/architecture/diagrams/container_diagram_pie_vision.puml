@@ -1,0 +1,56 @@
+@startuml opal_container_diagram
+!include <C4/C4_Container>
+
+title Container diagram for the future Opal Patient Information Exchange (PIE)
+
+Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of many roles, such as medical records, clerk, clinician etc.")
+System_Ext(source_system, "Hospital Source System")
+
+System_Boundary(opalpie, "Opal PIE") {
+    Container(oie, "Integration Engine", "Mirth Connect", "Responsible for interfacing with the hospital's interface. Receives unsolicited messages from the hospital and makes solicited requests to hospital source systems.")
+    Container(listener, "Listener", "Node.js", "Handles requests from the user applications to access patient data.")
+    Container(backend, "Backend", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
+    ContainerDb(backenddb, "Backend", "MariaDB")
+}
+
+' System_Ext(twilio, "Twilio", "used to send SMS")
+System_Ext(firebase, "Firebase", "Realtime Database")
+' System_Ext(firebasecm, "Firebase Cloud Messaging", "used to send push notifications to Android devices")
+' System_Ext(apn, "Apple Push Notification", "used to send push notifications to iOS devices")
+' System_Ext(fedauth, "Federated Auth Service", "Authentication service of the provincial institutions (in Quebec) to authenticate against their system")
+' System_Ext(smtp, "Email Service", "used to send emails to users (via SMTP)")
+
+' Relationships
+
+' Clinical Staff
+Rel(clinical_staff, backend, "manages data such as access requests, reference material, questionnaires etc. with")
+
+' OIE
+Rel_Right(source_system, oie, "sends data to")
+Rel_Left(oie, source_system, "requests data from")
+
+BiRel(oie, backend, "makes API calls to")
+
+' Backend
+Rel_Down(backend, backenddb, "stores data in")
+' Rel(backend, twilio, "sends SMS via")
+' Rel(backend, oie, "makes API calls to")
+' Rel(backend, smtp, "sends email using")
+' Rel(backend, fedauth, "makes API calls to")
+' Rel(backend, firebasecm, "makes API calls to")
+' Rel(backend, apn, "makes API calls to")
+
+' Listener
+Rel(listener, backend, "makes API calls to")
+
+Rel_Left(listener, firebase, "registers to receive change updates on")
+Rel_Right(firebase, listener, "informs about changes")
+
+' trying to improve the layout
+Lay_Left(listener, backend)
+
+SHOW_LEGEND()
+
+footer drawn with PlantUML version %version() and C4-PlantUML version C4Version()
+
+@enduml
