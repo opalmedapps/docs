@@ -1,0 +1,59 @@
+name: deploy
+
+on:
+  workflow_run:
+    workflows: [ci]
+    branches:
+      - main
+    types:
+      - completed
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # only run if CI workflow completed successfully
+    # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: write
+    environment: pages
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          # fetch the full git history to be able to determine creation dates for pages
+          # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
+          fetch-depth: 0
+      - name: Configure Git Credentials
+        # see: https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5.2.2
+        id: setup-uv
+        with:
+          # renovate: datasource=pypi dependency=uv
+          version: "0.5.25"
+          python-version: 3.13
+      - name: Print the installed versions
+        run: |
+          echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
+          echo "Installed Python version is $(python --version)"
+          uv python list
+      - name: Install dependencies
+        run: uv pip install -r requirements.txt
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4.2.0
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Deploy to GitHub Pages
+        # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
+        run: mkdocs gh-deploy --strict --force

@@ -175,6 +175,8 @@ validation:
   unrecognized_links: warn
   anchors: warn
 
+strict: true
+
 
 watch:
   - CHANGELOG.md
