@@ -34,8 +34,9 @@ jobs:
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
           echo "Installed Python version is $(python --version)"
           uv python list
-      - run: alias pip='uv pip'
-      - uses: pre-commit/action@v3.0.1
+      - uses: mschoettle/pre-commit-action@v4.0.0
+        env:
+          SKIP: markdownlint-cli2
       - name: Run markdownlint
         uses: YannickTeKulve/docker-run-action@0.0.6
         with:
