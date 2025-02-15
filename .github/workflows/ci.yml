@@ -31,6 +31,7 @@ jobs:
           # ubuntu-latest already has Python 3.x installed (pip is needed by the pre-commit action)
       - name: Print the installed versions
         run: |
+          uv python install
           echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
           echo "Installed Python version is $(python --version)"
           uv python list
