@@ -61,6 +61,8 @@ jobs:
         run: |
           cat markdownlint-cli2-sarif.sarif | grep -q '"results": \[\]'
 
+  run-reuse-workflow:
+    uses: opalmedapps/.github/.github/workflows/reuse.yaml@main
 
   build:
     runs-on: ubuntu-latest
