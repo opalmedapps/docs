@@ -1,0 +1,10 @@
+version = 1
+
+[[annotations]]
+path = [
+    ".gitlab/merge_request_templates/Default.md",
+    "docs/development/guides/images/sequence_diagram_elements.png"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"

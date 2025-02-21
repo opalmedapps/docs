@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2025 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Hospital Integration
 
 An institution or hospital can integrate their data sources with the Opal solution through a series of REST API endpoints provided by the Opal Application layer.

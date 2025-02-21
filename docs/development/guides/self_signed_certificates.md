@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Generating Self-Signed Certificates
 
 These instructions pertain to the generation of self-signed certificates used to encrypt interactions between a server and a client application/container (such as Alembic, DBV, the listener, etc) via SSL/TLS.

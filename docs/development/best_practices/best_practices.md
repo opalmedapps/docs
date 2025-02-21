@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Software Engineering Best Practices
 
 The purpose of this document is to provide an overview of the software engineering principles and best practices used and enforced at O-HIG for all development.
