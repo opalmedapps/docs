@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: MIT
+-->
+
 # Opal Documentation
 
 [![ci](https://github.com/opalmedapps/docs/actions/workflows/ci.yml/badge.svg)](https://github.com/opalmedapps/docs/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://docs.opalmedapps.com)

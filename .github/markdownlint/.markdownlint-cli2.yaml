@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (C) 2024 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+#
+# SPDX-License-Identifier: MIT
+
 # https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2yaml
 
 # additional configuration to the config in the root of the project
