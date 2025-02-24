@@ -3,8 +3,26 @@ version = 1
 [[annotations]]
 path = [
     ".gitlab/merge_request_templates/Default.md",
-    "docs/development/guides/images/sequence_diagram_elements.png"
+    "docs/development/guides/images/sequence_diagram_elements.png",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = [
+    ".vscode/extensions.json",
+    ".vscode/settings.json",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = [
+    ".vscode/C4.code-snippets",
+]
+precedence = "override"
+# source of this file: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/.vscode/C4.code-snippets
+SPDX-FileCopyrightText = "Copyright (c) 2018 Ricardo Niepel"
+SPDX-License-Identifier = "MIT"
