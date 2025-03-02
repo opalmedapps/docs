@@ -38,6 +38,7 @@ jobs:
 
   markdownlint:
     permissions:
+      contents: read
       # required for upload-sarif action
       # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#example-workflow-for-sarif-files-generated-outside-of-a-repository
       security-events: write
