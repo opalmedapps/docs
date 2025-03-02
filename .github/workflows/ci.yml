@@ -44,6 +44,8 @@ jobs:
       security-events: write
 
     uses: opalmedapps/.github/.github/workflows/markdownlint.yaml@main
+    with:
+      semantic-linebreak: true
 
   build:
     runs-on: ubuntu-latest
