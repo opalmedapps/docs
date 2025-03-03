@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: astral-sh/setup-uv@v5.3.0
+      - uses: astral-sh/setup-uv@v5.3.1
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
@@ -57,7 +57,7 @@ jobs:
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
-      - uses: astral-sh/setup-uv@v5.3.0
+      - uses: astral-sh/setup-uv@v5.3.1
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
