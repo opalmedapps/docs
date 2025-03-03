@@ -70,7 +70,7 @@ jobs:
           uv python list
       - name: Install dependencies
         run: uv pip install -r requirements.txt
-      - uses: actions/cache@v4.2.1
+      - uses: actions/cache@v4.2.2
         with:
           # weekly cache
           key: mkdocs-material-$(date --utc '+%V')
