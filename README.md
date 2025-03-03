@@ -2,7 +2,7 @@
 
 [![ci](https://github.com/opalmedapps/docs/actions/workflows/ci.yml/badge.svg)](https://github.com/opalmedapps/docs/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://docs.opalmedapps.com)
 
-Project for the Opal documentation site.
+Project for the Opal documentation site. Another sentence.
 
 This project uses [MkDocs](https://www.mkdocs.org) and in particular the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
 Material for MkDocs makes use of [Python Markdown](https://python-markdown.github.io/) and the [Python Markdown Extensions](https://facelessuser.github.io/pymdown-extensions/).
