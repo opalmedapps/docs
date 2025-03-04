@@ -79,7 +79,9 @@ jobs:
         with:
           # weekly cache
           key: mkdocs-material-$(date --utc '+%V')
-          path: .cache
+          path: |
+            .cache
+            .plantuml
           restore-keys: |
             mkdocs-material-
       - name: Build site
@@ -90,6 +92,7 @@ jobs:
     if: success() && github.ref == 'refs/heads/main'
     needs:
       - lint
+      - markdownlint
       - build
     permissions:
       contents: write
