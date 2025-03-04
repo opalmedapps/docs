@@ -91,7 +91,7 @@ jobs:
 
   deploy:
     uses: ./.github/workflows/deploy.yml
-    if: success() && github.ref != 'refs/heads/main'
+    if: success() && github.ref == 'refs/heads/main'
     needs:
       - lint
       - markdownlint
