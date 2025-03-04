@@ -87,6 +87,7 @@ jobs:
             mkdocs-material-
       - name: Build site
         run: mkdocs build --strict
+      - run: echo test
 
   deploy:
     uses: ./.github/workflows/deploy.yml
