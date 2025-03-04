@@ -27,3 +27,5 @@ jobs:
       - run-ci
     if: success() && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: write
