@@ -82,9 +82,7 @@ jobs:
         with:
           # weekly cache
           key: mkdocs-material-${{ env.cache_id }}
-          path: |
-            .cache
-            .plantuml
+          path: .cache
           restore-keys: |
             mkdocs-material-
       - name: Build site
