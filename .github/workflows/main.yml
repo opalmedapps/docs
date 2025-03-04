@@ -1,0 +1,26 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+  merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # don't cancel any workflows on the main branch
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  run-ci:
+    uses: ./.github/workflows/ci.yml
+  run-deploy:
+    needs:
+      - run-ci
+    if: success() && github.ref
+    uses: ./.github/workflows/deploy.yml
