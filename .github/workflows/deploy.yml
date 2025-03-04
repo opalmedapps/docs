@@ -1,13 +1,8 @@
 name: deploy
 
 on:
-  workflow_run:
-    workflows: [ci]
-    branches:
-      - main
-    types:
-      - completed
   workflow_dispatch:
+  workflow_call:
 
 concurrency:
   group: deploy
@@ -25,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
         with:
+          persist-credentials: false
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
@@ -42,12 +38,14 @@ jobs:
           python-version: 3.13
       - name: Print the installed versions
         run: |
-          echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
+          echo "Installed uv version is $(uv --version)"
           echo "Installed Python version is $(python --version)"
           uv python list
       - name: Install dependencies
         run: uv pip install -r requirements.txt
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
+      # weekly cache updates
+      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
       - uses: actions/cache@v4.2.2
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -55,5 +53,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - name: Deploy to GitHub Pages
-        # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
         run: mkdocs gh-deploy --strict --force
