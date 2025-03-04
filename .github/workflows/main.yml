@@ -19,8 +19,11 @@ permissions:
 jobs:
   run-ci:
     uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+      security-events: write
   run-deploy:
     needs:
       - run-ci
-    if: success() && github.ref
+    if: success() && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/deploy.yml
