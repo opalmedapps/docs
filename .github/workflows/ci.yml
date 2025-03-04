@@ -1,16 +1,16 @@
 name: ci
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  # merge_group:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
   workflow_call:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.ref }}-ci
+  group: ${{ github.workflow }}-${{ github.ref }}
   # don't cancel any workflows on the main branch
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
@@ -84,3 +84,12 @@ jobs:
             mkdocs-material-
       - name: Build site
         run: mkdocs build --strict
+
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    if: success() && github.ref == 'refs/heads/main'
+    needs:
+      - lint
+      - build
+    permissions:
+      contents: write
