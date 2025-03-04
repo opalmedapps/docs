@@ -75,10 +75,13 @@ jobs:
           uv python list
       - name: Install dependencies
         run: uv pip install -r requirements.txt
+      # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
+      # weekly cache updates
+      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
       - uses: actions/cache@v4.2.2
         with:
           # weekly cache
-          key: mkdocs-material-$(date --utc '+%V')
+          key: mkdocs-material-${{ env.cache_id }}
           path: |
             .cache
             .plantuml
