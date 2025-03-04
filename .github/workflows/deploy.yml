@@ -54,3 +54,4 @@ jobs:
             mkdocs-material-
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --strict --force
+      - run: echo test
