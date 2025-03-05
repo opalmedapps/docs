@@ -11,6 +11,7 @@
     // see: https://docs.renovatebot.com/modules/manager/pre-commit/
     // https://docs.renovatebot.com/presets-default/#enableprecommit
     ":enablePreCommit",
+    "github>mschoettle/renovate-presets//presets/actions-dependency-version.json5",
   ],
   // https://docs.renovatebot.com/configuration-options/#assignees
   "assignees": ["mschoettle"],
