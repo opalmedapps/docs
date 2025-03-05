@@ -32,7 +32,7 @@ jobs:
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.5.25"
+          version: "0.6.4"
           python-version: 3.13
       - name: Print the installed versions
         run: |
