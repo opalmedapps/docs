@@ -28,6 +28,11 @@ repos:
     hooks:
       - id: markdownlint-cli2
 
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.30.1
+    hooks:
+      - id: typos
+
   # zizmor detects security vulnerabilities in GitHub Actions workflows.
   - repo: https://github.com/woodruffw/zizmor-pre-commit
     rev: v1.4.1
