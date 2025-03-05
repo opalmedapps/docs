@@ -16,7 +16,7 @@ note right of listener
 Success variables track checkin status
 By default orms_success==source_success=True
 (in case either of these systems are disabled).
-opal_sucess=False by default as we always must
+opal_success=False by default as we always must
 attempt the backend checkin.
 end note
 alt "if ORMS_ENABLED==1"
@@ -42,7 +42,7 @@ loop (appointment in appointmentDetails)
 listener -> backend: POST url=api/patients/legacy/appointment/checkin/\nparams=source_system_id, source_database, checkin
 backend --> listener: success
 end
-listener -> listener: opal_sucess=True
+listener -> listener: opal_success=True
 
 alt "if orms_success==source_success==opal_success==True"
     listener -> opaldb: getCheckedInAppointments(requestObject.TargetPatientID)
