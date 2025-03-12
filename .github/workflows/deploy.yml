@@ -34,7 +34,7 @@ jobs:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
       - name: Install dependencies
-        run: uv sync --no-dev
+        run: uv sync --locked --no-dev
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
