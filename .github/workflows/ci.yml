@@ -34,7 +34,7 @@ jobs:
           uv venv
           echo "Installed uv version is $(uv --version)"
           echo "Installed Python version is $(python --version)"
-      - uses: mschoettle/pre-commit-action@v4.1.2
+      - uses: tox-dev/action-pre-commit-uv@v1.0.2
         env:
           SKIP: markdownlint-cli2
 
