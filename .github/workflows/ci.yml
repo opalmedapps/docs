@@ -65,11 +65,12 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
-      - name: Print the installed versions
+      - name: Install dependencies
         run: |
           echo "Installed uv version is $(uv --version)"
           echo "Installed Python version is $(python --version)"
-          uv python list
+          uv sync
+          echo "Installed Python version is $(python --version)"
       - name: Install dependencies
         run: uv pip install -r requirements.txt
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
