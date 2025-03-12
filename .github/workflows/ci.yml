@@ -31,12 +31,9 @@ jobs:
           version: "0.6.6"
       - name: Install pre-commit
         run: |
-          # uv sync --locked --only-dev
+          uv sync --locked --only-dev
           echo "Installed uv version is $(uv --version)"
           echo "Installed Python version is $(python --version)"
-      - name: test
-        run: |
-          uv run --no-sync pre-commit --version
       - uses: tox-dev/action-pre-commit-uv@v1.0.2
         env:
           SKIP: markdownlint-cli2
