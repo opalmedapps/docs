@@ -113,6 +113,8 @@ plugins:
         - https://gitlab.com/opalmedapps/*
         # PlantUML diagrams are included as data
         - "data:*"
+        # Twitter URL sometimes returns a 404
+        - https://x.com/i_a_r_n_a/status/623922369376202758
       # only enable when building in CI to speed up local builds
       enabled: !ENV [CI, false]
 
