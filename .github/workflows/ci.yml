@@ -67,12 +67,7 @@ jobs:
           version: "0.6.6"
       - name: Install dependencies
         run: |
-          echo "Installed uv version is $(uv --version)"
-          echo "Installed Python version is $(python --version)"
           uv sync
-          echo "Installed Python version is $(python --version)"
-      - name: Install dependencies
-        run: uv pip install -r requirements.txt
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
@@ -84,8 +79,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - name: Build site
-        run: mkdocs build --strict
-      - run: echo test
+        run: uv run mkdocs build --strict
 
   deploy:
     uses: ./.github/workflows/deploy.yml
