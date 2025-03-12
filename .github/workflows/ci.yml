@@ -29,9 +29,9 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
-      - name: Print the installed versions
+      - name: Set up venv for pre-commit
         run: |
-          uv python install
+          uv venv
           echo "Installed uv version is $(uv --version)"
           echo "Installed Python version is $(python --version)"
       - uses: mschoettle/pre-commit-action@v4.1.2
