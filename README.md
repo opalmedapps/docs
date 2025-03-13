@@ -29,13 +29,13 @@ The documentation is split into several parts:
 
 ### Getting started
 
-First, set up a virtual environment and install all dependencies:
+All you need is [`uv`](https://docs.astral.sh/uv) to set up your environment.
 
 ```shell
-python3 -m venv --upgrade-deps .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
+
+If no matching Python installation can be found it will download it for you.
 
 Install the [`pre-commit`](https://pre-commit.com/) hooks:
 
@@ -46,7 +46,7 @@ pre-commit install
 Then, run the development server to serve the site locally:
 
 ```shell
-mkdocs serve -a localhost:8001
+uv run mkdocs serve -a localhost:8001
 ```
 
 You can then access the site at: http://localhost:8001
