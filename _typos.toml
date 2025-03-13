@@ -1,0 +1,4 @@
+[default.extend-words]
+muhc = "muhc"
+# part of SerNum
+ser = "ser"

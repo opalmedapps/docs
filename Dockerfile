@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-FROM squidfunk/mkdocs-material:9.6.4
+FROM squidfunk/mkdocs-material:9.6.7
 
 # install any additional dependencies
 COPY requirements.txt .

@@ -78,7 +78,7 @@ class  "opal.pharmacy.PharmacyRoute" as route #LightSteelBlue {
     ~ pharmacy_encoded_order (ForeignKey) - prescription for which this encoded order was generated
     ~ route [RXR.1, CE] (ForeignKey CodedElement related_name='pharmacy_route_route' null=True blank=True) - Route of administration
     ~ site [RXR.2, CE] (ForeignKey CodedElement related_name='pharmacy_route_site') - Site of administration
-    ~ administration_device [RXR.3, CE] (ForeignKey CodedElement related_name='pharmacy_route_administration_device) - The mechnical device used to administer the drug or treatment
+    ~ administration_device [RXR.3, CE] (ForeignKey CodedElement related_name='pharmacy_route_administration_device) - The mechanical device used to administer the drug or treatment
     ~ administration_method [RXR.4, CE] (ForeignKey CodedElement related_name='pharmacy_route_administration_method) - Specific method requested for administration of the drug or treatment
 }
 

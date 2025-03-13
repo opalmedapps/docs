@@ -9,64 +9,50 @@ on:
     branches:
       - main
   pull_request:
-  workflow_dispatch:
   merge_group:
+  workflow_call:
+  workflow_dispatch:
 
 concurrency:
-  group: "${{ github.ref }}"
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # don't cancel any workflows on the main branch
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
+permissions:
+  contents: read
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    permissions:
-      # required for upload-sarif action
-      # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#example-workflow-for-sarif-files-generated-outside-of-a-repository
-      security-events: write
-      contents: read
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: astral-sh/setup-uv@v5.2.2
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v5.3.1
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.5.25"
-          # ubuntu-latest already has Python 3.x installed (pip is needed by the pre-commit action)
-      - name: Print the installed versions
+          version: "0.6.6"
+      - name: Install pre-commit
         run: |
-          uv python install
-          echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
-          echo "Installed Python version is $(python --version)"
-          uv python list
-      - uses: mschoettle/pre-commit-action@v4.0.2
+          uv sync --locked --only-dev
+      - uses: mschoettle/pre-commit-action@v4.2.1
         env:
           SKIP: markdownlint-cli2
-      - name: Run markdownlint
-        uses: YannickTeKulve/docker-run-action@0.0.6
-        with:
-          image: davidanson/markdownlint-cli2-rules:v0.17.2
-          # node user does not have permissions to workspace due to user id mismatch
-          options: -v ${{ github.workspace }}:/workdir --user root
-          # use the config file that is stored outside the root for CI specific configuration
-          # don't fail step if there are violations
-          run: markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml "**/*.md" || true
-      # Needs to be a public repo in order for uploading SARIF files to work
-      # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
-      # - uses: github/codeql-action/upload-sarif@v3
-      #   with:
-      #     # Path to SARIF file relative to the root of the repository
-      #     sarif_file: markdownlint-cli2-sarif.sarif
-      #     # Optional category for the results
-      #     # Used to differentiate multiple results for one commit
-      #     category: markdownlint
-      # fail if there are markdownlint violations
-      - name: Check markdownlint results
-        run: |
-          cat markdownlint-cli2-sarif.sarif | grep -q '"results": \[\]'
 
   run-reuse-workflow:
     uses: opalmedapps/.github/.github/workflows/reuse.yaml@main
+
+  markdownlint:
+    permissions:
+      contents: read
+      # required for upload-sarif action
+      # https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#example-workflow-for-sarif-files-generated-outside-of-a-repository
+      security-events: write
+
+    uses: opalmedapps/.github/.github/workflows/markdownlint.yaml@main
+    with:
+      semantic-linebreak: true
 
   build:
     runs-on: ubuntu-latest
@@ -75,28 +61,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
         with:
+          persist-credentials: false
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
-      - uses: astral-sh/setup-uv@v5.2.2
+      - uses: astral-sh/setup-uv@v5.3.1
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.5.25"
-          python-version: 3.13
-      - name: Print the installed versions
-        run: |
-          echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
-          echo "Installed Python version is $(python --version)"
-          uv python list
+          version: "0.6.6"
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
-      - uses: actions/cache@v4.2.0
+        run: |
+          uv sync --locked
+      # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
+      # weekly cache updates
+      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
+      - uses: actions/cache@v4.2.2
         with:
           # weekly cache
-          key: mkdocs-material-$(date --utc '+%V')
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
       - name: Build site
-        run: mkdocs build --strict
+        run: uv run mkdocs build --strict
+
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    if: success() && github.ref == 'refs/heads/main'
+    needs:
+      - lint
+      - markdownlint
+      - build
+    permissions:
+      contents: write

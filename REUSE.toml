@@ -26,3 +26,12 @@ precedence = "override"
 # source of this file: https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/.vscode/C4.code-snippets
 SPDX-FileCopyrightText = "Copyright (c) 2018 Ricardo Niepel"
 SPDX-License-Identifier = "MIT"
+
+# generated files
+[[annotations]]
+path = [
+    "requirements.txt",
+    "uv.lock",
+]
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"

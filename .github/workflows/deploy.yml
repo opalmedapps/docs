@@ -5,13 +5,8 @@
 name: deploy
 
 on:
-  workflow_run:
-    workflows: [ci]
-    branches:
-      - main
-    types:
-      - completed
   workflow_dispatch:
+  workflow_call:
 
 concurrency:
   group: deploy
@@ -19,16 +14,15 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # only run if CI workflow completed successfully
-    # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: write
     environment: pages
     steps:
       - uses: actions/checkout@v4.2.2
         with:
+          persist-credentials: true
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
@@ -38,26 +32,21 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - name: Install uv
-        uses: astral-sh/setup-uv@v5.2.2
+        uses: astral-sh/setup-uv@v5.3.1
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.5.25"
-          python-version: 3.13
-      - name: Print the installed versions
-        run: |
-          echo "Installed uv version is ${{ steps.setup-uv.outputs.uv-version }}"
-          echo "Installed Python version is $(python --version)"
-          uv python list
+          version: "0.6.6"
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4.2.0
+        run: uv sync --locked --no-dev
+      # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
+      # weekly cache updates
+      - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
+      - uses: actions/cache@v4.2.2
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
       - name: Deploy to GitHub Pages
-        # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
-        run: mkdocs gh-deploy --strict --force
+        run: uv run mkdocs gh-deploy --strict --force

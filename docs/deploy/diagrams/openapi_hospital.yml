@@ -5,7 +5,7 @@
 openapi: 3.0.0
 info:
   title: Hospital Source Data System API
-  description: "APIs to fetch and receieve basic patient information. These API facilitates various
+  description: "APIs to fetch and receive basic patient information. These API facilitates various
    Opal functionality. At a minimum, the patient demographics lookup must be supported in order for Opal
    to successfully complete a patient registration."
   version: 1.0.0
