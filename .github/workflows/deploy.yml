@@ -33,14 +33,8 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
-          python-version: 3.13
-      - name: Print the installed versions
-        run: |
-          echo "Installed uv version is $(uv --version)"
-          echo "Installed Python version is $(python --version)"
-          uv python list
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
+        run: uv sync --locked --no-dev
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
@@ -51,4 +45,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --strict --force
+        run: uv run mkdocs gh-deploy --strict --force

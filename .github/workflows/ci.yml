@@ -29,14 +29,10 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
-          # ubuntu-latest already has Python 3.x installed (pip is needed by the pre-commit action)
-      - name: Print the installed versions
+      - name: Install pre-commit
         run: |
-          uv python install
-          echo "Installed uv version is $(uv --version)"
-          echo "Installed Python version is $(python --version)"
-          uv python list
-      - uses: mschoettle/pre-commit-action@v4.1.2
+          uv sync --locked --only-dev
+      - uses: mschoettle/pre-commit-action@v4.2.1
         env:
           SKIP: markdownlint-cli2
 
@@ -67,14 +63,9 @@ jobs:
         with:
           # renovate: datasource=pypi dependency=uv
           version: "0.6.6"
-          python-version: 3.13
-      - name: Print the installed versions
-        run: |
-          echo "Installed uv version is $(uv --version)"
-          echo "Installed Python version is $(python --version)"
-          uv python list
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
+        run: |
+          uv sync --locked
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
@@ -86,8 +77,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - name: Build site
-        run: mkdocs build --strict
-      - run: echo test
+        run: uv run mkdocs build --strict
 
   deploy:
     uses: ./.github/workflows/deploy.yml

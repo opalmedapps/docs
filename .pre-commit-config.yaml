@@ -28,6 +28,13 @@ repos:
     hooks:
       - id: markdownlint-cli2
 
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.6.6
+    hooks:
+      - id: uv-lock
+      # requirements.txt currently used in Dockerfile to install dependencies
+      - id: uv-export
+
   - repo: https://github.com/crate-ci/typos
     rev: v1.30.2
     hooks:
