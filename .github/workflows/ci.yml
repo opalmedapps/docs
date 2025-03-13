@@ -32,7 +32,7 @@ jobs:
       - name: Install pre-commit
         run: |
           uv sync --locked --only-dev
-      - uses: mschoettle/pre-commit-action@v4.2.0
+      - uses: mschoettle/pre-commit-action@v4.2.1
         env:
           SKIP: markdownlint-cli2
 
