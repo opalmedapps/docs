@@ -69,3 +69,7 @@ This makes it easier to read in source and also easier to review changes to the 
 ### Adding a new page
 
 When you add a new page, you must add it to the `nav` section in `mkdocs.yml` in order for it to appear in the navigation menu.
+
+## License
+
+Please refer to the `LICENSE` file in this repository for information about licensing.
