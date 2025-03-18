@@ -29,7 +29,7 @@ repos:
       - id: markdownlint-cli2
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.6.6
+    rev: 0.6.8
     hooks:
       - id: uv-lock
       # requirements.txt currently used in Dockerfile to install dependencies
