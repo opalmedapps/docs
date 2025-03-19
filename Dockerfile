@@ -1,4 +1,4 @@
-FROM squidfunk/mkdocs-material:9.6.7
+FROM squidfunk/mkdocs-material:9.6.9
 
 COPY --from=ghcr.io/astral-sh/uv:0.6.6 /uv /uvx /bin/
 
