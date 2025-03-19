@@ -32,8 +32,6 @@ repos:
     rev: 0.6.6
     hooks:
       - id: uv-lock
-      # requirements.txt currently used in Dockerfile to install dependencies
-      - id: uv-export
 
   - repo: https://github.com/crate-ci/typos
     rev: v1.30.2
