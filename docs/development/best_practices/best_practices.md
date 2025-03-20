@@ -17,7 +17,7 @@ Any best practice outlined in this document should come with a rationale on why 
 > “Good advice comes with a rationale so you can tell when it becomes bad advice.
 > If you don’t understanding why something should be done, then you’ve fallen into the trap of cargo cult programming, and you’ll keep doing it even when it’s no longer necessary or even becomes deleterious.”
 >
-> &mdash; ***Raymond Chen*** at [The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20091104-00/?p=16153)
+> — ***Raymond Chen*** at [The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20091104-00/?p=16153)
 
 ## Version Control
 
@@ -48,7 +48,7 @@ Good commit messages matter:
 > “a well-crafted Git commit message is the best way to communicate *context* about a change to fellow developers (and indeed to their future selves).
 > A diff will tell you *what* changed, but only the commit message can properly tell you *why*.”
 >
-> &mdash; ***cbeams*** via [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
+> — ***cbeams*** via [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
 
 Make commits [after each logical change](https://sethrobertson.github.io/GitBestPractices/#commit) (or select those changes that form a logical change).
 This also makes it easier to explain the change in the commit message.
@@ -61,8 +61,8 @@ This helps in the future when dealing with bugs or generally when determining wh
 
 ### Resources
 
-* [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
-* [Commit Often, Perfect Later, Publish Once—Git Best Practices](https://sethrobertson.github.io/GitBestPractices/#commit)
+- [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
+- [Commit Often, Perfect Later, Publish Once—Git Best Practices](https://sethrobertson.github.io/GitBestPractices/#commit)
 
 ## Code Style
 
@@ -130,7 +130,7 @@ The following principles taken from the above guide are especially important to 
 
     A fast response time is important because "**most complaints about the code review process are actually resolved by making the process faster**", and since "slow reviews also discourage code cleanups, refactorings, and further improvements".
 
-2. ^^Improved quality^^
+1. ^^Improved quality^^
 
     Code review involves using time and effort to improve the quality of new code, but also requires choosing a stopping point at which to integrate changes into the project and ensure forward progress.
 
@@ -139,16 +139,16 @@ The following principles taken from the above guide are especially important to 
     That being said, code review must end at some point.
     A good rule of thumb is that "reviewers should favor **approving a CL [changelist] once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect**.
 
-3. ^^Giving clear expectations^^
+1. ^^Giving clear expectations^^
 
     Clear communication helps code reviews to go more smoothly and be more effective.
     Here are some examples of things that should be communicated:
 
-    * If you're holding off on approving changes until something specific is done, let the author know so you aren't both left in an uncertain waiting state.
-    * Identify any suggestions that you want to leave up to the developer to accept or ignore (take it or leave it) and for which you don't expect follow-up.
+    - If you're holding off on approving changes until something specific is done, let the author know so you aren't both left in an uncertain waiting state.
+    - Identify any suggestions that you want to leave up to the developer to accept or ignore (take it or leave it) and for which you don't expect follow-up.
         These are suggestions that the author can ignore if they choose to.
-    * You can identify small detail changes, often style-related, as "nit:" (representing a nit-pick).
-    * Let the author know if you were only able to review one aspect of a changelist.
+    - You can identify small detail changes, often style-related, as "nit:" (representing a nit-pick).
+    - Let the author know if you were only able to review one aspect of a changelist.
         For example, if you reviewed database changes but someone else needs to review the security aspect of those changes, let the author know.
 
 ## Branching style
@@ -181,9 +181,9 @@ A great visualization of these is provided in the article [Pull Request Merge St
 
 ### Merging Resources
 
-* [Pull Request Merge Strategies: The Great Debate - Atlassian Developer Blog](https://blog.developer.atlassian.com/pull-request-merge-strategies-the-great-debate/)
-* [Git team workflows: merge or rebase? | Atlassian Git Tutorial](https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase)
-* [Two years of squash merge - DNSimple Blog](https://blog.dnsimple.com/2019/01/two-years-of-squash-merge/)
+- [Pull Request Merge Strategies: The Great Debate - Atlassian Developer Blog](https://blog.developer.atlassian.com/pull-request-merge-strategies-the-great-debate/)
+- [Git team workflows: merge or rebase? | Atlassian Git Tutorial](https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase)
+- [Two years of squash merge - DNSimple Blog](https://blog.dnsimple.com/2019/01/two-years-of-squash-merge/)
 
 ## Containerization
 
@@ -217,8 +217,8 @@ This should be automated if possible.
 
 Any (app) component should follow the Twelve-Factor App Methodology: [https://12factor.net/](https://12factor.net/)
 
-* [Store config in the environment](https://12factor.net/config): “An app’s config is everything that is likely to vary between deploys (staging, production, developer environments, etc).” \
-This allows one to configure different deploys using the environment, e.g., using .env file(s), environment variables, environment files (Docker) etc.
+- [Store config in the environment](https://12factor.net/config): “An app’s config is everything that is likely to vary between deploys (staging, production, developer environments, etc).” \
+    This allows one to configure different deploys using the environment, e.g., using .env file(s), environment variables, environment files (Docker) etc.
 
 ## Reusing Code
 
@@ -239,9 +239,9 @@ TODO
 
 TODO
 
-* Many of the tools, packages and frameworks are open source (and free)
-* Many are maintained by people in their free time
-* Give back to improve them
-    * Report issues
-    * Create fixes if possible
-* Consider: Sponsorship
+- Many of the tools, packages and frameworks are open source (and free)
+- Many are maintained by people in their free time
+- Give back to improve them
+    - Report issues
+    - Create fixes if possible
+- Consider: Sponsorship

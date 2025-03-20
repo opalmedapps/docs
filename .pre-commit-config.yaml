@@ -27,6 +27,15 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
 
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        language: python
+        additional_dependencies:
+          - mdformat-mkdocs==4.1.2
+          - mdformat-footnote==0.1.1
+
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.17.2
     hooks:

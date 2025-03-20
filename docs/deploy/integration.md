@@ -12,10 +12,10 @@ In addition, hospitals must provide some endpoints to Opal in order to facilitat
 Opal source data APIs are provided by four subcomponents within the application layer.
 Those are:
 
-* [Backend](https://gitlab.com/opalmedapps/backend)
-* [OpalAdmin](https://gitlab.com/opalmedapps/opalAdmin)
-* [Opal-Labs](https://gitlab.com/opalmedapps/opal-labs)
-* [ORMS](https://gitlab.com/opalmedapps/ORMS)  *If wait room support is enabled at hospital*
+- [Backend](https://gitlab.com/opalmedapps/backend)
+- [OpalAdmin](https://gitlab.com/opalmedapps/opalAdmin)
+- [Opal-Labs](https://gitlab.com/opalmedapps/opal-labs)
+- [ORMS](https://gitlab.com/opalmedapps/ORMS) *If wait room support is enabled at hospital*
 
 In order to successfully integrate the Opal solution with a hospital data system, the above mentioned application container images must be deployed to an application server and configured with database access, SSL certificates, and environment configuration.
 
@@ -95,8 +95,8 @@ Opal-RMS separates private from public APIs and thus any calls to the public API
 
 In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions.
 
-* As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
-* In the `Requirements for Hospital Endpoints` section (see below), the sending of patient weight measurement PDFs from the wait room management system is expected to be sent with XML data containing a base64 string encoding of the measurement PDF.
+- As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
+- In the `Requirements for Hospital Endpoints` section (see below), the sending of patient weight measurement PDFs from the wait room management system is expected to be sent with XML data containing a base64 string encoding of the measurement PDF.
 
 ## OpenAPI Schemas for Opal Source Data
 
@@ -105,10 +105,10 @@ For the `Opal-Backend`, we use [drf-spectacular](https://pypi.org/project/drf-sp
 This swagger page is accessible for authenticated users via `/api/schema/swagger-ui`.
 For convenience, all endpoints in all openapi specifications related to integrations have been tagged with the `institution integration` label within the openapi specification.
 
-* Opal-Backend: Swagger rendering at {hostAddress}/api/schema/swagger-ui
-* [Opal-Admin: openapi.yml](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/php/openapi.yml?ref_type=heads)
-* [Opal-Labs: openapi.yml](https://gitlab.com/opalmedapps/opal-labs/-/blob/main/openapi.yml?ref_type=heads)
-* [Opal-RMS: openapi.yml](https://gitlab.com/opalmedapps/ORMS/-/blob/dev/php/api/public/v1/openapi.yml?ref_type=heads)
+- Opal-Backend: Swagger rendering at {hostAddress}/api/schema/swagger-ui
+- [Opal-Admin: openapi.yml](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/php/openapi.yml?ref_type=heads)
+- [Opal-Labs: openapi.yml](https://gitlab.com/opalmedapps/opal-labs/-/blob/main/openapi.yml?ref_type=heads)
+- [Opal-RMS: openapi.yml](https://gitlab.com/opalmedapps/ORMS/-/blob/dev/php/api/public/v1/openapi.yml?ref_type=heads)
 
 ## Requirements for Hospital Endpoints
 

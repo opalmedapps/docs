@@ -23,9 +23,9 @@ All documentation is written in Markdown and located in the `docs/` directory.
 
 The documentation is split into several parts:
 
-* `user` contains the user guide
-* `development` contains information about contributing to Opal
-* `deploy` contains information about how to deploy and run Opal, and how to integrate the Opal services with a hospital
+- `user` contains the user guide
+- `development` contains information about contributing to Opal
+- `deploy` contains information about how to deploy and run Opal, and how to integrate the Opal services with a hospital
 
 ### Getting started
 
@@ -64,7 +64,7 @@ We also enforce [semantic line breaks](https://sembr.org).
 This makes it easier to read in source and also easier to review changes to the text.
 
 **Note:** This is an additional rule for `markdownlint`.
-    Due to a [limitation](https://github.com/DavidAnson/vscode-markdownlint/issues/336) with the vscode extension this rule is currently only enabled in CI.
+Due to a [limitation](https://github.com/DavidAnson/vscode-markdownlint/issues/336) with the vscode extension this rule is currently only enabled in CI.
 
 ### Adding a new page
 

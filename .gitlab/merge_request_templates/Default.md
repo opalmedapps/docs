@@ -1,8 +1,8 @@
 **By submitting this merge request, I confirm the following:** _please fill any appropriate checkboxes, e.g: [x]_
 
-* [ ] The merge request title follows the conventional commits convention
-* [ ] I have self-reviewed my changes before requesting a review.
-* [ ] I have made only one major change in my proposed changes.
+- [ ] The merge request title follows the conventional commits convention
+- [ ] I have self-reviewed my changes before requesting a review.
+- [ ] I have made only one major change in my proposed changes.
 
 ## Description
 

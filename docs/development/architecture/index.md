@@ -10,9 +10,10 @@ Opal is a solution aimed at providing patients and their caregivers[^1] access t
 Opal provides two main parts to achieve this goal:
 
 1. A patient/caregiver-facing part to give them access to the medical data.
-2. A clinical staff facing part to manage the patient data.
+1. A clinical staff facing part to manage the patient data.
 
 !!! note
+
     The diagrams presented here are based on the [C4 model](https://c4model.com) for visualizing software architecture.
     They are created with [PlantUML](https://plantuml.com) using the [C4 PlantUML Extension](https://github.com/plantuml-stdlib/C4-PlantUML).
 
@@ -72,8 +73,8 @@ The following is an overview of all the components that are part of the Opal sol
 
 ### Opal Integration Engine (OIE)
 
-* [Project Page](https://gitlab.com/opalmedapps/opal-integration-engine)
-* [Mirth Connect](https://www.nextgen.com/solutions/interoperability/mirth-integration-engine)
+- [Project Page](https://gitlab.com/opalmedapps/opal-integration-engine)
+- [Mirth Connect](https://www.nextgen.com/solutions/interoperability/mirth-integration-engine)
 
 The OIE is responsible for interfacing with the hospital's interface.
 It receives unsolicited HL7 messages from hospital source systems.
@@ -91,7 +92,7 @@ For the latter case, the OIE provides a set of API endpoints for our components 
 
 ### OpalAdmin
 
-* [Project Page](https://gitlab.com/opalmedapps/OpalAdmin)
+- [Project Page](https://gitlab.com/opalmedapps/OpalAdmin)
 
 OpalAdmin provides the admin interface for clinicians and staff.
 The web application is used to manage patients, hospital maps, questionnaires etc.
@@ -104,8 +105,8 @@ These scripts manage new data that was added, and determine whether caregivers n
 
 ### Listener
 
-* [Project Page](https://gitlab.com/opalmedapps/opal-listener)
-* [Published Documentation](https://opalmedapps.gitlab.io/opal-listener)
+- [Project Page](https://gitlab.com/opalmedapps/opal-listener)
+- [Published Documentation](https://opalmedapps.gitlab.io/opal-listener)
 
 The listener is the component that interacts with Firebase in order to handle requests coming from the user applications.
 The requests it handles are those intended for the hospital the Opal PIE is operating in.
@@ -113,15 +114,15 @@ See the [section on communication below](#communication-between-user-application
 
 The listener contains legacy app and registration functionality as well as new functionality for forwarding API requests to the backend:
 
-* The legacy part handles request types and directly executes queries on the databases.
-* The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the backend API.
-  It acts as a kind of proxy/middleware and makes actual HTTP requests.
-  The HTTP response is returned.
+- The legacy part handles request types and directly executes queries on the databases.
+- The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the backend API.
+    It acts as a kind of proxy/middleware and makes actual HTTP requests.
+    The HTTP response is returned.
 
 ### Backend
 
-* [Project Page](https://gitlab.com/opalmedapps/backend)
-* [Published Documentation](https://opalmedapps.gitlab.io/backend)
+- [Project Page](https://gitlab.com/opalmedapps/backend)
+- [Published Documentation](https://opalmedapps.gitlab.io/backend)
 
 The backend (aka. _New OpalAdmin_) is the new backend that replaces the [legacy OpalAdmin](#opaladmin).
 It provides APIs for the user applications and other systems, such as the OIE.
@@ -131,7 +132,7 @@ Over time, other existing functionality will be migrated to this component (see 
 
 ### Opal Labs
 
-* [Project Page](https://gitlab.com/opalmedapps/opal-labs)
+- [Project Page](https://gitlab.com/opalmedapps/opal-labs)
 
 _Opal Labs_ is an additional component which takes care of processing new lab results for patients.
 It exposes an API endpoint for use by the OIE to handle new lab results.
@@ -147,8 +148,8 @@ It also makes an API call to _OpalAdmin_ to request sending a push notification 
 
 ### User Registration
 
-* [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
-* [Production Registration](https://registration.opalmedapps.ca)
+- [Project Page](https://gitlab.com/opalmedapps/registration-web-page)
+- [Production Registration](https://registration.opalmedapps.ca)
 
 The registration websites provides a user (caregiver) the ability to create their Opal account.
 In order to use the registration website, a caregiver has to request access to a patient's data at the hospital.
@@ -157,7 +158,7 @@ Using the registration code and the patient's identification number (RAMQ or MRN
 
 ### Web and Mobile App
 
-* [Project Page](https://gitlab.com/opalmedapps/qplus)
+- [Project Page](https://gitlab.com/opalmedapps/qplus)
 
 The web and mobile app provide caregivers the ability to access patient data for the patients under their care.
 The mobile app is the same as the web app.
@@ -168,7 +169,7 @@ The mobile app supports additional features native to mobile devices, such as lo
 
 #### Database Migrations and Initial Data
 
-* [Project Page](https://gitlab.com/opalmedapps/db-docker/)
+- [Project Page](https://gitlab.com/opalmedapps/db-docker/)
 
 Historically, the legacy components of Opal did not maintain migrations of the database schema.
 Migrations and initial data (to set up Opal at a new hospital) is maintained in this separate component.
@@ -182,7 +183,7 @@ It is only necessary to run this during setup and upgrade.
 
 #### Redis
 
-* [Project Page](https://redis.io/)
+- [Project Page](https://redis.io/)
 
 Redis is used by _Opal Labs_ to cache patients being processed to avoid sending caregivers multiple push notification times when batch processing.
 
@@ -193,8 +194,8 @@ Firebase is used to support passing data from within the hospital firewall to th
 
 Opal makes use of two Firebase services:
 
-* [_Authentication_](https://firebase.google.com/docs/auth) is used for user accounts (via email and password).
-* [_Realtime Database_](https://firebase.google.com/docs/database) is used to pass requests and responses between user applications and the Opal PIE.
+- [_Authentication_](https://firebase.google.com/docs/auth) is used for user accounts (via email and password).
+- [_Realtime Database_](https://firebase.google.com/docs/database) is used to pass requests and responses between user applications and the Opal PIE.
 
 A Firebase user account is created when a user completes the user registration for the first time.
 The Firebase Realtime Database acts as a kind of queue for sending requests and receiving responses.
@@ -212,10 +213,6 @@ TBC
 TBC
 
 https://gitlab.com/opalmedapps/qplus
-
-[^1]:
-    We consider a caregiver to also include the patient.
-    In that case they are caring for themself.
 
 ### Appointment Checkin Processes
 
@@ -248,9 +245,9 @@ However, ORMs also provides several additional methods of checking in to an appo
 
 These are:
 
-* Kiosk Checkins - where a patient can scan their hospital card at an ORMs kiosk in the hospital to checkin to all appointments for the day, before proceeding to the waiting room
-* Virtual Waiting Room (VWR) Checkins - where a patient can request to be checked into all appointments for that day at a reception desk, and a clinical staff member uses the ORMs VWR to perform the checkin on the patient's behald
-* SMS Checkins - where a patient can respond to an automated SMS received to their mobile device with the phrase 'Check In' in order to be checked in for all appointments for the day
+- Kiosk Checkins - where a patient can scan their hospital card at an ORMs kiosk in the hospital to checkin to all appointments for the day, before proceeding to the waiting room
+- Virtual Waiting Room (VWR) Checkins - where a patient can request to be checked into all appointments for that day at a reception desk, and a clinical staff member uses the ORMs VWR to perform the checkin on the patient's behald
+- SMS Checkins - where a patient can respond to an automated SMS received to their mobile device with the phrase 'Check In' in order to be checked in for all appointments for the day
 
 From the perspective of the Opal ecosystem, all three of these checkin methods are identical in that they result in the same API call(s) from ORMs to Opal, although from a patient perspective they are different.
 
@@ -258,3 +255,6 @@ The following sequence diagram details the series of API calls that are made imm
 
 ```plantuml source="docs/development/architecture/diagrams/checkins/orms_checkins.puml"
 ```
+
+[^1]: We consider a caregiver to also include the patient.
+    In that case they are caring for themself.
