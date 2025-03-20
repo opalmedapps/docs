@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: MIT
+-->
+
 # Opal Documentation
 
 [![ci](https://github.com/opalmedapps/docs/actions/workflows/ci.yml/badge.svg)](https://github.com/opalmedapps/docs/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://docs.opalmedapps.com)
@@ -63,3 +69,7 @@ This makes it easier to read in source and also easier to review changes to the 
 ### Adding a new page
 
 When you add a new page, you must add it to the `nav` section in `mkdocs.yml` in order for it to appear in the navigation menu.
+
+## License
+
+Please refer to the `LICENSE` file in this repository for information about licensing.

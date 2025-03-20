@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+#
+# SPDX-License-Identifier: MIT
+
 FROM squidfunk/mkdocs-material:9.6.9
 
 COPY --from=ghcr.io/astral-sh/uv:0.6.8 /uv /uvx /bin/

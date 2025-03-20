@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Diagrams
 
 The recommended way to create and maintain diagrams is within text, i.e., *diagrams as code*.

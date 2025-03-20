@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2024 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Set up a local development environment
 
 The following instructions will guide you through the process of setting up Opal locally on your machine.

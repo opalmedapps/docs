@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2024 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Deploying the Opal solution
 
 The Opal PIE is typically deployed in a hospital and only accessible within the hospital's network.

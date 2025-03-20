@@ -1,3 +1,7 @@
+' SPDX-FileCopyrightText: Copyright (C) 2024 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+'
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
 @startuml name End to End Pharmacy Data
 title Receiving and Storing Pharmacy Data In OPAL\nPython HL7 Library Data Conversion
 

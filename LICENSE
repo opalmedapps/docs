@@ -1,0 +1,9 @@
+This repository follows the REUSE specification (see https://reuse.software/) where copyright and licensing information is added to each file.
+
+In general, the documentation itself is licensed under the "Creative Commons Attribution-ShareAlike 4.0 International" license.
+Everything else, unless otherwise stated, is licensed under the MIT license.
+
+Please see the respective SPDX headers in each file.
+SPDX headers of binary files, or file formats that don't support comments, can be found in `REUSE.toml`.
+
+License texts can be found in the `LICENSES` directory.
