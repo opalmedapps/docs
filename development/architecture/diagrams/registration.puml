@@ -1,3 +1,7 @@
+' SPDX-FileCopyrightText: Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+'
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
 @startuml sequence
 
 title "A user is registering through the web page via the patient's RAMQ/MRN and the registration code"

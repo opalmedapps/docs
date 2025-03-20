@@ -1,3 +1,7 @@
+' SPDX-FileCopyrightText: Copyright (C) 2023 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+'
+' SPDX-License-Identifier: CC-BY-SA-4.0
+
 @startuml "New Authentication via Backend"
 
 title New ORMS Authentication via Backend
