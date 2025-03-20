@@ -30,7 +30,6 @@ SPDX-License-Identifier = "MIT"
 # generated files
 [[annotations]]
 path = [
-    "requirements.txt",
     "uv.lock",
 ]
 SPDX-FileCopyrightText = "NONE"

@@ -126,15 +126,15 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mkdocs-git-revision-date-localized-plugin", specifier = "==1.4.4" },
+    { name = "mkdocs-git-revision-date-localized-plugin", specifier = "==1.4.5" },
     { name = "mkdocs-glightbox", specifier = "==0.4.0" },
     { name = "mkdocs-htmlproofer-plugin", specifier = "==1.3.0" },
-    { name = "mkdocs-material", specifier = "==9.6.7" },
+    { name = "mkdocs-material", specifier = "==9.6.9" },
     { name = "plantuml-markdown", specifier = "==3.11.1" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "pre-commit", specifier = "==4.1.0" }]
+dev = [{ name = "pre-commit", specifier = "==4.2.0" }]
 
 [[package]]
 name = "filelock"
@@ -297,7 +297,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
-version = "1.4.4"
+version = "1.4.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
@@ -305,9 +305,9 @@ dependencies = [
     { name = "mkdocs" },
     { name = "pytz" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/dc/e8/6b60a1ee45701473ecdb6ab4d936210aebec2266e173543d8fb47f104d8e/mkdocs_git_revision_date_localized_plugin-1.4.4.tar.gz", hash = "sha256:cc805d020e0eb2df9d52cfad195f89237a8c6a47ac5ca9e5a5ba95aee06f2140", size = 449521 }
+sdist = { url = "https://files.pythonhosted.org/packages/3c/93/3987505121a9b596b05c8a38054b587cfe0d78a1a3e92144204f2c45722b/mkdocs_git_revision_date_localized_plugin-1.4.5.tar.gz", hash = "sha256:9e37f1343d314c9cd8f9cbbf117c4bdc1d2d24a0653c5bbd7059d072f2cd0972", size = 450263 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ed/82/71b55d6dd6349b7d38ace7b3e29ffdcf1c7f6f6da692fe7f44acb81abe65/mkdocs_git_revision_date_localized_plugin-1.4.4-py3-none-any.whl", hash = "sha256:c1c4fd622e44eb81b9b0b0402f0367fb28f597828b1463c55452df691ceb54ca", size = 25247 },
+    { url = "https://files.pythonhosted.org/packages/da/c0/b63cb3008564242a3d1ba7a6dd6dc29d7fb297e65bda93cef655780757af/mkdocs_git_revision_date_localized_plugin-1.4.5-py3-none-any.whl", hash = "sha256:395ae0b9eec565c78a76fffc938b70f52774bf2971245482d31aba47018c5fa9", size = 25284 },
 ]
 
 [[package]]
@@ -336,7 +336,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.6.7"
+version = "9.6.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "babel" },
@@ -351,9 +351,9 @@ dependencies = [
     { name = "pymdown-extensions" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9b/d7/93e19c9587e5f4ed25647890555d58cf484a4d412be7037dc17b9c9179d9/mkdocs_material-9.6.7.tar.gz", hash = "sha256:3e2c1fceb9410056c2d91f334a00cdea3215c28750e00c691c1e46b2a33309b4", size = 3947458 }
+sdist = { url = "https://files.pythonhosted.org/packages/11/cb/6dd3b6a7925429c0229738098ee874dbf7fa02db55558adb2c5bf86077b2/mkdocs_material-9.6.9.tar.gz", hash = "sha256:a4872139715a1f27b2aa3f3dc31a9794b7bbf36333c0ba4607cf04786c94f89c", size = 3948083 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/aa/d3/12f22de41bdd9e576ddc459b38c651d68edfb840b32acaa1f46ae36845e3/mkdocs_material-9.6.7-py3-none-any.whl", hash = "sha256:8a159e45e80fcaadd9fbeef62cbf928569b93df954d4dc5ba76d46820caf7b47", size = 8696755 },
+    { url = "https://files.pythonhosted.org/packages/db/7c/ea5a671b2ff5d0e3f3108a7f7d75b541d683e4969aaead2a8f3e59e0fc27/mkdocs_material-9.6.9-py3-none-any.whl", hash = "sha256:6e61b7fb623ce2aa4622056592b155a9eea56ff3487d0835075360be45a4c8d1", size = 8697935 },
 ]
 
 [[package]]
@@ -426,7 +426,7 @@ wheels = [
 
 [[package]]
 name = "pre-commit"
-version = "4.1.0"
+version = "4.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cfgv" },
@@ -435,9 +435,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "virtualenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2a/13/b62d075317d8686071eb843f0bb1f195eb332f48869d3c31a4c6f1e063ac/pre_commit-4.1.0.tar.gz", hash = "sha256:ae3f018575a588e30dfddfab9a05448bfbd6b73d78709617b5a2b853549716d4", size = 193330 }
+sdist = { url = "https://files.pythonhosted.org/packages/08/39/679ca9b26c7bb2999ff122d50faa301e49af82ca9c066ec061cfbc0c6784/pre_commit-4.2.0.tar.gz", hash = "sha256:601283b9757afd87d40c4c4a9b2b5de9637a8ea02eaff7adc2d0fb4e04841146", size = 193424 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/b3/df14c580d82b9627d173ceea305ba898dca135feb360b6d84019d0803d3b/pre_commit-4.1.0-py2.py3-none-any.whl", hash = "sha256:d29e7cb346295bcc1cc75fc3e92e343495e3ea0196c9ec6ba53f49f10ab6ae7b", size = 220560 },
+    { url = "https://files.pythonhosted.org/packages/88/74/a88bf1b1efeae488a0c0b7bdf71429c313722d1fc0f377537fbe554e6180/pre_commit-4.2.0-py2.py3-none-any.whl", hash = "sha256:a009ca7205f1eb497d10b845e52c838a98b6cdd2102a6c8e4540e94ee75c58bd", size = 220707 },
 ]
 
 [[package]]

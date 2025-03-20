@@ -32,7 +32,7 @@ jobs:
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.6.6"
+          version: "0.6.8"
       - name: Install pre-commit
         run: |
           uv sync --locked --only-dev
@@ -69,14 +69,14 @@ jobs:
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.6.6"
+          version: "0.6.8"
       - name: Install dependencies
         run: |
           uv sync --locked
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
-      - uses: actions/cache@v4.2.2
+      - uses: actions/cache@v4.2.3
         with:
           # weekly cache
           key: mkdocs-material-${{ env.cache_id }}

@@ -28,7 +28,7 @@ More details about this pattern can be found in the resources below.
 
 #### Additional articles about Strangler Fig Pattern
 
-* Paper: [An Agile Approach to a Legacy System](http://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf)
+* Paper: [An Agile Approach to a Legacy System](https://web.archive.org/web/20241205205350/https://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf)
 * [Legacy Application Strangulation: Case Studies](https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/)
 * [The Strangler Fig Migration Pattern | by Diana Darie | Medium](https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511)
 * [The Strangler pattern in practice - Michiel Rook's blog](https://www.michielrook.nl/2016/11/strangler-pattern-practice/)
