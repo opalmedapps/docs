@@ -27,6 +27,11 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
 
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.24
+    hooks:
+      - id: validate-pyproject
+
   - repo: https://github.com/executablebooks/mdformat
     rev: 0.7.22
     hooks:
