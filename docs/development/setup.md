@@ -14,11 +14,11 @@ This guide is split into several aspects of the [Opal solution](architecture/ind
 In general, all projects with the exception of one project (the mobile app) are containerized.
 Therefore, the required software to be installed on your machine directly is fairly small.
 
-* [Git](https://git-scm.com/) for version control
-* [Git Large File Storage (LFS)](https://git-lfs.com/), used in some projects to version large files
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/)[^1]
-* An IDE, such as [Visual Studio Code](https://code.visualstudio.com/)
-* [Node.js](https://nodejs.org/en) to build and run the mobile app (as a web app)
+- [Git](https://git-scm.com/) for version control
+- [Git Large File Storage (LFS)](https://git-lfs.com/), used in some projects to version large files
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)[^1]
+- An IDE, such as [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js](https://nodejs.org/en) to build and run the mobile app (as a web app)
 
 ??? info "Note about `node`"
 
@@ -55,10 +55,10 @@ You need your own Firebase project so that your local app can communicate with t
 #### Create a new Firebase project
 
 1. Open the [Firebase Console](https://console.firebase.google.com)
-2. Click on "+ Add project"
-3. Give it a relevant project name, such as "Opal Local"
-4. Uncheck "Enable Google Analytics for this project"
-5. Click "Create project"
+1. Click on "+ Add project"
+1. Give it a relevant project name, such as "Opal Local"
+1. Uncheck "Enable Google Analytics for this project"
+1. Click "Create project"
 
 The "Authentication" and "Realtime Database" features are needed for communication between the apps and backend components.
 Follow the instructions below to enable and configure these features.
@@ -66,8 +66,8 @@ Follow the instructions below to enable and configure these features.
 #### Create a new Realtime Database
 
 1. In the left panel of your newly created Firebase project, expand "Build" and click on "Realtime Database".
-2. Click "Create Database"
-3. On the second step of "Set up database" (Security rules), select "Start in test mode".
+1. Click "Create Database"
+1. On the second step of "Set up database" (Security rules), select "Start in test mode".
 
 !!! note Security rules
 
@@ -82,9 +82,9 @@ See also the Firebase documentation on [Firebase Security Rules](https://firebas
 #### Enable email and password authentication
 
 1. In the left panel, expand "Build" and click on "Authentication"
-2. Click on "Get started"
-3. Choose "Email/Password" as the sign-in provider
-4. Enable "Email/Password" and click "Save"
+1. Click on "Get started"
+1. Choose "Email/Password" as the sign-in provider
+1. Enable "Email/Password" and click "Save"
 
 See also the Firebase documentation on [Firebase Authentication](https://firebase.google.com/docs/auth).
 
@@ -93,17 +93,17 @@ See also the Firebase documentation on [Firebase Authentication](https://firebas
 Retrieve the client configuration:
 
 1. Click on the settings icon (gear) next to "Project Overview"
-2. Click on "Project Settings"
-3. In the "General" tab, under "Your Apps", click the "&lt;/&gt;" icon
-4. Choose an app nickname, such as "Opal Local"
-5. Click "Register app"
-6. Copy the code and save it somewhere for later
+1. Click on "Project Settings"
+1. In the "General" tab, under "Your Apps", click the "\</>" icon
+1. Choose an app nickname, such as "Opal Local"
+1. Click "Register app"
+1. Copy the code and save it somewhere for later
 
 Retrieve the private key for the admin SDK:
 
 1. Go back to the "Project Settings" page and click on the "Service accounts" tab
-2. Click on "Generate new private key" and then "Generate key"
-3. Download the file somewhere safe on your machine for later
+1. Click on "Generate new private key" and then "Generate key"
+1. Download the file somewhere safe on your machine for later
 
 See also the Firebase documentation on [Admin SDK Authentication](https://firebase.google.com/docs/database/admin/start).
 
@@ -167,7 +167,7 @@ Follow the instructions outlined in the [mobile app README](https://gitlab.com/o
 
 ### Optional: User Registration
 
-Setting up the above components will give you the ability to use the mobile app and manage clinical data (such as questionnaires,  appointment descriptions etc.) with opalAdmin.
+Setting up the above components will give you the ability to use the mobile app and manage clinical data (such as questionnaires, appointment descriptions etc.) with opalAdmin.
 
 If you need to create new user accounts you can set up the user registration as well.
 Follow the instructions in the [registration README](https://gitlab.com/opalmedapps/registration-web-page/-/blob/main/README.md).
@@ -179,6 +179,5 @@ Setting up the above components will give you the ability to use the mobile app,
 All other components as outlined in the [component overview](architecture/index.md#overview-of-components) are only necessary if you want to contribute to that component specifically.
 Follow the README in any project to set it up, and update the respective environment variables in other components that make API calls to it.
 
-[^1]:
-    You are welcome to use another container engine.
-    However, all the commands shown in our instructions are specific to  `docker` and `docker compose`.
+[^1]: You are welcome to use another container engine.
+    However, all the commands shown in our instructions are specific to `docker` and `docker compose`.

@@ -23,18 +23,18 @@ More details about this pattern can be found in the resources below.
 
 ### Resources
 
-* [Strangler Fig Application - Martin Fowler](https://martinfowler.com/bliki/StranglerFigApplication.html)
-* How Shopify applied the Strangler Fig Pattern within the same codebase: [Refactoring Legacy Code with the Strangler Fig Pattern](https://shopify.engineering/refactoring-legacy-code-strangler-fig-pattern)
+- [Strangler Fig Application - Martin Fowler](https://martinfowler.com/bliki/StranglerFigApplication.html)
+- How Shopify applied the Strangler Fig Pattern within the same codebase: [Refactoring Legacy Code with the Strangler Fig Pattern](https://shopify.engineering/refactoring-legacy-code-strangler-fig-pattern)
 
 #### Additional articles about Strangler Fig Pattern
 
-* Paper: [An Agile Approach to a Legacy System](https://web.archive.org/web/20241205205350/https://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf)
-* [Legacy Application Strangulation: Case Studies](https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/)
-* [The Strangler Fig Migration Pattern | by Diana Darie | Medium](https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511)
-* [The Strangler pattern in practice - Michiel Rook's blog](https://www.michielrook.nl/2016/11/strangler-pattern-practice/)
-* [What is the Strangler Fig Pattern and How it Helps Manage Legacy Code](https://www.freecodecamp.org/news/what-is-the-strangler-pattern-in-software-development/)
-* [The Ship of Theseus to NOT rewrite a legacy system from scratch](https://understandlegacycode.com/blog/ship-of-theseus-avoid-rewrite-legacy-system/)
-* [https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)
+- Paper: [An Agile Approach to a Legacy System](https://web.archive.org/web/20241205205350/https://cdn.pols.co.uk/papers/agile-approach-to-legacy-systems.pdf)
+- [Legacy Application Strangulation: Case Studies](https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/)
+- [The Strangler Fig Migration Pattern | by Diana Darie | Medium](https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511)
+- [The Strangler pattern in practice - Michiel Rook's blog](https://www.michielrook.nl/2016/11/strangler-pattern-practice/)
+- [What is the Strangler Fig Pattern and How it Helps Manage Legacy Code](https://www.freecodecamp.org/news/what-is-the-strangler-pattern-in-software-development/)
+- [The Ship of Theseus to NOT rewrite a legacy system from scratch](https://understandlegacycode.com/blog/ship-of-theseus-avoid-rewrite-legacy-system/)
+- [https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)
 
 ## Migration Process
 
@@ -53,16 +53,16 @@ During the initial phase of the migration process, there is some duplicated data
 The following table shows data that exists in both systems.
 _Legacy_ refers to the legacy backend (stored in the legacy database _OpalDB_) and _Backend_ for the new backend.
 
-| Concept     | Legacy            | Backend                               |
-| ----------- | ----------------- | ------------------------------------- |
-| Patient     | `Patient` table: Contains all patients and a dummy patient entry for users who are not patients themselves. | `Patient` model: Contains all patients with a `legacy_id` referring to `Patient.PatientSerNum` in the legacy DB. |
-| Caregiver User | `Users` table: Contains all users. The `UserType` is `Patient` if the user is also a patient and `Caregiver` if it is a caregiver only. | The `Caregiver` model is a type of `User` which contains all existing (migrated) and new caregiver users. The `CaregiverProfile` model links to it and adds the `legacy_id` which refers to `Users.UserTypeSerNum`. |
-| Hospital Site | `Hospital_Identifier_Type` table: Contains sites of a hospital and their internal code. | `Institution` and `Site` models: Contains institutions and their site(s) along with their properties and settings. |
-| Hospital Patient | `Patient_Hospital_Identifier` table: Contains the list of MRNs and site codes | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance |
-| Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions |
-| Security Answer | **Deprecated:** `SecurityAnswer` table: The answer to a particular question | `SecurityAnswer` model: The answer to the question. The question is a field within the same model to support user-defined questions in the future. |
-| Device | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data | `Device` model: Currently unused |
-| User (Staff) | `OAUser` table: Contains all users who can log in to OpalAdmin | The `ClinicalStaff` model is a type of `User` which contains all users. |
+| Concept           | Legacy                                                                                                                                  | Backend                                                                                                                                                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Patient           | `Patient` table: Contains all patients and a dummy patient entry for users who are not patients themselves.                             | `Patient` model: Contains all patients with a `legacy_id` referring to `Patient.PatientSerNum` in the legacy DB.                                                                                                    |
+| Caregiver User    | `Users` table: Contains all users. The `UserType` is `Patient` if the user is also a patient and `Caregiver` if it is a caregiver only. | The `Caregiver` model is a type of `User` which contains all existing (migrated) and new caregiver users. The `CaregiverProfile` model links to it and adds the `legacy_id` which refers to `Users.UserTypeSerNum`. |
+| Hospital Site     | `Hospital_Identifier_Type` table: Contains sites of a hospital and their internal code.                                                 | `Institution` and `Site` models: Contains institutions and their site(s) along with their properties and settings.                                                                                                  |
+| Hospital Patient  | `Patient_Hospital_Identifier` table: Contains the list of MRNs and site codes                                                           | `HospitalPatient` model: Contains the list of MRNs and a reference to the `Site` instance                                                                                                                           |
+| Security Question | **Deprecated**: `SecurityQuestion` table: Contains a list of pre-defined security questions                                             | `SecurityQuestion` model: Contains a list of (migrated) pre-defined security questions                                                                                                                              |
+| Security Answer   | **Deprecated:** `SecurityAnswer` table: The answer to a particular question                                                             | `SecurityAnswer` model: The answer to the question. The question is a field within the same model to support user-defined questions in the future.                                                                  |
+| Device            | `PatientDeviceIdentifier`: Still in use as a cache for the listener to keep session data                                                | `Device` model: Currently unused                                                                                                                                                                                    |
+| User (Staff)      | `OAUser` table: Contains all users who can log in to OpalAdmin                                                                          | The `ClinicalStaff` model is a type of `User` which contains all users.                                                                                                                                             |
 
 #### Diagrams
 
@@ -94,11 +94,11 @@ For certain tasks, such as logging in, decryption of requests and encryption of 
 The table `PatientDeviceIdentifier` in the legacy database (`OpalDB`) contains various session data and acts as some kind cache/session store where data related to the user's session is stored.
 Since the listener already accesses this data, we can use this table to store session-related data in the short term.
 
-* Keep the `PatientDeviceIdentifier` table as a cache for the listener
+- Keep the `PatientDeviceIdentifier` table as a cache for the listener
 
-    * Store the Firebase username as a reference to the user (available with every request)
-    * Store the current security answer hash
-    * Maintain the current use of storing the device and push IDs
+    - Store the Firebase username as a reference to the user (available with every request)
+    - Store the current security answer hash
+    - Maintain the current use of storing the device and push IDs
 
 Over time we can then fully move it to the backend and cache required session data in the listener directly.
 
