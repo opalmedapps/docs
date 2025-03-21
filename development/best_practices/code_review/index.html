@@ -1391,7 +1391,7 @@ The resources (and additional ones) this was extracted from are provided at the 
 <ul>
 <li>Find bugs &amp; design flaws before the the code is done and especially before customers (patients) find/experience them</li>
 <li>Shared ownership &amp; knowledge: We are a team and no developer should be the only expert.
-This also helps prevent the <a href="https://en.wikipedia.org/wiki/Bus_factor">lottery factor</a>, i.e., ensuring there is no single human point of failure.</li>
+    This also helps prevent the <a href="https://en.wikipedia.org/wiki/Bus_factor">lottery factor</a>, i.e., ensuring there is no single human point of failure.</li>
 <li>Encourage consistency of code: Increases code quality and makes code easier to maintain long term by yourself and others.</li>
 </ul>
 <h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
@@ -1418,7 +1418,7 @@ It is also an opportunity to learn from each other.</p>
     See below for more details on how.</li>
 </ul>
 <h2 id="what-to-look-out-for">What to look out for<a class="headerlink" href="#what-to-look-out-for" title="Permanent link">&para;</a></h2>
-<p>At a high level, you should look out for the following things in a code review (sources with more details<sup id="fnref:google"><a class="footnote-ref" href="#fn:google">3</a></sup> <sup id="fnref:codeproject"><a class="footnote-ref" href="#fn:codeproject">6</a></sup>):</p>
+<p>At a high level, you should look out for the following things in a code review (sources with more details<sup id="fnref:google"><a class="footnote-ref" href="#fn:google">1</a></sup> <sup id="fnref:codeproject"><a class="footnote-ref" href="#fn:codeproject">2</a></sup>):</p>
 <ul>
 <li><strong>Design:</strong> Is the code well-designed and appropriate for your system?</li>
 <li><strong>Functionality:</strong> Does the code behave as the author likely intended?
@@ -1431,12 +1431,12 @@ It is also an opportunity to learn from each other.</p>
 <li><strong>Style:</strong> Does the code follow our style guides?</li>
 <li><strong>Documentation:</strong> Did the developer also update relevant documentation?</li>
 </ul>
-<p>Note: The above list is taken verbatim from Google's Code Review Developer Guide<sup id="fnref2:google"><a class="footnote-ref" href="#fn:google">3</a></sup>.
-A more detailed description of each item exists<sup id="fnref:google-look-for"><a class="footnote-ref" href="#fn:google-look-for">4</a></sup>.</p>
+<p>Note: The above list is taken verbatim from Google's Code Review Developer Guide<sup id="fnref2:google"><a class="footnote-ref" href="#fn:google">1</a></sup>.
+A more detailed description of each item exists<sup id="fnref:google-look-for"><a class="footnote-ref" href="#fn:google-look-for">3</a></sup>.</p>
 <p>In addition, for the time being, the reviewer should also checkout the changes and try them out.
 This is especially helpful for more complex changes or to verify whether what looks like a bug or possible problematic condition/logic in the diff is indeed the case.</p>
 <h2 id="how-to-be-a-great-submitter">How to be a great submitter<a class="headerlink" href="#how-to-be-a-great-submitter" title="Permanent link">&para;</a></h2>
-<p>The following is a short summary of how to be a great submitter (sources with more details<sup id="fnref:talk"><a class="footnote-ref" href="#fn:talk">1</a></sup> <sup id="fnref:phauer"><a class="footnote-ref" href="#fn:phauer">2</a></sup>):</p>
+<p>The following is a short summary of how to be a great submitter (sources with more details<sup id="fnref:talk"><a class="footnote-ref" href="#fn:talk">4</a></sup> <sup id="fnref:phauer"><a class="footnote-ref" href="#fn:phauer">5</a></sup>):</p>
 <ul>
 <li><strong>One concern:</strong> Submit one issue per merge request.
     If you solve an unrelated problem, create a new merge request.</li>
@@ -1465,30 +1465,44 @@ This is especially helpful for more complex changes or to verify whether what lo
 </li>
 </ul>
 <h2 id="how-to-be-a-great-reviewer">How to be a great reviewer<a class="headerlink" href="#how-to-be-a-great-reviewer" title="Permanent link">&para;</a></h2>
-<p>The following is a short summary of how to be a great submitter (sources with more details<sup id="fnref2:talk"><a class="footnote-ref" href="#fn:talk">1</a></sup> <sup id="fnref2:phauer"><a class="footnote-ref" href="#fn:phauer">2</a></sup>):</p>
+<p>The following is a short summary of how to be a great submitter (sources with more details<sup id="fnref2:talk"><a class="footnote-ref" href="#fn:talk">4</a></sup> <sup id="fnref2:phauer"><a class="footnote-ref" href="#fn:phauer">5</a></sup>):</p>
 <ul>
-<li><strong>Clear Feedback:</strong> Provide clear and actionable feedback.
+<li>
+<p><strong>Clear Feedback:</strong> Provide clear and actionable feedback.
     Opinions need to be strongly supported.
     Share how and why a change is necessary and back it up with supporting documentation, articles etc.
-    If it is not an important change, prefix your comment with "nit:" to let the submitter know that it's just a point of polish.</li>
-<li><strong>Be Objective:</strong> Talk about the code, not the coder ("This method is missing ..." instead of "You forgot to ...").
+    If it is not an important change, prefix your comment with "nit:" to let the submitter know that it's just a point of polish.</p>
+</li>
+<li>
+<p><strong>Be Objective:</strong> Talk about the code, not the coder ("This method is missing ..." instead of "You forgot to ...").
     It is harder to take it personally and prevents finger-pointing.
-    Have empathy.</li>
-<li><strong>Use I-Messages</strong>: Formulate your feedback from your point of view by expressing your personal thoughts and impressions.
-    Use sentences that start with "I ..." (I suggest, I think, For me, etc.).</li>
-<li><strong>Ask Questions:</strong> Ask questions instead of giving answers.
-    It feels less like criticism, can trigger a thought process, and the submitter can explain the rationale.</li>
-<li><strong>Offer Suggestions:</strong> Phrase suggestions accordingly, e.g., "It might be easier to ...", "We tend to do it this way ...".
-    Make suggestions clear but accept that there are different solutions.</li>
-<li><strong>Praise:</strong> Don't forget to express your appreciation when you see something good.
-    Compliment good work &amp; great ideas.</li>
-<li><strong>Avoid:</strong> Avoid the following terms: Simply, Easily, Just, Obviously, Well, actually ...
+    Have empathy.</p>
+</li>
+<li>
+<p><strong>Use I-Messages</strong>: Formulate your feedback from your point of view by expressing your personal thoughts and impressions.
+    Use sentences that start with "I ..." (I suggest, I think, For me, etc.).</p>
+</li>
+<li>
+<p><strong>Ask Questions:</strong> Ask questions instead of giving answers.
+    It feels less like criticism, can trigger a thought process, and the submitter can explain the rationale.</p>
+</li>
+<li>
+<p><strong>Offer Suggestions:</strong> Phrase suggestions accordingly, e.g., "It might be easier to ...", "We tend to do it this way ...".
+    Make suggestions clear but accept that there are different solutions.</p>
+</li>
+<li>
+<p><strong>Praise:</strong> Don't forget to express your appreciation when you see something good.
+    Compliment good work &amp; great ideas.</p>
+</li>
+<li>
+<p><strong>Avoid:</strong> Avoid the following terms: Simply, Easily, Just, Obviously, Well, actually ...
     No one writes bad code on purpose.
-    This is also an opportunity to learn from each other and grow.</li>
+    This is also an opportunity to learn from each other and grow.</p>
+</li>
 <li>
 <p><strong>Don't be a perfectionist:</strong> Don't let perfect get in the way of perfectly acceptable.
-    "The goal is better code, not 'exactly the code you would have written'"<sup id="fnref:twitter"><a class="footnote-ref" href="#fn:twitter">5</a></sup>.
-    Google's Guide<sup id="fnref3:google"><a class="footnote-ref" href="#fn:google">3</a></sup> states:</p>
+    "The goal is better code, not 'exactly the code you would have written'"<sup id="fnref:twitter"><a class="footnote-ref" href="#fn:twitter">6</a></sup>.
+    Google's Guide<sup id="fnref3:google"><a class="footnote-ref" href="#fn:google">1</a></sup> states:</p>
 <blockquote>
 <p>In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.</p>
 </blockquote>
@@ -1529,23 +1543,23 @@ The below list contains extra resources that may be of interest:</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:talk">
-<p>Presentation and slides on "Code Review Skills for Pythonistas": <a href="https://www.nnja.io/post/2018/2018-djangocon-code-review/">https://www.nnja.io/post/2018/2018-djangocon-code-review/</a>&#160;<a class="footnote-backref" href="#fnref:talk" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:talk" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:phauer">
-<p>Code Review Guidelines for Humans: <a href="https://phauer.com/2018/code-review-guidelines/">https://phauer.com/2018/code-review-guidelines/</a>&#160;<a class="footnote-backref" href="#fnref:phauer" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:phauer" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
 <li id="fn:google">
-<p>Code Review Developer Guidelines - Google: <a href="https://google.github.io/eng-practices/review/">https://google.github.io/eng-practices/review/</a>&#160;<a class="footnote-backref" href="#fnref:google" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:google" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:google" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:google-look-for">
-<p>What to look for in code review - Google: <a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html">https://google.github.io/eng-practices/review/reviewer/looking-for.html</a>&#160;<a class="footnote-backref" href="#fnref:google-look-for" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:twitter">
-<p>Rebecca's Rules for Constructive Code Reviews - Twitter: <a href="https://x.com/i_a_r_n_a/status/623922369376202758">https://x.com/i_a_r_n_a/status/623922369376202758</a>&#160;<a class="footnote-backref" href="#fnref:twitter" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Code Review Developer Guidelines - Google: <a href="https://google.github.io/eng-practices/review/">https://google.github.io/eng-practices/review/</a>&#160;<a class="footnote-backref" href="#fnref:google" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:google" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:google" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:codeproject">
-<p>Code review guidelines - Code Project: <a href="https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines">https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines</a>&#160;<a class="footnote-backref" href="#fnref:codeproject" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Code review guidelines - Code Project: <a href="https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines">https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines</a>&#160;<a class="footnote-backref" href="#fnref:codeproject" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:google-look-for">
+<p>What to look for in code review - Google: <a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html">https://google.github.io/eng-practices/review/reviewer/looking-for.html</a>&#160;<a class="footnote-backref" href="#fnref:google-look-for" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:talk">
+<p>Presentation and slides on "Code Review Skills for Pythonistas": <a href="https://www.nnja.io/post/2018/2018-djangocon-code-review/">https://www.nnja.io/post/2018/2018-djangocon-code-review/</a>&#160;<a class="footnote-backref" href="#fnref:talk" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:talk" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:phauer">
+<p>Code Review Guidelines for Humans: <a href="https://phauer.com/2018/code-review-guidelines/">https://phauer.com/2018/code-review-guidelines/</a>&#160;<a class="footnote-backref" href="#fnref:phauer" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:phauer" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:twitter">
+<p>Rebecca's Rules for Constructive Code Reviews - Twitter: <a href="https://x.com/i_a_r_n_a/status/623922369376202758">https://x.com/i_a_r_n_a/status/623922369376202758</a>&#160;<a class="footnote-backref" href="#fnref:twitter" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1571,7 +1585,7 @@ The below list contains extra resources that may be of interest:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 20, 2025 13:08:08"><span class="timeago" datetime="2025-03-20T13:08:08+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 20, 2025 13:08:08">2025-03-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 21, 2025 00:28:51"><span class="timeago" datetime="2025-03-21T00:28:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 21, 2025 00:28:51">2025-03-21</span>
   </span>
 
     
