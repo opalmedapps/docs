@@ -28,7 +28,7 @@ The following system context diagram shows a high-level view of the architecture
 ```plantuml source="docs/development/architecture/diagrams/context_diagram.puml"
 ```
 
-The Opal solution provides the _Opal Patient Information Exchange (PIE)_ which is usually deployed inside a hospital.
+The Opal solution provides the _Opal Patient Information Exchange (PIE)_ which is typically deployed inside a hospital.
 The components accessible by caregivers are available via mobile app stores and are also hosted on the web.
 These components consist of the user registration web application to create user accounts and the application for patients (or their caregiver(s)) to access the patient's medical data.
 
@@ -73,75 +73,75 @@ The following is an overview of all the components that are part of the Opal sol
 
 ### OpalAdmin (New)
 
-- [Project Page](https://github.com/opalmedapps/opal-pie)
-- [Documentation](https://github.com/opalmedapps/opal-pie/tree/main/docs)
-- API Documentation: Available at `<hostAddress>/api/schema/swagger-ui`
+- **Repository:** https://github.com/opalmedapps/opal-admin
+- **Documentation:** https://github.com/opalmedapps/opal-admin/tree/main/docs
+- **API Documentation:** Available when running at `<hostAddress>/api/schema/swagger-ui`
 
-The backend (aka. _New OpalAdmin_) is the new backend that replaces the [legacy OpalAdmin](#opaladmin-legacy).
-It provides APIs for the user applications and other systems, such as the integration engine.
+_OpalAdmin_ (aka. _New OpalAdmin_) is the new backend that replaces the [legacy OpalAdmin](#opaladmin-legacy).
+It provides APIs for the user applications and other systems, such as an integration engine.
 In addition, it provides the new user interface for OpalAdmin containing all the new functionality, auditing, user authentication and authorization.
 
 Over time, other existing functionality will be migrated to this component (see [future vision](#future-vision)).
 
 ### OpalAdmin (Legacy)
 
-- [Project Page](https://github.com/opalmedapps/opal-admin)
-- [API Documentation for integration](https://github.com/opalmedapps/opaladmin/blob/main/php/openapi.yml)
+- **Repository:** https://github.com/opalmedapps/opal-admin
+- **API Documentation for integration:** https://github.com/opalmedapps/opal-admin-legacy/blob/main/php/openapi.yml
 
-_OpalAdmin_ provides the admin interface for clinicians and staff.
+_OpalAdmin (Legacy)_ provides the admin interface for clinicians and staff.
 The web application is used to manage patients, hospital maps, questionnaires etc.
 It exposes all of its functionality via an API.
 One part of the API is intended for the frontend which is built as a single page application.
 The other part of the API is intended for use by other services that integrate with Opal, such as an integration engine of a hospital.
 
-_OpalAdmin_ also contains a publishing module which has scripts that are run periodically.
+The _legacy OpalAdmin_ also contains a publishing module which has scripts that are run periodically.
 These scripts manage new data that was added, and determine whether caregivers need to be informed about new patient data (via push notifications to their mobile devices).
 
 ??? note "Lab Results Specifics"
 
-    _OpalAdmin_ also has an API endpoint to insert lab results for a particular patient.
+    _Legacy OpalAdmin_ also has an API endpoint to insert lab results for a particular patient.
     This endpoint was migrated from another component and does not use _OpalAdmin_'s authentication system.
-    HTTP Basic authentication is used to prevent unauthenticated access.
+    HTTP Basic authentication configured in the reverse proxy is used to prevent unauthenticated access.
 
 ### Listener
 
-- [Project Page](https://github.com/opalmedapps/opal-listener)
-- [Documentation](https://github.com/opalmedapps/opal-listener/tree/main/docs)
+- **Repository:** https://github.com/opalmedapps/opal-listener
+- **Documentation:** https://github.com/opalmedapps/opal-listener/tree/main/docs
 
-The listener is the component that interacts with Firebase in order to handle requests coming from the user applications.
+The _Listener_ is the component that interacts with Firebase in order to handle requests coming from the user applications.
 The requests it handles are those intended for the hospital the Opal PIE is operating in.
 See the [section on communication below](#communication-between-user-applications-and-the-opal-pie) for more information.
 
-The listener contains legacy app and registration functionality as well as new functionality for forwarding API requests to the backend:
+The listener contains legacy app and registration functionality as well as new functionality for forwarding API requests to the new _OpalAdmin_:
 
 - The legacy part handles request types and directly executes queries on the databases.
-- The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the backend API.
+- The new functionality receives API requests (basically, HTTP requests as JSON) and forwards them to the OpalAdmin API.
     It acts as a kind of proxy/middleware and makes actual HTTP requests.
-    The HTTP response is returned.
+    The HTTP response is directly returned.
 
 ### User Registration
 
-- [Project Page](https://github.com/opalmedapps/opal-registration)
+- **Repository:** https://github.com/opalmedapps/opal-registration
 
-The registration websites provides a user (caregiver) the ability to create their Opal account.
-In order to use the registration website, a caregiver has to request access to a patient's data at the hospital.
-At the end of this, the hospital will provide a registration code to the caregiver.
+The registration web application provides a user (caregiver) the ability to create their Opal account.
+In order to use the _registration_, a caregiver has to request access to a patient's data at the hospital.
+At the end of this request process, the hospital will provide a registration code to the caregiver.
 Using the registration code and the patient's identification number (health insurance number or MRN) the user can complete the registration process.
 
 ### Web and Mobile App
 
-- [Project Page](https://github.com/opalmedapps/opal-app)
+- **Repository:** https://github.com/opalmedapps/opal-app
 
 The web and mobile app provides caregivers the ability to access patient data for the patients under their care.
 The mobile app is the same as the web app.
-It is packaged as a mobile app and distributed through the Google Play and Apple App stores.
+It is built using _Cordova_ as a mobile app and distributed through the Google Play and Apple App stores.
 The mobile app supports additional features native to mobile devices, such as location, sharing etc.
 
 ### Sidecar components
 
 #### Database Migrations and Initial Data
 
-- [Project Page](https://github.com/opalmedapps/db-management/)
+- **Repository:** https://github.com/opalmedapps/db-management
 
 Historically, the legacy components of Opal did not maintain migrations of the database schema.
 Migrations and initial data (to set up Opal at a new hospital) is maintained in this separate component.
@@ -155,9 +155,10 @@ It is only necessary to run this during setup and upgrade.
 
 #### Redis
 
-- [Project Page](https://redis.io/)
+- **Project page:** https://redis.io/
 
-Redis is used by for the labs feature in _OpalAdmin_ to cache patients being processed to avoid sending caregivers multiple push notification times when batch processing.
+Redis is used by the labs feature in _Legacy OpalAdmin_ to cache the patients whose lab results are being processed.
+This is done to avoid sending caregivers push notification multiple times when batch processing.
 
 ## Communication between user applications and the Opal PIE
 
@@ -178,11 +179,11 @@ The response for the request is placed into the Realtime Database and the user a
 
 ### Encryption
 
-TBC
+_Details to be added._
 
 ### Supporting Multiple Hospitals
 
-TBC
+_Details to be added._
 
 [^1]: We consider a caregiver to also include the patient.
     In that case they are caring for themself.
