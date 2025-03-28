@@ -74,8 +74,8 @@ Follow the instructions below to enable and configure these features.
     This configures your Realtime Database to be accessible to anyone for 30 days.
     It is also possible to restrict access to authenticated users only by specifying the condition as `auth.uid !== null`.
     However, not all features will work.
-    The rules in use by the Opal solution can be found in the [listener project](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/firebase/dev/database.rules.json).
-    See the [instructions on how to deploy them](https://opalmedapps.gitlab.io/opal-listener/tutorial-firebase-rules.html) to your project or copy-and-paste them into your project's rules.
+    The rules in use by the Opal solution can be found in the [listener project](https://github.com/opalmedapps/opal-listener/blob/main/firebase/dev/database.rules.json).
+    See the [instructions on how to deploy them](https://github.com/opalmedapps/opal-listener/blob/main/docs/source/firebase-rules.md) to your project or copy-and-paste them into your project's rules.
 
 See also the Firebase documentation on [Firebase Security Rules](https://firebase.google.com/docs/rules).
 
@@ -110,13 +110,13 @@ See also the Firebase documentation on [Admin SDK Authentication](https://fireba
 ### Set up the legacy databases
 
 All legacy databases are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
-Follow the instructions in the [db-docker README](https://gitlab.com/opalmedapps/db-docker/-/blob/main/README.md) to set them up.
+Follow the instructions in the [db-management README](https://github.com/opalmedapps/opal-db-management/blob/main/README.md) to set them up.
 
 Ensure that you also insert the test data via the `reset_data.sh` script as outlined in the instructions.
 
-### Set up the backend
+### Set up OpalAdmin
 
-Follow the [backend README](https://gitlab.com/opalmedapps/backend/-/blob/main/README.md) to set it up.
+Follow the [OpalAdmin README](https://github.com/opalmedapps/opal-admin/blob/main/README.md) to set it up.
 
 In addition, there are management commands that initialize required data as well as test data.
 
@@ -145,7 +145,7 @@ python manage.py changepassword admin
 
 ### Set up the listener
 
-Follow the instructions outlined in the [listener README](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/README.md) to set it up.
+Follow the instructions outlined in the [listener README](https://github.com/opalmedapps/opal-listener/blob/main/README.md) to set it up.
 
 Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/src/firebase/initialize_users.js):
 
@@ -155,22 +155,22 @@ docker compose exec app node src/firebase/initialize_users.js
 
 The script creates several test users all with the same password (see the script).
 
-### Set up opalAdmin
+### Set up legacy OpalAdmin
 
-Follow the instructions outlined in the [opalAdmin README](https://gitlab.com/opalmedapps/opalAdmin/-/blob/develop/README.md) to set it up.
+Follow the instructions outlined in the [Legacy OpalAdmin README](https://github.com/opalmedapps/opal-admin-legacy/blob/main/README.md) to set it up.
 
-Once it is running you can log in with the user `admin` and the password you set above when [setting up the backend](#set-up-the-backend).
+Once it is running you can log in with the user `admin` and the password you set above when [setting up the backend](#set-up-opaladmin).
 
 ### Set up the mobile app
 
-Follow the instructions outlined in the [mobile app README](https://gitlab.com/opalmedapps/qplus/-/blob/main/README.md).
+Follow the instructions outlined in the [mobile app README](https://github.com/opalmedapps/opal-app/blob/main/README.md).
 
 ### Optional: User Registration
 
 Setting up the above components will give you the ability to use the mobile app and manage clinical data (such as questionnaires, appointment descriptions etc.) with opalAdmin.
 
 If you need to create new user accounts you can set up the user registration as well.
-Follow the instructions in the [registration README](https://gitlab.com/opalmedapps/registration-web-page/-/blob/main/README.md).
+Follow the instructions in the [registration README](https://github.com/opalmedapps/opal-registration/blob/main/README.md).
 
 ## Other components
 
