@@ -5,13 +5,13 @@
 # Project information
 #
 site_name: Opal Documentation
-site_url: https://docs.opalmedapps.ca
+site_url: https://docs.opalmedapps.com
 site_author: Opal Health Informatics Group (O-HIG)
 
 # Repository
 # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
 repo_name: opalmedapps/docs
-repo_url: https://gitlab.com/opalmedapps/docs
+repo_url: https://github.com/opalmedapps/docs
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -28,6 +28,7 @@ nav:
       - development/architecture/index.md
       - development/architecture/migration.md
       - Registration Process: development/architecture/registration.md
+      - development/architecture/checkin_process.md
     - development/setup.md
     - Best Practices:
       - Overview: development/best_practices/best_practices.md
@@ -114,7 +115,7 @@ plugins:
         # non-public URLs
         - https://docs.opalmedapps.ca/*
         - https://opalmedapps.gitlab.io/*
-        - https://gitlab.com/opalmedapps/*
+        - https://github.com/opalmedapps/*
         # PlantUML diagrams are included as data
         - "data:*"
         # Twitter URL sometimes returns a 404
