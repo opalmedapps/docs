@@ -6,8 +6,8 @@
 title "User App Checkin"
 actor User as user #GreenYellow
 participant Listener as listener
-participant Orms as orms
-participant Backend as backend
+participant ORMS as orms
+participant OpalAdmin as backend
 participant HospitalSourceSystem as source
 database OpalDB as opaldb
 database OrmsDatabase as ormsdb

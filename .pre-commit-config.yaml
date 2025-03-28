@@ -28,7 +28,7 @@ repos:
       - id: end-of-file-fixer
 
   - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.24
+    rev: v0.24.1
     hooks:
       - id: validate-pyproject
 
@@ -47,12 +47,12 @@ repos:
       - id: markdownlint-cli2
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.6.8
+    rev: 0.6.10
     hooks:
       - id: uv-lock
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.30.2
+    rev: v1.30.3
     hooks:
       - id: typos
 
@@ -63,12 +63,12 @@ repos:
 
   # zizmor detects security vulnerabilities in GitHub Actions workflows.
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.5.1
+    rev: v1.5.2
     hooks:
       - id: zizmor
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.31.3
+    rev: 0.32.1
     hooks:
       - id: check-github-workflows
         args: ["--verbose"]
