@@ -6,104 +6,99 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Hospital Integration
 
-An institution or hospital can integrate their data sources with the Opal solution through a series of REST API endpoints provided by the Opal Application layer.
+An institution or hospital can integrate their data sources with the Opal solution through a series of REST API endpoints provided by the Opal Patient Information Exchange (PIE).
 In addition, hospitals must provide some endpoints to Opal in order to facilitate patient demographic lookups, historical data fetching, etc.
 
-Opal source data APIs are provided by four subcomponents within the application layer.
-Those are:
+Opal source data APIs are provided by the following components within the Opal PIE.
 
-- [Backend](https://github.com/opalmedapps/backend)
-- [OpalAdmin](https://github.com/opalmedapps/opalAdmin)
-- [Opal-Labs](https://github.com/opalmedapps/opal-labs)
-- [ORMS](https://github.com/opalmedapps/ORMS) *If wait room support is enabled at hospital*
+- [OpalAdmin](https://github.com/opalmedapps/opal-admin)
+- [Legacy OpalAdmin](https://github.com/opalmedapps/opal-admin-legacy)
 
 In order to successfully integrate the Opal solution with a hospital data system, the above mentioned application container images must be deployed to an application server and configured with database access, SSL certificates, and environment configuration.
-
-*TODO: Link to external documentation on deployment/ansible scripts, Greg task.*
 
 ## Authentication
 
 Depending on which Opal application is providing the endpoint, the authentication method will be slightly different.
 
-### Opal-Backend
+### OpalAdmin
 
-The Opal-Backend is built on Django and uses the [Django REST Framework](https://www.django-rest-framework.org/) which provides support for token-based authentication.
-During the setup of the Opal application layer, an administrator can issue the hospital data system an API token which should be appended to the headers section of all API requests to the Opal-Backend, for example:
+_OpalAdmin_ is built using [Django](https://www.djangoproject.com/) and uses the [Django REST Framework](https://www.django-rest-framework.org/) which provides support for token-based authentication.
+During the setup of the Opal PIE, an administrator can issue the hospital data system an API token which should be appended to the headers section of all API requests to _OpalAdmin_, for example:
 
 ```bash
-curl --location 'https://{server-Opal}/api/' \
+curl --location 'https://<host>/api/' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token 111aaa111bbb222ccc333ddd444ddde555fff6666'
+--header 'Authorization: Token <token>'
 ```
 
-### Opal-Admin
+### Legacy OpalAdmin
 
-Opal-Admin refers to the legacy php system originally built to provide backend support to the Opal Administrative web applications.
-It exposes an authorization endpoint for system users, based on a basic username/password combination for that system user.
-Opal-Admin will respond to successful calls at this endpoint with an array of values corresponding to the specific system user and their preferences and permissions.
-Also included in the response will be a session/cookie string that should be appended to the headers of future request(s) to regular non-authentication endpoints.
+_Legacy OpalAdmin_ exposes an authorization endpoint for system users, using password-based (username & password authentication for a system user.
+_Legacy OpalAdmin_ will respond to successful calls at this endpoint with an array of values corresponding to the specific system user and their preferences and permissions.
+Also included in the response will be a session/cookie string that should be appended to the headers of future requests to protected endpoints.
 For example:
 
 ```bash
-curl --location 'https://{server-Opal}/opalAdmin/user/system-login' \
---header 'Content-Type: application/x-www-form-urlencoded'
+curl --location 'https://<host>/opalAdmin/user/system-login' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data 'username=<username>&password=<password>'
 ```
 
 Handle the response and append the cookie string to the next request:
 
 ```bash
-curl --location 'https://{server-Opal}/opalAdmin/patient/get/patient-exist' \
+curl --location 'https://<host>/opalAdmin/patient/get/patient-exist' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Cookie: sessionId=zxcvbnm1234567890qwertyuiop' \
---data 'mrn=1111111&site=RVH'
+--header 'Cookie: sessionId=<sessionid>' \
+--data 'mrn=<mrn>&site=<site>'
 ```
 
-#### Basic Authentication with Traefik
+#### Basic Authentication with `traefik`
 
 Use the `htpasswd` utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash.
 For example:
 
 ```bash
-echo $(htpasswd -nB hospital_integration_engine) | sed -e s/\\$/\\$\\$/g
+echo $(htpasswd -nB integration_engine) | sed -e s/\\$/\\$\\$/g
 ```
 
 The username and password used in the Basic Authentication header request from the hospital integration engine needs to be base64 encoded.
 So:
 
 ```bash
-echo -n 'hospital_integration_engine:$$2y$$05$$lQUmd4J/8ygoe4d4EOm6WeisBNdYFCMvBgeCkDnc2q9loUrMeEkQ.' | base64
+echo -n 'integration_engine:<hash>' | base64
 ```
 
-The base64 representation of the username:password can then be added as an Authorization header in the destination connector settings for our labs channel, prepended by the string 'Basic' to indicate the auth type.
+The base64 representation of the username:password can then be added as an authorization header in the destination connector settings for our labs channel, prepended by the string `Basic` to indicate the auth type.
 
 ```bash
---header 'Authorization Basic NldlaXNCTmRZRkNNdkJnZUNrRG5jMnE5bG9Vck1lRWtRLg=='
+--header 'Authorization Basic <value>'
 ```
 
-### Opal-RMS
+### Opal Room Management System (ORMS)
 
-Opal-RMS separates private from public APIs and thus any calls to the public API endpoints don't require authentication by default.
+ORMS separates private from public APIs and thus any calls to the public API endpoints don't require authentication by default.
 
 ## Data Format
 
 In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions.
 
-- As an experimental feature, the pharmacy data endpoint within the Opal-backend (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
+- As an experimental feature, the pharmacy data endpoint within the OpalAdmin (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
 - In the `Requirements for Hospital Endpoints` section (see below), the sending of patient weight measurement PDFs from the wait room management system is expected to be sent with XML data containing a base64 string encoding of the measurement PDF.
 
 ## OpenAPI Schemas for Opal Source Data
 
 In each of the Opal applications there is an `openapi.yml` file providing full details of all source data endpoints that a hospital can use to send data into the Opal Application Layer.
-For the `Opal-Backend`, we use [drf-spectacular](https://pypi.org/project/drf-spectacular/)) to dynamically generate the openapi file and render as a swagger doc.
+For `OpalAdmin`, we use [drf-spectacular](https://pypi.org/project/drf-spectacular/)) to dynamically generate the openapi file and render as a swagger doc.
 This swagger page is accessible for authenticated users via `/api/schema/swagger-ui`.
 For convenience, all endpoints in all openapi specifications related to integrations have been tagged with the `institution integration` label within the openapi specification.
 
-- Opal-Backend: Swagger rendering at `<hostAddress>/api/schema/swagger-ui`
-- [Opal-Admin: openapi.yml](https://github.com/opalmedapps/opaladmin/blob/main/php/openapi.yml)
+- OpalAdmin: Swagger rendering at `<hostAddress>/api/schema/swagger-ui`
+- [Legacy OpalAdmin: openapi.yml](https://github.com/opalmedapps/opaladmin/blob/main/php/openapi.yml)
 
 ## Requirements for Hospital Endpoints
 
 In addition to the endpoints Opal provides for data integration, there are also a small number of endpoints that need to be made available to the Opal application layer to facilitate the full range of Opal functionality.
-These endpoints should provide information like patient demographics, historical data retrieval, and patient location updates (for hospitals that have chosen to enable the `Opal-RMS` service).
+These endpoints should provide information like patient demographics, historical data retrieval, and patient location updates (for hospitals that have chosen to enable the `ORMS` service).
 
 [We also provide an openapi specification roughly outlining what these endpoints should look like.](diagrams/openapi_hospital.yml)
