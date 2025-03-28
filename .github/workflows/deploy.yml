@@ -47,5 +47,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - name: Add CNAME for custom domain
+        run: echo -n "docs.opalmedapps.com" > CNAME
       - name: Deploy to GitHub Pages
         run: uv run mkdocs gh-deploy --strict --force
