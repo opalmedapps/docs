@@ -142,7 +142,7 @@ The mobile app supports additional features native to mobile devices, such as lo
 
 #### Database Migrations and Initial Data
 
-- **Repository:** https://github.com/opalmedapps/db-management
+- **Repository:** https://github.com/opalmedapps/opal-db-management
 
 Historically, the legacy components of Opal did not maintain migrations of the database schema.
 Migrations and initial data (to set up Opal at a new hospital) is maintained in this separate component.
