@@ -120,7 +120,7 @@ Follow the [OpalAdmin README](https://github.com/opalmedapps/opal-admin/blob/mai
 
 In addition, there are management commands that initialize required data as well as test data.
 
-Run the following management commands on the backend:
+Run the following management commands:
 
 ```shell
 python manage.py initialize_data
@@ -131,7 +131,7 @@ See the command's help to learn about all options.
 
 The `initialize_data` command generates authentication tokens for system users that are needed for configuring other components via their environment files.
 
-Then, migrate all opalAdmin users to the backend.
+Then, migrate all legacy OpalAdmin users to the new OpalAdmin.
 
 ```shell
 python manage.py migrate_users
@@ -159,7 +159,7 @@ The script creates several test users all with the same password (see the script
 
 Follow the instructions outlined in the [Legacy OpalAdmin README](https://github.com/opalmedapps/opal-admin-legacy/blob/main/README.md) to set it up.
 
-Once it is running you can log in with the user `admin` and the password you set above when [setting up the backend](#set-up-opaladmin).
+Once it is running you can log in with the user `admin` and the password you set above when [setting up OpalAdmin](#set-up-opaladmin).
 
 ### Set up the mobile app
 
