@@ -55,11 +55,12 @@ The diagram presents the Opal PIE as it is today.
 
 #### Future Vision
 
-Recently, we have started with a process to migrate functionality to a new component (_Backend_).
-The functionality provided by components marked as legacy will be migrated to the backend over time.
+Recently, we have started with a process to migrate functionality to a new component (_OpalAdmin_).
+This component will eventually completely replace the legacy OpalDmin.
+The functionality provided by components marked as _legacy_ will be migrated to the new _OpalAdmin_ over time.
 We are following the [Strangler Fig migration pattern](migration.md) for this process.
 
-The vision is that the backend will be a [majestic](https://signalvnoise.com/svn3/the-majestic-monolith/) [monolith](https://www.monolithic.dev/).
+The vision is that _OpalAdmin_ will be a [majestic](https://signalvnoise.com/svn3/the-majestic-monolith/) [monolith](https://www.monolithic.dev/).
 The following diagram depicts this vision.
 
 ```plantuml source="docs/development/architecture/diagrams/container_diagram_pie_vision.puml"

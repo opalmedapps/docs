@@ -147,7 +147,7 @@ python manage.py changepassword admin
 
 Follow the instructions outlined in the [listener README](https://github.com/opalmedapps/opal-listener/blob/main/README.md) to set it up.
 
-Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://gitlab.com/opalmedapps/opal-listener/-/blob/main/src/firebase/initialize_users.js):
+Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://github.com/opalmedapps/opal-db-management/blob/main/src/firebase/initialize_users.js):
 
 ```shell
 docker compose exec app node src/firebase/initialize_users.js

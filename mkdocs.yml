@@ -115,7 +115,7 @@ plugins:
         # non-public URLs
         - https://docs.opalmedapps.ca/*
         - https://opalmedapps.gitlab.io/*
-        - https://github.com/opalmedapps/*
+        # - https://github.com/opalmedapps/*
         # PlantUML diagrams are included as data
         - "data:*"
         # Twitter URL sometimes returns a 404
