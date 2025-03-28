@@ -53,7 +53,10 @@ curl --location 'https://<host>/opalAdmin/patient/get/patient-exist' \
 --data 'mrn=<mrn>&site=<site>'
 ```
 
-#### Basic Authentication with `traefik`
+#### Lab Result Feature: Basic Authentication with `traefik`
+
+The lab result feature in _Legacy OpalAdmin_ requires to be protected by authentication since unauthenticated requests are possible by default.
+You can use "Basic Authentication" at the reverse proxy level (`traefik`).
 
 Use the `htpasswd` utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash.
 For example:
@@ -83,7 +86,7 @@ ORMS separates private from public APIs and thus any calls to the public API end
 
 In general the expectation for all Opal API is that payloads and responses are transmitted in JSON format, with a few exceptions.
 
-- As an experimental feature, the pharmacy data endpoint within the OpalAdmin (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
+- As an experimental feature, the pharmacy data endpoint within _OpalAdmin_ (`/api/patients/${uuid}/pharmacy`) was created with a built-in HL7 parsing class, the accepted data format is `application/hl7v2+er7`.
 - In the `Requirements for Hospital Endpoints` section (see below), the sending of patient weight measurement PDFs from the wait room management system is expected to be sent with XML data containing a base64 string encoding of the measurement PDF.
 
 ## OpenAPI Schemas for Opal Source Data

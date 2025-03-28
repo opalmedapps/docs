@@ -88,7 +88,7 @@ Over time, other existing functionality will be migrated to this component (see 
 - **Repository:** https://github.com/opalmedapps/opal-admin
 - **API Documentation for integration:** https://github.com/opalmedapps/opal-admin-legacy/blob/main/php/openapi.yml
 
-_OpalAdmin (Legacy)_ provides the admin interface for clinicians and staff.
+_Legacy OpalAdmin_ provides the admin interface for clinicians and staff.
 The web application is used to manage patients, hospital maps, questionnaires etc.
 It exposes all of its functionality via an API.
 One part of the API is intended for the frontend which is built as a single page application.
