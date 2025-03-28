@@ -5,8 +5,8 @@
 @startuml Wait Room Checkins
 title "Wait Room Checkins"
 actor Patient as patient #GreenYellow
-participant Orms as orms
-participant Backend as backend
+participant ORMS as orms
+participant OpalAdmin as backend
 participant HospitalSourceSystem as source
 database OpalDB as opaldb
 database OrmsDatabase as ormsdb

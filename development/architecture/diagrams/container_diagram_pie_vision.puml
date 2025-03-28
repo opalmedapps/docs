@@ -11,10 +11,10 @@ Person(clinical_staff, "Clinical Staff", "A clinical staff member can be one of 
 System_Ext(source_system, "Hospital Source System")
 
 System_Boundary(opalpie, "Opal PIE") {
-    Container(oie, "Integration Engine", "Mirth Connect", "Responsible for interfacing with the hospital's interface. Receives unsolicited messages from the hospital and makes solicited requests to hospital source systems.")
+    Container(oie, "Integration Engine", "", "Responsible for interfacing with the hospital's interface. Receives unsolicited messages from the hospital and makes solicited requests to hospital source systems.")
     Container(listener, "Listener", "Node.js", "Handles requests from the user applications to access patient data.")
-    Container(backend, "Backend", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
-    ContainerDb(backenddb, "Backend", "MariaDB")
+    Container(backend, "OpalAdmin", "Python, Django", "Exposes APIs and provides the new OpalAdmin interface")
+    ContainerDb(backenddb, "OpalAdmin", "MariaDB")
 }
 
 ' System_Ext(twilio, "Twilio", "used to send SMS")
