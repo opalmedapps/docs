@@ -22,7 +22,7 @@ such as appointments, lab results, clinical notes, personalized educational and 
 questionnaires, connection to smart devices, on-site appointment check-in and call-in, e-consent, data donation, etc.
 To learn more about Opal, visit us at https://www.opalmedapps.com/.
 
-## Documentation Directory
+## Structure of the Documentation
 
 To explore the documentation on this site, use the tabs at the top of this page.
 Each tab has a sidebar on the left listing its sub-pages.
@@ -50,4 +50,5 @@ If you'd like to get a feel for the experience of using Opal as a patient, try i
     If another user logs into the account you're using, you'll be logged out with the message "You have logged in on another device".
     The number of available test accounts will be adjusted according to demand; to report an issue, please contact us at `___`.
 
-[^1]: We will add test account credentials to this page soon. If you are eager to try it out in the meantime, please [reach out to us](https://www.opalmedapps.com/).
+[^1]: We will add test account credentials to this page soon.
+    If you are eager to try it out in the meantime, please [reach out to us](https://www.opalmedapps.com/).
