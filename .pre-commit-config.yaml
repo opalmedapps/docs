@@ -52,7 +52,7 @@ repos:
       - id: uv-lock
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.30.3
+    rev: v1.31.1
     hooks:
       - id: typos
 
