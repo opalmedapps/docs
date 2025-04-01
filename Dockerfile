@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-FROM squidfunk/mkdocs-material:9.6.9
+FROM squidfunk/mkdocs-material:9.6.11
 
 COPY --from=ghcr.io/astral-sh/uv:0.6.10 /uv /uvx /bin/
 
