@@ -36,7 +36,7 @@ The purpose of this document is to show the steps for adding a new document, for
 
 5. The patient's** Medical Record Dashboard** will be displayed, showing their Demographics information as default. Click on **Documents** located above the Demographics section.
 
-![NO IMAGE Medical Record Dashboard](images/image3.png "image_tooltip")
+![Medical Record Dashboard](https://drive.google.com/file/d/1EXrdbTADZMv-L9ac_lURfUh56mOmIUCe/view?usp=drive_link "image_tooltip")
 
 6. A **Documents** tab will be displayed and you can see a Documents List on the left side of the screen. To be able to add a document to the patient's profile, you must click on the **Medical Record** category in the list.
 7. The **Document Uploader/Viewer **section** **will show the options to upload the document that will be added to the patient's Medical Record Dashboard. Click on the **Choose Files** button located under “Source File Path". 
