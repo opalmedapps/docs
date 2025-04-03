@@ -36,7 +36,7 @@ jobs:
       - name: Install pre-commit
         run: |
           uv sync --locked --only-dev
-      - uses: mschoettle/pre-commit-action@v4.2.1
+      - uses: mschoettle/pre-commit-action@v4.2.3
         env:
           SKIP: markdownlint-cli2,reuse-lint-file
 
