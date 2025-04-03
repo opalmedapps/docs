@@ -4,12 +4,7 @@ SPDX-FileCopyrightText: Copyright (C) 2023 Opal Health Informatics Group at the 
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# OpenEMR - Adding a document
-    Table of Contents
-
-[TOC]
-
-# Adding a document in OpenEMR
+# OpenEMR: Adding a document
 
 *This document is NOT a fully OpenEMR implementation. It is specifically intended for clinics or health systems implementing the Opal application. It contains the necessary OpenEMR requirements for implementing the Opal application.
 
@@ -21,7 +16,7 @@ The purpose of this document is to show the steps for adding a new document, for
 2. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
 3. At the top left of the screen, click on the **Patient** section. A list will appear with two options: **Find Patient** and **Add Patient**. Click on the **Find Patient** tab.
 
-![Find Patient](https://drive.google.com/file/d/1XtGQYSPsVmO0za56k6mGAu4YSalRHTrB/view?usp=drive_link  "image_tooltip")
+![Find Patient](images/1_OpenEMR_FindPatient_final.png)
 
 4 The **Patient finder** section will be displayed. You will see a list of patients added to the system and some of their personal information, such as the Home Phone and the Date of Birth. Select a patient to whom you want to add the document to the file and double click on the name.
 
