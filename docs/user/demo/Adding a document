@@ -5,62 +5,54 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
 # OpenEMR - Adding a document
-
-
-
-
-
-
     Table of Contents
-
 
 [TOC]
 
 # Adding a document in OpenEMR
 
-*This document is NOT a fully OpenEMR implementation. It is specifically intended for clinics or health systems implementing the Opal application. It contains the necessary OpenEMR requirements for implementing the Opal application. 
+*This document is NOT a fully OpenEMR implementation. It is specifically intended for clinics or health systems implementing the Opal application. It contains the necessary OpenEMR requirements for implementing the Opal application.
 
 If you need more information about the OpenEMR system and its complete set of features, please refer to this link: [https://www.open-emr.org/](https://www.open-emr.org/)
 
 The purpose of this document is to show the steps for adding a new document, for example a clinical note, to the OpenEMR system, with the objective of a patient or their caregiver being able to view it in their Opal account. This document is intended for the Hospital front desk staff.
 
 1. To access OpenEMR - Opal Application, go to the **OpenEMR** website (Refer to [https://www.opalmedapps.com/](https://www.opalmedapps.com/) ).
-2. A **Calendar** section will appear. A list of **Providers **will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
-3. At the top left of the screen, click on the **Patient **section. A list will appear with two options: **Find Patient** and **Add Patient**. Click on the **Find Patient** tab.
+2. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
+3. At the top left of the screen, click on the **Patient** section. A list will appear with two options: **Find Patient** and **Add Patient**. Click on the **Find Patient** tab.
 
 ![Find Patient](https://drive.google.com/file/d/1XtGQYSPsVmO0za56k6mGAu4YSalRHTrB/view?usp=drive_link  "image_tooltip")
 
-4. The **Patient finder** section will be displayed. You will see a list of patients added to the system and some of their personal information, such as the Home Phone and the Date of Birth. Select a patient to whom you want to add the document to the file and double click on the name.
+4 The **Patient finder** section will be displayed. You will see a list of patients added to the system and some of their personal information, such as the Home Phone and the Date of Birth. Select a patient to whom you want to add the document to the file and double click on the name.
 
 ![Patient Finder](https://drive.google.com/file/d/1dCxIMPwkO-V0CVuLblOqQH4tnECrHAFk/view?usp=drive_link "image_tooltip")
 
-5. The patient's** Medical Record Dashboard** will be displayed, showing their Demographics information as default. Click on **Documents** located above the Demographics section.
+5 The patient's **Medical Record Dashboard** will be displayed, showing their Demographics information as default. Click on **Documents** located above the Demographics section.
 
 ![Medical Record Dashboard](https://drive.google.com/file/d/1EXrdbTADZMv-L9ac_lURfUh56mOmIUCe/view?usp=drive_link "image_tooltip")
 
-6. A **Documents** tab will be displayed and you can see a Documents List on the left side of the screen. To be able to add a document to the patient's profile, you must click on the **Medical Record** category in the list.
-7. The **Document Uploader/Viewer **section** **will show the options to upload the document that will be added to the patient's Medical Record Dashboard. Click on the **Choose Files** button located under “Source File Path". 
+6 A **Documents** tab will be displayed and you can see a Documents List on the left side of the screen. To be able to add a document to the patient's profile, you must click on the **Medical Record** category in the list.
+7. The **Document Uploader/Viewer section** will show the options to upload the document that will be added to the patient's Medical Record Dashboard. Click on the **Choose Files** button located under **Source File Path**.
 
 ![Choose file](https://drive.google.com/file/d/1EC5rIiBSlVkHO1Zo6dkLZNCaHUWwH6aD/view?usp=drive_link "image_tooltip")
 
-8. A window will pop-up, showing the path to where the document is located. After selecting the document that will be added to the system, click on the blue **Upload** button.
+8; A window will pop-up, showing the path to where the document is located. After selecting the document that will be added to the system, click on the blue **Upload** button.
 
 ![Upload](https://drive.google.com/file/d/1JVlKfyhp7ilvH17HI2XtfGknk0FhBeTt/view?usp=drive_link "image_tooltip")
 
-9. You must verify and confirm that the correct document was uploaded, by checking if the PDF file's name is showing on the right side of the **Choose Files** button and also under the word **Uploaded** at the bottom of the screen. 
-
+9 You must verify and confirm that the correct document was uploaded, by checking if the PDF file's name is showing on the right side of the **Choose Files** button and also under the word **Uploaded** at the bottom of the screen.
 ![Choose Files](https://drive.google.com/file/d/1CNifAzwYjt07xvtsfZ8bp8_VHnjz1TTr/view?usp=drive_link "image_tooltip")
 
 ![Uploaded](https://drive.google.com/file/d/1841psJrR9SBXDMhN53TCtdrLLaKheXvc/view?usp=drive_link "image_tooltip")
 
-10. Once the document has been uploaded, the patient will receive a "**New Document**” push notification on their mobile device.
+10 Once the document has been uploaded, the patient will receive a "**New Document**” push notification on their mobile device.
 
 ![Push Notification](https://drive.google.com/file/d/1eZY3yXZ7UgT6aS9bxlQOpC__NldA9fY-/view?usp=drive_link "image_tooltip")
 
-11. After logging into their Opal account, the patient is able to view the new document in two ways: by accessing the **Notification** page at the **Home **section and clicking on the "New Document” received or by accessing the **Clinical Reports** page at the **Chart **section and clicking on the new document "Medical Record” received.
+11 After logging into their Opal account, the patient is able to view the new document in two ways: by accessing the **Notification** page at the **Home** section and clicking on the **New Document** received or by accessing the **Clinical Reports** page at the **Chart**section and clicking on the new document "Medical Record” received.
 
 ![Notification Page](https://drive.google.com/file/d/1rW24qHQSeHu8gEZYQUuP-ZLE91n7oKgR/view?usp=drive_link "image_tooltip")
 
 ![Chart Page](https://drive.google.com/file/d/1fW6Z0AYk87zYbP2roKNwm6-fpJ0dW_oJ/view?usp=drive_link "image_tooltip")
-    
+
 ![Clinical Reports Page](https://drive.google.com/file/d/1lpGdrwWn1Tl4C6k6gw3CYxKf1iVpSSPP/view?usp=drive_link "image_tooltip")
