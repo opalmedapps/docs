@@ -22,6 +22,8 @@ nav:
   - Home: index.md
   - User Guide:
     - user/index.md
+    - Demo:
+      - "OpenEMR: Adding a document": user/demo/openemr_adding_document.md
   - Contribute:
     - development/index.md
     - Architecture:
