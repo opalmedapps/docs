@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: Copyright (C) 2025 Opal Health Informatics Group at the 
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# OpenEMR: Adding a Diagnosis to a patient
+# OpenEMR: Adding a diagnosis to a patient
 
 This document does not provide full OpenEMR instructions for creating and adding a diagnosis to a patient. It is intended for clinics or health systems integrating with the Opal application, with the minimal OpenEMR requirements for this integration.
 
