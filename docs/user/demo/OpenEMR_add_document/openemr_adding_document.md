@@ -16,39 +16,39 @@ The purpose of this document is to show the steps for adding a new document, for
 2. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
 3. At the top left of the screen, click on the **Patient** section. A list will appear with two options: **Find Patient** and **Add Patient**. Click on the **Find Patient** tab.
 
-    ![Find Patient](images/1_OpenEMR_FindPatient_final.png)
+    ![Find Patient](images/1_OpenEMR_FindPatient.png)
 
 4. The **Patient finder** section will be displayed. You will see a list of patients added to the system and some of their personal information, such as the Home Phone and the Date of Birth. Select a patient to whom you want to add the document to the file and double click on the name.
 
-    ![Patient Finder](images/2_OpenEMR_PatientFinder_list_final.png)
+    ![Patient Finder](images/2_OpenEMR_PatientFinder_list.png)
 
 5. The patient's **Medical Record Dashboard** will be displayed, showing their Demographics information as default. Click on **Documents** located above the Demographics section.
 
-    ![Medical Record Dashboard](images/3_OpenEMR_PatienDashboard_final.png)
+    ![Medical Record Dashboard](images/3_OpenEMR_PatienDashboard.png)
 
 6. A **Documents** tab will be displayed and you can see a Documents List on the left side of the screen. To be able to add a document to the patient's profile, you must click on the **Medical Record** category in the list.
 7. The **Document Uploader/Viewer section** will show the options to upload the document that will be added to the patient's Medical Record Dashboard. Click on the **Choose Files** button located under **Source File Path**.
 
-    ![Choose file](images/4_OpenEMR_DocumentsTab_DocListDocUploader_final.png)
+    ![Choose file](images/4_OpenEMR_DocumentsTab_DocListDocUploader.png)
 
 8. A window will pop-up, showing the path to where the document is located. After selecting the document that will be added to the system, click on the blue **Upload** button.
 
-    ![Upload](images/5_OpenEMR_DocumentsTab_DocUploader_Files_final.png)
+    ![Upload](images/5_OpenEMR_DocumentsTab_DocUploader_Files.png)
 
 9. You must verify and confirm that the correct document was uploaded, by checking if the PDF file's name is showing on the right side of the **Choose Files** button and also under the word **Uploaded** at the bottom of the screen.
 
-    ![Choose Files](images/6_OpenEMR_DocumentsTab_DocUploader_FileUploaded_final.png)
+    ![Choose Files](images/6_OpenEMR_DocumentsTab_DocUploader_FileUploaded.png)
 
-    ![Uploaded](images/7_OpenEMR_DocumentsTab_FileUploaded_final.png)
+    ![Uploaded](images/7_OpenEMR_DocumentsTab_FileUploaded.png)
 
 10. Once the document has been uploaded, the patient will receive a "**New Document**” push notification on their mobile device.
 
-    ![Push Notification](images/8_PushNotification_NewDoc_final.jpg){ width="250"}
+    ![Push Notification](images/8_PushNotification_NewDoc.jpg){ width="250"}
 
 11. After logging into their Opal account, the patient is able to view the new document in two ways: by accessing the **Notification** page at the **Home** section and clicking on the **New Document** received or by accessing the **Clinical Reports** page at the **Chart**section and clicking on the new document "Medical Record” received.
 
-    ![Notification Page](images/9_OpalApp_NotificationSection_NewDoc_final.jpg){ width="250" }
+    ![Notification Page](images/9_OpalApp_NotificationSection_NewDoc.jpg){ width="250" }
 
-    ![Chart Page](images/10_OpalApp_Chart_ClinicalReport_final.jpg){ width="250" }
+    ![Chart Page](images/10_OpalApp_Chart_ClinicalReport.jpg){ width="250" }
 
-    ![Clinical Reports Page](images/11_OpalApp_ClinicalReportSection_final.jpg){ width="250" }
+    ![Clinical Reports Page](images/11_OpalApp_ClinicalReportSection.jpg){ width="250" }
