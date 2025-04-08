@@ -5,19 +5,11 @@
          <lastmod>2025-04-08</lastmod>
     </url>
     <url>
-         <loc>https://docs.opalmedapps.com/deploy/</loc>
-         <lastmod>2025-04-08</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.opalmedapps.com/deploy/integration/</loc>
-         <lastmod>2025-04-08</lastmod>
-    </url>
-    <url>
          <loc>https://docs.opalmedapps.com/development/</loc>
          <lastmod>2025-04-08</lastmod>
     </url>
     <url>
-         <loc>https://docs.opalmedapps.com/development/setup/</loc>
+         <loc>https://docs.opalmedapps.com/development/local-dev-setup/</loc>
          <lastmod>2025-04-08</lastmod>
     </url>
     <url>
@@ -66,6 +58,14 @@
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/sequence_diagrams/</loc>
+         <lastmod>2025-04-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.opalmedapps.com/install/</loc>
+         <lastmod>2025-04-08</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.opalmedapps.com/install/integration/</loc>
          <lastmod>2025-04-08</lastmod>
     </url>
     <url>
