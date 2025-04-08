@@ -17,7 +17,7 @@ Sequence diagrams can be used to convey message exchanges at different levels of
 
 <figure markdown>
   ![Import elements of a sequence diagram](images/sequence_diagram_elements.png)
-  <figcaption>A sample sequence diagram with some import elements (<a href="https://mattsch.com/research/publications/#paper-7">Source</a>)</figcaption>
+  <figcaption>A sample sequence diagram with some import elements (<a href="https://mattsch.com/research/#paper-1">Source</a>)</figcaption>
 </figure>
 
 A detailed overview of all the elements can be found on [uml-diagrams.org](https://www.uml-diagrams.org/sequence-diagrams.html).

@@ -32,7 +32,7 @@ The following is a high-level overview of each section:
 1. [Contribute](development/index.md): everything you need to know as a developer to contribute to Opal's open-source development:
     - [Architecture](development/architecture/index.md)
     - [Setting up a local development environment](development/local-dev-setup.md)
-1. [Deploy](deploy/index.md) (coming soon): how to deploy the Opal system in an environment
+1. [Install](install/index.md) (coming soon): how to deploy the Opal system in an environment
 
 ## Try it Yourself
 

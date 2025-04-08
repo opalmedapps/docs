@@ -41,9 +41,9 @@ nav:
           - JavaScript: development/guides/javascript.md
       - Sequence Diagrams: development/guides/sequence_diagrams.md
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
-  - Deploy:
-    - Deploying The Opal Solution: deploy/index.md
-    - Hospital Integration: deploy/integration.md
+  - Install:
+    - Deploying the Opal Solution: install/index.md
+    - Hospital Integration: install/integration.md
 
 # Configuration
 theme:

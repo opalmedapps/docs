@@ -13,7 +13,7 @@ The user applications are deployed and maintained by the Opal Health Informatics
 
 ### Deployment diagram
 
-```plantuml source="docs/deploy/diagrams/deployment_diagram_pie.puml"
+```plantuml source="docs/install/diagrams/deployment_diagram_pie.puml"
 ```
 
 Relationships between components on the same host are left out for brevity (except those making use of third-party components).
@@ -22,5 +22,5 @@ Relationships between components on the same host are left out for brevity (exce
 
 ### Deployment diagram
 
-```plantuml source="docs/deploy/diagrams/deployment_diagram_user.puml"
+```plantuml source="docs/install/diagrams/deployment_diagram_user.puml"
 ```
