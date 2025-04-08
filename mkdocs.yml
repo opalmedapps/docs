@@ -29,7 +29,7 @@ nav:
       - development/architecture/migration.md
       - Registration Process: development/architecture/registration.md
       - development/architecture/checkin_process.md
-    - development/setup.md
+    - Set up a Local Development Environment: development/local-dev-setup.md
     - Best Practices:
       - Overview: development/best_practices/best_practices.md
       - Code Review: development/best_practices/code_review.md
