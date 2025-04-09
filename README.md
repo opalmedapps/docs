@@ -29,6 +29,10 @@ The documentation is split into several parts:
 
 ### Getting started
 
+> [!NOTE]
+> If you use [GitHub Codespaces](https://github.com/features/codespaces) or use a *Dev Container* extension, you do not need to do any of the below steps.
+> They are run automatically on startup.
+
 All you need is [`uv`](https://docs.astral.sh/uv) to set up your environment.
 
 ```shell
