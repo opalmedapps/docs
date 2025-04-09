@@ -43,6 +43,7 @@ nav:
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
   - Install:
     - Deploying the Opal Solution: install/index.md
+    - Installing a Rocky Linux Server: install/rockylinux/install.md
     - Hospital Integration: install/integration.md
 
 # Configuration
