@@ -52,7 +52,7 @@ jobs:
 
     uses: opalmedapps/.github/.github/workflows/markdownlint.yaml@main
     with:
-      semantic-linebreak: true
+      semantic-linebreak: false
 
   build:
     runs-on: ubuntu-latest
