@@ -72,4 +72,12 @@
          <loc>https://docs.opalmedapps.com/user/</loc>
          <lastmod>2025-04-09</lastmod>
     </url>
+    <url>
+         <loc>https://docs.opalmedapps.com/user/openemr/diagnosis/add_diagnosis/</loc>
+         <lastmod>2025-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.opalmedapps.com/user/openemr/document/add_document/</loc>
+         <lastmod>2025-04-09</lastmod>
+    </url>
 </urlset>
