@@ -1,4 +1,5 @@
 {
+  // see: https://squidfunk.github.io/mkdocs-material/creating-your-site/?h=vscode#minimal-configuration-visual-studio-code
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
   },
