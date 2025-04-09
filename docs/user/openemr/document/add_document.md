@@ -12,7 +12,7 @@ If you need more information about the OpenEMR system and its complete set of fe
 
 The purpose of this document is to show the steps for adding a new document, for example a clinical note, to the OpenEMR system, with the objective of a patient or their caregiver being able to view it in their Opal account. This document is intended for the Hospital front desk staff.
 
-1. To access OpenEMR - Opal Application, go to the **OpenEMR** website (Refer to [https://www.opalmedapps.com/](https://www.opalmedapps.com/) ).
+1. To access OpenEMR - Opal Application, go to the **OpenEMR** website (Refer to [https://www.opalmedapps.com/](https://www.opalmedapps.com/)).
 
 1. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
 
