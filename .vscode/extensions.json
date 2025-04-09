@@ -1,8 +1,10 @@
 {
+  // keep in sync with extensions in .devcontainer/devcontainer.json
   "recommendations": [
     "editorconfig.editorconfig",
     "redhat.vscode-yaml",
     "davidanson.vscode-markdownlint",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "yzhang.markdown-all-in-one"
   ]
 }

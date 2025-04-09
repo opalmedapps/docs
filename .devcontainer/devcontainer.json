@@ -1,0 +1,42 @@
+// Format: https://containers.dev/implementors/json_reference/
+{
+  "name": "Python",
+  // Supported image versions: https://github.com/devcontainers/images/issues/90
+  // README: https://github.com/devcontainers/images/tree/main/src/python
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
+  // https://containers.dev/features
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
+      "version": "0.6.13"
+    }
+  },
+  "postCreateCommand": "uv sync && git config push.autosetupremote true && uv run pre-commit install-hooks && uv run pre-commit install",
+  // Tool-specific properties: https://containers.dev/supporting
+  "customizations": {
+    "vscode": {
+      // see also .vscode/extensions.json
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "DavidAnson.vscode-markdownlint",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "yzhang.markdown-all-in-one"
+      ],
+      // keep this in sync with .vscode/settings.json
+      "settings": {
+        // see: https://squidfunk.github.io/mkdocs-material/creating-your-site/?h=vscode#minimal-configuration-visual-studio-code
+        "yaml.schemas": {
+          "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+        },
+        "yaml.customTags": [
+          "!ENV scalar",
+          "!ENV sequence",
+          "!relative scalar",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+          "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+        ]
+      }
+    }
+  }
+}
