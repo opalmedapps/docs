@@ -22,6 +22,9 @@ nav:
   - Home: index.md
   - User Guide:
     - user/index.md
+    - OpenEMR:
+      - Adding a document: user/openemr/document/add_document.md
+      - Adding a diagnosis: user/openemr/diagnosis/add_diagnosis.md
   - Contribute:
     - development/index.md
     - Architecture:
@@ -136,9 +139,11 @@ markdown_extensions:
   - def_list
   - footnotes
   # enable HTML in Markdown for image captions
+  # https://squidfunk.github.io/mkdocs-material/reference/images/
   # https://squidfunk.github.io/mkdocs-material/reference/images/#image-captions
   # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/#markdown-in-html
   - md_in_html
+  - attr_list
   - tables
   - toc:
       permalink: true

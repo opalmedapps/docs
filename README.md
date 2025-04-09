@@ -29,6 +29,10 @@ The documentation is split into several parts:
 
 ### Getting started
 
+> [!NOTE]
+> If you use [GitHub Codespaces](https://github.com/features/codespaces) or use a *Dev Container* extension, you do not need to do any of the below steps.
+> They are run automatically on startup.
+
 All you need is [`uv`](https://docs.astral.sh/uv) to set up your environment.
 
 ```shell
@@ -60,7 +64,7 @@ If you are using Visual Studio Code, the [markdownlint vscode extension](https:/
 
 Linting is performed when you make a commit (via the `pre-commit` hooks) and in CI.
 
-We also enforce [semantic line breaks](https://sembr.org).
+While we do not enforce [semantic line breaks](https://sembr.org), we strongly recommend to put each sentence on its own line.
 This makes it easier to read in source and also easier to review changes to the text.
 
 **Note:** This is an additional rule for `markdownlint`.

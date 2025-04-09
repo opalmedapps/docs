@@ -10,17 +10,20 @@ ul-indent:
   indent: 4
 
 # Allow inline HTML to support image captions
-MD033: false
+no-inline-html: false
+
+# Allow screenshots to have no alt text
+no-alt-text: false
 
 # Allow bare URLs since we use magiclink to convert bare URLs automatically to links
-MD034: false
+no-bare-urls: false
 
 # Need to disable in order to support PyMdown Tabbed extension
 # See: https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/
-MD046: false
+code-block-style: false
 
 # Allow same heading name if the parent is different
-MD024:
+no-duplicate-heading:
   siblings_only: true
 
 max-one-sentence-per-line:
