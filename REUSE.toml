@@ -11,6 +11,15 @@ SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
 path = [
+    "docs/user/**/images/*.jpg",
+    "docs/user/**/images/*.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (C) 2025 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = [
     ".vscode/extensions.json",
     ".vscode/settings.json",
 ]
