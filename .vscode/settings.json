@@ -1,3 +1,4 @@
+// keep in sync with settings in .devcontainer/devcontainer.json
 {
   // see: https://squidfunk.github.io/mkdocs-material/creating-your-site/?h=vscode#minimal-configuration-visual-studio-code
   "yaml.schemas": {

@@ -16,6 +16,7 @@ repos:
           (?x)(
             ^(
               \.vscode/settings\.json
+              |\.vscode/extensions\.json
               |\.devcontainer/devcontainer.json
             )
           )
@@ -83,6 +84,12 @@ repos:
       - id: check-renovate
         args: ["--verbose"]
         additional_dependencies: ['json5']
+      # requires: https://github.com/python-jsonschema/check-jsonschema/issues/341
+      # - id: check-jsonschema
+      #   name: "Validate devcontainer"
+      #   files: ^\.devcontainer/.*\.json$
+      #   args: ["--schemafile", "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json"]
+      # waiting for custom YAML tags support: https://github.com/python-jsonschema/check-jsonschema/issues/489
       # - id: check-jsonschema
       #   name: "Validate MkDocs file"
       #   files: ^mkdocs\.ya?ml$
