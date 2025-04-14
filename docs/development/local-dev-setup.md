@@ -74,7 +74,7 @@ Follow the instructions below to enable and configure these features.
     This configures your Realtime Database to be accessible to anyone for 30 days.
     It is also possible to restrict access to authenticated users only by specifying the condition as `auth.uid !== null`.
     However, not all features will work.
-    The rules in use by the Opal solution can be found in the [listener project](https://github.com/opalmedapps/opal-listener/blob/main/firebase/dev/database.rules.json).
+    The rules in use by the Opal solution can be found in the [listener project](https://github.com/opalmedapps/opal-listener/blob/main/firebase/database.rules.json).
     See the [instructions on how to deploy them](https://github.com/opalmedapps/opal-listener/blob/main/docs/source/firebase-rules.md) to your project or copy-and-paste them into your project's rules.
 
 See also the Firebase documentation on [Firebase Security Rules](https://firebase.google.com/docs/rules).
