@@ -12,7 +12,7 @@ If you need more information about the OpenEMR system and its complete set of fe
 
 The purpose of this document is to show the steps for adding a new patient to the OpenEMR system, that will be registered and use Opal. This document is intended for the Hospital front desk staff.
 
-1. To access OpenEMR - Opal Application, go to the **OpenEMR** website (Refer to [https://www.opalmedapps.com/](https://www.opalmedapps.com/) ).
+1. Access OpenEMR and log in.
 
 1. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
 
@@ -29,7 +29,7 @@ The purpose of this document is to show the steps for adding a new patient to th
     ![Add patient](images/add_patient.png)
     Figure: Add patient:add_patient
 
-1. The **Search or Add Patient** section will be displayed. You will see a “**Who”** tab with fields to enter the new patient information. At this step, you must fill in all the fields, such as **Language, First and Last name**, **Date of Birth** **(DOB)**, **Sex**, **Healthcare Number**, **Site** and the **MRN** (medical record number).
+1. The **Search or Add Patient** section will be displayed. You will see a **Who** tab with fields to enter the new patient information. At this step, you must fill in all the fields, such as **Language**, **First** and **Last name**, **Date of Birth (DOB)**, **Sex**, **Healthcare Number**, **Site** and the **MRN** (medical record number).
 
 1. Once the above required fields have been filled in, click on **Create New Patient**. A pop-up window will appear with the following message: _No matches were found_. To complete adding a new patient, click on **Confirm Create New Patient.**
 
