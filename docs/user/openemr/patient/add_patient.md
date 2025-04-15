@@ -19,25 +19,20 @@ The purpose of this document is to show the steps for adding a new patient to th
 1. You can choose to view the provider's calendar by Day, Week or Month, by clicking on one of the appropriate blue buttons on the top right of the screen. You can also print your calendar (daily, weekly or monthly), by clicking on the blue "printer” icon located at the top right of the screen.
 
     ![Full calendar view](images/full_calendar.png)
-    Figure: Full calendar view:full_calendar
 
     ![Provider calendar view](images/provider_calendar.png)
-    Figure: Provider calendar view:provider_calendar
 
 1. At the top left of the screen, click on the **Patient** section. A list will appear with two options: **Find Patient** and **Add Patient**. Click on the **Add Patient** tab.
 
     ![Add patient](images/add_patient.png)
-    Figure: Add patient:add_patient
 
 1. The **Search or Add Patient** section will be displayed. You will see a **Who** tab with fields to enter the new patient information. At this step, you must fill in all the fields, such as **Language**, **First** and **Last name**, **Date of Birth (DOB)**, **Sex**, **Healthcare Number**, **Site** and the **MRN** (medical record number).
 
 1. Once the above required fields have been filled in, click on **Create New Patient**. A pop-up window will appear with the following message: _No matches were found_. To complete adding a new patient, click on **Confirm Create New Patient.**
 
     ![Create new patient](images/create_patient.png)
-    Figure: Create new patient:create_patient
 
     ![Confirm create new patient](images/confirm_create_patient.png)
-    Figure: Confirm create new patient:confirm_create_patient
 
 1. Once the new patient is added to the system, their **Medical Record Dashboard** will be displayed, showing the information entered previously. You can verify all the patient's personal information you just entered.
 
