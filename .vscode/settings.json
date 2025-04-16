@@ -11,5 +11,13 @@
     "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
     "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
-  ]
+  ],
+  "cSpell.words": [
+    "colour",
+    "opalmedapps",
+    "openemr",
+    "syringobulbia"
+  ],
+  "markdown.extension.orderedList.autoRenumber": false,
+  "markdown.extension.orderedList.marker": "one"
 }
