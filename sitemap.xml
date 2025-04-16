@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.opalmedapps.com/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/local-dev-setup/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/architecture/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/architecture/checkin_process/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/architecture/migration/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/architecture/registration/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/best_practices/best_practices/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/best_practices/code_review/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/best_practices/diagrams/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/docker/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/javascript/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/python/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/self_signed_certificates/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/development/guides/sequence_diagrams/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/install/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/install/integration/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/user/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/user/openemr/diagnosis/add_diagnosis/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/user/openemr/document/add_document/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://docs.opalmedapps.com/user/openemr/patient/add_patient/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
 </urlset>
