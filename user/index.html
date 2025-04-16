@@ -1274,6 +1274,155 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#demo-environment-with-openemr-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demo Environment with OpenEMR Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Demo Environment with OpenEMR Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openemr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenEMR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opal-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opal App
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opal App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mobile-and-web-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile and Web Apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      User credentials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opal-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opal ADMIN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#things-to-try" class="md-nav__link">
+    <span class="md-ellipsis">
+      Things to try
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Things to try">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-an-appointment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add an appointment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-clinical-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a clinical note
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-diagnosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a diagnosis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send-educational-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      Send educational material
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-patient-and-request-access-to-their-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new patient and request access to their data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1305,14 +1454,191 @@
 
 
 <!--
-SPDX-FileCopyrightText: Copyright (C) 2024 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+SPDX-FileCopyrightText: Copyright (C) 2025 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
 
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
 <h1 id="user-guide">User Guide<a class="headerlink" href="#user-guide" title="Permanent link">&para;</a></h1>
-<p><em>This page is in development.</em>
-<em>More information coming soon.</em></p>
+<p>The <em>User Guide</em> is separated in two parts.</p>
+<ul>
+<li>
+<p>The <strong>Opal</strong> section provides instructions for using our software.
+    <a href="https://www.opalmedapps.com/">Opal</a> is an award-winning open-source patient-in-the-loop data platform consisting of a data publishing tool (Opal ADMIN) and a patient portal (Opal app).<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</li>
+<li>
+<p>Opal must be integrated with external medical systems (as the source of truth) to obtain patient data.</p>
+<p><a href="https://www.open-emr.org/">OpenEMR</a> is the world's most popular open-source electronic medical record system.
+The <strong>OpenEMR</strong> section provides instructions on how to add data in OpenEMR to then see them in Opal.
+We are continuously evolving the OpenEMR integration with more features and will add the corresponding documentation.</p>
+</li>
+</ul>
+<h2 id="demo-environment-with-openemr-integration">Demo Environment with OpenEMR Integration<a class="headerlink" href="#demo-environment-with-openemr-integration" title="Permanent link">&para;</a></h2>
+<p>We provide a demo environment that you can use to test Opal and our integration with OpenEMR.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Opal-OpenEMR Demo" src="images/Opal-OpenEMR_Demo.png" /></a></p>
+<p>The following data are currently synchronized between OpenEMR and Opal<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
+<ul>
+<li>Diagnosis information,</li>
+<li>Appointment information (with maps and “how to prepare” instructions),</li>
+<li>Lab results (in real-time with trends and links to explanatory materials),</li>
+<li>Clinical notes.</li>
+</ul>
+<p>The demo allows users to log in to OpenEMR, add patient data as a clinician would, and see the patient data in Opal as a patient would.
+Users can create new patients, register them for Opal, and setup rules and aliases in Opal ADMIN to share data between OpenEMR and Opal.</p>
+<p>Additionally, Opal is configured with demonstration questionnaires, education materials and treating team messages.</p>
+<p>To use the demo, two logins are required:</p>
+<ol>
+<li>OpenEMR</li>
+<li>Opal app</li>
+</ol>
+<p>Also, for certain tasks, a login to Opal ADMIN is needed.</p>
+<h3 id="logins">Logins<a class="headerlink" href="#logins" title="Permanent link">&para;</a></h3>
+<h4 id="openemr">OpenEMR<a class="headerlink" href="#openemr" title="Permanent link">&para;</a></h4>
+<p>The demo environment provides you with a clinician who can add and modify patient data.</p>
+<ul>
+<li><strong>OpenEMR Demo instance:</strong> <a href="https://openemr.opalmedapps.com">https://openemr.opalmedapps.com</a></li>
+<li><strong>Username:</strong> <code>DemoDoc</code></li>
+<li><strong>Password:</strong> <code>Painting-Spirit2-Gravel</code></li>
+</ul>
+<h4 id="opal-app">Opal App<a class="headerlink" href="#opal-app" title="Permanent link">&para;</a></h4>
+<p>The demo environment provides you with an Opal user <strong>Mike Brown</strong> who is both a patient and a <em>caregiver</em> to his wife <strong>Kathy Brown</strong>.</p>
+<h5 id="mobile-and-web-apps">Mobile and Web Apps<a class="headerlink" href="#mobile-and-web-apps" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>iOS app:</strong> <a href="https://apps.apple.com/ca/app/opal-patient-in-the-loop/id1446920350">https://apps.apple.com/ca/app/opal-patient-in-the-loop/id1446920350</a></li>
+<li><strong>Android app:</strong> <a href="https://play.google.com/store/apps/details?id=com.hig.opal2">https://play.google.com/store/apps/details?id=com.hig.opal2</a></li>
+<li><strong>Web app:</strong> <a href="https://research.app.opalmedapps.ca">https://research.app.opalmedapps.ca</a></li>
+</ul>
+<h5 id="user-credentials">User credentials<a class="headerlink" href="#user-credentials" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Username:</strong> <code>mike@opalmedapps.ca</code></li>
+<li><strong>Password:</strong> <code>12345Opal!!</code></li>
+<li><strong>Hospital:</strong> <code>Opal Demo 1 (OD1)</code></li>
+<li><strong>Security Answers:</strong><ul>
+<li>What was the colour of your first car: <code>red</code></li>
+<li>What is the name of your first pet: <code>meg</code></li>
+<li>What was the name of your favorite superhero as a child: <code>superman</code></li>
+<li>What is the first name of your childhood best friend: <code>diana</code></li>
+<li>Where did you go on your first vacation: <code>florida</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="opal-admin">Opal ADMIN<a class="headerlink" href="#opal-admin" title="Permanent link">&para;</a></h4>
+<p>The demo environment provides you with a clinician who can create education materials and questionnaires as well as aliases (for appointments, clinical notes, lab results, diagnoses).</p>
+<ul>
+<li><strong>URL:</strong> <a href="https://demo.opalmedapps.com/opalAdmin/">https://demo.opalmedapps.com/opalAdmin/</a></li>
+<li><strong>Username:</strong> <code>DemoAdmin</code></li>
+<li><strong>Password:</strong> <code>Silk7-Artificial-Floral</code></li>
+</ul>
+<h3 id="things-to-try">Things to try<a class="headerlink" href="#things-to-try" title="Permanent link">&para;</a></h3>
+<p>To get a feel for how Opal and OpenEMR are integrated, we suggest trying the following tasks.</p>
+<h4 id="add-an-appointment">Add an appointment<a class="headerlink" href="#add-an-appointment" title="Permanent link">&para;</a></h4>
+<p>While logged into OpenEMR as <em>Demo Doc</em>, create a <strong>new appointment</strong> for the patient <em>Mike Brown</em> and see it appear in <em>Mike Brown</em>'s Opal app.</p>
+<ol>
+<li>Log in to OpenEMR as clinician <em>Demo Doc</em></li>
+<li>Create an appointment for <em>Mike Brown</em><ul>
+<li>Use the category: <em>Consult New In</em></li>
+</ul>
+</li>
+<li>Log in to the Opal app as user <em>Mike Brown</em></li>
+<li>Confirm that <em>Mike Brown</em>'s new appointment<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> appears in the <em>Upcoming Appointments</em> on the home screen of the Opal app, or within the <em>Appointments</em> menu item in the <em>Chart</em> tab (refresh the calendar if needed with the circular arrow at the top right)</li>
+</ol>
+<h4 id="add-a-clinical-note">Add a clinical note<a class="headerlink" href="#add-a-clinical-note" title="Permanent link">&para;</a></h4>
+<p>Add a <strong>PDF note</strong> to the chart of patient <em>Mike Brown</em> and see it appear in the Opal app.</p>
+<ol>
+<li>Log in to OpenEMR as clinician <em>Demo Doc</em><ol>
+<li>Find patient <em>Mike Brown</em></li>
+<li>Go to <em>Documents</em> for <em>Mike Brown</em></li>
+<li>Upload a PDF document under <em>Mike Brown's</em> Medical Record</li>
+</ol>
+</li>
+<li>Log in to the Opal app as user <em>Mike Brown</em></li>
+<li>Observe the document appear in Opal in the <em>Clinical Reports</em> menu</li>
+</ol>
+<h4 id="add-a-diagnosis">Add a diagnosis<a class="headerlink" href="#add-a-diagnosis" title="Permanent link">&para;</a></h4>
+<p>Add a <strong>diagnosis</strong> (medical problem) for patient <em>Mike Brown</em> and see it appear in the Opal app.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only certain diagnoses are currently aliased so please follow the example below.
+If the same diagnosis is added twice for the same patient in OpenEMR, it will be shown twice in Opal.</p>
+</div>
+<ol>
+<li>Log in to OpenEMR as clinician <em>Demo Doc</em><ol>
+<li>Find patient <em>Mike Brown</em></li>
+<li>Add a new diagnosis of <strong>Syringomyelia and syringobulbia</strong> using the <em>Medical Problems</em> card</li>
+</ol>
+</li>
+<li>Observe the diagnosis appear in the Opal app in the <em>Diagnosis</em> menu with today's date under the <em>Chart</em> tab</li>
+</ol>
+<h4 id="send-educational-material">Send educational material<a class="headerlink" href="#send-educational-material" title="Permanent link">&para;</a></h4>
+<p>Create a simple <strong>educational document</strong> in Opal ADMIN, publish it to all patients with the <em>Syringomyelia</em> diagnosis, and see it appear in the Opal app for <em>Mike Brown</em>.</p>
+<ol>
+<li>
+<p>Log in to Opal ADMIN as the <em>DemoAdmin</em> user</p>
+<ul>
+<li>Go to the <em>Educational / Reference Materials</em> menu item</li>
+<li>Add a new video and use a YouTube URL</li>
+<li>Remember the title you gave the material</li>
+</ul>
+</li>
+<li>
+<p>Go to the <em>Publication Tools</em> menu item and add a rule for <em>Educational / Reference Materials</em></p>
+<ul>
+<li>Find your education material</li>
+<li>Enter "Syringomyelia" in the <em>Diagnosis</em> section</li>
+<li>Submit the publication</li>
+<li>Find your education material again, click the “Active” checkbox and then <em>Save Changes</em>.
+    This will activate the publication rule.</li>
+</ul>
+</li>
+<li>
+<p>Log in to the Opal app as <em>Mike Brown</em></p>
+<ul>
+<li>View the video in the <em>Clinical Reference Material</em> section of <em>Mike Brown</em>'s chart</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It may take a few minutes for the material to get published and appear for the patient.</p>
+</div>
+</li>
+</ol>
+<h4 id="create-a-new-patient-and-request-access-to-their-data">Create a new patient and request access to their data<a class="headerlink" href="#create-a-new-patient-and-request-access-to-their-data" title="Permanent link">&para;</a></h4>
+<p>Create a new patient in OpenEMR, request access to their data in Opal ADMIN, create a new Opal user account on Opal's registration site, and log in to the Opal app with this new user.</p>
+<ol>
+<li>Log in to OpenEMR as <em>Demo Doc</em></li>
+<li>Create a new patient in OpenEMR<ul>
+<li>Be sure to complete all fields</li>
+<li>Provide a 7-digit MRN (medical record number)</li>
+</ul>
+</li>
+<li>Log in to Opal ADMIN as <em>DemoAdmin</em><ul>
+<li>In the Administration section, open the <em>Patients</em> menu item</li>
+<li>Select <em>Opal Registration</em></li>
+<li>Search for the patient you created using their MRN</li>
+<li>Follow the process until you receive the registration code and QR code</li>
+</ul>
+</li>
+<li>Either scan the QR code or go directly to the registration web site<ol>
+<li>Use the MRN as the patient identification number along with the registration code</li>
+</ol>
+</li>
+<li>Follow the process until the end</li>
+<li>Log in to Opal using the username, password, and security answers that you chose for the user during the registration process.</li>
+</ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Opal also has a fully-integrated waiting room management system but it is not yet available publicly.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The submission of questionnaires from the Opal app to OpenEMR is a work in progress.
+Other integrated functionality will be added to this document as they become available.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>The appointment code <em>Consult New In</em> is aliased in Opal ADMIN and therefore shows as "Consultation Appointment with the medical oncologist" to the user.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -1335,7 +1661,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 28, 2025 20:16:02"><span class="timeago" datetime="2025-03-28T20:16:02+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 28, 2025 20:16:02">2025-03-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 16, 2025 15:24:28"><span class="timeago" datetime="2025-04-16T15:24:28+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 16, 2025 15:24:28">2025-04-16</span>
   </span>
 
     
