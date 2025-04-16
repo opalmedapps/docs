@@ -6,16 +6,20 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # User Guide
 
-There are two sets of documents found under the *User Guide* section.
+The *User Guide* is separated in two parts.
 
 - The **Opal** section provides instructions for using our software.
     [Opal](https://www.opalmedapps.com/) is an award-winning open-source patient-in-the-loop data platform consisting of a data publishing tool (Opal ADMIN) and a patient portal (Opal app).[^1]
 
-- Opal must be integrated with external medical systems to verify and obtain patient data. The **OpenEMR** section provides instructions on the minimal OpenEMR requirements to see our *Opal-OpenEMR* integration in action.
-    As we continue to evolve the integration with other features the corresponding documentation will be added.
+- Opal must be integrated with external medical systems (as the source of truth) to obtain patient data.
+
     [OpenEMR](https://www.open-emr.org/) is the world's most popular open-source electronic medical record system.
+    The **OpenEMR** section provides instructions on how to add data in OpenEMR to then see them in Opal.
+    We are continuously evolving the OpenEMR integration with more features and will add the corresponding documentation.
 
 ## Demo Environment with OpenEMR Integration
+
+We provide a demo environment that you can use to test Opal and our integration with OpenEMR.
 
 ![Opal-OpenEMR Demo](images/Opal-OpenEMR_Demo.png)
 
@@ -84,13 +88,13 @@ To get a feel for how Opal and OpenEMR are integrated, we suggest trying the fol
 
 #### Add an appointment
 
-While logged into OpenEMR as *Demo Doc*, create a **new appointment** for the patient *Mike Brown* and see it appear in Mike Brown's Opal app.
+While logged into OpenEMR as *Demo Doc*, create a **new appointment** for the patient *Mike Brown* and see it appear in *Mike Brown*'s Opal app.
 
 1. Log in to OpenEMR as clinician *Demo Doc*
 1. Create an appointment for *Mike Brown*
     - Use the category: *Consult New In*
 1. Log in to the Opal app as user *Mike Brown*
-1. Confirm that *Mike Brown*'s new appointment[^3] appears in the *Upcoming Appointments* on the home screen of the Opal app, or the *Appointments* in the *Chart* tab (refresh the calendar if needed with the circular arrow at the top right)
+1. Confirm that *Mike Brown*'s new appointment[^3] appears in the *Upcoming Appointments* on the home screen of the Opal app, or within the *Appointments* menu item in the *Chart* tab (refresh the calendar if needed with the circular arrow at the top right)
 
 #### Add a clinical note
 
@@ -110,44 +114,49 @@ Add a **diagnosis** (medical problem) for patient *Mike Brown* and see it appear
 !!! note
 
     Only certain diagnoses are currently aliased so please follow the example below.
-    If the same diagnosis is added twice in OpenEMR, it will be shown twice in Opal.
+    If the same diagnosis is added twice for the same patient in OpenEMR, it will be shown twice in Opal.
 
 1. Log in to OpenEMR as clinician *Demo Doc*
     1. Find patient *Mike Brown*
     1. Add a new diagnosis of **Syringomyelia and syringobulbia** using the *Medical Problems* card
-1. Observe the diagnosis appear in Opal in the *Diagnosis* menu with today's date under the *Chart* tab
+1. Observe the diagnosis appear in the Opal app in the *Diagnosis* menu with today's date under the *Chart* tab
 
 #### Send educational material
 
-Create a simple educational document in Opal ADMIN, publish it to all patients with *Syringomyelia*, and see it appear in the Opal app for *Mike Brown*.
+Create a simple **educational document** in Opal ADMIN, publish it to all patients with the *Syringomyelia* diagnosis, and see it appear in the Opal app for *Mike Brown*.
 
 1. Log in to Opal ADMIN as the *DemoAdmin* user
+
     - Go to the *Educational / Reference Materials* menu item
     - Add a new video and use a YouTube URL
     - Remember the title you gave the material
+
 1. Go to the *Publication Tools* menu item and add a rule for *Educational / Reference Materials*
+
     - Find your education material
-    - Enter “Syringomyelia” in the *Diagnosis* section
+    - Enter "Syringomyelia" in the *Diagnosis* section
     - Submit the publication
     - Find your education material again, click the “Active” checkbox and then *Save Changes*.
         This will activate the publication rule.
+
 1. Log in to the Opal app as *Mike Brown*
+
     - View the video in the *Clinical Reference Material* section of *Mike Brown*'s chart
 
-!!! note
+    !!! note
 
-    It may take a few minutes for the material to get published and appear for the patient.
+        It may take a few minutes for the material to get published and appear for the patient.
 
 #### Create a new patient and request access to their data
 
 Create a new patient in OpenEMR, request access to their data in Opal ADMIN, create a new Opal user account on Opal's registration site, and log in to the Opal app with this new user.
 
-1. Log in to OpenEMR as **Demo Doc**
+1. Log in to OpenEMR as *Demo Doc*
 1. Create a new patient in OpenEMR
     - Be sure to complete all fields
     - Provide a 7-digit MRN (medical record number)
     - Provide a healthcare number with 4 letters followed by 8 numbers
-        - Like: ABCD12345678 (emulates the Quebec Medicare number)
+        - For example, `ABCD12345678` (emulates the Quebec Medicare number)
 1. Log in to Opal ADMIN as *DemoAdmin*
     - In the Administration section, open the *Patients* menu item
     - Select *Opal Registration*
@@ -158,7 +167,7 @@ Create a new patient in OpenEMR, request access to their data in Opal ADMIN, cre
 1. Follow the process until the end
 1. Log in to Opal using the username, password, and security answers that you chose for the user during the registration process.
 
-[^1]: Opal also has a fully-integrated waiting room management system but it is not currently available in the live demo.
+[^1]: Opal also has a fully-integrated waiting room management system but it is not yet available publicly.
 
 [^2]: The submission of questionnaires from the Opal app to OpenEMR is a work in progress.
     Other integrated functionality will be added to this document as they become available.
