@@ -155,8 +155,6 @@ Create a new patient in OpenEMR, request access to their data in Opal ADMIN, cre
 1. Create a new patient in OpenEMR
     - Be sure to complete all fields
     - Provide a 7-digit MRN (medical record number)
-    - Provide a healthcare number with 4 letters followed by 8 numbers
-        - For example, `ABCD12345678` (emulates the Quebec Medicare number)
 1. Log in to Opal ADMIN as *DemoAdmin*
     - In the Administration section, open the *Patients* menu item
     - Select *Opal Registration*

@@ -17,5 +17,7 @@
     "opalmedapps",
     "openemr",
     "syringobulbia"
-  ]
+  ],
+  "markdown.extension.orderedList.autoRenumber": false,
+  "markdown.extension.orderedList.marker": "one"
 }
