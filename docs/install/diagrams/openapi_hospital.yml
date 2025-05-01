@@ -8,13 +8,15 @@ info:
   description: "APIs to fetch and receive basic patient information. These API facilitates various
    Opal functionality. At a minimum, the patient demographics lookup must be supported in order for Opal
    to successfully complete a patient registration."
-  version: 1.0.0
+  version: 1.1.0
 
 tags:
   - name: demographics
     description: Endpoints for accessing patient demographic information
   - name: historical data
     description: Endpoints for providing historical patient data for newly registered Opal patients
+  - name: update source
+    description: Endpoints for updating the source data with information about the patient from Opal
   - name: wait room
     description: Endpoints for updating a hospital with waiting room management information about a patient
 
@@ -127,12 +129,12 @@ paths:
                     type: string
                     example: "The patient could not be found."
 
-  /uploadPatientMeasurementDocument:
+  /addPatientMeasurementDocument:
     post:
       tags:
-        - wait room
-      summary: Upload patient measurement PDF document
-      description: "Update the hospital with a PDF document containing patient measurements information."
+        - update source
+      summary: Add weight measurement document to patient chart
+      description: "Add a PDF containing a patient's weight measurement information to the patient chart in the source system."
       requestBody:
         required: true
         content:
@@ -146,19 +148,72 @@ paths:
                 site:
                   type: string
                   example: "XXX"
-                reportContent:
+                document:
                   type: string
-                  example: "VERY_LONG_REPORT_PDF_ENCODED_STRING"
-                docNumber:
-                  type: string
-                  example: "MU-4183"
-                documentDate:
+                  example: "VERY_LONG_REPORT_PDF_BASE64_ENCODED_STRING"
+                documentDatetime:
                   type: string
                   format: date-time
                   example: "2024-07-08T11:25:10Z"
       responses:
         '200':
-          description: Document uploaded successfully
+          description: Document added successfully
+        '400':
+          description: Invalid JSON or Parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "400"
+                  message:
+                    type: string
+                    example: "Invalid mrn or site provided."
+        '404':
+          description: The patient could not be found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "404"
+                  message:
+                    type: string
+                    example: "The patient could not be found."
+
+  /addPatientQuestionnaireDocument:
+    post:
+      tags:
+        - update source
+      summary: Add questionnaire document to patient chart
+      description: "Add a PDF containing a patient's questionnaire data to the patient chart in the source system."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mrn:
+                  type: string
+                  example: "1111111"
+                site:
+                  type: string
+                  example: "XXX"
+                document:
+                  type: string
+                  example: "VERY_LONG_REPORT_PDF_BASE64_ENCODED_STRING"
+                documentDatetime:
+                  type: string
+                  format: date-time
+                  example: "2024-07-08T11:25:10Z"
+      responses:
+        '200':
+          description: Document added successfully
         '400':
           description: Invalid JSON or Parameters
           content:
