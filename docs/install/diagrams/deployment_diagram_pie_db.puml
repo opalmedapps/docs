@@ -5,7 +5,7 @@
 @startuml Opal PIE Deployment
 !include <C4/C4_Deployment>
 
-title Deployment diagram for the Opal PIE
+title Deployment diagram for the Opal PIE with a separate database server
 
 AddElementTag("init", $bgColor="#c0c0c0", $legendText="init (used at deploy or upgrade time)")
 AddRelTag("init", $textColor="#c0c0c0", $lineColor="#c0c0c0")
@@ -26,11 +26,13 @@ Deployment_Node(hospital, "Hospital", "Hospital Network") {
                 Container(redis, "redis", "", "Caches patients being processed to avoid sending push notifications when batch processing lab results")
                 Container(db_management, "db-management", "", "Database migrations\nRun at initialization or upgrade time to migrate DBs", $tags="init")
                 Container(ofelia, "ofelia", "", "Sidecar to run tasks periodically on containers")
-                Container_Boundary(db, "MariaDB", "MariaDB") {
-                    ContainerDb(legacy_dbs, "Legacy Databases", "RDS", "DBs for legacy components\n(OpalDB, QuestionnaireDB)")
-                    ContainerDb(admin_db, "Backend Database", "RDS", "DB for admin")
+            }
+        }
+        Deployment_Node(dbs, "Application Server", "CentOS Stream9 or Ubuntu LTS") {
+            Deployment_Node(db, "MariaDB", "MariaDB") {
+                ContainerDb(legacy_dbs, "Legacy Databases", "RDS", "DBs for legacy components\n(OpalDB, QuestionnaireDB)")
+                ContainerDb(admin_db, "Backend Database", "RDS", "DB for admin")
 
-                }
             }
         }
 
@@ -65,12 +67,12 @@ Rel(admin_legacy, integration_engine, "Makes API calls to", "HTTPS")
 Rel(admin_legacy, redis, "Makes calls to")
 ' Rel(orms, memcached, "Makes calls to")
 
-Rel(admin, admin_db, "Reads from and writes to", "")
-Rel(admin, legacy_dbs, "Reads from and writes to", "")
-Rel(admin_legacy, legacy_dbs, "Reads from and writes to", "")
-Rel(listener, legacy_dbs, "Reads from and writes to", "")
+Rel(admin, admin_db, "Reads from and writes to", "TLS")
+Rel(admin, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(admin_legacy, legacy_dbs, "Reads from and writes to", "TLS")
+Rel(listener, legacy_dbs, "Reads from and writes to", "TLS")
 ' Rel(orms, legacy_dbs, "Reads from and writes to", "")
-Rel(db_management, legacy_dbs, "Reads from and writes to", "", $tags="init")
+Rel(db_management, legacy_dbs, "Reads from and writes to", "TLS", $tags="init")
 
 Rel(listener, rtd_opal, "Connects to, reads from, and writes to")
 ' Rel(orms, rtd_orms, "Connects to, reads from, and writes to")
