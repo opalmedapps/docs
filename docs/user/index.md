@@ -40,7 +40,7 @@ To use the demo, two logins are required:
 1. OpenEMR
 1. Opal app
 
-Also, for certain tasks, a login to Opal ADMIN is needed.
+Also, for certain tasks, a login to OpalAdmin is needed.
 
 ### Logins
 
@@ -60,12 +60,12 @@ The demo environment provides you with an Opal user **Mike Brown** who is both a
 
 - **iOS app:** https://apps.apple.com/ca/app/opal-patient-in-the-loop/id1446920350
 - **Android app:** https://play.google.com/store/apps/details?id=com.hig.opal2
-- **Web app:** https://research.app.opalmedapps.ca
+- **Web app:** https://app.opalmedapps.ca
 
 ##### User credentials
 
 - **Username:** `mike@opalmedapps.ca`
-- **Password:** `12345Opal!!`
+- **Password:** `Patient.Demo1`
 - **Hospital:** `Opal Demo 1 (OD1)`
 - **Security Answers:**
     - What was the colour of your first car: `red`
@@ -74,7 +74,7 @@ The demo environment provides you with an Opal user **Mike Brown** who is both a
     - What is the first name of your childhood best friend: `diana`
     - Where did you go on your first vacation: `florida`
 
-#### Opal ADMIN
+#### OpalAdmin
 
 The demo environment provides you with a clinician who can create education materials and questionnaires as well as aliases (for appointments, clinical notes, lab results, diagnoses).
 
