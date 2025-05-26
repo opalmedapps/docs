@@ -16,7 +16,7 @@ Deployment_Node(browser, "User browser", "Firefox, Chrome, Edge etc.") {
     Container(registration_spa, "User Registration", "Single Page Application")
 }
 
-Deployment_Node(hosting, "Web Hosting", "Shared web hosting") {
+Deployment_Node(hosting, "Web Hosting", "") {
     Deployment_Node(apache, "Web Server", "Apache") {
         Container(webapp, "Web app", "", "Delivers the static content and the web app single page application")
         Container(registration, "User Registration", "", "Delivers the static content and the registration single page application")
