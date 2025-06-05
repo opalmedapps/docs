@@ -149,8 +149,7 @@ Follow the instructions outlined in the [listener README](https://github.com/opa
 Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://github.com/opalmedapps/opal-admin/blob/main/opal/core/management/commands/files/initialize_firebase_users.js):
 
 ```shell
-docker compose exec app sh -c "cd src/firebase && wget -O initialize_users.js https://raw.githubusercontent.com/opalmedapps/opal-admin/main/opal/core/management/commands/files/initialize_firebase_users.js"
-docker compose exec app node src/firebase/initialize_users.js
+curl --silent --show-error --fail --location https://raw.githubusercontent.com/opalmedapps/opal-admin/main/opal/core/management/commands/files/initialize_firebase_users.js | docker compose exec --no-TTY app node
 ```
 
 The script creates several test users all with the same password (see the script).
