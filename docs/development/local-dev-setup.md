@@ -35,12 +35,11 @@ The components most frequently being worked on are the user and clinical staff f
 Therefore, the following instructions focus on these components.
 The other components are considered optional.
 
-!!! tip "Clone repositories using the GitLab CLI"
+!!! tip "Clone repositories using the GitHub CLI"
 
-    Instead of cloning repositories "manually" by copying their git URL from the project page and cloning it via `git clone` it is also possible to use the [GitLab CLI](https://docs.gitlab.com/ee/editor_extensions/gitlab_cli/) to do so.
+    Instead of cloning repositories "manually" by copying their git URL from the project page and cloning it via `git clone` it is also possible to use the [GitHub CLI](https://cli.github.com/) to do so.
 
-    The CLI provides the [`repo clone`](https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/repo/clone.md) command to clone repositories.
-    Note that if you clone all repositories of a group you will clone more repositories than you actually need.
+    The CLI provides the [`repo clone`](https://cli.github.com/manual/gh_repo_clone) command to clone repositories.
 
 ### Set up your own Firebase project
 
@@ -147,13 +146,15 @@ python manage.py changepassword admin
 
 Follow the instructions outlined in the [listener README](https://github.com/opalmedapps/opal-listener/blob/main/README.md) to set it up.
 
-Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://github.com/opalmedapps/opal-listener/blob/main/src/firebase/initialize_users.js):
+Once the listener is running, initialize the test users in Firebase with the [initialize_users script](https://github.com/opalmedapps/opal-admin/blob/main/opal/core/management/commands/files/initialize_firebase_users.js):
 
 ```shell
+docker compose exec app sh -c "cd src/firebase && wget -O initialize_users.js https://raw.githubusercontent.com/opalmedapps/opal-admin/main/opal/core/management/commands/files/initialize_firebase_users.js"
 docker compose exec app node src/firebase/initialize_users.js
 ```
 
 The script creates several test users all with the same password (see the script).
+You can also pass `--delete-all-users` to the script to delete all users (not just the users listed in the script) in the Firebase project.
 
 ### Set up legacy OpalAdmin
 
