@@ -46,7 +46,7 @@
     },
     // Combine uv package, uv image, and uv-pre-commit
     {
-      "matchPackagePatterns": "uv-pre-commit|uv$",
+      "matchPackageNames": ["/uv-pre-commit|uv$/"],
       "groupName": "uv",
     },
   ],
