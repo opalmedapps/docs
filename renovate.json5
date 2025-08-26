@@ -1,53 +1,41 @@
-// SPDX-FileCopyrightText: Copyright (C) 2022 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
-//
-// SPDX-License-Identifier: MIT
-
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    // https://docs.renovatebot.com/presets-default/#separatemultiplemajorreleases
-    ":separateMultipleMajorReleases",
-    // set timezone to local one to ensure schedules are run
-    // https://docs.renovatebot.com/configuration-options/#timezone
-    ":timezone(America/Toronto)",
-    // enable updates for pre-commit
-    // see: https://docs.renovatebot.com/modules/manager/pre-commit/
-    // https://docs.renovatebot.com/presets-default/#enableprecommit
-    ":enablePreCommit",
-    "github>mschoettle/renovate-presets//presets/actions-dependency-version.json5",
-    "github>mschoettle/renovate-presets//presets/requires-python.json5",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    ':separateMultipleMajorReleases',
+    ':timezone(America/Toronto)',
+    ':enablePreCommit',
+    'github>mschoettle/renovate-presets//presets/actions-dependency-version.json5',
+    'github>mschoettle/renovate-presets//presets/requires-python.json5',
   ],
-  // https://docs.renovatebot.com/configuration-options/#assignees
-  "assignees": ["mschoettle"],
-  // https://docs.renovatebot.com/configuration-options/#labels
-  "labels": ["dependencies"],
-  // Only rebase existing MRs when the branch is conflicted
-  // This avoids getting spammed by updates to existing MRs
-  // We need to rebase branches to fast-forward merge anyway
-  //
-  // https://docs.renovatebot.com/configuration-options/#rebasewhen
-  "rebaseWhen": "conflicted",
-  // https://docs.renovatebot.com/configuration-options/#packagerules
-  "packageRules": [
-    // Combine mkdocs-material updates for Python and Docker
+  assignees: [
+    'mschoettle',
+  ],
+  labels: [
+    'dependencies',
+  ],
+  rebaseWhen: 'conflicted',
+  packageRules: [
     {
-      "matchPackageNames": ["/mkdocs-material/"],
-      "groupName": "mkdocs-material",
-      // Restrict to weekly updates
-      "schedule": [
-        "before 12pm on Monday",
+      matchPackageNames: [
+        '/mkdocs-material/',
+      ],
+      groupName: 'mkdocs-material',
+      schedule: [
+        'before 12pm on Monday',
       ],
     },
-    // Combine markdownlint-cli2 updates
     {
-      "matchPackageNames": ["/markdownlint-cli2/"],
-      "groupName": "markdownlint-cli2",
+      matchPackageNames: [
+        '/markdownlint-cli2/',
+      ],
+      groupName: 'markdownlint-cli2',
     },
-    // Combine uv package, uv image, and uv-pre-commit
     {
-      "matchPackagePatterns": "uv-pre-commit|uv$",
-      "groupName": "uv",
+      groupName: 'uv',
+      matchPackageNames: [
+        '/uv-pre-commit|uv$/',
+      ],
     },
   ],
 }
