@@ -123,8 +123,9 @@ plugins:
         - "data:*"
         # Twitter URL sometimes returns a 404
         - https://x.com/i_a_r_n_a/status/623922369376202758
-        # uses Cloudflare which returns a captcha first with a 403
+        # use Cloudflare which returns a captcha first with a 403
         - https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b
+        - https://www.npmjs.com/package/*
       # only enable when building in CI to speed up local builds
       enabled: !ENV [CI, false]
 
