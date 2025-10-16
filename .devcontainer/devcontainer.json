@@ -3,7 +3,7 @@
   "name": "Python",
   // Supported image versions: https://github.com/devcontainers/images/issues/90
   // README: https://github.com/devcontainers/images/tree/main/src/python
-  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
   // https://containers.dev/features
   "features": {
     "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
