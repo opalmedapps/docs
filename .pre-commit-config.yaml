@@ -46,7 +46,7 @@ repos:
         language: python
         additional_dependencies:
           - mdformat-mkdocs==4.4.1
-          - mdformat-footnote==0.1.1
+          - mdformat-footnote==0.1.2
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.18.1
