@@ -49,5 +49,18 @@
       "matchPackageNames": ["/uv-pre-commit|uv$/"],
       "groupName": "uv",
     },
+    // Reduce noise of pre-commit hooks
+    {
+      "matchManagers": [
+        "pre-commit",
+      ],
+      "groupName": "pre-commit hooks",
+      "separateMajorMinor": false,
+      "separateMinorPatch": false,
+      // Restrict to weekly updates
+      "schedule": [
+        "before 12pm on Monday",
+      ],
+    },
   ],
 }
