@@ -45,7 +45,7 @@ repos:
       - id: mdformat
         language: python
         additional_dependencies:
-          - mdformat-mkdocs==4.4.1
+          - mdformat-mkdocs==4.4.2
           - mdformat-footnote==0.1.2
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
@@ -54,23 +54,23 @@ repos:
       - id: markdownlint-cli2
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.4
+    rev: 0.9.7
     hooks:
       - id: uv-lock
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.38.1
+    rev: v1.39.0
     hooks:
       - id: typos
 
   - repo: https://github.com/fsfe/reuse-tool
-    rev: v6.1.2
+    rev: v6.2.0
     hooks:
       - id: reuse-lint-file
 
   # zizmor detects security vulnerabilities in GitHub Actions workflows.
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.15.2
+    rev: v1.16.1
     hooks:
       - id: zizmor
 
