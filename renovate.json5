@@ -44,11 +44,6 @@
       "matchPackageNames": ["/markdownlint-cli2/"],
       "groupName": "markdownlint-cli2",
     },
-    // Combine uv package, uv image, and uv-pre-commit
-    {
-      "matchPackageNames": ["/uv-pre-commit|uv$/"],
-      "groupName": "uv",
-    },
     // Reduce noise of pre-commit hooks
     {
       "matchManagers": [
@@ -61,6 +56,11 @@
       "schedule": [
         "before 12pm on Monday",
       ],
+    },
+    // Combine uv package, uv image, and uv-pre-commit
+    {
+      "matchPackageNames": ["/uv-pre-commit|uv$/"],
+      "groupName": "uv",
     },
   ],
 }
