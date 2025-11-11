@@ -55,6 +55,7 @@ The demo environment provides you with a clinician who can add and modify patien
 #### Opal App
 
 The demo environment provides you with an Opal user **Mike Brown** who is both a patient and a *caregiver* to his wife **Kathy Brown**.
+It also provides you with Opal user **Valerie Solanas** who has an extensive medical history.
 
 ##### Mobile and Web Apps
 
@@ -64,7 +65,7 @@ The demo environment provides you with an Opal user **Mike Brown** who is both a
 
 ##### User credentials
 
-- **Username:** `mike@opalmedapps.ca`
+- **Username:** `mike@opalmedapps.ca` or `valerie@opalmedapps.ca`
 - **Password:** `Patient.Demo1`
 - **Hospital:** `Opal Demo 1 (OD1)`
 - **Security Answers:**
