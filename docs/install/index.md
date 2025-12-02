@@ -114,10 +114,16 @@ To separate them, run the following we use `openssl` with the `pkcs12` command:
 
 ```console
 # export certificate
-openssl pkcs12 -in Certificates.p12 -clcerts -nokeys -out apn.crt
+openssl pkcs12 -in Certificates.p12 -clcerts -nokeys -legacy -out apn.crt
 # export private key
-openssl pkcs12 -in Certificates.p12 -nodes -nocerts -out apn.key
+openssl pkcs12 -in Certificates.p12 -nodes -nocerts -legacy -out apn.key
 ```
+
+!!! note "Note on OpenSSL version"
+
+    The above commands assume that you are using OpenSSL v3 which requires the `-legacy` flag.
+    This is because older algorithms like the one used by keychain when exporting the certificates are disabled by default.
+    If you are using OpenSSL v1.1, remove the `-legacy` flag from the commands.
 
 ### Automated deployment
 
