@@ -87,6 +87,7 @@ repos:
       - id: check-jsonschema
         name: "Validate devcontainer"
         files: ^\.devcontainer/.*\.json$
+        additional_dependencies: ['json5']
         args: [
           "--schemafile",
           "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
