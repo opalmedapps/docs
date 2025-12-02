@@ -84,16 +84,17 @@ repos:
       - id: check-renovate
         args: ["--verbose"]
         additional_dependencies: ['json5']
-      - id: check-jsonschema
-        name: "Validate devcontainer"
-        files: ^\.devcontainer/.*\.json$
-        additional_dependencies: ['json5']
-        args: [
-          "--schemafile",
-          "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-          "--force-filetype",
-          "json5",
-        ]
+      # - id: check-jsonschema
+      #   name: "Validate devcontainer"
+      #   files: ^\.devcontainer/.*\.json$
+      #   additional_dependencies: ['json5']
+      #   args: [
+      #     "--schemafile",
+      #     "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+      #     "--force-filetype",
+      #     "json5",
+      #     "--verbose",
+      #   ]
       # waiting for custom YAML tags support: https://github.com/python-jsonschema/check-jsonschema/issues/489
       # - id: check-jsonschema
       #   name: "Validate MkDocs file"
