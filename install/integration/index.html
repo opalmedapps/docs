@@ -1733,7 +1733,7 @@ In addition, hospitals must provide some endpoints to Opal in order to facilitat
 <h3 id="opaladmin">OpalAdmin<a class="headerlink" href="#opaladmin" title="Permanent link">¶</a></h3>
 <p><em>OpalAdmin</em> is built using <a href="https://www.djangoproject.com/">Django</a> and uses the <a href="https://www.django-rest-framework.org/">Django REST Framework</a> which provides support for token-based authentication.
 During the setup of the Opal PIE, an administrator can issue the hospital data system an API token which should be appended to the headers section of all API requests to <em>OpalAdmin</em>, for example:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/api/'</span><span class="w"> </span><span class="se">\</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/api/'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>--header<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>--header<span class="w"> </span><span class="s1">'Authorization: Token &lt;token&gt;'</span>
 </span></code></pre></div>
@@ -1742,12 +1742,12 @@ During the setup of the Opal PIE, an administrator can issue the hospital data s
 <em>Legacy OpalAdmin</em> will respond to successful calls at this endpoint with an array of values corresponding to the specific system user and their preferences and permissions.
 Also included in the response will be a session/cookie string that should be appended to the headers of future requests to protected endpoints.
 For example:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/opalAdmin/user/system-login'</span><span class="w"> </span><span class="se">\</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/opalAdmin/user/system-login'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>--header<span class="w"> </span><span class="s1">'Content-Type: application/x-www-form-urlencoded'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>--data<span class="w"> </span><span class="s1">'username=&lt;username&gt;&amp;password=&lt;password&gt;'</span>
 </span></code></pre></div>
 <p>Handle the response and append the cookie string to the next request:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/opalAdmin/patient/get/patient-exist'</span><span class="w"> </span><span class="se">\</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>--location<span class="w"> </span><span class="s1">'https://&lt;host&gt;/opalAdmin/patient/get/patient-exist'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>--header<span class="w"> </span><span class="s1">'Content-Type: application/x-www-form-urlencoded'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>--header<span class="w"> </span><span class="s1">'Cookie: sessionId=&lt;sessionid&gt;'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>--data<span class="w"> </span><span class="s1">'mrn=&lt;mrn&gt;&amp;site=&lt;site&gt;'</span>
@@ -1757,14 +1757,14 @@ For example:</p>
 You can use "Basic Authentication" at the reverse proxy level (<code>traefik</code>).</p>
 <p>Use the <code>htpasswd</code> utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash.
 For example:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>htpasswd<span class="w"> </span>-nB<span class="w"> </span>integration_engine<span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span>s/<span class="se">\\</span>$/<span class="se">\\</span>$<span class="se">\\</span>$/g
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>htpasswd<span class="w"> </span>-nB<span class="w"> </span>integration_engine<span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span>s/<span class="se">\\</span>$/<span class="se">\\</span>$<span class="se">\\</span>$/g
 </span></code></pre></div>
 <p>The username and password used in the Basic Authentication header request from the hospital integration engine needs to be base64 encoded.
 So:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s1">'integration_engine:&lt;hash&gt;'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s1">'integration_engine:&lt;hash&gt;'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64
 </span></code></pre></div>
 <p>The base64 representation of the username:password can then be added as an authorization header in the destination connector settings for our labs channel, prepended by the string <code>Basic</code> to indicate the auth type.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>--header<span class="w"> </span><span class="s1">'Authorization Basic &lt;value&gt;'</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>--header<span class="w"> </span><span class="s1">'Authorization Basic &lt;value&gt;'</span>
 </span></code></pre></div>
 <h3 id="opal-room-management-system-orms">Opal Room Management System (ORMS)<a class="headerlink" href="#opal-room-management-system-orms" title="Permanent link">¶</a></h3>
 <p>ORMS separates private from public APIs and thus any calls to the public API endpoints don't require authentication by default.</p>
@@ -1809,7 +1809,7 @@ These endpoints should provide information like patient demographics, historical
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 28, 2025 19:45:51 UTC"><span class="timeago" datetime="2025-03-28T19:45:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 28, 2025 19:45:51 UTC">2025-03-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 2, 2025 22:19:13 UTC"><span class="timeago" datetime="2025-12-02T22:19:13+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 2, 2025 22:19:13 UTC">2025-12-02</span>
   </span>
 
     
