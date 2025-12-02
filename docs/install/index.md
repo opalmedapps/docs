@@ -47,7 +47,7 @@ A compatible container engine that also has support for compose can also be used
 
 In addition, you need a Firebase project.
 
-#### Creating a new Firebase project
+#### Create a new Firebase project
 
 If you don't have a Firebase project yet, [create a Firebase project](../development/local-dev-setup.md#create-a-new-firebase-project), [create a Realtime Database](../development/local-dev-setup.md#create-a-new-realtime-database), and [enable password-based authentication](../development/local-dev-setup.md#enable-email-and-password-authentication).
 
@@ -74,6 +74,50 @@ To create a dedicated service account, go to the [Service Accounts in Google Clo
 1. Select "Keys", select "Add key", and then "Create new key"
 1. Choose key type "JSON" and click "Create"
 1. Store this file in a secure place for later
+
+#### Retrieve the Apple Push Notification certificates
+
+!!! note
+
+    These instructions are specific to *macOS* as they require the *Keychain Access* utility.
+
+While push notifications on Android are delivered via *Firebase Cloud Messaging*, on iOS the *Apple Push Notification Service* is used.
+
+The following instructions assume that your iOS app has already been created in [App Store Connect](https://appstoreconnect.apple.com/apps) and therefore has an *App ID*.
+
+!!! success "Preparation: Generate a *Certificate Signing Request*"
+
+    As a preparation, follow the instructions to [create a certificate signing request](https://developer.apple.com/help/account/certificates/create-a-certificate-signing-request).
+
+Log in to your [Apple Developer Account](https://developer.apple.com/account) and do the following:
+
+1. Under "Program resources" > "Certificates, IDs & Profiles", click "Certificates"
+1. Click the plus icon next to "Certificates"
+1. Under "Services", select "Apple Push Notification service SSL (Sandbox & Production)" and click "Continue"
+1. Select the App ID of your app and click "Continue"
+1. Upload your certificate signing request and click "Continue"
+1. Download your certificate
+
+You now have a `.cer` file which needs to be imported to the keychain so it can be exported as a PKCS #12 archive:
+
+1. Double-click the `.cer` file to add it to your keychain
+1. In *Keychain Access*, select the "login" keychain and look for the "Apple Push Services: `<appID>`" certificate
+1. Expand this certificate to reveal the private key entry
+1. Select both certificate and private key
+1. Right-click and select "Export 2 items..."
+1. Save the `.p12` file somewhere
+    - Leave the password empty
+    - Confirm the export with your password and selecting "Allow"
+
+The `Certificates.p12` file contains both the certificate and private key.
+To separate them, run the following we use `openssl` with the `pkcs12` command:
+
+```console
+# export certificate
+openssl pkcs12 -in Certificates.p12 -clcerts -nokeys -out apn.crt
+# export private key
+openssl pkcs12 -in Certificates.p12 -nodes -nocerts -out apn.key
+```
 
 ### Automated deployment
 
