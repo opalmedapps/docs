@@ -99,9 +99,7 @@ This can be done before making the change, after making the change or during.
 The tests should not only cover one (successful) code path but the goal is to achieve branch coverage and test for different inputs and error conditions.
 While you design your code, think about all the different ways this could be called, what should be considered and what could potentially go wrong (and test for those).
 
-!!! todo "TODO/TBD"
-
-    Integration tests, UI tests, smoke tests, …?
+<!-- TODO: Integration tests, UI tests, smoke tests, …? -->
 
 ## Continuous Integration (CI) and Delivery (CD)
 
@@ -175,9 +173,7 @@ This is easier to accomplish the smaller the changes are that a commit adds.
 In general, there are explicit merges, fast-forward merges and “squash on merge”.
 A great visualization of these is provided in the article [Pull Request Merge Strategies: The Great Debate - Atlassian Developer Blog](https://blog.developer.atlassian.com/pull-request-merge-strategies-the-great-debate/) and a debate on pros and cons can be found at [Git team workflows: merge or rebase? | Atlassian Git Tutorial](https://www.atlassian.com/git/articles/git-team-workflows-merge-or-rebase)
 
-!!! todo "TBD"
-
-    Use squash merge vs. merge commit
+<!-- TODO: Use squash merge vs. merge commit -->
 
 ### Merging Resources
 

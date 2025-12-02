@@ -39,3 +39,11 @@ max-one-sentence-per-line:
     - "!!"
     - "??"
     - "vs"
+
+# mkdocs-material-linter
+# see: https://github.com/mensfeld/mkdocs-material-linter?tab=readme-ov-file#provided-rules
+material-meta-tags: false
+# disabled due to code blocks with more than 3 backticks
+# https://github.com/mensfeld/mkdocs-material-linter/issues/24
+material-blank-lines-spacing: false
+material-code-block-syntax: false
