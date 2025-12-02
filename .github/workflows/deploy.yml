@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.1
         with:
           persist-credentials: true
           # fetch the full git history to be able to determine creation dates for pages
