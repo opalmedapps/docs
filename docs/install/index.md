@@ -62,27 +62,19 @@ By default, Firebase creates a service account and API keys with excessive permi
 This is fine for development.
 However, it is not recommended for a production environment.
 
-##### Create a Firebase service account
-
 We recommend you delete the service account that was created by default.
 
-To create a dedicated service account, go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and:
+Go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and select your Firebase project, then:
 
 1. Select your Firebase project
-1. Select "Create service account"
-1. Type in a display name and generate a service account ID
-1. Click "Create and continue"
-1. In the "Permissions" section, select the following roles:
+1. Click on the name of the service account that was created for you
+1. Go to "Permissions" and click on "Manage access"
+1. Update the assigned roles to match the following roles:
     - *Firebase Authentication Admin*
     - *Firebase Cloud Messaging Admin*
     - *Firebase Realtime Database Admin*
     - *Firebase Rules Admin*
-1. Click "Continue"
-1. Click "Done"
-1. Click on the newly created service account
-1. Select "Keys", select "Add key", and then "Create new key"
-1. Choose key type "JSON" and click "Create"
-1. Store this file in a secure place for later
+1. Click "Save"
 
 #### Retrieve the Apple Push Notification certificates
 
