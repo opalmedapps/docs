@@ -47,15 +47,24 @@ A compatible container engine that also has support for compose can also be used
 
 In addition, you need a Firebase project.
 
-#### Create a new Firebase project
+#### Create and set up a new Firebase project
 
-If you don't have a Firebase project yet, [create a Firebase project](../development/local-dev-setup.md#create-a-new-firebase-project), [create a Realtime Database](../development/local-dev-setup.md#create-a-new-realtime-database), and [enable password-based authentication](../development/local-dev-setup.md#enable-email-and-password-authentication).
+If you don't have a dedicated Firebase project yet, follow the steps to [create a Firebase project](../development/local-dev-setup.md#create-a-new-firebase-project).
+If you already have a dedicated Firebase project, ensure that you have done the following steps:
 
-#### Create a Firebase service account
+- [create a Realtime Database](../development/local-dev-setup.md#create-a-new-realtime-database)
+- [enable email and password authentication](../development/local-dev-setup.md#enable-email-and-password-authentication)
+- [retrieve Firebase configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations)
+
+#### Restrict service account permissions
 
 By default, Firebase creates a service account and API keys with excessive permissions.
 This is fine for development.
 However, it is not recommended for a production environment.
+
+##### Create a Firebase service account
+
+We recommend you delete the service account that was created by default.
 
 To create a dedicated service account, go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and:
 
@@ -110,7 +119,7 @@ You now have a `.cer` file which needs to be imported to the keychain so it can 
     - Confirm the export with your password and selecting "Allow"
 
 The `Certificates.p12` file contains both the certificate and private key.
-To separate them, run the following we use `openssl` with the `pkcs12` command:
+To separate them, run the following using the OpenSSL `pkcs12` command:
 
 ```console
 # export certificate
@@ -141,37 +150,56 @@ Please follow the instructions in the [`deploy-pie`](https://github.com/opalmeda
 
 ### Requirements
 
-#### Create or restrict Firebase API keys
+#### Restrict Firebase API keys
 
-If you already [retrieved Firebase client configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations), then you do not need to create new API keys but can instead restrict the already generated ones.
-In that case, skip the create steps below and edit the exiting keys instead.
+We assume that you already [set up your Firebase project](#create-and-set-up-a-new-firebase-project) and [retrieved Firebase client configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations).
+This means that API keys were already created for you.
+By default, Firebase creates a service account and API keys with excessive permissions.
 
-Go to the [API Credentials in Google Cloud](https://console.cloud.google.com/apis/) and select the corresponding Firebase project.
+!!! question "Can new API keys be created instead?"
+
+    This is generally possible.
+    However, as part of the set up you will need to get a `google-services.json` file.
+    When this file is retrieved, Firebase automatically creates corresponding API keys.
+
+Go to the [API Credentials in Google Cloud](https://console.cloud.google.com/apis/credentials) and select the corresponding Firebase project.
 
 ##### Browser key
 
-1. Click "Create credentials" and select "API Key"
-1. Give it a name, such as "Browser key"
+1. The browser key should have a name like "Browser key (auto created by Firebase)"
+
+1. Click on its name to edit it
+
 1. Under "Application restrictions", choose "Websites"
-1. Add the following websites at a minimum
+
+1. Add the following websites at a minimum to allow mobile app users to access this project
+
     - `app://localhost`
     - `http://localhost`
     - `https://<your-firebase-project-id>.firebaseapp.com`
+
+    You should also add the base URL of your registration and web app to this list.
+
 1. Under "API Restrictions", choose "Restrict key"
+
 1. Choose the following APIs
+
     - *FCM Registration API*
     - *Firebase Realtime Database Management API*
     - *Identity Toolkit API*
-1. Click "Create"
+
+1. Click "Save"
 
 ##### Android key
 
-1. Click "Create credentials" and select "API Key"
-1. Give it a name, such as "Android key"
+1. The Android API key should have a name like "Android key (auto created by Firebase)"
+1. Click on its name to edit it
 1. Under "API Restrictions", choose "Restrict key"
 1. Choose the following APIs
     - *FCM Registration API*
     - *Firebase Realtime Database Management API*
     - *Identity Toolkit API*
     - *Firebase Installations API*
-1. Click "Create"
+1. Click "Save"
+
+It is also possible to restrict the key further to a specific Android app.
