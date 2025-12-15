@@ -71,7 +71,7 @@ It is also possible to define a standalone file and include it within a page as 
 
 The advantage of putting a diagram in its dedicated file is that the diagram is separated and can be automatically processed for other purposes.
 
-!!! important
+!!! info
 
     The plugin requires the full path within the repository to be specified.
     For this reason the recommendation is to place all diagrams within the directory under `docs/diagrams/`.

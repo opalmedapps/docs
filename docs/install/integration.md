@@ -25,7 +25,7 @@ Depending on which Opal application is providing the endpoint, the authenticatio
 _OpalAdmin_ is built using [Django](https://www.djangoproject.com/) and uses the [Django REST Framework](https://www.django-rest-framework.org/) which provides support for token-based authentication.
 During the setup of the Opal PIE, an administrator can issue the hospital data system an API token which should be appended to the headers section of all API requests to _OpalAdmin_, for example:
 
-```bash
+```shell
 curl --location 'https://<host>/api/' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>'
@@ -38,7 +38,7 @@ _Legacy OpalAdmin_ will respond to successful calls at this endpoint with an arr
 Also included in the response will be a session/cookie string that should be appended to the headers of future requests to protected endpoints.
 For example:
 
-```bash
+```shell
 curl --location 'https://<host>/opalAdmin/user/system-login' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data 'username=<username>&password=<password>'
@@ -46,7 +46,7 @@ curl --location 'https://<host>/opalAdmin/user/system-login' \
 
 Handle the response and append the cookie string to the next request:
 
-```bash
+```shell
 curl --location 'https://<host>/opalAdmin/patient/get/patient-exist' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Cookie: sessionId=<sessionid>' \
@@ -61,20 +61,20 @@ You can use "Basic Authentication" at the reverse proxy level (`traefik`).
 Use the `htpasswd` utility to create a bcrypt hash, pressing enter when given the opportunity to enter an additional password for the hash.
 For example:
 
-```bash
+```shell
 echo $(htpasswd -nB integration_engine) | sed -e s/\\$/\\$\\$/g
 ```
 
 The username and password used in the Basic Authentication header request from the hospital integration engine needs to be base64 encoded.
 So:
 
-```bash
+```shell
 echo -n 'integration_engine:<hash>' | base64
 ```
 
 The base64 representation of the username:password can then be added as an authorization header in the destination connector settings for our labs channel, prepended by the string `Basic` to indicate the auth type.
 
-```bash
+```shell
 --header 'Authorization Basic <value>'
 ```
 

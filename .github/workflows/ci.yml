@@ -25,18 +25,18 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
-      - uses: astral-sh/setup-uv@v7.1.4
+      - uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.9.13"
+          version: "0.9.17"
       - name: Install pre-commit
         run: |
           uv sync --locked --only-dev
-      - uses: mschoettle/pre-commit-action@v4.2.3
+      - uses: mschoettle/pre-commit-action@0ffaba63d7e205c4109d6a3ca4ced5fc4decd04b # v4.2.3
         env:
           SKIP: markdownlint-cli2,reuse-lint-file
 
@@ -53,30 +53,31 @@ jobs:
     uses: opalmedapps/.github/.github/workflows/markdownlint.yaml@main
     with:
       semantic-linebreak: false
+      mkdocs-material-linter: true
 
   build:
     runs-on: ubuntu-latest
     needs:
       - lint
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
           # fetch the full git history to be able to determine creation dates for pages
           # see: https://github.com/timvink/mkdocs-git-revision-date-localized-plugin?tab=readme-ov-file#note-when-using-build-environments
           fetch-depth: 0
-      - uses: astral-sh/setup-uv@v7.1.4
+      - uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.9.13"
+          version: "0.9.17"
       - name: Install dependencies
         run: |
           uv sync --locked
       # see: https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
       # weekly cache updates
       - run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
-      - uses: actions/cache@v4.3.0
+      - uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           # weekly cache
           key: mkdocs-material-${{ env.cache_id }}

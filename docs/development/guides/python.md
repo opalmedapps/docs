@@ -40,7 +40,3 @@ If not already done by an automatic dependency checker (see above), dependencies
 ## Django Migrations
 
 When writing migrations in Django that require custom Python code to be executed (using the RunPython migration), forward and backward code needs to be provided to ensure that the database can be migrated in both directions without encountering any errors.
-
-!!! todo "TBD"
-
-    Have a checker check for this (pylint has a plugin)
