@@ -58,11 +58,9 @@ If you already have a dedicated Firebase project, ensure that you have done the 
 
 #### Restrict service account permissions
 
-By default, Firebase creates a service account and API keys with excessive permissions.
-This is fine for development.
-However, it is not recommended for a production environment.
-
-We recommend you delete the service account that was created by default.
+By default, Firebase creates a service account and API keys.
+The service account likely has more permissions than are needed.
+We recommend to restrict the permissions as much as possible.
 
 Go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and select your Firebase project, then:
 
@@ -195,3 +193,8 @@ Go to the [API Credentials in Google Cloud](https://console.cloud.google.com/api
 1. Click "Save"
 
 It is also possible to restrict the key further to a specific Android app.
+
+##### iOS key
+
+The iOS key gets generated when [registering an iOS app](../development/local-dev-setup.md#mobile-app-client-configuration).
+This key, named "iOS key (auto created by Firebase)", is not needed and can be deleted.

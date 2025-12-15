@@ -115,10 +115,17 @@ Retrieve the client configuration for browser and Android apps:
 1. Click "Register app"
 1. Download the `google-services.json` file and save it somewhere for later
 
-!!! question "Do I need to add an iOS app?"
+!!! question "Do I also need to add an iOS app?"
 
-    No.
+    You do not need to add it if you are only building the iOS app.
     The iOS app is reusing the `google-services.json` file during the build.
+
+    However, if you intend to use [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) to distribute your mobile app to testers, you will need to register an iOS app as well.
+
+    1. Go back to the "Project Settings" page
+    1. In the "General" tab, under "Your Apps", click the iOS icon
+    1. Provide the Apple bundle ID of your app
+    1. Click "Register app"
 
 ##### Service account
 
