@@ -47,7 +47,7 @@ nav:
       - Generate Self Signed Certificates: development/guides/self_signed_certificates.md
   - Install:
     - Deploying the Opal Solution: install/index.md
-    - Firebase project setup: install/set-up-firebase-project.md
+    - Firebase project setup: install/firebase-project-setup.md
     - Hospital Integration: install/integration.md
 
 # Configuration

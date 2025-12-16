@@ -60,7 +60,7 @@ Retrieve the client configuration for browser and Android apps:
 
 1. Click on "Project Settings"
 
-1. In the "General" tab, under "Your Apps", click the "\</>" icon
+1. In the "General" tab, under "Your Apps", click the "< />" icon
 
 1. Choose an app nickname, such as "Opal Local"
 
@@ -178,5 +178,5 @@ It is also possible to restrict the key further to a specific Android app.
 
 #### iOS key
 
-The iOS key gets generated when [registering an iOS app](../development/local-dev-setup.md#mobile-app-client-configuration).
+The iOS key gets generated when [registering an iOS app](#mobile-app-client-configuration).
 This key, named "iOS key (auto created by Firebase)", is not needed and can be deleted.

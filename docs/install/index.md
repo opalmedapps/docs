@@ -118,5 +118,5 @@ Please follow the instructions in the [`deploy-pie`](https://github.com/opalmeda
 
 ### Requirements
 
-We assume that you already [set up your Firebase project](#create-and-set-up-a-new-firebase-project) and [retrieved Firebase client configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations).
+We assume that you already [set up your Firebase project](./firebase-project-setup.md) and [retrieved Firebase client configurations](./firebase-project-setup.md#retrieve-the-firebase-project-configurations).
 This means that API keys were already created for you which you need for the web and mobile apps.
