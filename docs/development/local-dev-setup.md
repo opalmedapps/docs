@@ -54,9 +54,9 @@ You need your own Firebase project so that your local app can communicate with t
 #### Create a new Firebase project
 
 1. Open the [Firebase Console](https://console.firebase.google.com)
-1. Click on "+ Add project"
+1. Click on "Create a new Firebase project"
 1. Give it a relevant project name, such as "Opal Local"
-1. Uncheck "Enable Google Analytics for this project"
+1. Uncheck "Enable Google Analytics for this project" and other options that are proposed to you
 1. Click "Create project"
 
 The "Authentication" and "Realtime Database" features are needed for communication between the apps and backend components.
@@ -89,14 +89,45 @@ See also the Firebase documentation on [Firebase Authentication](https://firebas
 
 #### Retrieve the Firebase project configurations
 
-Retrieve the client configuration:
+Retrieve the client configuration for browser and Android apps:
+
+##### Browser client configuration
 
 1. Click on the settings icon (gear) next to "Project Overview"
+
 1. Click on "Project Settings"
+
 1. In the "General" tab, under "Your Apps", click the "\</>" icon
+
 1. Choose an app nickname, such as "Opal Local"
+
+    You can also enable "Firebase Hosting" at this time if you are planning to use this project for production or intend to test the password reset feature in the app.
+
 1. Click "Register app"
+
 1. Copy the code and save it somewhere for later
+
+##### Mobile app client configuration
+
+1. Go back to the "Project Settings" page
+1. In the "General" tab, under "Your Apps", click the Android icon
+1. Choose an Android package name
+1. Click "Register app"
+1. Download the `google-services.json` file and save it somewhere for later
+
+!!! question "Do I also need to add an iOS app?"
+
+    You do not need to add it if you are only building the iOS app.
+    The iOS app is reusing the `google-services.json` file during the build.
+
+    However, if you intend to use [Firebase App Distribution](https://firebase.google.com/docs/app-distribution) to distribute your mobile app to testers, you will need to register an iOS app as well.
+
+    1. Go back to the "Project Settings" page
+    1. In the "General" tab, under "Your Apps", click the iOS icon
+    1. Provide the Apple bundle ID of your app
+    1. Click "Register app"
+
+##### Service account
 
 Retrieve the private key for the admin SDK:
 
