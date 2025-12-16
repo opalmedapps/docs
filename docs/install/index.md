@@ -64,7 +64,6 @@ We recommend to restrict the permissions as much as possible.
 
 Go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and select your Firebase project, then:
 
-1. Select your Firebase project
 1. Click on the name of the service account that was created for you
 1. Go to "Permissions" and click on "Manage access"
 1. Update the assigned roles to match the following roles:
