@@ -47,6 +47,7 @@ The user applications [communicate via Firebase](architecture/index.md#communica
 You need your own Firebase project so that your local app can communicate with the backend components.
 
 Follow the [instructions on how to set up a Firebase project](../install/firebase-project-setup.md).
+
 Note that the instructions on restricting permissions are optional for development.
 
 ### Set up the legacy databases
