@@ -49,7 +49,7 @@ In addition, you need a Firebase project.
 
 #### Create and set up a new Firebase project
 
-If you don't have a dedicated Firebase project yet, follow the steps to [set up a Firebase project].
+If you don't have a dedicated Firebase project yet, follow the steps to [set up a Firebase project](./firebase-project-setup.md).
 Please also ensure that you restrict the permissions of the Firebase service account and API keys.
 
 #### Retrieve the Apple Push Notification certificates
