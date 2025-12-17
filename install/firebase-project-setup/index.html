@@ -7,31 +7,31 @@
         <meta name="author" content="Opal Health Informatics Group (O-HIG)">
       
       
-        <link rel="canonical" href="https://docs.opalmedapps.com/user/openemr/patient/add_patient/">
+        <link rel="canonical" href="https://docs.opalmedapps.com/install/firebase-project-setup/">
       
       
-        <link rel="prev" href="../../diagnosis/add_diagnosis/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../../../development/">
+        <link rel="next" href="../integration/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Adding a patient - Opal Documentation</title>
+        <title>Firebase project setup - Opal Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,20 +45,20 @@
         
         
         
-        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../../css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openemr-adding-a-new-patient" class="md-skip">
+        <a href="#firebase-project-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Opal Documentation" class="md-header__button md-logo" aria-label="Opal Documentation" data-md-component="logo">
+    <a href="../.." title="Opal Documentation" class="md-header__button md-logo" aria-label="Opal Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Adding a patient
+              Firebase project setup
             
           </span>
         </div>
@@ -228,7 +228,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -245,13 +245,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../user/" class="md-tabs__link">
           
   
   
@@ -273,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -291,11 +289,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../install/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -337,7 +337,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Opal Documentation" class="md-nav__button md-logo" aria-label="Opal Documentation" data-md-component="logo">
+    <a href="../.." title="Opal Documentation" class="md-nav__button md-logo" aria-label="Opal Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"></path></svg>
@@ -367,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -391,8 +391,6 @@
       
   
   
-    
-  
   
   
     
@@ -408,21 +406,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../user/" class="md-nav__link ">
               
   
   
@@ -440,13 +435,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -463,10 +458,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -483,11 +476,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -508,7 +501,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -526,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../document/add_document/" class="md-nav__link">
+      <a href="../../user/openemr/document/add_document/" class="md-nav__link">
         
   
   
@@ -554,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../diagnosis/add_diagnosis/" class="md-nav__link">
+      <a href="../../user/openemr/diagnosis/add_diagnosis/" class="md-nav__link">
         
   
   
@@ -579,19 +572,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../user/openemr/patient/add_patient/" class="md-nav__link">
         
   
   
@@ -607,7 +591,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -664,7 +647,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../development/" class="md-nav__link ">
+            <a href="../../development/" class="md-nav__link ">
               
   
   
@@ -735,7 +718,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../development/architecture/" class="md-nav__link ">
+            <a href="../../development/architecture/" class="md-nav__link ">
               
   
   
@@ -779,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/architecture/migration/" class="md-nav__link">
+      <a href="../../development/architecture/migration/" class="md-nav__link">
         
   
   
@@ -807,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/architecture/registration/" class="md-nav__link">
+      <a href="../../development/architecture/registration/" class="md-nav__link">
         
   
   
@@ -835,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/architecture/checkin_process/" class="md-nav__link">
+      <a href="../../development/architecture/checkin_process/" class="md-nav__link">
         
   
   
@@ -871,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/local-dev-setup/" class="md-nav__link">
+      <a href="../../development/local-dev-setup/" class="md-nav__link">
         
   
   
@@ -957,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/best_practices/best_practices/" class="md-nav__link">
+      <a href="../../development/best_practices/best_practices/" class="md-nav__link">
         
   
   
@@ -985,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/best_practices/code_review/" class="md-nav__link">
+      <a href="../../development/best_practices/code_review/" class="md-nav__link">
         
   
   
@@ -1013,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/best_practices/diagrams/" class="md-nav__link">
+      <a href="../../development/best_practices/diagrams/" class="md-nav__link">
         
   
   
@@ -1165,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/guides/docker/" class="md-nav__link">
+      <a href="../../development/guides/docker/" class="md-nav__link">
         
   
   
@@ -1193,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/guides/python/" class="md-nav__link">
+      <a href="../../development/guides/python/" class="md-nav__link">
         
   
   
@@ -1221,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/guides/javascript/" class="md-nav__link">
+      <a href="../../development/guides/javascript/" class="md-nav__link">
         
   
   
@@ -1257,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/guides/sequence_diagrams/" class="md-nav__link">
+      <a href="../../development/guides/sequence_diagrams/" class="md-nav__link">
         
   
   
@@ -1285,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../development/guides/self_signed_certificates/" class="md-nav__link">
+      <a href="../../development/guides/self_signed_certificates/" class="md-nav__link">
         
   
   
@@ -1325,6 +1308,8 @@
       
   
   
+    
+  
   
   
     
@@ -1342,18 +1327,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../install/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1371,13 +1359,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1394,10 +1382,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../install/firebase-project-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firebase project setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1413,6 +1428,187 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-firebase-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new Firebase project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-realtime-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new Realtime Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-email-and-password-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable email and password authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-the-firebase-project-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieve the Firebase project configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieve the Firebase project configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser client configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-app-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile app client configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service account
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restrict-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrict permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrict-service-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict service account permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict API keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrict API keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iOS key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1425,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../install/integration/" class="md-nav__link">
+      <a href="../integration/" class="md-nav__link">
         
   
   
@@ -1473,6 +1669,175 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-firebase-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new Firebase project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-realtime-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new Realtime Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-email-and-password-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable email and password authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-the-firebase-project-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieve the Firebase project configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieve the Firebase project configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser client configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-app-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile app client configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service account
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restrict-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrict permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrict-service-account-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict service account permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-api-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict API keys
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrict API keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#browser-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iOS key
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1488,7 +1853,7 @@
 
 
   
-    <a href="https://github.com/opalmedapps/docs/edit/main/docs/user/openemr/patient/add_patient.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/opalmedapps/docs/edit/main/docs/install/firebase-project-setup.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -1497,7 +1862,7 @@
     
       
     
-    <a href="https://github.com/opalmedapps/docs/raw/main/docs/user/openemr/patient/add_patient.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/opalmedapps/docs/raw/main/docs/install/firebase-project-setup.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
@@ -1508,41 +1873,183 @@
 SPDX-FileCopyrightText: Copyright (C) 2025 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
 
 SPDX-License-Identifier: CC-BY-SA-4.0
---><h1 id="openemr-adding-a-new-patient">OpenEMR: Adding a new patient<a class="headerlink" href="#openemr-adding-a-new-patient" title="Permanent link">¶</a></h1>
-<p>This document does not provide full OpenEMR instructions for creating and adding a patient. It is intended for clinics or health systems integrating with the Opal application, with the minimal OpenEMR requirements for this integration.</p>
-<p>If you need more information about the OpenEMR system and its complete set of features, please refer to this link: <a href="https://www.open-emr.org/">https://www.open-emr.org/</a></p>
-<p>The purpose of this document is to show the steps for adding a new patient to the OpenEMR system, that will be registered and use Opal. This document is intended for the Hospital front desk staff.</p>
+--><h1 id="firebase-project-setup">Firebase project setup<a class="headerlink" href="#firebase-project-setup" title="Permanent link">¶</a></h1>
+<p>The user applications <a href="../../development/architecture/#communication-between-user-applications-and-the-opal-pie">communicate via Firebase</a> with the <em>Opal PIE</em>.
+You need your own Firebase project so that your app can communicate with the backend components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Firebase is a Google product.
+Therefore, you need a Google account to be able to use Firebase.</p>
+</div>
+<h2 id="create-a-new-firebase-project">Create a new Firebase project<a class="headerlink" href="#create-a-new-firebase-project" title="Permanent link">¶</a></h2>
+<ol>
+<li>Open the <a href="https://console.firebase.google.com">Firebase Console</a></li>
+<li>Click on "Create a new Firebase project"</li>
+<li>Give it a relevant project name, such as "Opal Local"</li>
+<li>Uncheck "Enable Google Analytics for this project" and other options that are proposed to you</li>
+<li>Click "Create project"</li>
+</ol>
+<p>The "Authentication" and "Realtime Database" features are needed for communication between the apps and backend components.
+Follow the instructions below to enable and configure these features.</p>
+<h2 id="create-a-new-realtime-database">Create a new Realtime Database<a class="headerlink" href="#create-a-new-realtime-database" title="Permanent link">¶</a></h2>
+<ol>
+<li>In the left panel of your newly created Firebase project, expand "Build" and click on "Realtime Database".</li>
+<li>Click "Create Database"</li>
+<li>On the second step of "Set up database" (Security rules), select "Start in test mode".</li>
+</ol>
+<div class="admonition note security rules">
+<p class="admonition-title">Note</p>
+<p>This configures your Realtime Database to be accessible to anyone for 30 days.
+It is also possible to restrict access to authenticated users only by specifying the condition as <code>auth.uid !== null</code>.
+However, not all features will work.
+The rules in use by the Opal solution can be found in the <a href="https://github.com/opalmedapps/opal-listener/blob/main/firebase/database.rules.json">listener project</a>.
+See the <a href="https://github.com/opalmedapps/opal-listener/blob/main/docs/source/firebase-rules.md">instructions on how to deploy them</a> to your project or copy-and-paste them into your project's rules.</p>
+</div>
+<p>See also the Firebase documentation on <a href="https://firebase.google.com/docs/rules">Firebase Security Rules</a>.</p>
+<h2 id="enable-email-and-password-authentication">Enable email and password authentication<a class="headerlink" href="#enable-email-and-password-authentication" title="Permanent link">¶</a></h2>
+<ol>
+<li>In the left panel, expand "Build" and click on "Authentication"</li>
+<li>Click on "Get started"</li>
+<li>Choose "Email/Password" as the sign-in provider</li>
+<li>Enable "Email/Password" and click "Save"</li>
+</ol>
+<p>See also the Firebase documentation on <a href="https://firebase.google.com/docs/auth">Firebase Authentication</a>.</p>
+<h2 id="retrieve-the-firebase-project-configurations">Retrieve the Firebase project configurations<a class="headerlink" href="#retrieve-the-firebase-project-configurations" title="Permanent link">¶</a></h2>
+<p>Retrieve the client configuration for browser and Android apps:</p>
+<h3 id="browser-client-configuration">Browser client configuration<a class="headerlink" href="#browser-client-configuration" title="Permanent link">¶</a></h3>
 <ol>
 <li>
-<p>Access OpenEMR and log in.</p>
+<p>Click on the settings icon (gear) next to "Project Overview"</p>
 </li>
 <li>
-<p>A <strong>Calendar</strong> section will appear. A list of <strong>Providers</strong> will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.</p>
+<p>Click on "Project Settings"</p>
 </li>
 <li>
-<p>You can choose to view the provider's calendar by Day, Week or Month, by clicking on one of the appropriate blue buttons on the top right of the screen. You can also print your calendar (daily, weekly or monthly), by clicking on the blue "printer” icon located at the top right of the screen.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Full calendar view" src="../images/full_calendar.png"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Provider calendar view" src="../images/provider_calendar.png"></a></p>
+<p>In the "General" tab, under "Your Apps", click the "&lt; /&gt;" icon</p>
 </li>
 <li>
-<p>At the top left of the screen, click on the <strong>Patient</strong> section. A list will appear with two options: <strong>Find Patient</strong> and <strong>Add Patient</strong>. Click on the <strong>Add Patient</strong> tab.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add patient" src="../images/add_patient.png"></a></p>
+<p>Choose an app nickname, such as "Opal Local"</p>
+<p>You can also enable "Firebase Hosting" at this time if you are planning to use this project for production or intend to test the password reset feature in the app.</p>
 </li>
 <li>
-<p>The <strong>Search or Add Patient</strong> section will be displayed. You will see a <strong>Who</strong> tab with fields to enter the new patient information. At this step, you must fill in all the fields, such as <strong>Language</strong>, <strong>First</strong> and <strong>Last name</strong>, <strong>Date of Birth (DOB)</strong>, <strong>Sex</strong>, <strong>Healthcare Number</strong>, <strong>Site</strong> and the <strong>MRN</strong> (medical record number).</p>
+<p>Click "Register app"</p>
 </li>
 <li>
-<p>Once the above required fields have been filled in, click on <strong>Create New Patient</strong>. A pop-up window will appear with the following message: <em>No matches were found</em>. To complete adding a new patient, click on <strong>Confirm Create New Patient.</strong></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create new patient" src="../images/create_patient.png"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Confirm create new patient" src="../images/confirm_create_patient.png"></a></p>
-</li>
-<li>
-<p>Once the new patient is added to the system, their <strong>Medical Record Dashboard</strong> will be displayed, showing the information entered previously. You can verify all the patient's personal information you just entered.</p>
-</li>
-<li>
-<p>To set your patient up to use the Opal application, please refer to the Opal Admin Patient Module User Guide. Follow the instructions for Opal Registration and generating a QR code.</p>
+<p>Copy the code and save it somewhere for later</p>
 </li>
 </ol>
+<h3 id="mobile-app-client-configuration">Mobile app client configuration<a class="headerlink" href="#mobile-app-client-configuration" title="Permanent link">¶</a></h3>
+<ol>
+<li>Go back to the "Project Settings" page</li>
+<li>In the "General" tab, under "Your Apps", click the Android icon</li>
+<li>Choose an Android package name</li>
+<li>Click "Register app"</li>
+<li>Download the <code>google-services.json</code> file and save it somewhere for later</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Do I also need to add an iOS app?</p>
+<p>You do not need to add it if you are only building the iOS app.
+The iOS app is reusing the <code>google-services.json</code> file during the build.</p>
+<p>However, if you intend to use <a href="https://firebase.google.com/docs/app-distribution">Firebase App Distribution</a> to distribute your mobile app to testers, you will need to register an iOS app as well.</p>
+<ol>
+<li>Go back to the "Project Settings" page</li>
+<li>In the "General" tab, under "Your Apps", click the iOS icon</li>
+<li>Provide the Apple bundle ID of your app</li>
+<li>Click "Register app"</li>
+</ol>
+</div>
+<h3 id="service-account">Service account<a class="headerlink" href="#service-account" title="Permanent link">¶</a></h3>
+<p>Retrieve the private key for the admin SDK:</p>
+<ol>
+<li>Go back to the "Project Settings" page and click on the "Service accounts" tab</li>
+<li>Click on "Generate new private key" and then "Generate key"</li>
+<li>Download the file somewhere safe on your machine for later</li>
+</ol>
+<p>See also the Firebase documentation on <a href="https://firebase.google.com/docs/database/admin/start">Admin SDK Authentication</a>.</p>
+<h2 id="restrict-permissions">Restrict permissions<a class="headerlink" href="#restrict-permissions" title="Permanent link">¶</a></h2>
+<p>During the above set up, Firebase creates a service account and API keys for you.
+By default, these have permissions that are more permissive than what is needed.
+Therefore, we strongly recommend to restrict their permissions, especially for production environments.</p>
+<h3 id="restrict-service-account-permissions">Restrict service account permissions<a class="headerlink" href="#restrict-service-account-permissions" title="Permanent link">¶</a></h3>
+<p>By default, Firebase creates a service account and API keys.
+The service account likely has more permissions than are needed.
+We recommend to restrict the permissions as much as possible.</p>
+<p>Go to the <a href="https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts">Service Accounts in Google Cloud</a> and select your Firebase project, then:</p>
+<ol>
+<li>Click on the name of the service account that was created for you</li>
+<li>Go to "Permissions" and click on "Manage access"</li>
+<li>Update the assigned roles to match the following roles:<ul>
+<li><em>Firebase Authentication Admin</em></li>
+<li><em>Firebase Cloud Messaging Admin</em></li>
+<li><em>Firebase Realtime Database Admin</em></li>
+<li><em>Firebase Rules Admin</em></li>
+</ul>
+</li>
+<li>Click "Save"</li>
+</ol>
+<h3 id="restrict-api-keys">Restrict API keys<a class="headerlink" href="#restrict-api-keys" title="Permanent link">¶</a></h3>
+<p>When registering apps on your Firebase project, Firebase automatically creates API keys.
+These should be further restricted.</p>
+<div class="admonition question">
+<p class="admonition-title">Can new API keys be created instead?</p>
+<p>This is generally possible.
+However, as part of the set up you will need to get a <code>google-services.json</code> file.
+When this file is retrieved, Firebase automatically creates corresponding API keys.</p>
+</div>
+<p>Go to the <a href="https://console.cloud.google.com/apis/credentials">API Credentials in Google Cloud</a> and select the corresponding Firebase project.</p>
+<h4 id="browser-key">Browser key<a class="headerlink" href="#browser-key" title="Permanent link">¶</a></h4>
+<ol>
+<li>
+<p>The browser key should have a name like "Browser key (auto created by Firebase)"</p>
+</li>
+<li>
+<p>Click on its name to edit it</p>
+</li>
+<li>
+<p>Under "Application restrictions", choose "Websites"</p>
+</li>
+<li>
+<p>Add the following websites at a minimum to allow mobile app users to access this project</p>
+<ul>
+<li><code>app://localhost</code></li>
+<li><code>http://localhost</code></li>
+<li><code>https://&lt;your-firebase-project-id&gt;.firebaseapp.com</code></li>
+</ul>
+<p>You should also add the base URL of your registration and web app to this list.</p>
+</li>
+<li>
+<p>Under "API Restrictions", choose "Restrict key"</p>
+</li>
+<li>
+<p>Choose the following APIs</p>
+<ul>
+<li><em>FCM Registration API</em></li>
+<li><em>Firebase Realtime Database Management API</em></li>
+<li><em>Identity Toolkit API</em></li>
+</ul>
+</li>
+<li>
+<p>Click "Save"</p>
+</li>
+</ol>
+<h4 id="android-key">Android key<a class="headerlink" href="#android-key" title="Permanent link">¶</a></h4>
+<ol>
+<li>The Android API key should have a name like "Android key (auto created by Firebase)"</li>
+<li>Click on its name to edit it</li>
+<li>Under "API Restrictions", choose "Restrict key"</li>
+<li>Choose the following APIs<ul>
+<li><em>FCM Registration API</em></li>
+<li><em>Firebase Realtime Database Management API</em></li>
+<li><em>Identity Toolkit API</em></li>
+<li><em>Firebase Installations API</em></li>
+</ul>
+</li>
+<li>Click "Save"</li>
+</ol>
+<p>It is also possible to restrict the key further to a specific Android app.</p>
+<h4 id="ios-key">iOS key<a class="headerlink" href="#ios-key" title="Permanent link">¶</a></h4>
+<p>The iOS key gets generated when <a href="#mobile-app-client-configuration">registering an iOS app</a>.
+This key, named "iOS key (auto created by Firebase)", is not needed and can be deleted.</p>
 
 
 
@@ -1565,7 +2072,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 15, 2025 14:56:28 UTC"><span class="timeago" datetime="2025-04-15T14:56:28+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 15, 2025 14:56:28 UTC">2025-04-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 17, 2025 15:23:14 UTC"><span class="timeago" datetime="2025-12-17T15:23:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 17, 2025 15:23:14 UTC">2025-12-17</span>
   </span>
 
     
@@ -1575,7 +2082,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 15, 2025 14:56:28 UTC"><span class="timeago" datetime="2025-04-15T14:56:28+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 15, 2025 14:56:28 UTC">2025-04-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="December 17, 2025 15:23:14 UTC"><span class="timeago" datetime="2025-12-17T15:23:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="December 17, 2025 15:23:14 UTC">2025-12-17</span>
   </span>
 
     
@@ -1634,14 +2141,14 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.action.edit", "content.action.view", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.action.view", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../../../js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="../../../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
     
   
