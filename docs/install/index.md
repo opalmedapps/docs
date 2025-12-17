@@ -49,29 +49,9 @@ In addition, you need a Firebase project.
 
 #### Create and set up a new Firebase project
 
-If you don't have a dedicated Firebase project yet, follow the steps to [create a Firebase project](../development/local-dev-setup.md#create-a-new-firebase-project).
-If you already have a dedicated Firebase project, ensure that you have done the following steps:
+If you don't have a dedicated Firebase project yet, follow the steps to [set up a Firebase project](./firebase-project-setup.md).
 
-- [create a Realtime Database](../development/local-dev-setup.md#create-a-new-realtime-database)
-- [enable email and password authentication](../development/local-dev-setup.md#enable-email-and-password-authentication)
-- [retrieve Firebase configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations)
-
-#### Restrict service account permissions
-
-By default, Firebase creates a service account and API keys.
-The service account likely has more permissions than are needed.
-We recommend to restrict the permissions as much as possible.
-
-Go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts) and select your Firebase project, then:
-
-1. Click on the name of the service account that was created for you
-1. Go to "Permissions" and click on "Manage access"
-1. Update the assigned roles to match the following roles:
-    - *Firebase Authentication Admin*
-    - *Firebase Cloud Messaging Admin*
-    - *Firebase Realtime Database Admin*
-    - *Firebase Rules Admin*
-1. Click "Save"
+Please also ensure that you restrict the permissions of the Firebase service account and API keys.
 
 #### Retrieve the Apple Push Notification certificates
 
@@ -139,61 +119,5 @@ Please follow the instructions in the [`deploy-pie`](https://github.com/opalmeda
 
 ### Requirements
 
-#### Restrict Firebase API keys
-
-We assume that you already [set up your Firebase project](#create-and-set-up-a-new-firebase-project) and [retrieved Firebase client configurations](../development/local-dev-setup.md#retrieve-the-firebase-project-configurations).
-This means that API keys were already created for you.
-By default, Firebase creates a service account and API keys with excessive permissions.
-
-!!! question "Can new API keys be created instead?"
-
-    This is generally possible.
-    However, as part of the set up you will need to get a `google-services.json` file.
-    When this file is retrieved, Firebase automatically creates corresponding API keys.
-
-Go to the [API Credentials in Google Cloud](https://console.cloud.google.com/apis/credentials) and select the corresponding Firebase project.
-
-##### Browser key
-
-1. The browser key should have a name like "Browser key (auto created by Firebase)"
-
-1. Click on its name to edit it
-
-1. Under "Application restrictions", choose "Websites"
-
-1. Add the following websites at a minimum to allow mobile app users to access this project
-
-    - `app://localhost`
-    - `http://localhost`
-    - `https://<your-firebase-project-id>.firebaseapp.com`
-
-    You should also add the base URL of your registration and web app to this list.
-
-1. Under "API Restrictions", choose "Restrict key"
-
-1. Choose the following APIs
-
-    - *FCM Registration API*
-    - *Firebase Realtime Database Management API*
-    - *Identity Toolkit API*
-
-1. Click "Save"
-
-##### Android key
-
-1. The Android API key should have a name like "Android key (auto created by Firebase)"
-1. Click on its name to edit it
-1. Under "API Restrictions", choose "Restrict key"
-1. Choose the following APIs
-    - *FCM Registration API*
-    - *Firebase Realtime Database Management API*
-    - *Identity Toolkit API*
-    - *Firebase Installations API*
-1. Click "Save"
-
-It is also possible to restrict the key further to a specific Android app.
-
-##### iOS key
-
-The iOS key gets generated when [registering an iOS app](../development/local-dev-setup.md#mobile-app-client-configuration).
-This key, named "iOS key (auto created by Firebase)", is not needed and can be deleted.
+We assume that you already [set up your Firebase project](./firebase-project-setup.md) and [retrieved Firebase client configurations](./firebase-project-setup.md#retrieve-the-firebase-project-configurations).
+This means that API keys were already created for you which you need for the web and mobile apps.
