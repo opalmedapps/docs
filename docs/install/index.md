@@ -79,8 +79,9 @@ Log in to your [Apple Developer Account](https://developer.apple.com/account) an
 You now have a `.cer` file which needs to be imported to the keychain so it can be exported as a PKCS #12 archive:
 
 1. Double-click the `.cer` file to add it to your keychain
-1. In *Keychain Access*, select the "login" keychain and look for the "Apple Push Services: `<appID>`" certificate
-1. Expand this certificate to reveal the private key entry
+1. In *Keychain Access*, select the "login" keychain
+1. Go to the "My Certificates" tab, and look for the "Apple Push Services: `<appID>`" certificate
+1. Expand this certificate to reveal the private key entry (if there is no "expand" button, you may be on the wrong tab)
 1. Select both certificate and private key
 1. Right-click and select "Export 2 items..."
 1. Save the `.p12` file somewhere
