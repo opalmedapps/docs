@@ -8,9 +8,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This document does not provide full OpenEMR instructions for creating and adding a provider. It is intended for clinics or health systems integrating with the Opal application, with the minimal OpenEMR requirements for this integration.
 
-If you need more information about the OpenEMR system and its complete set of features, please refer to this link: [https://www.open-emr.org/](https://www.open-emr.org/).
+If you need more information about OpenEMR and its complete set of features, please refer to this link: [https://www.open-emr.org/](https://www.open-emr.org/).
 
-The purpose of this document is to show the steps of adding a new provider and creating a providers work calendar in OpenEMR, with the objective of scheduling appointments for a patient. This document is intended for the hospital's administrative staff.
+The purpose of this document is to show the steps of adding a new provider and creating a provider's work calendar in OpenEMR, with the objective of scheduling appointments for a patient. This document is intended for the hospital's administrative staff.
 
 1. Access OpenEMR and log in.
 
@@ -27,9 +27,9 @@ The purpose of this document is to show the steps of adding a new provider and c
 1. An **Add User** page will be displayed. You must enter the appropriate provider information. Start by entering the **Username** and the **Password** that the provider will be using to log into OpenEMR. Choose a strong password for the user.
     In the **Your Password** field, please enter your own password. This is to confirm the action of adding a new user.
 
-1. Next, you must click only on the **Provider** and **Calendar** checkboxes. Now, enter the providers information on the required fields, such as **First Name** and **Last Name**, **Provider Type** and **Access Control** (always select Physician(s) on those last 2 fields. Make sure that Administrator is NOT selected).
+1. Next, you must click only on the **Provider** and **Calendar** checkboxes. Now, enter the provider's information on the required fields, such as **First Name** and **Last Name**, **Provider Type** and **Access Control** (always select Physician(s) on those last 2 fields. Make sure that Administrator is NOT selected).
 
-    *Note: If you wish, you can write additional information about the provider, and you can also add the providers license number on the Federal Tax ID field.*
+    *Note: If you wish, you can write additional information about the provider, and you can also add the provider's license number on the Federal Tax ID field.*
 
     ![Add user page view](images/add_user_page.png)
 
@@ -39,7 +39,7 @@ The purpose of this document is to show the steps of adding a new provider and c
 
     ![Calendar view with new provider](images/new_provider.png)
 
-## Setting up the providers calendar in OpenEMR
+## Setting up the provider's calendar in OpenEMR
 
 1. In the **Calendar** section, click on the name of the provider you want to set up the profile for. A blank calendar will be displayed.
 
@@ -49,7 +49,7 @@ The purpose of this document is to show the steps of adding a new provider and c
 
 1. A pop-up window will appear with two tabs: **Patient** and **Provider.** Click on the **Provider** tab.
 
-1. Now, enter the providers information in the **Category** field (you can add the time the provider is "in office", "on lunch", on "vacation", etc.) and the appropriate information in the gray box, such as start and date time, if it's a repeated date or specific days of the week and the duration (the duration must be entered in minutes).
+1. Now, enter the provider's information in the **Category** field (you can add the time the provider is "in office", "on lunch", "on vacation", etc.) and the appropriate information in the gray box, such as start and date time, if it's a repeated date or specific days of the week and the duration (the duration must be entered in minutes).
 
     ![Provider tab view](images/provider_tab.png)
 
