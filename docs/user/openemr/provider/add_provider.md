@@ -36,7 +36,6 @@ The purpose of this document is to show the steps of adding a new provider and c
 1. Once the required fields above have been filled in, click on the **Save** button at the top of the screen. The **Calendar** section will be displayed. You can now see the name of the new provider in the **Providers** field.
 
     *Note: By clicking on the name of the new provider, you will see an empty calendar. It is mandatory to set up the provider's profile (i.e., their schedule).*
-    *Note2: If the user logged into the system is the provider, the Admin tab will not be available. It will not appear on the screen.*
 
     ![Calendar view with new provider](images/new_provider.png)
 
