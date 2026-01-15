@@ -26,6 +26,7 @@ nav:
       - Adding a document: user/openemr/document/add_document.md
       - Adding a diagnosis: user/openemr/diagnosis/add_diagnosis.md
       - Adding a patient: user/openemr/patient/add_patient.md
+      - Adding a provider: user/openemr/provider/add_provider.md
   - Contribute:
     - development/index.md
     - Architecture:
