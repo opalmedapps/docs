@@ -45,7 +45,7 @@ repos:
       - id: mdformat
         language: python
         additional_dependencies:
-          - mdformat-mkdocs==5.1.2
+          - mdformat-mkdocs==5.1.3
           - mdformat-footnote==0.1.2
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
@@ -59,7 +59,7 @@ repos:
       - id: uv-lock
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.42.0
+    rev: v1.42.1
     hooks:
       - id: typos
 
@@ -70,7 +70,7 @@ repos:
 
   # zizmor detects security vulnerabilities in GitHub Actions workflows.
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.20.0
+    rev: v1.22.0
     hooks:
       - id: zizmor
 
@@ -113,4 +113,4 @@ repos:
           # actionlint has a shellcheck integration which extracts shell scripts in `run:` steps from GitHub Actions
           # and checks these with shellcheck. This is arguably its most useful feature,
           # but the integration only works if shellcheck is installed
-          - "github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.10.0"
+          - "github.com/wasilibs/go-shellcheck/cmd/shellcheck@v0.11.1"
