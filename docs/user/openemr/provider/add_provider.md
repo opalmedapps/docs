@@ -53,7 +53,7 @@ The purpose of this document is to show the steps of adding a new provider and c
 
 1. A pop-up window will appear with two tabs: **Patient** and **Provider.** Click on the **Provider** tab.
 
-1. Now, enter the provider's information in the **Category** field (you can add the time the provider is "in office", "on lunch", "on vacation", etc.) and the appropriate information in the gray box, such as start and date time, if it's a repeated date or specific days of the week and the duration (the duration must be entered in minutes).
+1. Now, enter the provider's information in the **Category** field (you can indicate whether the provider is "in office", "on lunch", "on vacation", etc.) and the appropriate information in the gray box, such as start and date time, if it's a repeated date or specific days of the week and the duration (the duration must be entered in minutes).
 
     ![Provider tab view](images/provider_tab.png)
 
