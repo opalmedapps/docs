@@ -88,4 +88,8 @@
          <loc>https://docs.opalmedapps.com/user/openemr/patient/add_patient/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
+    <url>
+         <loc>https://docs.opalmedapps.com/user/openemr/provider/add_provider/</loc>
+         <lastmod>2026-01-20</lastmod>
+    </url>
 </urlset>
