@@ -6,4 +6,4 @@ rules:
   unpinned-uses:
     config:
       policies:
-        opalmedapps/.github/.github/*: ref-pin
+        opalmedapps/*: ref-pin
