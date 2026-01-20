@@ -26,7 +26,7 @@ The purpose of this document is to show the steps of adding a new provider and c
 
 1. An **Add User** page will be displayed. You must enter the appropriate provider information.
     Start by entering the **Username** and the **Password** that the provider will be using to log into OpenEMR.
-    Choose a strong password for the user, for example, a password that has at least 20 characters and contains at least a digit, capital letter, and special character.
+    Choose a [strong password](https://1password.com/password-generator#:~:text=What%20makes%20passwords%20strong) for the user, for example, a unique password that has at least 20 characters and contains at least a digit, capital letter, and special character.
 
     In the **Your Password** field, please enter your own password.
     This is to confirm the action of adding a new user.
