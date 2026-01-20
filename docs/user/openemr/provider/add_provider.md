@@ -14,7 +14,7 @@ The purpose of this document is to show the steps of adding a new provider and c
 
 1. Access OpenEMR and log in.
 
-1. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the providers calendar and their scheduled appointments.
+1. A **Calendar** section will appear. A list of **Providers** will be located on the left of the screen. By clicking on a specific name of the list, you can see the provider's calendar and their scheduled appointments.
 
 1. At the top of the screen, click on the **Admin** section. A drop-down menu will be displayed. Click on the **Users** tab.
 
@@ -24,8 +24,12 @@ The purpose of this document is to show the steps of adding a new provider and c
 
     ![User groups tab add user button](images/add_user_button.png)
 
-1. An **Add User** page will be displayed. You must enter the appropriate provider information. Start by entering the **Username** and the **Password** that the provider will be using to log into OpenEMR. Choose a strong password for the user.
-    In the **Your Password** field, please enter your own password. This is to confirm the action of adding a new user.
+1. An **Add User** page will be displayed. You must enter the appropriate provider information.
+    Start by entering the **Username** and the **Password** that the provider will be using to log into OpenEMR.
+    Choose a strong password for the user, for example, a password that has at least 20 characters and contains at least a digit, capital letter, and special character.
+
+    In the **Your Password** field, please enter your own password.
+    This is to confirm the action of adding a new user.
 
 1. Next, you must click only on the **Provider** and **Calendar** checkboxes. Now, enter the provider's information on the required fields, such as **First Name** and **Last Name**, **Provider Type** and **Access Control** (always select Physician(s) on those last 2 fields. Make sure that Administrator is NOT selected).
 
