@@ -33,7 +33,7 @@ More details about this pattern can be found in the resources below.
 - [The Strangler Fig Migration Pattern | by Diana Darie | Medium](https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511)
 - [The Strangler pattern in practice - Michiel Rook's blog](https://www.michielrook.nl/2016/11/strangler-pattern-practice/)
 - [What is the Strangler Fig Pattern and How it Helps Manage Legacy Code](https://www.freecodecamp.org/news/what-is-the-strangler-pattern-in-software-development/)
-- [The Ship of Theseus to NOT rewrite a legacy system from scratch](https://understandlegacycode.com/blog/ship-of-theseus-avoid-rewrite-legacy-system/)
+- [The Ship of Theseus to NOT rewrite a legacy system from scratch](https://web.archive.org/web/20241209060056/https://understandlegacycode.com/blog/ship-of-theseus-avoid-rewrite-legacy-system/)
 - [https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)
 
 ## Migration Process
