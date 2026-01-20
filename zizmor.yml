@@ -6,6 +6,4 @@ rules:
   unpinned-uses:
     config:
       policies:
-        actions/*: ref-pin
-        mschoettle/pre-commit-action: ref-pin
-        astral-sh/setup-uv: ref-pin
+        opalmedapps/*: ref-pin
