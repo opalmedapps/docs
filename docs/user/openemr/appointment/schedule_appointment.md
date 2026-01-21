@@ -26,7 +26,7 @@ The purpose of this document is to show the steps for scheduling an appointment 
 
     ![Patient tab](images/appointment_information.png)
 
-1. A **Patient Search** pop-up window will be displayed. Search for the patient for whom you want to schedule an appointment. You can search by Name, DOB or ID. When you have found the patient or the candidate, click on the **Search** button. The patients name should now appear in the appropriate field.
+1. A **Patient Search** pop-up window will be displayed. Search for the patient for whom you want to schedule an appointment. You can search by Name, DOB or ID. When you have found the patient or the candidate, click on the **Search** button. The patient's name should now appear in the appropriate field.
 
     ![Patient search tab](images/search_button.png)
 
