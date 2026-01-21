@@ -27,6 +27,7 @@ nav:
       - Adding a diagnosis: user/openemr/diagnosis/add_diagnosis.md
       - Adding a patient: user/openemr/patient/add_patient.md
       - Adding a provider: user/openemr/provider/add_provider.md
+      - Scheduling appointments: user/openemr/appointment/schedule_appointment.md
   - Contribute:
     - development/index.md
     - Architecture:
