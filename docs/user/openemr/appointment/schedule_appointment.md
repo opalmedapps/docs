@@ -16,7 +16,7 @@ The purpose of this document is to show the steps for scheduling an appointment 
 
 1. Access OpenEMR and login.
 
-1. A **Calendar** section will appear. A list of available **Providers** will be located on the left of the screen. By clicking on a name from the list, you will see the providers calendar and their availability for scheduling an appointment.
+1. A **Calendar** section will appear. A list of available **Providers** will be located on the left of the screen. By clicking on a name from the list, you will see the provider's calendar and their availability for scheduling an appointment.
 
 1. Click on **the date and time** when the appointment should be scheduled. You can also do this using the “**+**” button located at the top left of the screen.
 
