@@ -30,7 +30,9 @@ The purpose of this document is to show the steps for scheduling an appointment 
 
     ![Patient search tab](images/search_button.png)
 
-1. Ensure the providers name appears in the **Provider** field. If it does not, select the provider from the drop down. Now, select an **appointment date** and, if necessary, also enter the **appointment time** and **duration**. Note: Do not click on the following checkboxes: All day event; Repeats and Days of Week, in the demo environment.
+1. Ensure the provider's name appears in the **Provider** field. If it does not, select the provider from the drop down. Now, select an **appointment date** and, if necessary, also enter the **appointment time** and **duration**.
+
+    **Note:** Do not click on the following checkboxes: All day event; Repeats and Days of Week.
 
 1. After verifying that all the information is correct, click on the **Save** button on the bottom of the screen. The scheduled appointment will now appear in the provider’s calendar.
 
