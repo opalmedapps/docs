@@ -44,7 +44,7 @@ The purpose of this document is to show the steps for scheduling an appointment 
 
 1. In the **Calendar** section, double click on the appointment you want to update.
 
-    ![Provider calendar](images/updating_appointment.png)
+    ![Provider calendar](images/scheduled_appointment.png)
 
 1. A pop-up window will appear with all the appointment information on the **Patient** tab. Once the appointment information is updated, click on the **Save** button at the bottom of the screen.
 
