@@ -1,0 +1,14 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "htmlproofer",
+      "pattern": [
+        {
+          "regexp": "^WARNING -  htmlproofer: (invalid url - .+ \\[.+\\]) \\[(.+)\\]$",
+          "file": 2,
+          "message": 1
+        }
+      ]
+    }
+  ]
+}

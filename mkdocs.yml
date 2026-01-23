@@ -110,7 +110,7 @@ plugins:
   - privacy
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin#configuring
   - htmlproofer:
-      raise_error: True
+      raise_error: False
       raise_error_excludes:
         # some URLs sporadically return a 504 (Gateway Timeout)
         504: ["*"]
@@ -118,18 +118,14 @@ plugins:
         429: ["*"]
       skip_downloads: True
       ignore_urls:
-        # non-public URLs
-        - https://docs.opalmedapps.ca/*
-        - https://opalmedapps.gitlab.io/*
-        # - https://github.com/opalmedapps/*
         # PlantUML diagrams are included as data
         - "data:*"
         # Twitter URL sometimes returns a 404
         - https://x.com/i_a_r_n_a/status/623922369376202758
         # all below use Cloudflare which returns a captcha first with a 403
-        - https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b
-        - https://www.npmjs.com/package/*
-        - https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511
+        # - https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b
+        # - https://www.npmjs.com/package/*
+        # - https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511
       # only enable when building in CI to speed up local builds
       enabled: !ENV [CI, false]
 
