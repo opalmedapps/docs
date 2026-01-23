@@ -92,6 +92,7 @@ jobs:
         run: uv run mkdocs build --strict
       - name: View context attributes
         uses: actions/github-script@v8
+        if: '!cancelled()'
         with:
           script: console.log(context)
 
