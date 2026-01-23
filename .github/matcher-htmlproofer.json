@@ -5,7 +5,7 @@
       "owner": "htmlproofer",
       "pattern": [
         {
-          "regexp": "^ERROR -  htmlproofer: (invalid url - .+ \\[.+\\]) \\[(.+)\\]$",
+          "regexp": "^ERROR\\s+-\\s+htmlproofer: (invalid url - .+ \\[.+\\]) \\[(.+)\\]$",
           "file": 2,
           "message": 1
         }
