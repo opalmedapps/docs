@@ -1,0 +1,15 @@
+{
+  "__comment": "Docs: https://github.com/actions/toolkit/blob/main/docs/problem-matchers.md",
+  "problemMatcher": [
+    {
+      "owner": "htmlproofer",
+      "pattern": [
+        {
+          "regexp": "^ERROR\\s+-\\s+htmlproofer: (invalid url - .+ \\[.+\\]) \\[(.+)\\]$",
+          "file": 2,
+          "message": 1
+        }
+      ]
+    }
+  ]
+}

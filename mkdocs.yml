@@ -110,7 +110,8 @@ plugins:
   - privacy
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin#configuring
   - htmlproofer:
-      raise_error: True
+      # check all URLs before raising an error
+      raise_error_after_finish: True
       raise_error_excludes:
         # some URLs sporadically return a 504 (Gateway Timeout)
         504: ["*"]
@@ -118,10 +119,6 @@ plugins:
         429: ["*"]
       skip_downloads: True
       ignore_urls:
-        # non-public URLs
-        - https://docs.opalmedapps.ca/*
-        - https://opalmedapps.gitlab.io/*
-        # - https://github.com/opalmedapps/*
         # PlantUML diagrams are included as data
         - "data:*"
         # Twitter URL sometimes returns a 404

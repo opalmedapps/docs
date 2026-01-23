@@ -30,6 +30,14 @@ SPDX-License-Identifier = "MIT"
 
 [[annotations]]
 path = [
+    ".github/matcher-htmlproofer.json",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (C) 2026 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = [
     ".vscode/C4.code-snippets",
 ]
 precedence = "override"
