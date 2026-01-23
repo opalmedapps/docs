@@ -84,10 +84,8 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      # Problem matcher for htmlproofer warnings (instead of errors to avoid failing the build randomly)
-      # https://github.com/actions/toolkit/blob/main/docs/problem-matchers.md
       # https://github.com/actions/toolkit/blob/main/docs/commands.md#problem-matchers
-      - name: Add problem matcher
+      - name: Add problem matcher for HTML proofer invalid url errors
         run: |
           echo "::add-matcher::.github/matcher-htmlproofer.json"
       - name: Build site
