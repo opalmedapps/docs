@@ -7,3 +7,5 @@ rules:
     config:
       policies:
         opalmedapps/*: ref-pin
+        # for testing
+        actions/github-script: ref-pin
