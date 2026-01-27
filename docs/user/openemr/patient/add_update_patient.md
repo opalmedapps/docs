@@ -58,7 +58,7 @@ This document is intended for the hospital's administrative staff.
 
     ![Patient Finder tab patient list clicking patients name](images/patient_name.png)
 
-1. The patient’s **Medical Record Dashboard** has multiple sections. The **Demographics** section is where you will find all the patient's main information, such as; Name, Language, Sex, etc...
+1. The patient's **Medical Record Dashboard** has multiple sections. The **Demographics** section is where you will find all the patient's main information, such as Name, Language, Sex, etc.
 
 1. To be able to update any of the patient's information in the **Medical Record Dashboard,** click on the **edit icon** (pencil), located on the right side of each section.
 
