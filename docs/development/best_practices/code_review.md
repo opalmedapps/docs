@@ -172,6 +172,6 @@ The below list contains extra resources that may be of interest:
 
 [^talk]: Presentation and slides on "Code Review Skills for Pythonistas": https://www.nnja.io/post/2018/2018-djangocon-code-review/
 
-[^phauer]: Code Review Guidelines for Humans: https://phauer.com/2018/code-review-guidelines/
+[^phauer]: Code Review Guidelines for Humans: https://web.archive.org/web/20250623040639/https://phauer.com/2018/code-review-guidelines/
 
 [^twitter]: Rebecca's Rules for Constructive Code Reviews - Twitter: https://x.com/i_a_r_n_a/status/623922369376202758

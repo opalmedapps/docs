@@ -84,6 +84,10 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      # https://github.com/actions/toolkit/blob/main/docs/commands.md#problem-matchers
+      - name: Add problem matcher for HTML proofer invalid url errors
+        run: |
+          echo "::add-matcher::.github/matcher-htmlproofer.json"
       - name: Build site
         run: uv run mkdocs build --strict
 
