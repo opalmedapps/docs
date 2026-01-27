@@ -70,7 +70,7 @@ This document is intended for the hospital's administrative staff.
 
 1. The patient's **Medical Record Dashboard** will be displayed with the updated information.
 
-1. For example, to update the patient's photo in the patient's **Medical Record Dashboard,** click on the **Documents** tab.
+1. For example, to update the patient's photo in the patient's **Medical Record Dashboard**, click on the **Documents** tab.
 
     ![Patient Dashboard Documents section](images/documents_section.png)
 
