@@ -45,8 +45,8 @@ repos:
       - id: mdformat
         language: python
         additional_dependencies:
-          - mdformat-mkdocs==5.1.3
-          - mdformat-footnote==0.1.2
+          - mdformat-mkdocs==5.1.4
+          - mdformat-footnote==0.1.3
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.20.0
@@ -59,7 +59,7 @@ repos:
       - id: uv-lock
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.42.1
+    rev: v1.42.3
     hooks:
       - id: typos
 
@@ -75,7 +75,7 @@ repos:
       - id: zizmor
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.36.0
+    rev: 0.36.1
     hooks:
       - id: check-github-workflows
         args: ["--verbose"]
