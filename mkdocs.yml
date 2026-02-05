@@ -22,6 +22,8 @@ nav:
   - Home: index.md
   - User Guide:
     - user/index.md
+    - Opal:
+      - user/opal/index.md
     - OpenEMR:
       - Adding a document: user/openemr/document/add_document.md
       - Adding a diagnosis: user/openemr/diagnosis/add_diagnosis.md
