@@ -189,7 +189,8 @@ markdown_extensions:
   # https://github.com/mikitex70/plantuml-markdown
   - plantuml_markdown:
       servers:
-        - url: https://plantuml.com/plantuml
+        - url: https://kroki.io/plantuml
+          kroki: true
       # use caching to speed up live-reloading
       cachedir: .cache/.plantuml/
 
