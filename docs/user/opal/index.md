@@ -89,7 +89,7 @@ flowchart TD
     %% ===== Nodes =====
     Start([Start])
 
-    A[An appointment is created / exists for a patient<br/>in the hospital system.<br/> e.g. <b>OpenEMR</b>]
+    A[An appointment is created/exists for a patient<br/>in the hospital system.<br/> e.g. <b>OpenEMR</b>]
 
     B[Interfaces send appointment data to Opal's Patient Information Exchange system.<br/><b>Opal Admin</b> and <b>Opal RMS</b>]
 
