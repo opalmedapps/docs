@@ -45,7 +45,7 @@ flowchart TD
     EndNo([End])
     EndYes([End])
 
-    A[A patient is created / exists in the hospital system<br/>e.g., <b>OpenEMR, ADT</b>]
+    A[A patient is created/exists in the hospital system<br/>e.g., <b>OpenEMR, ADT</b>]
 
     D{Patient consents<br/>to have <b>Opal</b>?}
 
