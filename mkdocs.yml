@@ -92,6 +92,9 @@ theme:
     - search.highlight
     - content.code.copy
 
+extra_css:
+  - assets/stylesheets/extra.css
+
 # Plugins
 # https://squidfunk.github.io/mkdocs-material/plugins/
 plugins:
