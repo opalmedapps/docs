@@ -1660,6 +1660,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#components-used-for-registering-a-patient-portal-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components used for registering a Patient Portal user
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-used-for-appointment-check-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components used for appointment check in
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1713,6 +1735,105 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 <h3 id="opal-patient-portal">Opal Patient Portal<a class="headerlink" href="#opal-patient-portal" title="Permanent link">¶</a></h3>
 <p>The Opal Patient Portal is a mobile application designed to empower patients with their medical information. The content created by clinicians via Opal Admin, as well as data from the healthcare systems the solution has established interfaces with, will be securely provided to patients in their mobile application. The patient portal can also be accessed via a browser.</p>
 <p>For more information about Opal, refer to the <a href="https://www.opalmedapps.com/">Opal website</a>.</p>
+<h2 id="components-used-for-registering-a-patient-portal-user">Components used for registering a Patient Portal user<a class="headerlink" href="#components-used-for-registering-a-patient-portal-user" title="Permanent link">¶</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    %% ===== Nodes =====
+    Start([Start])
+    EndNo([End])
+    EndYes([End])
+
+    A[A patient is created/exists in the hospital system&lt;br/&gt;e.g., &lt;b&gt;OpenEMR, ADT&lt;/b&gt;]
+
+    D{Patient consents&lt;br/&gt;to have &lt;b&gt;Opal&lt;/b&gt;?}
+
+    B[Registration code generated in &lt;b&gt;Opal Admin&lt;/b&gt; and displayed as a QR code to the user]
+
+    C[User completes their registration using the &lt;b&gt;Opal User Registration&lt;/b&gt; website]
+
+    E[Patient data pulled from hospital source systems&lt;br/&gt;and stored in Opal's Patient Information Exchange system]
+
+    F[User accesses patient data on the &lt;b&gt;Opal Patient Portal&lt;/b&gt;]
+
+    %% ===== Flow =====
+    Start --&gt; A
+    A --&gt; D
+    D -- No --&gt; EndNo
+    D -- Yes --&gt; B
+    B --&gt; C
+    C --&gt; E
+    E --&gt; F
+    F --&gt; EndYes
+
+    %% ===== Classes =====
+    class Start,EndNo,EndYes startEnd
+    class A,E hospital
+    class B opalAdmin
+    class C,F portal
+    class D decision
+
+    %% ===== Style Definitions =====
+    classDef startEnd fill:#E6E6E6,stroke:#333,stroke-width:1px,color:#000
+    classDef hospital fill:#7FB3FF,stroke:#1F4FBF,stroke-width:1px,color:#000
+    classDef opalAdmin fill:#B39DDB,stroke:#5E35B1,stroke-width:1px,color:#000
+    classDef portal fill:#8BC34A,stroke:#33691E,stroke-width:1px,color:#000
+    classDef decision fill:#E8F5E9,stroke:#558B2F,stroke-width:2px,color:#000</code></pre>
+<h2 id="components-used-for-appointment-check-in">Components used for appointment check in<a class="headerlink" href="#components-used-for-appointment-check-in" title="Permanent link">¶</a></h2>
+<pre class="mermaid"><code>flowchart TD
+    %% ===== Nodes =====
+    Start([Start])
+
+    A[An appointment is created/exists for a patient&lt;br/&gt;in the hospital system.&lt;br/&gt; e.g. &lt;b&gt;OpenEMR&lt;/b&gt;]
+
+    B[Interfaces send appointment data to Opal's Patient Information Exchange system.&lt;br/&gt;&lt;b&gt;Opal Admin&lt;/b&gt; and &lt;b&gt;Opal RMS&lt;/b&gt;]
+
+    D{Patient has &lt;b&gt;Opal&lt;br/&gt;Patient Portal&lt;/b&gt;?}
+
+    C[Patient receives maps, reminders, preparation instructions as configured in &lt;b&gt;Opal Admin&lt;/b&gt;]
+
+    E[Patient checks into their appointment using the &lt;b&gt;Opal Patient Portal&lt;/b&gt; once within range of the hospital]
+
+    F[Clinician manages patient appointment call ins via &lt;b&gt;Opal RMS&lt;/b&gt;, which notifies the patient by the &lt;/b&gt;&lt;b&gt;Opal Patient Portal&lt;/b&gt; and the TV screens]
+
+    G[Patient checks in using the kiosk, SMS available with &lt;b&gt;Opal RMS&lt;/b&gt; or at reception]
+
+    H[Clinician manages patient appointment call ins via &lt;b&gt;Opal RMS&lt;/b&gt;, which notifies the patient by the TV screens and/or SMS]
+
+    EndYes([End])
+    EndNo([End])
+
+    %% ===== Flow =====
+    Start --&gt; A
+    A --&gt; B
+    B --&gt; D
+
+    D -- Yes --&gt; C
+    C --&gt; E
+    E --&gt; F
+    F --&gt; EndYes
+
+    D -- No --&gt; G
+    G --&gt; H
+    H --&gt; EndNo
+
+    %% ===== Classes =====
+    class Start,EndYes,EndNo startEnd
+    class A hospital
+    class B interfaces
+    class C admin
+    class D decision
+    class E portal
+    class F,H rms
+    class G rmsAlt
+
+    %% ===== Style Definitions =====
+    classDef startEnd fill:#E6E6E6,stroke:#333,stroke-width:1px,color:#000
+    classDef hospital fill:#7FB3FF,stroke:#1F4FBF,stroke-width:1px,color:#000
+    classDef interfaces fill:#BDBDBD,stroke:#616161,stroke-width:1px,color:#000
+    classDef admin fill:#9C8AD1,stroke:#512DA8,stroke-width:1px,color:#000
+    classDef portal fill:#8BC34A,stroke:#33691E,stroke-width:1px,color:#000
+    classDef rms fill:#F6A5A5,stroke:#C62828,stroke-width:1px,color:#000
+    classDef rmsAlt fill:#F6A5A5,stroke:#C62828,stroke-width:1px,color:#000
+    classDef decision fill:#E8F5E9,stroke:#558B2F,stroke-width:2px,color:#000</code></pre>
 
 
 
@@ -1735,7 +1856,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 5, 2026 16:20:06 UTC"><span class="timeago" datetime="2026-02-05T16:20:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 5, 2026 16:20:06 UTC">2026-02-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 5, 2026 19:17:15 UTC"><span class="timeago" datetime="2026-02-05T19:17:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 5, 2026 19:17:15 UTC">2026-02-05</span>
   </span>
 
     
