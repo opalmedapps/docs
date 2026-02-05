@@ -3,14 +3,14 @@
   "name": "Python",
   // Supported image versions: https://github.com/devcontainers/images/issues/90
   // README: https://github.com/devcontainers/images/tree/main/src/python
-  "image": "mcr.microsoft.com/devcontainers/python:3.14-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-trixie",
   // https://containers.dev/features
   "features": {
     "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
       "version": "latest"
     }
   },
-  "postCreateCommand": "uv sync && git config push.autosetupremote true && uv run pre-commit install-hooks && uv run pre-commit install",
+  "postCreateCommand": "uv sync && git config push.autosetupremote true && uv run prek install-hooks && uv run prek install",
   // Tool-specific properties: https://containers.dev/supporting
   "customizations": {
     "vscode": {

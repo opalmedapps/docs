@@ -41,16 +41,16 @@ uv sync
 
 If no matching Python installation can be found it will download it for you.
 
-Install the [`pre-commit`](https://pre-commit.com/) hooks:
+Install the [`pre-commit`](https://pre-commit.com/) hooks using [`prek`](https://prek.j178.dev/):
 
 ```shell
-pre-commit install
+prek install
 ```
 
 Then, run the development server to serve the site locally:
 
 ```shell
-uv run mkdocs serve -a localhost:8001
+uv run mkdocs serve -a localhost:8001 --livereload
 ```
 
 You can then access the site at: http://localhost:8001
