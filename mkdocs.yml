@@ -188,7 +188,9 @@ markdown_extensions:
   - pymdownx.tilde
   # https://github.com/mikitex70/plantuml-markdown
   - plantuml_markdown:
-      server: http://www.plantuml.com/plantuml
+      servers:
+        - url: https://kroki.io/plantuml
+          kroki: true
       # use caching to speed up live-reloading
       cachedir: .cache/.plantuml/
 
