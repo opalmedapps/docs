@@ -189,8 +189,11 @@ markdown_extensions:
   # https://github.com/mikitex70/plantuml-markdown
   - plantuml_markdown:
       servers:
+        # use Kroki server due to CloudFlare errors in CI with PlantUML.com
         - url: https://kroki.io/plantuml
           kroki: true
+      # don't generate image maps due to issues with Kroki and PlantUML
+      image_maps: false
       # use caching to speed up live-reloading
       cachedir: .cache/.plantuml/
 
