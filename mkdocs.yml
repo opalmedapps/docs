@@ -109,7 +109,8 @@ plugins:
   - glightbox
   # keep assets private
   # https://squidfunk.github.io/mkdocs-material/plugins/privacy/
-  - privacy
+  - privacy:
+      enabled: !ENV [CI, false]
   # https://github.com/manuzhang/mkdocs-htmlproofer-plugin#configuring
   - htmlproofer:
       # check all URLs before raising an error
