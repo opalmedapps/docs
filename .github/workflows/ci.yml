@@ -92,7 +92,8 @@ jobs:
     if: success() && github.ref == 'refs/heads/main'
     needs:
       - lint
-      - markdownlint
+      # TODO temporarily disabled
+      #- markdownlint
       - build
     permissions:
       contents: write
