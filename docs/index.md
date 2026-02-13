@@ -6,13 +6,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Opal Documentation
 
-!!! tip "We have just gone open source! :tada:"
-
-    This site is currently under construction while we add more details and information to support our open source community.
-    New information will be added regularly.
-    Please check back for updates.
-    To report an issue with this site, please create an issue on our [issue tracker](https://github.com/opalmedapps/docs/issues).
-
 This is the technical documentation for [Opal](https://www.opalmedapps.com) – the open source patient-in-the-loop data platform.
 We've grouped together information on using, contributing, and deploying Opal.
 
