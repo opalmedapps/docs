@@ -31,7 +31,7 @@ System administrators typically have access to all of the menus and options. The
 
 ![Opal Admin main menu](images/main_menu.png)
 
-When the webpage is not in full screen mode, the main menu will adjust as displayed in the images below. The main menu options are still listed under the four sections; **Publications**, **Administration**, **Clinical** and **Profile** via drop-down menus or the hamburger button (3 horizontal lines). No matter which page the user is in, clicking either the Opal logo or **Opal Admin** will redirect the user to the **Opal Admin** main menu page. Clicking on any of the options within a drop-down menu will direct the user to that specific page.
+When the window is not wide enough, the main menu will adjust as displayed in the images below. The main menu options are still listed under the four sections; **Publications**, **Administration**, **Clinical** and **Profile** via drop-down menus or the hamburger button (3 horizontal lines). No matter which page the user is in, clicking either the Opal logo or **Opal Admin** will redirect the user to the **Opal Admin** main menu page. Clicking on any of the options within a drop-down menu will direct the user to that specific page.
 
 ![Navigation menu view](images/navigation_menu.png){width="50%"}
 
