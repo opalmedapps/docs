@@ -25,7 +25,7 @@ Once the personal account information has been entered, click on the **Login** b
 
 ## Main Menu
 
-If the user logs in while the webpage is in full screen mode, the user is directed to their Opal Admin main menu home page. What they see will depend on the roles and privileges granted to their user.
+**Opal Admin** has a responsive design. If the user logs in while the webpage is displayed in a wide window, the user is directed to their Opal Admin main menu home page. What they see will depend on the roles and privileges granted to their user.
 
 System administrators typically have access to all of the menus and options. The full Opal Admin main menu consists of four sections (**Publications**, **Administration**, **Clinical** and **Profile**) and is displayed below.
 
