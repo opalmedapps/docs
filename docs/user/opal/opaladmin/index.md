@@ -17,7 +17,7 @@ You can find the information for our demo environment on the [main user guide pa
 
 Some institutions may provide other access options for ease of use, not covered in this document.
 
-After the URL has been accessed, the user will be directed to the **Opal Admin login** page, as shown below. Here they must enter their username and password. As needed, the user can click on the language button to suit their language preference. Please note that all the instructions in this document are provided in english only.
+After the URL has been accessed, the user will be directed to the **Opal Admin login** page, as shown below. Here they must enter their username and password. As needed, the user can click on the language button to suit their language preference. Please note that all the instructions in this document are provided in English only.
 
 Once the personal account information has been entered, click on the **Login** button.
 
