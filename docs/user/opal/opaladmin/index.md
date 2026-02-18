@@ -13,7 +13,7 @@ It is intended for any healthcare institution user who will access Opal Admin.
 ## User Log In
 
 Users can access Opal Admin from their browser by entering their institution’s specific URL.
-You can find the information for our demo environment on the [main user guide page](../../#opaladmin).
+You can find the information for our demo environment on the [main user guide page](../../index.md#opaladmin).
 
 Some institutions may provide other access options for ease of use, not covered in this document.
 
