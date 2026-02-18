@@ -60,7 +60,7 @@ Retrieve the client configuration for browser and Android apps:
 
 1. Click on "Project Settings"
 
-1. In the "General" tab, under "Your Apps", click the "< />" icon
+1. In the "General" tab, under "Your Apps", click the `</>` icon
 
 1. Choose an app nickname, such as "Opal Local"
 
