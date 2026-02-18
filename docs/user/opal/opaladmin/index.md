@@ -56,7 +56,7 @@ When the webpage is not in full screen mode, the main menu will adjust as displa
 
 ![Opal Admin hospital settings menu](images/hospital_menu.png)
 
-## OpalAdmin module overview
+## Opal Admin module overview
 
 The **Publications** section has the following options:
 
