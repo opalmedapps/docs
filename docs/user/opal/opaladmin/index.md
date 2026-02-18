@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: Copyright (C) 2026 Opal Health Informatics Group at the 
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# Accessing and Navigating in OpalAdmin
+# Accessing and Navigating in Opal Admin
 
 These instructions explain how to access and navigate within Opal Admin.
 
