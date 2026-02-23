@@ -114,7 +114,7 @@ dev = [
 requires-dist = [
     { name = "mkdocs-git-revision-date-localized-plugin", specifier = "==1.5.1" },
     { name = "mkdocs-glightbox", specifier = "==0.5.2" },
-    { name = "mkdocs-htmlproofer-plugin", specifier = "==1.4.1" },
+    { name = "mkdocs-htmlproofer-plugin", specifier = "==1.5.0" },
     { name = "mkdocs-material", specifier = "==9.7.1" },
     { name = "plantuml-markdown", specifier = "==3.11.1" },
 ]
@@ -294,7 +294,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-htmlproofer-plugin"
-version = "1.4.1"
+version = "1.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
@@ -302,9 +302,9 @@ dependencies = [
     { name = "mkdocs" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ad/66/cafa93e64a5b648f6ece6fd407caed278a4b497a8c47678118b9736f1132/mkdocs_htmlproofer_plugin-1.4.1.tar.gz", hash = "sha256:7b2422175960cc8b91a9350f35a5802953f79f12faf2709f6de674a58de38733", size = 9173, upload-time = "2026-01-23T04:26:29.205Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/61/abc777ca61055948b694202839ce1f6679a5882f37e0a12707e2d6a50704/mkdocs_htmlproofer_plugin-1.5.0.tar.gz", hash = "sha256:09e04388fdaabcc345dda8be8f7b4f95005bd502c2d51c1f827b5b258822519d", size = 9855, upload-time = "2026-02-23T15:20:47.849Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9e/5a/6ec0d3a9c088826e8e245c7b92729e452621713ee21ebda80b9ad2b494a6/mkdocs_htmlproofer_plugin-1.4.1-py3-none-any.whl", hash = "sha256:8f427dc94c329d43f809d28595849c1242b7a5cfca8f9eff103a4195894d3fc7", size = 9240, upload-time = "2026-01-23T04:26:26.087Z" },
+    { url = "https://files.pythonhosted.org/packages/67/e9/b70076eb18a356f0f17c115b20cbd0e52b5145b972eb1443feef516fb483/mkdocs_htmlproofer_plugin-1.5.0-py3-none-any.whl", hash = "sha256:4ff5a9bb4505e5b6332ca8a301cf77cfc548e5680b48fffb421eb95d72b07390", size = 9938, upload-time = "2026-02-23T15:20:45.023Z" },
 ]
 
 [[package]]
