@@ -57,7 +57,7 @@ jobs:
         id: setup-uv
         with:
           # renovate: datasource=pypi dependency=uv
-          version: "0.10.8"
+          version: "0.10.9"
       - name: Install dependencies
         run: |
           uv sync --locked
