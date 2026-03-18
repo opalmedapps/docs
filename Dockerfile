@@ -4,7 +4,7 @@
 
 FROM squidfunk/mkdocs-material:9.7.5
 
-COPY --from=ghcr.io/astral-sh/uv:0.10.10 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.10.11 /uv /uvx /bin/
 
 RUN --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
