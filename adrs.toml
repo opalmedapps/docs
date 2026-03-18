@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (C) 2026 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+#
+# SPDX-License-Identifier: MIT
+
+# https://joshrotenberg.com/adrs/configuration.html
+
+adr_dir = "docs/development/architecture/decisions"
+mode = "nextgen"
+
+[templates]
+format = "madr"
