@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: MIT
 
 """
-Generate the code reference pages and navigation.
+Generate the navigation for ADRs.
 
 Taken inspiration from:
-    * https://github.com/mkdocstrings/mkdocstrings/blob/master/docs/gen_ref_nav.py
-    * https://github.com/liquidinvestigations/hoover-snoop2/blob/master/docs/gen.py
+    * https://oprypin.github.io/mkdocs-literate-nav/#hybrid-nav
+    * https://oprypin.github.io/mkdocs-gen-files/
 """
 
 import tomllib
