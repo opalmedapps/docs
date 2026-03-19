@@ -36,6 +36,7 @@ nav:
     - development/index.md
     - Architecture:
       - development/architecture/index.md
+      - Decisions: development/architecture/decisions/
       - development/architecture/migration.md
       - Registration Process: development/architecture/registration.md
       - development/architecture/checkin_process.md
@@ -112,6 +113,17 @@ plugins:
       enabled: !ENV [CI, false]
   # https://squidfunk.github.io/mkdocs-material/reference/images/?h=image#lightbox
   - glightbox
+  - macros:
+      on_error_fail: true
+      on_undefined: strict
+      modules:
+        # https://github.com/febus982/mkdocs-macros-adr-summary
+        - mkdocs_macros_adr_summary
+  - gen-files:
+      scripts:
+        - docs/gen_adrs_nav.py
+  - literate-nav:
+      nav_file: SUMMARY.md
   # keep assets private
   # https://squidfunk.github.io/mkdocs-material/plugins/privacy/
   - privacy:
@@ -210,3 +222,6 @@ validation:
   anchors: warn
 
 strict: true
+
+watch:
+  - overrides

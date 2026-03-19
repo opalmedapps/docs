@@ -99,9 +99,12 @@ version = "0"
 source = { virtual = "." }
 dependencies = [
     { name = "mkdocs" },
+    { name = "mkdocs-gen-files" },
     { name = "mkdocs-git-revision-date-localized-plugin" },
     { name = "mkdocs-glightbox" },
     { name = "mkdocs-htmlproofer-plugin" },
+    { name = "mkdocs-literate-nav" },
+    { name = "mkdocs-macros-adr-summary" },
     { name = "mkdocs-material" },
     { name = "plantuml-markdown" },
 ]
@@ -114,9 +117,12 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "mkdocs", specifier = "==1.6.1" },
+    { name = "mkdocs-gen-files", specifier = "==0.6.0" },
     { name = "mkdocs-git-revision-date-localized-plugin", specifier = "==1.5.1" },
     { name = "mkdocs-glightbox", specifier = "==0.5.2" },
     { name = "mkdocs-htmlproofer-plugin", specifier = "==1.5.0" },
+    { name = "mkdocs-literate-nav", specifier = "==0.6.2" },
+    { name = "mkdocs-macros-adr-summary", specifier = "==1.3.0" },
     { name = "mkdocs-material", specifier = "==9.7.5" },
     { name = "plantuml-markdown", specifier = "==3.11.1" },
 ]
@@ -158,6 +164,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz", hash = "sha256:400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f", size = 215371, upload-time = "2026-01-01T15:37:32.073Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6a/09/e21df6aef1e1ffc0c816f0522ddc3f6dcded766c3261813131c78a704470/gitpython-3.1.46-py3-none-any.whl", hash = "sha256:79812ed143d9d25b6d176a10bb511de0f9c67b1fa641d82097b0ab90398a2058", size = 208620, upload-time = "2026-01-01T15:37:30.574Z" },
+]
+
+[[package]]
+name = "hjson"
+version = "3.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/82/e5/0b56d723a76ca67abadbf7fb71609fb0ea7e6926e94fcca6c65a85b36a0e/hjson-3.1.0.tar.gz", hash = "sha256:55af475a27cf83a7969c808399d7bccdec8fb836a07ddbd574587593b9cdcf75", size = 40541, upload-time = "2022-08-13T02:53:01.919Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1f/7f/13cd798d180af4bf4c0ceddeefba2b864a63c71645abc0308b768d67bb81/hjson-3.1.0-py3-none-any.whl", hash = "sha256:65713cdcf13214fb554eb8b4ef803419733f4f5e551047c9b711098ab7186b89", size = 54018, upload-time = "2022-08-13T02:52:59.899Z" },
 ]
 
 [[package]]
@@ -230,6 +245,15 @@ wheels = [
 ]
 
 [[package]]
+name = "mistune"
+version = "3.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/c8/f0173fe3bf85fd891aee2e7bcd8207dfe26c2c683d727c5a6cc3aec7b628/mistune-3.0.2.tar.gz", hash = "sha256:fc7f93ded930c92394ef2cb6f04a8aabab4117a91449e72dcc8dfa646a508be8", size = 90840, upload-time = "2023-09-29T23:58:48.6Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/74/c95adcdf032956d9ef6c89a9b8a5152bf73915f8c633f3e3d88d06bd699c/mistune-3.0.2-py3-none-any.whl", hash = "sha256:71481854c30fdbc938963d3605b72501f5c10a9320ecd412c121c163a1c7d205", size = 47958, upload-time = "2023-09-29T23:58:46.761Z" },
+]
+
+[[package]]
 name = "mkdocs"
 version = "1.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -251,6 +275,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/bc/c6/bbd4f061bd16b378247f12953ffcb04786a618ce5e904b8c5a01a0309061/mkdocs-1.6.1.tar.gz", hash = "sha256:7b432f01d928c084353ab39c57282f29f92136665bdd6abf7c1ec8d822ef86f2", size = 3889159, upload-time = "2024-08-30T12:24:06.899Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/22/5b/dbc6a8cddc9cfa9c4971d59fb12bb8d42e161b7e7f8cc89e49137c5b279c/mkdocs-1.6.1-py3-none-any.whl", hash = "sha256:db91759624d1647f3f34aa0c3f327dd2601beae39a366d6e064c03468d35c20e", size = 3864451, upload-time = "2024-08-30T12:24:05.054Z" },
+]
+
+[[package]]
+name = "mkdocs-gen-files"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/61/35/f26349f7fa18414eb2e25d75a6fa9c7e3186c36e1d227c0b2d785a7bd5c4/mkdocs_gen_files-0.6.0.tar.gz", hash = "sha256:52022dc14dcc0451e05e54a8f5d5e7760351b6701eff816d1e9739577ec5635e", size = 8642, upload-time = "2025-11-23T12:13:22.124Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/ec/72417415563c60ae01b36f0d497f1f4c803972f447ef4fb7f7746d6e07db/mkdocs_gen_files-0.6.0-py3-none-any.whl", hash = "sha256:815af15f3e2dbfda379629c1b95c02c8e6f232edf2a901186ea3b204ab1135b2", size = 8182, upload-time = "2025-11-23T12:13:20.756Z" },
 ]
 
 [[package]]
@@ -307,6 +343,54 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/bb/61/abc777ca61055948b694202839ce1f6679a5882f37e0a12707e2d6a50704/mkdocs_htmlproofer_plugin-1.5.0.tar.gz", hash = "sha256:09e04388fdaabcc345dda8be8f7b4f95005bd502c2d51c1f827b5b258822519d", size = 9855, upload-time = "2026-02-23T15:20:47.849Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/67/e9/b70076eb18a356f0f17c115b20cbd0e52b5145b972eb1443feef516fb483/mkdocs_htmlproofer_plugin-1.5.0-py3-none-any.whl", hash = "sha256:4ff5a9bb4505e5b6332ca8a301cf77cfc548e5680b48fffb421eb95d72b07390", size = 9938, upload-time = "2026-02-23T15:20:45.023Z" },
+]
+
+[[package]]
+name = "mkdocs-literate-nav"
+version = "0.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f6/5f/99aa379b305cd1c2084d42db3d26f6de0ea9bf2cc1d10ed17f61aff35b9a/mkdocs_literate_nav-0.6.2.tar.gz", hash = "sha256:760e1708aa4be86af81a2b56e82c739d5a8388a0eab1517ecfd8e5aa40810a75", size = 17419, upload-time = "2025-03-18T21:53:09.711Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8a/84/b5b14d2745e4dd1a90115186284e9ee1b4d0863104011ab46abb7355a1c3/mkdocs_literate_nav-0.6.2-py3-none-any.whl", hash = "sha256:0a6489a26ec7598477b56fa112056a5e3a6c15729f0214bea8a4dbc55bd5f630", size = 13261, upload-time = "2025-03-18T21:53:08.1Z" },
+]
+
+[[package]]
+name = "mkdocs-macros-adr-summary"
+version = "1.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mistune" },
+    { name = "mkdocs" },
+    { name = "mkdocs-macros-plugin" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/95/77/fe7985452ecb26ed5898310ead5cf910d930e175b90dc285ba44b3ab3d21/mkdocs_macros_adr_summary-1.3.0.tar.gz", hash = "sha256:cfcd4143cbad3ad9a3a008237365dd95b2734a9c27ca84a006d0dcb476421d1a", size = 10918, upload-time = "2025-10-12T11:21:04.603Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/c0/b3d6d64ea7e40b10a02f659ba32fcb25c722ff705624e576556b2625a1b0/mkdocs_macros_adr_summary-1.3.0-py3-none-any.whl", hash = "sha256:4d054860242e80da91009c882133e72d18a251e45af64239ecdfdeb267f216d3", size = 21703, upload-time = "2025-10-12T11:21:02.591Z" },
+]
+
+[[package]]
+name = "mkdocs-macros-plugin"
+version = "1.5.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "hjson" },
+    { name = "jinja2" },
+    { name = "mkdocs" },
+    { name = "packaging" },
+    { name = "pathspec" },
+    { name = "python-dateutil" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "super-collections" },
+    { name = "termcolor" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/92/15/e6a44839841ebc9c5872fa0e6fad1c3757424e4fe026093b68e9f386d136/mkdocs_macros_plugin-1.5.0.tar.gz", hash = "sha256:12aa45ce7ecb7a445c66b9f649f3dd05e9b92e8af6bc65e4acd91d26f878c01f", size = 37730, upload-time = "2025-11-13T08:08:55.545Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/62/9fffba5bb9ed3d31a932ad35038ba9483d59850256ee0fea7f1187173983/mkdocs_macros_plugin-1.5.0-py3-none-any.whl", hash = "sha256:c10fabd812bf50f9170609d0ed518e54f1f0e12c334ac29141723a83c881dd6f", size = 44626, upload-time = "2025-11-13T08:08:53.878Z" },
 ]
 
 [[package]]
@@ -552,6 +636,27 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz", hash = "sha256:3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349", size = 118627, upload-time = "2026-01-20T04:27:02.457Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/46/2c/1462b1d0a634697ae9e55b3cecdcb64788e8b7d63f54d923fcd0bb140aed/soupsieve-2.8.3-py3-none-any.whl", hash = "sha256:ed64f2ba4eebeab06cc4962affce381647455978ffc1e36bb79a545b91f45a95", size = 37016, upload-time = "2026-01-20T04:27:01.012Z" },
+]
+
+[[package]]
+name = "super-collections"
+version = "0.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "hjson" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/de/a0c3d1244912c260638f0f925e190e493ccea37ecaea9bbad7c14413b803/super_collections-0.6.2.tar.gz", hash = "sha256:0c8d8abacd9fad2c7c1c715f036c29f5db213f8cac65f24d45ecba12b4da187a", size = 31315, upload-time = "2025-09-30T00:37:08.067Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/17/43/47c7cf84b3bd74a8631b02d47db356656bb8dff6f2e61a4c749963814d0d/super_collections-0.6.2-py3-none-any.whl", hash = "sha256:291b74d26299e9051d69ad9d89e61b07b6646f86a57a2f5ab3063d206eee9c56", size = 16173, upload-time = "2025-09-30T00:37:07.104Z" },
+]
+
+[[package]]
+name = "termcolor"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/46/79/cf31d7a93a8fdc6aa0fbb665be84426a8c5a557d9240b6239e9e11e35fc5/termcolor-3.3.0.tar.gz", hash = "sha256:348871ca648ec6a9a983a13ab626c0acce02f515b9e1983332b17af7979521c5", size = 14434, upload-time = "2025-12-29T12:55:21.882Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl", hash = "sha256:cf642efadaf0a8ebbbf4bc7a31cec2f9b5f21a9f726f4ccbb08192c9c26f43a5", size = 7734, upload-time = "2025-12-29T12:55:20.718Z" },
 ]
 
 [[package]]

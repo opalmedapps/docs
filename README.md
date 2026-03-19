@@ -74,6 +74,16 @@ Due to a [limitation](https://github.com/DavidAnson/vscode-markdownlint/issues/3
 
 When you add a new page, you must add it to the `nav` section in `mkdocs.yml` in order for it to appear in the navigation menu.
 
+### Documenting architecture decisions
+
+We use [Architecture Decision Records (ADR)](https://adr.github.io/) to record architecture decisions, whether the decision concerns architecture, code, project setup or something else.
+The ADRs live in `docs/development/architecture/decisions/` and follow the [Markdown Architecture Decision Record (MADR) format](https://adr.github.io/madr/).
+
+In this repository, architecture decisions are those that impact the whole Opal solution.
+Architecture decisions within particular components are contained in their corresponding repository.
+
+We recommend the use of the tool [`adrs`](http://joshrotenberg.com/adrs/) to help manage ADRs.
+
 ## License
 
 Please refer to the `LICENSE` file in this repository for information about licensing.
