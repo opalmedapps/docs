@@ -141,6 +141,8 @@ plugins:
       ignore_urls:
         # PlantUML diagrams are included as data
         - "data:*"
+        # Keeps failing for some reason
+        - https://app.opalmedapps.ca
         # Twitter URL sometimes returns a 404
         - https://x.com/i_a_r_n_a/status/623922369376202758
         # all below use Cloudflare which returns a captcha first with a 403
