@@ -35,4 +35,4 @@ Chosen option: "MADR 4.0.0", because
 
 Need a still maintained ADR tool to facilitate easy creation and maintenance of decisions.
 
-For a lightweight ADR toolset, see [`adrs`](https://joshrotenberg.com/adrs/index.html) which supports MADR.
+For an ADR tool, see [`adrs`](https://joshrotenberg.com/adrs/index.html) which supports MADR.

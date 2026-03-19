@@ -1,0 +1,9 @@
+{#
+  SPDX-FileCopyrightText: Copyright (C) 2026 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+  SPDX-License-Identifier: MIT
+#}
+| ID | Date | Decision | Status |
+|----|------|----------|--------|
+{%- for d in documents %}
+| {{ '%04d' % d.document_id }} | {{ d.date.strftime('%Y-%m-%d') if d.date else "-"}} | [{{ d.title }}]({{ d.file_path.split('/')[-1] }}) | {{ d.status }}  |
+{% endfor %}
