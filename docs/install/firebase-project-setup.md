@@ -118,8 +118,7 @@ Go to the [Service Accounts in Google Cloud](https://console.cloud.google.com/pr
 1. Go to "Permissions" and click on "Manage access"
 1. Update the assigned roles to match the following roles:
     - _Firebase Authentication Admin_
-    - _Firebase Cloud Messaging Admin_
-    - _Firebase Cloud Messaging API Admin_
+    - _Firebase Cloud Messaging API Admin_ (needed to send push notifications for Android)
     - _Firebase Realtime Database Admin_
     - _Firebase Rules Admin_
 1. Click "Save"
