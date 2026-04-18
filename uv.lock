@@ -140,7 +140,7 @@ requires-dist = [
     { name = "mkdocs-literate-nav", specifier = "==0.6.2" },
     { name = "mkdocs-macros-adr-summary", specifier = "==1.3.0" },
     { name = "mkdocs-material", specifier = "==9.7.6" },
-    { name = "plantuml-markdown", specifier = "==3.11.1" },
+    { name = "plantuml-markdown", specifier = "==3.11.2" },
 ]
 
 [package.metadata.requires-dev]
@@ -469,16 +469,11 @@ wheels = [
 
 [[package]]
 name = "plantuml-markdown"
-version = "3.11.1"
+version = "3.11.2"
 source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "markdown" },
-    { name = "requests" },
-    { name = "six" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f7/c5/1749bae9c838a78d9f6bb0c628fd47251572d5ad1502e33b51fb72582838/plantuml_markdown-3.11.1.tar.gz", hash = "sha256:0ac39c5d13d3ea8b84ec88f57369a85d058ff15c0c225591dd649b327586142c", size = 32120, upload-time = "2025-02-07T17:30:57.131Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/79/41/807c38a6c703ee9b94be4120102247691aeeb4aefea034eaf687ef515594/plantuml_markdown-3.11.2.tar.gz", hash = "sha256:700a6ebf5c265da488aafa3c376f27e23d604dc4a151ff811fc3aec156ed51a3", size = 32319, upload-time = "2026-04-18T06:09:53.132Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e1/06/fed3b67b5488854eb7934bfbbb580d0651d8af243ffb39937cb00838bc3d/plantuml_markdown-3.11.1-py3-none-any.whl", hash = "sha256:52c8507be5b4e5b57e3c4c1cfbe8894b6204f4b6bac2279896efb03d3b79bacf", size = 20116, upload-time = "2025-02-07T17:30:54.88Z" },
+    { url = "https://files.pythonhosted.org/packages/a0/ca/e0afead2f0466b5af237cf01beaa04b6c7d9479b24ead4ad10cc3c7a4209/plantuml_markdown-3.11.2-py3-none-any.whl", hash = "sha256:45eb97fed669cc23c90593ae1d42122809bfc3693970a6edb0004c0dc20cde27", size = 20158, upload-time = "2026-04-18T06:09:51.581Z" },
 ]
 
 [[package]]
