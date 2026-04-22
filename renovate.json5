@@ -5,61 +5,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    // https://docs.renovatebot.com/presets-config/#configrecommended
-    "config:recommended",
-    // https://docs.renovatebot.com/presets-default/#separatemultiplemajorreleases
-    ":separateMultipleMajorReleases",
-    // set timezone to local one to ensure schedules are run
-    // https://docs.renovatebot.com/configuration-options/#timezone
-    ":timezone(America/Toronto)",
-    // https://docs.renovatebot.com/presets-default/#maintainlockfilesweekly
-    ":maintainLockFilesMonthly",
-    // https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver
-    "helpers:pinGitHubActionDigestsToSemver",
-    "github>mschoettle/renovate-presets//presets/actions-dependency-version.json5",
-    "github>mschoettle/renovate-presets//presets/pre-commit-hooks.json5",
+    // https://github.com/opalmedapps/.github/blob/main/base.renovate.json5
+    "github>opalmedapps/.github//base.renovate.json5",
   ],
   // https://docs.renovatebot.com/configuration-options/#assignees
-  "assignees": ["mschoettle"],
+  "assignees": [],
   // https://docs.renovatebot.com/configuration-options/#labels
   "labels": ["dependencies"],
-  // Only rebase existing MRs when the branch is conflicted
-  // This avoids getting spammed by updates to existing MRs
-  // We need to rebase branches to fast-forward merge anyway
-  //
-  // https://docs.renovatebot.com/configuration-options/#rebasewhen
-  "rebaseWhen": "conflicted",
-  // https://docs.renovatebot.com/configuration-options/#packagerules
-  "packageRules": [
-    // Combine mkdocs-material updates for Python and Docker
-    {
-      "matchPackageNames": ["/mkdocs-material/"],
-      "groupName": "mkdocs-material",
-      // Restrict to weekly updates
-      "schedule": [
-        "before 12pm on Monday",
-      ],
-    },
-    // Combine markdownlint-cli2 updates
-    {
-      "matchPackageNames": ["/markdownlint-cli2/"],
-      "groupName": "markdownlint-cli2",
-    },
-    // Exclude uv and ruff pre-commits from pre-commit hooks group
-    // to avoid adding config options from the pre-commit hooks preset
-    {
-      "matchManagers": [
-        "pre-commit",
-      ],
-      "matchPackageNames": [
-        "!/ruff-pre-commit/",
-        "!/uv-pre-commit/",
-      ],
-    },
-    // Combine uv package, uv image, and uv-pre-commit
-    {
-      "matchPackageNames": ["/uv-pre-commit|uv$/"],
-      "groupName": "uv",
-    },
-  ],
 }
