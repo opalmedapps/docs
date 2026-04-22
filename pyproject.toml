@@ -24,3 +24,7 @@ dependencies = [
 dev = [
     "prek==0.3.10",
 ]
+
+[tool.uv]
+add-bounds = "exact"
+exclude-newer = "7 days"
