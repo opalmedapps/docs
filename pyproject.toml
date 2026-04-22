@@ -7,7 +7,7 @@ name = "docs"
 version = "0"
 description = "Documentation site for Opal"
 readme = "README.md"
-requires-python = "==3.14.*"
+requires-python = "==3.14.4"
 dependencies = [
     "mkdocs==1.6.1",
     "mkdocs-gen-files==0.6.0",
