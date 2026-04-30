@@ -3,12 +3,8 @@
 #
 # SPDX-License-Identifier: CC-BY-SA-4.0
 number: 1
-status: superseded
+status: accepted
 date: 2026-03-18
-links:
-  - target: 2
-    kind: supersededby
-    filename: 0002-use-nygard-format-instead.md
 ---
 
 # Use Markdown Architectural Decision Records
