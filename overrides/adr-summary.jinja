@@ -5,5 +5,5 @@
 | ID | Date | Decision | Status |
 |----|------|----------|--------|
 {%- for d in documents %}
-| {{ '%04d' % d.document_id }} | {{ d.date.strftime('%Y-%m-%d') if d.date else "-"}} | [{{ d.title }}]({{ d.file_path.split('/')[-1] }}) | {{ d.status }}  |
-{% endfor %}
+| {{ '%04d' % d.document_id }} | {{ d.date.strftime('%Y-%m-%d') if d.date else "-"}} | [{{ d.title }}]({{ d.file_path.split('/')[-1] }}) | {{ d.status }} |
+{%- endfor %}
