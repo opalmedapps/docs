@@ -60,6 +60,7 @@ nav:
 # Configuration
 theme:
   name: material
+  custom_dir: overrides
   # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#system-preference
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -97,6 +98,7 @@ theme:
 
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/adr.css
 
 # Plugins
 # https://squidfunk.github.io/mkdocs-material/plugins/

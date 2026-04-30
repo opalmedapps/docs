@@ -33,7 +33,7 @@ for path in sorted(Path(adr_root).glob('*.md')):
     number = metadata['number']
 
 
-    adrs.append(f'* [{number:04d} {title}]({path.relative_to(adr_root)})')
+    adrs.append(f'* [ADR-{number:04d} {title}]({path.relative_to(adr_root)})')
 
 
 with mkdocs_gen_files.open(decisions_root / 'SUMMARY.md', 'w') as nav_file:

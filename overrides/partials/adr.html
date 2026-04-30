@@ -1,0 +1,23 @@
+{#
+  SPDX-CopyrightText: Copyright (C) 2026 Opal Health Informatics Group at the Research Institute of the McGill University Health Centre <john.kildea@mcgill.ca>
+
+  SPDX-License-Identifier: MIT
+#}
+{% set adr = page.meta %}
+<dl class="adr_header">
+  <dt>Number<span class="colon">:</span></dt>
+  <dd>{{ '%04d' % adr.number }}</dd>
+  <dt>Date<span class="colon">:</span></dt>
+  <dd>{{ adr.date }}</dd>
+  <dt>Status<span class="colon">:</span></dt>
+  <dd><span class="c-pill c-pill-{{ adr.status}}">{{ adr.status | capitalize }}</span></dd>
+</dl>
+
+{% if adr.status == "superseded" %}
+{% set superseded_by = adr.links | selectattr("kind", "eq", "supersededby") | map(attribute='target') | first %}
+<div class="admonition warning">
+    <p class="admonition-title">Superseded!</p>
+    {# <a href="{{ adr.superseded_by.url }}"><span class="c-pill c-pill-{{ adr.superseded_by.status}}">{{ adr.superseded_by.title }}</span></a>#}
+    <p>This ADR is superseded by ADR-{{ '%04d' % superseded_by }}</p>
+</div>
+{% endif %}
