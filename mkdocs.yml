@@ -151,6 +151,8 @@ plugins:
         - https://towardsdatascience.com/type-hints-in-python-everything-you-need-to-know-in-5-minutes-24e0bad06d0b
         - https://www.npmjs.com/package/*
         - https://dianadarie.medium.com/the-strangler-fig-migration-pattern-2e20a7350511
+        # assume the web archive is available to avoid adding more load on their servers
+        - https://web.archive.org/*
       # only enable when building in CI to speed up local builds
       enabled: !ENV [CI, false]
 
